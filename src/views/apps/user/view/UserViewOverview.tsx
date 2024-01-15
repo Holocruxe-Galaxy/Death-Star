@@ -1,3 +1,6 @@
+// ** Next Import
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -182,7 +185,7 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                   </Typography>
                   <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ width: 28, height: 'auto' }}>
-                      <img
+                      <Image
                         width={28}
                         height={28}
                         alt="invoice.pdf"

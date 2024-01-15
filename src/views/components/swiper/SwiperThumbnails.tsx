@@ -1,6 +1,9 @@
 // ** React Imports
 import { MutableRefObject } from 'react';
 
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import { Direction } from '@mui/material';
@@ -77,19 +80,19 @@ const SwiperThumbnails = ({ direction }: { direction: Direction }) => {
     <>
       <Box ref={sliderRef} className="keen-slider">
         <Box sx={{ display: 'flex' }} className="keen-slider__slide">
-          <img src="/images/banners/banner-1.jpg" alt="swiper 1" />
+          <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
         <Box sx={{ display: 'flex' }} className="keen-slider__slide">
-          <img src="/images/banners/banner-2.jpg" alt="swiper 2" />
+          <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
         <Box sx={{ display: 'flex' }} className="keen-slider__slide">
-          <img src="/images/banners/banner-3.jpg" alt="swiper 3" />
+          <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
         <Box sx={{ display: 'flex' }} className="keen-slider__slide">
-          <img src="/images/banners/banner-4.jpg" alt="swiper 4" />
+          <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
         <Box sx={{ display: 'flex' }} className="keen-slider__slide">
-          <img src="/images/banners/banner-5.jpg" alt="swiper 5" />
+          <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
         </Box>
       </Box>
 
@@ -98,31 +101,31 @@ const SwiperThumbnails = ({ direction }: { direction: Direction }) => {
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
-          <img src="/images/banners/banner-1.jpg" alt="swiper 1" />
+          <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
         <Box
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
-          <img src="/images/banners/banner-2.jpg" alt="swiper 2" />
+          <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
         <Box
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
-          <img src="/images/banners/banner-3.jpg" alt="swiper 3" />
+          <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
         <Box
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
-          <img src="/images/banners/banner-4.jpg" alt="swiper 4" />
+          <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
         <Box
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
-          <img src="/images/banners/banner-5.jpg" alt="swiper 5" />
+          <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
         </Box>
       </Box>
     </>

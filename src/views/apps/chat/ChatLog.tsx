@@ -52,6 +52,7 @@ const ChatLog = (props: ChatLogType) => {
       } else {
         // @ts-ignore
         chatArea.current._container.scrollTop =
+          // @ts-ignore
           chatArea.current._container.scrollHeight;
       }
     }

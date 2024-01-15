@@ -1,6 +1,9 @@
 // ** React Imports
 import { useState, ChangeEvent } from 'react';
 
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -475,7 +478,7 @@ const UserViewBilling = () => {
                 }}
               >
                 <div>
-                  <img height="25" alt={item.imgAlt} src={item.imgSrc} />
+                  <Image height="25" alt={item.imgAlt} src={item.imgSrc} />
                   <Box sx={{ mt: 0.5, display: 'flex', alignItems: 'center' }}>
                     <Typography sx={{ fontWeight: 500 }}>
                       {item.name}

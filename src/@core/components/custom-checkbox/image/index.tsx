@@ -1,3 +1,6 @@
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -54,7 +57,7 @@ const CustomCheckboxImg = (props: CustomCheckboxImgProps) => {
           }}
         >
           {typeof img === 'string' ? (
-            <img src={img} alt={alt ?? `checkbox-image-${value}`} />
+            <Image src={img} alt={alt ?? `checkbox-image-${value}`} />
           ) : (
             img
           )}

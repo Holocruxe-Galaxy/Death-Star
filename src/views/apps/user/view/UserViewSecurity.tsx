@@ -1,6 +1,9 @@
 // ** React Imports
 import { ChangeEvent, useState } from 'react';
 
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** Next Import
 import Link from 'next/link';
 
@@ -394,7 +397,7 @@ const UserViewSecurity = () => {
                   >
                     <TableCell>
                       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                        <Image
                           width="22"
                           height="22"
                           alt="Chrome"

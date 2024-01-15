@@ -86,7 +86,7 @@ const TimelineCenter = () => {
           </Typography>
           <Typography variant="caption">6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img
+            <ImgShoe
               width={28}
               height={28}
               alt="invoice.pdf"

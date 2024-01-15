@@ -1,10 +1,5 @@
 // Type Imports
 import { ThemeColor } from 'src/@core/layouts/types';
-import {
-  CardStatsCharacterProps,
-  CardStatsHorizontalProps,
-  CardStatsVerticalProps,
-} from 'src/@core/components/card-statistics/types';
 
 // Template Search
 //----------------
@@ -36,15 +31,6 @@ export type FaqType = {
     qandA: FaqQAndAType[];
   };
 };
-
-// Card Statistics Page
-//-------------------------------
-export type CardStatsType = {
-  statsVertical: CardStatsVerticalProps[];
-  statsCharacter: CardStatsCharacterProps[];
-  statsHorizontal: CardStatsHorizontalProps[];
-};
-
 // User Profile pages
 //-------------------
 export type ProjectTableRowType = {

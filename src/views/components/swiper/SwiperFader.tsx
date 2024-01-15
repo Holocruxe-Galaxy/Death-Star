@@ -1,3 +1,6 @@
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** React Imports
 import { useState } from 'react';
 
@@ -39,7 +42,7 @@ const SwiperFader = ({ direction }: { direction: Direction }) => {
           className="fader__slide"
           sx={{ opacity: opacities[idx] }}
         >
-          <img src={src} alt={`slider ${idx}`} />
+          <Image src={src} alt={`slider ${idx}`} />
         </Box>
       ))}
     </Box>

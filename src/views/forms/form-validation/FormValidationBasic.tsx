@@ -69,6 +69,7 @@ const defaultValues = {
   checkbox: false,
 };
 
+// eslint-disable-next-line react/display-name
 const CustomInput = forwardRef(({ ...props }: CustomInputProps, ref) => {
   return <TextField inputRef={ref} {...props} sx={{ width: '100%' }} />;
 });

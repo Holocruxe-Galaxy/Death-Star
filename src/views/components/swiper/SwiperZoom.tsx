@@ -1,6 +1,9 @@
 // ** React Imports
 import { useState } from 'react';
 
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import { Direction } from '@mui/material';
@@ -50,7 +53,7 @@ const SwiperZoom = ({ direction }: { direction: Direction }) => {
       {images.map((src, idx) => (
         <Box key={idx} className="keen-slider__slide zoom-out__slide">
           <Box className="slider-content-wrapper" sx={{ ...scaleStyle(idx) }}>
-            <img src={src} alt={`slider ${idx}`} />
+            <Image src={src} alt={`slider ${idx}`} />
           </Box>
         </Box>
       ))}

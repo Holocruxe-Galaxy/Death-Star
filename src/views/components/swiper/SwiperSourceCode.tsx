@@ -50,19 +50,19 @@ const SwiperAutoSwitch = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+        <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+        <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+        <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+        <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+        <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
       </Box>
     </Box>
   )
@@ -95,19 +95,19 @@ const SwiperCentered = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-26.jpg' alt='swiper 26' />
+        <Image src='/images/banners/banner-26.jpg' alt='swiper 26' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-27.jpg' alt='swiper 27' />
+        <Image src='/images/banners/banner-27.jpg' alt='swiper 27' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-28.jpg' alt='swiper 28' />
+        <Image src='/images/banners/banner-28.jpg' alt='swiper 28' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-29.jpg' alt='swiper 29' />
+        <Image src='/images/banners/banner-29.jpg' alt='swiper 29' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-30.jpg' alt='swiper 30' />
+        <Image src='/images/banners/banner-30.jpg' alt='swiper 30' />
       </Box>
     </Box>
   )
@@ -154,7 +154,7 @@ const SwiperFader = ({ direction }) => {
     <Box ref={sliderRef} className='fader' sx={{ height: [200, 250, 395] }}>
       {images.map((src, idx) => (
         <Box key={idx} className='fader__slide' sx={{ opacity: opacities[idx] }}>
-          <img src={src} alt={slider {idx}} />
+          <Image src={src} alt={slider {idx}} />
         </Box>
       ))}
     </Box>
@@ -203,19 +203,19 @@ const SwiperControls = ({ direction }) => {
       <Box className='navigation-wrapper'>
         <Box ref={sliderRef} className='keen-slider'>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+            <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+            <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+            <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+            <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+            <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
           </Box>
         </Box>
         {loaded && instanceRef.current && (
@@ -289,19 +289,19 @@ const SwiperFreeMode = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-21.jpg' alt='swiper 21' />
+        <Image src='/images/banners/banner-21.jpg' alt='swiper 21' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-22.jpg' alt='swiper 22' />
+        <Image src='/images/banners/banner-22.jpg' alt='swiper 22' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-23.jpg' alt='swiper 23' />
+        <Image src='/images/banners/banner-23.jpg' alt='swiper 23' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-24.jpg' alt='swiper 24' />
+        <Image src='/images/banners/banner-24.jpg' alt='swiper 24' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-25.jpg' alt='swiper 25' />
+        <Image src='/images/banners/banner-25.jpg' alt='swiper 25' />
       </Box>
     </Box>
   )
@@ -329,19 +329,19 @@ const SwiperDefault = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+        <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+        <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+        <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+        <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+        <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
       </Box>
     </Box>
   )
@@ -372,19 +372,19 @@ const SwiperMultipleSlides = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-11.jpg' alt='swiper 11' />
+        <Image src='/images/banners/banner-11.jpg' alt='swiper 11' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-12.jpg' alt='swiper 12' />
+        <Image src='/images/banners/banner-12.jpg' alt='swiper 12' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-13.jpg' alt='swiper 13' />
+        <Image src='/images/banners/banner-13.jpg' alt='swiper 13' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-14.jpg' alt='swiper 14' />
+        <Image src='/images/banners/banner-14.jpg' alt='swiper 14' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-15.jpg' alt='swiper 15' />
+        <Image src='/images/banners/banner-15.jpg' alt='swiper 15' />
       </Box>
     </Box>
   )
@@ -466,37 +466,37 @@ const SwiperThumbnails = ({ direction }) => {
     <>
       <Box ref={sliderRef} className='keen-slider'>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+          <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+          <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+          <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+          <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+          <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
         </Box>
       </Box>
 
       <Box sx={{ mt: 4 }} ref={thumbnailRef} className='keen-slider thumbnail'>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+          <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+          <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+          <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+          <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+          <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
         </Box>
       </Box>
     </>
@@ -529,19 +529,19 @@ const SwiperSpacing = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-16.jpg' alt='swiper 16' />
+        <Image src='/images/banners/banner-16.jpg' alt='swiper 16' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-17.jpg' alt='swiper 17' />
+        <Image src='/images/banners/banner-17.jpg' alt='swiper 17' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-18.jpg' alt='swiper 18' />
+        <Image src='/images/banners/banner-18.jpg' alt='swiper 18' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-19.jpg' alt='swiper 19' />
+        <Image src='/images/banners/banner-19.jpg' alt='swiper 19' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-20.jpg' alt='swiper 20' />
+        <Image src='/images/banners/banner-20.jpg' alt='swiper 20' />
       </Box>
     </Box>
   )
@@ -570,16 +570,16 @@ const SwiperLoop = ({ direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-7.jpg' alt='swiper 7' />
+        <Image src='/images/banners/banner-7.jpg' alt='swiper 7' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-8.jpg' alt='swiper 8' />
+        <Image src='/images/banners/banner-8.jpg' alt='swiper 8' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-9.jpg' alt='swiper 9' />
+        <Image src='/images/banners/banner-9.jpg' alt='swiper 9' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-10.jpg' alt='swiper 10' />
+        <Image src='/images/banners/banner-10.jpg' alt='swiper 10' />
       </Box>
     </Box>
   )
@@ -719,7 +719,7 @@ const SwiperZoom = ({ direction }) => {
       {images.map((src, idx) => (
         <Box key={idx} className='keen-slider__slide zoom-out__slide'>
           <Box className='slider-content-wrapper' sx={{ ...scaleStyle(idx) }}>
-            <img src={src} alt={slider {idx}} />
+            <Image src={src} alt={slider {idx}} />
           </Box>
         </Box>
       ))}
@@ -817,19 +817,19 @@ const SwiperAutoSwitch = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+        <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+        <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+        <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+        <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+        <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
       </Box>
     </Box>
   )
@@ -863,19 +863,19 @@ const SwiperCentered = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-26.jpg' alt='swiper 26' />
+        <Image src='/images/banners/banner-26.jpg' alt='swiper 26' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-27.jpg' alt='swiper 27' />
+        <Image src='/images/banners/banner-27.jpg' alt='swiper 27' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-28.jpg' alt='swiper 28' />
+        <Image src='/images/banners/banner-28.jpg' alt='swiper 28' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-29.jpg' alt='swiper 29' />
+        <Image src='/images/banners/banner-29.jpg' alt='swiper 29' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-30.jpg' alt='swiper 30' />
+        <Image src='/images/banners/banner-30.jpg' alt='swiper 30' />
       </Box>
     </Box>
   )
@@ -910,19 +910,19 @@ const SwiperFreeMode = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-21.jpg' alt='swiper 21' />
+        <Image src='/images/banners/banner-21.jpg' alt='swiper 21' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-22.jpg' alt='swiper 22' />
+        <Image src='/images/banners/banner-22.jpg' alt='swiper 22' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-23.jpg' alt='swiper 23' />
+        <Image src='/images/banners/banner-23.jpg' alt='swiper 23' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-24.jpg' alt='swiper 24' />
+        <Image src='/images/banners/banner-24.jpg' alt='swiper 24' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-25.jpg' alt='swiper 25' />
+        <Image src='/images/banners/banner-25.jpg' alt='swiper 25' />
       </Box>
     </Box>
   )
@@ -971,19 +971,19 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
       <Box className='navigation-wrapper'>
         <Box ref={sliderRef} className='keen-slider'>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+            <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+            <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+            <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+            <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
           </Box>
           <Box className='keen-slider__slide'>
-            <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+            <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
           </Box>
         </Box>
         {loaded && instanceRef.current && (
@@ -1071,7 +1071,7 @@ const SwiperFader = ({ direction }: { direction: Direction }) => {
     <Box ref={sliderRef} className='fader' sx={{ height: [200, 250, 395] }}>
       {images.map((src, idx) => (
         <Box key={idx} className='fader__slide' sx={{ opacity: opacities[idx] }}>
-          <img src={src} alt={slider {idx}} />
+          <Image src={src} alt={slider {idx}} />
         </Box>
       ))}
     </Box>
@@ -1185,19 +1185,19 @@ const SwiperMultipleSlides = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-11.jpg' alt='swiper 11' />
+        <Image src='/images/banners/banner-11.jpg' alt='swiper 11' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-12.jpg' alt='swiper 12' />
+        <Image src='/images/banners/banner-12.jpg' alt='swiper 12' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-13.jpg' alt='swiper 13' />
+        <Image src='/images/banners/banner-13.jpg' alt='swiper 13' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-14.jpg' alt='swiper 14' />
+        <Image src='/images/banners/banner-14.jpg' alt='swiper 14' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-15.jpg' alt='swiper 15' />
+        <Image src='/images/banners/banner-15.jpg' alt='swiper 15' />
       </Box>
     </Box>
   )
@@ -1227,16 +1227,16 @@ const SwiperLoop = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-7.jpg' alt='swiper 7' />
+        <Image src='/images/banners/banner-7.jpg' alt='swiper 7' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-8.jpg' alt='swiper 8' />
+        <Image src='/images/banners/banner-8.jpg' alt='swiper 8' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-9.jpg' alt='swiper 9' />
+        <Image src='/images/banners/banner-9.jpg' alt='swiper 9' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-10.jpg' alt='swiper 10' />
+        <Image src='/images/banners/banner-10.jpg' alt='swiper 10' />
       </Box>
     </Box>
   )
@@ -1269,19 +1269,19 @@ const SwiperSpacing = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-16.jpg' alt='swiper 16' />
+        <Image src='/images/banners/banner-16.jpg' alt='swiper 16' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-17.jpg' alt='swiper 17' />
+        <Image src='/images/banners/banner-17.jpg' alt='swiper 17' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-18.jpg' alt='swiper 18' />
+        <Image src='/images/banners/banner-18.jpg' alt='swiper 18' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-19.jpg' alt='swiper 19' />
+        <Image src='/images/banners/banner-19.jpg' alt='swiper 19' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-20.jpg' alt='swiper 20' />
+        <Image src='/images/banners/banner-20.jpg' alt='swiper 20' />
       </Box>
     </Box>
   )
@@ -1367,37 +1367,37 @@ const SwiperThumbnails = ({ direction }: { direction: Direction }) => {
     <>
       <Box ref={sliderRef} className='keen-slider'>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+          <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+          <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+          <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+          <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
         </Box>
         <Box sx={{ display: 'flex' }} className='keen-slider__slide'>
-          <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+          <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
         </Box>
       </Box>
 
       <Box sx={{ mt: 4 }} ref={thumbnailRef} className='keen-slider thumbnail'>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+          <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+          <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+          <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+          <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
         </Box>
         <Box className='keen-slider__slide' sx={{ display: 'flex', cursor: 'pointer' }}>
-          <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+          <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
         </Box>
       </Box>
     </>
@@ -1427,19 +1427,19 @@ const SwiperDefault = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className='keen-slider'>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-1.jpg' alt='swiper 1' />
+        <Image src='/images/banners/banner-1.jpg' alt='swiper 1' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-2.jpg' alt='swiper 2' />
+        <Image src='/images/banners/banner-2.jpg' alt='swiper 2' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-3.jpg' alt='swiper 3' />
+        <Image src='/images/banners/banner-3.jpg' alt='swiper 3' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-4.jpg' alt='swiper 4' />
+        <Image src='/images/banners/banner-4.jpg' alt='swiper 4' />
       </Box>
       <Box className='keen-slider__slide'>
-        <img src='/images/banners/banner-5.jpg' alt='swiper 5' />
+        <Image src='/images/banners/banner-5.jpg' alt='swiper 5' />
       </Box>
     </Box>
   )
@@ -1500,7 +1500,7 @@ const SwiperZoom = ({ direction }: { direction: Direction }) => {
       {images.map((src, idx) => (
         <Box key={idx} className='keen-slider__slide zoom-out__slide'>
           <Box className='slider-content-wrapper' sx={{ ...scaleStyle(idx) }}>
-            <img src={src} alt={slider {idx}} />
+            <Image src={src} alt={slider {idx}} />
           </Box>
         </Box>
       ))}

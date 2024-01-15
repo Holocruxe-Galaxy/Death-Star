@@ -1,3 +1,6 @@
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -78,7 +81,7 @@ const PlanDetails = (props: PricingPlanProps) => {
         />
       ) : null}
       <Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
-        <img
+        <Image
           width={data?.imgWidth}
           src={`${data?.imgSrc}`}
           height={data?.imgHeight}

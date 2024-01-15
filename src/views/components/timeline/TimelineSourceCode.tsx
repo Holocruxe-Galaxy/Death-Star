@@ -74,7 +74,7 @@ const TimelineCenter = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -131,7 +131,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}
@@ -364,7 +364,7 @@ const TimelineLeft = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -417,7 +417,7 @@ const TimelineLeft = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}
@@ -558,7 +558,7 @@ const TimelineRight = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -611,7 +611,7 @@ const TimelineRight = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}
@@ -763,7 +763,7 @@ const TimelineCenter = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -820,7 +820,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}
@@ -1053,7 +1053,7 @@ const TimelineLeft = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -1106,7 +1106,7 @@ const TimelineLeft = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}
@@ -1247,7 +1247,7 @@ const TimelineRight = () => {
           </Typography>
           <Typography variant='caption'>6:30 AM</Typography>
           <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <img width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
+            <Image width={28} height={28} alt='invoice.pdf' src='/images/icons/file-icons/pdf.png' />
             <Typography variant='subtitle2' sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -1300,7 +1300,7 @@ const TimelineRight = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box sx={{ mb: 3, display: 'flex', flexDirection: { sm: 'row', xs: 'column' } }}>
-            <ImgShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
+            <ImageShoe width='85' height='85' alt='Shoe img' src='/images/misc/shoe.jpeg' />
             <Box sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}

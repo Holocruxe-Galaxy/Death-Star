@@ -1,3 +1,6 @@
+// ** Next.JS Imports
+import Image from 'next/image';
+
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import { Direction } from '@mui/material';
@@ -17,19 +20,19 @@ const SwiperMultipleSlides = ({ direction }: { direction: Direction }) => {
   return (
     <Box ref={ref} className="keen-slider">
       <Box className="keen-slider__slide">
-        <img src="/images/banners/banner-11.jpg" alt="swiper 11" />
+        <Image src="/images/banners/banner-11.jpg" alt="swiper 11" />
       </Box>
       <Box className="keen-slider__slide">
-        <img src="/images/banners/banner-12.jpg" alt="swiper 12" />
+        <Image src="/images/banners/banner-12.jpg" alt="swiper 12" />
       </Box>
       <Box className="keen-slider__slide">
-        <img src="/images/banners/banner-13.jpg" alt="swiper 13" />
+        <Image src="/images/banners/banner-13.jpg" alt="swiper 13" />
       </Box>
       <Box className="keen-slider__slide">
-        <img src="/images/banners/banner-14.jpg" alt="swiper 14" />
+        <Image src="/images/banners/banner-14.jpg" alt="swiper 14" />
       </Box>
       <Box className="keen-slider__slide">
-        <img src="/images/banners/banner-15.jpg" alt="swiper 15" />
+        <Image src="/images/banners/banner-15.jpg" alt="swiper 15" />
       </Box>
     </Box>
   );

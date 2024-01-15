@@ -25,7 +25,7 @@ const ACLPage = () => {
               No ability is required to view this card
             </Typography>
             <Typography sx={{ color: 'primary.main' }}>
-              This card is visible to 'user' and 'admin' both
+              This card is visible to &aposuser&apos and &aposadmin&apos both
             </Typography>
           </CardContent>
         </Card>
@@ -36,11 +36,11 @@ const ACLPage = () => {
             <CardHeader title="Analytics" />
             <CardContent>
               <Typography sx={{ mb: 4 }}>
-                User with 'Analytics' subject's 'Read' ability can view this
-                card
+                User with &aposAnalytics&apos subject&aposs &aposRead&apos
+                ability can view this card
               </Typography>
               <Typography sx={{ color: 'error.main' }}>
-                This card is visible to 'admin' only
+                This card is visible to &aposadmin&apos only
               </Typography>
             </CardContent>
           </Card>

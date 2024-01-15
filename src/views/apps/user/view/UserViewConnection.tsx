@@ -1,5 +1,6 @@
 // ** Next Import
 import Link from 'next/link';
+import Image from 'next/image';
 
 // ** MUI Imports
 import Box from '@mui/material/Box';
@@ -119,7 +120,7 @@ const UserViewConnection = () => {
                     <Box
                       sx={{ mr: 4, display: 'flex', justifyContent: 'center' }}
                     >
-                      <img
+                      <Image
                         src={account.logo}
                         alt={account.title}
                         height="30"
@@ -175,7 +176,11 @@ const UserViewConnection = () => {
                         justifyContent: 'center',
                       }}
                     >
-                      <img src={account.logo} alt={account.title} height="30" />
+                      <Image
+                        src={account.logo}
+                        alt={account.title}
+                        height="30"
+                      />
                     </Box>
                     <div>
                       <Typography sx={{ fontWeight: 500 }}>

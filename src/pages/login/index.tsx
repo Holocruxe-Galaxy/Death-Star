@@ -43,9 +43,6 @@ import themeConfig from 'src/configs/themeConfig';
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout';
 
-// ** Demo Imports
-import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2';
-
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   padding: theme.spacing(20),
@@ -171,7 +168,6 @@ const LoginPage = () => {
               src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
             />
           </LoginIllustrationWrapper>
-          <FooterIllustrationsV2 />
         </Box>
       ) : null}
       <RightWrapper
