@@ -9,7 +9,6 @@ import Icon from 'src/@core/components/icon';
 import { Settings } from 'src/@core/context/settingsContext';
 
 // ** Components
-import Autocomplete from 'src/layouts/components/Autocomplete';
 import ModeToggler from 'src/@core/layouts/components/shared-components/ModeToggler';
 import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown';
 import LanguageDropdown from 'src/@core/layouts/components/shared-components/LanguageDropdown';
@@ -155,7 +154,6 @@ const AppBarContent = (props: Props) => {
             <Icon icon="mdi:menu" />
           </IconButton>
         ) : null}
-        {auth.user && <Autocomplete hidden={hidden} settings={settings} />}
       </Box>
       <Box
         className="actions-right"
