@@ -29,7 +29,7 @@ const ToastCustomPosition = () => {
       <Icon icon="mdi:view-grid-plus-outline" fontSize="2rem" />
       <Typography sx={{ mb: 4, fontWeight: 600 }}>Custom Position</Typography>
       <Typography sx={{ mb: 3 }}>
-        You can change the toast&aposs position as you like.
+        You can change the toast's position as you like.
       </Typography>
       <Button sx={{ mb: 8 }} variant="contained" onClick={handleClick}>
         Position
