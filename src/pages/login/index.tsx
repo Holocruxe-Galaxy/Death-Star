@@ -101,7 +101,7 @@ const schema = yup.object().shape({
 });
 
 const defaultValues = {
-  password: 'nemmo5923',
+  password: 'holasa',
   username: 'admin4872',
 };
 
