@@ -96,17 +96,17 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
 );
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
+  username: yup.string().required(),
   password: yup.string().min(5).required(),
 });
 
 const defaultValues = {
-  password: 'admin',
-  email: 'admin@materialize.com',
+  password: 'nemmo5923',
+  username: 'admin4872',
 };
 
 interface FormData {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -136,11 +136,11 @@ const LoginPage = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    const { email, password } = data;
-    auth.login({ email, password, rememberMe }, () => {
-      setError('email', {
+    const { username, password } = data;
+    auth.login({ username, password, rememberMe }, () => {
+      setError('username', {
         type: 'manual',
-        message: 'Email or Password is invalid',
+        message: 'Username or Password is invalid',
       });
     });
   };
@@ -323,24 +323,24 @@ const LoginPage = () => {
             >
               <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
-                  name="email"
+                  name="username"
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <TextField
                       autoFocus
-                      label="Email"
+                      label="username"
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      error={Boolean(errors.email)}
+                      error={Boolean(errors.username)}
                       placeholder="admin@materialize.com"
                     />
                   )}
                 />
-                {errors.email && (
+                {errors.username && (
                   <FormHelperText sx={{ color: 'error.main' }}>
-                    {errors.email.message}
+                    {errors.username.message}
                   </FormHelperText>
                 )}
               </FormControl>

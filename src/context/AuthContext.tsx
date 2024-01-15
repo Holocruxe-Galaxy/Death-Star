@@ -50,7 +50,7 @@ const AuthProvider = ({ children }: Props) => {
       if (storedToken) {
         setLoading(true);
         await axios
-          .get(authConfig.meEndpoint, {
+          .get(`${process.env.NEXT_PUBLIC_BACK}/auth/validate`, {
             headers: {
               Authorization: storedToken,
             },
@@ -86,7 +86,10 @@ const AuthProvider = ({ children }: Props) => {
     errorCallback?: ErrCallbackType,
   ) => {
     axios
-      .post(authConfig.loginEndpoint, params)
+      .post(`${process.env.NEXT_PUBLIC_BACK}/auth/login`, {
+        username: params.username,
+        password: params.password,
+      })
       .then(async (response) => {
         params.rememberMe
           ? window.localStorage.setItem(
