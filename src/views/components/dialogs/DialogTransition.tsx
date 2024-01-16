@@ -39,7 +39,7 @@ const DialogTransition = () => {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          Use Google&aposs location service?
+          Use Google's location service?
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
