@@ -32,8 +32,8 @@ const FooterContent = () => {
           ❤️
         </Box>
         {` by `}
-        <LinkStyled target="_blank" href="https://pixinvent.com/">
-          Pixinvent
+        <LinkStyled target="_blank" href="https://holocruxe.com/">
+          Holocruxe
         </LinkStyled>
       </Typography>
       {hidden ? null : (
@@ -44,29 +44,7 @@ const FooterContent = () => {
             alignItems: 'center',
             '& :not(:last-child)': { mr: 4 },
           }}
-        >
-          <LinkStyled
-            target="_blank"
-            href="https://themeforest.net/licenses/standard"
-          >
-            License
-          </LinkStyled>
-          <LinkStyled
-            target="_blank"
-            href="https://1.envato.market/pixinvent_portfolio"
-          >
-            More Themes
-          </LinkStyled>
-          <LinkStyled
-            target="_blank"
-            href="https://demos.pixinvent.com/materialize-nextjs-admin-template/documentation"
-          >
-            Documentation
-          </LinkStyled>
-          <LinkStyled target="_blank" href="https://pixinvent.ticksy.com/">
-            Support
-          </LinkStyled>
-        </Box>
+        ></Box>
       )}
     </Box>
   );
