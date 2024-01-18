@@ -14,7 +14,7 @@ import { LayoutProps } from 'src/@core/layouts/types';
 import Icon from 'src/@core/components/icon';
 
 // ** Configs
-import themeConfig from 'src/configs/themeConfig';
+import { SvgIcon } from '@mui/material';
 
 interface Props {
   navHover: boolean;
@@ -132,82 +132,25 @@ const VerticalNavHeader = (props: Props) => {
         userNavMenuBranding(props)
       ) : (
         <LinkStyled href="/">
-          <svg
-            width={40}
-            fill="none"
-            height={22}
-            viewBox="0 0 268 150"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fill={theme.palette.primary.main}
-              transform="matrix(-0.865206 0.501417 0.498585 0.866841 195.571 0)"
-            />
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fillOpacity="0.4"
-              fill="url(#paint0_linear_7821_79167)"
-              transform="matrix(-0.865206 0.501417 0.498585 0.866841 196.084 0)"
-            />
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fill={theme.palette.primary.main}
-              transform="matrix(0.865206 0.501417 -0.498585 0.866841 173.147 0)"
-            />
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fill={theme.palette.primary.main}
-              transform="matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)"
-            />
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fillOpacity="0.4"
-              fill="url(#paint1_linear_7821_79167)"
-              transform="matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)"
-            />
-            <rect
-              rx="25.1443"
-              width="50.2886"
-              height="143.953"
-              fill={theme.palette.primary.main}
-              transform="matrix(0.865206 0.501417 -0.498585 0.866841 71.7728 0)"
-            />
-            <defs>
-              <linearGradient
-                y1="0"
-                x1="25.1443"
-                x2="25.1443"
-                y2="143.953"
-                id="paint0_linear_7821_79167"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop />
-                <stop offset="1" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient
-                y1="0"
-                x1="25.1443"
-                x2="25.1443"
-                y2="143.953"
-                id="paint1_linear_7821_79167"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop />
-                <stop offset="1" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <SvgIcon>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.36 73.75">
+              <g data-name="Capa 2">
+                <g data-name="Capa 1">
+                  <path
+                    fill="#fefefe"
+                    stroke="#00c9b5"
+                    strokeMiterlimit="10"
+                    strokeWidth="0.25"
+                    d="M.13 36.75V9.16C.15 3.83 3.07.56 7.76.5s7.72 3.24 7.77 8.5c.07 6.72.08 13.43 0 20.14 0 2.06.51 2.82 2.71 2.78 7.61-.12 15.23-.09 22.84 0 1.81 0 2.54-.31 2.69-2.38.36-5.1 3.69-8.08 8.14-7.8s7.31 3.51 7.32 8.66q.06 17.16 0 34.31c0 5.5-3.08 9-7.82 8.91s-7.69-3.39-7.73-9c-.05-5.85-.11-11.69 0-17.53.06-2.32-.42-3.26-3-3.19q-11 .27-22.09 0c-2.56-.06-3.16.81-3.09 3.19.15 5.71.06 11.43 0 17.15 0 6-2.78 9.36-7.64 9.4S.14 70.29.13 64.35q-.01-13.8 0-27.6z"
+                  ></path>
+                  <path
+                    fill="#3398ed"
+                    d="M57.89 6.31A6.43 6.43 0 1151.38 0a6.55 6.55 0 016.51 6.31z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </SvgIcon>
           <HeaderTitle
             variant="h6"
             sx={{
@@ -215,7 +158,7 @@ const VerticalNavHeader = (props: Props) => {
               ...(navCollapsed && !navHover ? {} : { ml: 2 }),
             }}
           >
-            {themeConfig.templateName}
+            Holocruxe
           </HeaderTitle>
         </LinkStyled>
       )}
