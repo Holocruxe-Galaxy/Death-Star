@@ -17,11 +17,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-        env:
-          NEXT_PUBLIC_BACK: ${{ secrets.PUBLIC_BACK }}
-          NEXT_PUBLIC_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
-          NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET: ${{ secrets.JWT_REFRESH_TOKEN_SECRET }}
-          NEXT_PUBLIC_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      - name: Create .env.local
+        run: |
+          echo "NEXT_PUBLIC_BACK=${{ secrets.PUBLIC_BACK }}" > .env.local
+          echo "NEXT_PUBLIC_JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}" >> .env.local
+          echo "NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET=${{ secrets.JWT_REFRESH_TOKEN_SECRET }}" >> .env.local
+          echo "NEXT_PUBLIC_JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.local
 
       - name: Build app
         run: npm run build
