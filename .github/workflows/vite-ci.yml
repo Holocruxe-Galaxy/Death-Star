@@ -1,0 +1,27 @@
+name: CIDD
+
+on:
+  push:
+    branches: [alex/docker]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+        env:
+          NEXT_PUBLIC_BACK: ${{ secrets.NEXT_PUBLIC_BACK }}
+          NEXT_PUBLIC_JWT_EXPIRATION: ${{ secrets.NEXT_PUBLIC_JWT_EXPIRATION }}
+          NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET: ${{ secrets.NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET }}
+          NEXT_PUBLIC_JWT_SECRET: ${{ secrets.NEXT_PUBLIC_JWT_SECRET }}
+
+      - name: Build app
+        run: npm run build
+
+      - name: Run build
+        run: npm start
