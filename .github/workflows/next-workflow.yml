@@ -18,10 +18,10 @@ jobs:
         run: npm install
 
         env:
-          NEXT_PUBLIC_BACK: ${{ secrets.NEXT_PUBLIC_BACK }}
-          NEXT_PUBLIC_JWT_EXPIRATION: ${{ secrets.NEXT_PUBLIC_JWT_EXPIRATION }}
-          NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET: ${{ secrets.NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET }}
-          NEXT_PUBLIC_JWT_SECRET: ${{ secrets.NEXT_PUBLIC_JWT_SECRET }}
+          NEXT_PUBLIC_BACK: ${{ secrets.PUBLIC_BACK }}
+          NEXT_PUBLIC_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
+          NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET: ${{ secrets.JWT_REFRESH_TOKEN_SECRET }}
+          NEXT_PUBLIC_JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - name: Build app
         run: npm run build
