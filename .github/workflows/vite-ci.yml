@@ -2,7 +2,7 @@ name: CIDD
 
 on:
   push:
-    branches: [alex/docker]
+    branches: [alex/workflow]
 
 jobs:
   build:
