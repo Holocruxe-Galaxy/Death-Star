@@ -1,5 +1,5 @@
 // ** React Imports
-import { useState, ReactNode, MouseEvent } from 'react';
+import { useEffect, useState, ReactNode, MouseEvent } from 'react';
 
 // ** Next Imports
 import Link from 'next/link';
@@ -24,6 +24,9 @@ import MuiFormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
 
+// ** Auth0 user Import
+import { useUser } from '@auth0/nextjs-auth0/client';
+
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
 
@@ -42,6 +45,7 @@ import themeConfig from 'src/configs/themeConfig';
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout';
+import { loginToHolocruxe, registerToHolocruxe } from 'src/context/functions';
 
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -135,20 +139,36 @@ const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    const { username, password } = data;
-    auth.login({ username, password, rememberMe }, () => {
-      setError('username', {
-        type: 'manual',
-        message: 'Username or Password is invalid',
-      });
-    });
-  };
+  // const onSubmit = (data: FormData) => {
+  //   const { username, password } = data;
+  //   auth.login({ username, password, rememberMe }, () => {
+  //     setError('username', {
+  //       type: 'manual',
+  //       message: 'Username or Password is invalid',
+  //     });
+  //   });
+  // };
 
   const imageSource =
     skin === 'bordered'
       ? 'auth-v2-login-illustration-bordered'
       : 'auth-v2-login-illustration';
+
+  // ** User
+  const { user, error, isLoading } = useUser();
+
+  useEffect(() => {
+    if (window.localStorage.getItem('createAccount') === 'true' && user) {
+      registerToHolocruxe(user, auth);
+      return;
+    } else if (
+      user &&
+      !isLoading &&
+      window.localStorage.getItem('createAccount') !== 'true'
+    ) {
+      loginToHolocruxe(user, auth);
+    }
+  }, [user]);
 
   return (
     <Box className="content-right">
@@ -292,7 +312,7 @@ const LoginPage = () => {
                 Please sign-in to your account and start the adventure
               </Typography>
             </Box>
-            <Alert
+            {/* <Alert
               icon={false}
               sx={{
                 py: 3,
@@ -315,13 +335,13 @@ const LoginPage = () => {
                 Client: <strong>client@materialize.com</strong> / Pass:{' '}
                 <strong>client</strong>
               </Typography>
-            </Alert>
+            </Alert> */}
             <form
               noValidate
               autoComplete="off"
-              onSubmit={handleSubmit(onSubmit)}
+              // onSubmit={handleSubmit(onSubmit)}
             >
-              <FormControl fullWidth sx={{ mb: 4 }}>
+              {/* <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
                   name="username"
                   control={control}
@@ -343,8 +363,8 @@ const LoginPage = () => {
                     {errors.username.message}
                   </FormHelperText>
                 )}
-              </FormControl>
-              <FormControl fullWidth>
+              </FormControl> */}
+              {/*  <FormControl fullWidth>
                 <InputLabel
                   htmlFor="auth-login-v2-password"
                   error={Boolean(errors.password)}
@@ -391,6 +411,7 @@ const LoginPage = () => {
                   </FormHelperText>
                 )}
               </FormControl>
+              */}
               <Box
                 sx={{
                   mb: 4,
@@ -419,9 +440,12 @@ const LoginPage = () => {
                 </Typography>
               </Box>
               <Button
+                onClick={() => {
+                  window.localStorage.removeItem('createAccount');
+                  window.location.href = '/api/auth/login';
+                }}
                 fullWidth
                 size="large"
-                type="submit"
                 variant="contained"
                 sx={{ mb: 7 }}
               >
@@ -439,8 +463,10 @@ const LoginPage = () => {
                   New on our platform?
                 </Typography>
                 <Typography
-                  href="/register"
-                  component={Link}
+                  onClick={() => {
+                    window.localStorage.setItem('createAccount', 'true');
+                    window.location.href = '/api/auth/login';
+                  }}
                   sx={{ color: 'primary.main', textDecoration: 'none' }}
                 >
                   Create an account
@@ -453,9 +479,9 @@ const LoginPage = () => {
                   mb: (theme) => `${theme.spacing(7.5)} !important`,
                 }}
               >
-                or
+                {/* or */}
               </Divider>
-              <Box
+              {/*<Box
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -490,14 +516,13 @@ const LoginPage = () => {
                   <Icon icon="mdi:github" />
                 </IconButton>
                 <IconButton
-                  href="/"
+                  href="/api/auth/login"
                   component={Link}
                   sx={{ color: '#db4437' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
                 >
                   <Icon icon="mdi:google" />
                 </IconButton>
-              </Box>
+              </Box> */}
             </form>
           </BoxWrapper>
         </Box>

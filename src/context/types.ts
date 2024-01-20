@@ -1,19 +1,22 @@
 export type ErrCallbackType = (err: { [key: string]: string }) => void;
 
 export type LoginParams = {
-  username: string;
-  password: string;
+  email: any;
+  last_connection: any;
   rememberMe?: boolean;
 };
 
 export type UserDataType = {
-  id: number;
+  id: string;
   role: string;
-  email: string;
-  fullName: string;
   username: string;
-  password: string;
-  avatar?: string | null;
+};
+
+export type StatusType = (typeof status)[number];
+
+export type User = {
+  status: StatusType;
+  step: number;
 };
 
 export type AuthValuesType = {
