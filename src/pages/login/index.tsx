@@ -1,24 +1,24 @@
 // ** React Imports
-import { useEffect, useState, ReactNode, MouseEvent } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 
 // ** Next Imports
 import Link from 'next/link';
 
 // ** MUI Components
-import Alert from '@mui/material/Alert';
+// import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import IconButton from '@mui/material/IconButton';
+// import TextField from '@mui/material/TextField';
+// import InputLabel from '@mui/material/InputLabel';
+// import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
-import FormControl from '@mui/material/FormControl';
+// import FormControl from '@mui/material/FormControl';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import OutlinedInput from '@mui/material/OutlinedInput';
+// import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled, useTheme } from '@mui/material/styles';
-import FormHelperText from '@mui/material/FormHelperText';
-import InputAdornment from '@mui/material/InputAdornment';
+// import FormHelperText from '@mui/material/FormHelperText';
+// import InputAdornment from '@mui/material/InputAdornment';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiFormControlLabel, {
   FormControlLabelProps,
@@ -28,16 +28,16 @@ import MuiFormControlLabel, {
 import { useUser } from '@auth0/nextjs-auth0/client';
 
 // ** Icon Imports
-import Icon from 'src/@core/components/icon';
+// import Icon from 'src/@core/components/icon';
 
 // ** Third Party Imports
 import * as yup from 'yup';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth';
-import useBgColor from 'src/@core/hooks/useBgColor';
+// import useBgColor from 'src/@core/hooks/useBgColor';
 import { useSettings } from 'src/@core/hooks/useSettings';
 
 // ** Configs
@@ -109,19 +109,19 @@ const defaultValues = {
   username: 'admin4872',
 };
 
-interface FormData {
-  username: string;
-  password: string;
-}
+// interface FormData {
+//   username: string;
+//   password: string;
+// }
 
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  // const [showPassword, setShowPassword] = useState<boolean>(false);
 
   // ** Hooks
   const auth = useAuth();
   const theme = useTheme();
-  const bgColors = useBgColor();
+  // const bgColors = useBgColor();
   const { settings } = useSettings();
   const hidden = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -129,10 +129,10 @@ const LoginPage = () => {
   const { skin } = settings;
 
   const {
-    control,
-    setError,
-    handleSubmit,
-    formState: { errors },
+    // control,
+    // setError,
+    // handleSubmit,
+    // formState: { errors },
   } = useForm({
     defaultValues,
     mode: 'onBlur',
@@ -155,7 +155,7 @@ const LoginPage = () => {
       : 'auth-v2-login-illustration';
 
   // ** User
-  const { user, error, isLoading } = useUser();
+  const { user, isLoading } = useUser();
 
   useEffect(() => {
     if (window.localStorage.getItem('createAccount') === 'true' && user) {

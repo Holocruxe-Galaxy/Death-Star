@@ -61,7 +61,7 @@ export async function registerToHolocruxe(user: any, auth: any) {
     `${process.env.NEXT_PUBLIC_CORUSCANT}/users/register`,
     options,
   );
-  const res = await response.json();
+
   if (response.status === 201) {
     loginToHolocruxe(user, auth);
   } else {

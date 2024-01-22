@@ -14,7 +14,7 @@ import authConfig from 'src/configs/auth';
 import {
   AuthValuesType,
   LoginParams,
-  ErrCallbackType,
+  // ErrCallbackType,
   UserDataType,
 } from './types';
 
@@ -86,10 +86,7 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleLogin = async (
-    params: LoginParams,
-    errorCallback?: ErrCallbackType,
-  ) => {
+  const handleLogin = async (params: LoginParams) => {
     const storedToken = window.localStorage.getItem(
       authConfig.storageTokenKeyName,
     )!;
