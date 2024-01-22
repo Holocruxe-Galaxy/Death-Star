@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Create .env.local
+      - name: Create .env
         run: |
           echo "NEXT_PUBLIC_JWT_SECRET=${{ secrets.NEXT_PUBLIC_JWT_SECRET }}" > .env.local
           echo "NEXT_PUBLIC_JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}" >> .env.local
