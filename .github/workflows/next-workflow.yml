@@ -13,9 +13,6 @@ jobs:
         with:
           ref: alex/auth0-integration
 
-      - name: PM2 delete all
-        run: pm2 delete all --silent
-
       - name: Install dependencies
         run: npm install
 
@@ -37,6 +34,9 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: PM2 delete all
+        run: pm2 delete all --silent
 
       - name: Run build
         run: pm2 start npm -- start
