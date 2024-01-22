@@ -2,7 +2,7 @@ name: CIDD
 
 on:
   push:
-    branches: [alex/auth0-integration]
+    branches: [develop]
 
 jobs:
   build:
@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: alex/auth0-integration
 
       - name: Install dependencies
         run: npm install
