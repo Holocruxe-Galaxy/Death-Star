@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
+import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled, useTheme } from '@mui/material/styles';
@@ -18,7 +19,6 @@ import MuiFormControlLabel, {
 // import Alert from '@mui/material/Alert';
 // import TextField from '@mui/material/TextField';
 // import InputLabel from '@mui/material/InputLabel';
-// import IconButton from '@mui/material/IconButton';
 // import FormControl from '@mui/material/FormControl';
 // import OutlinedInput from '@mui/material/OutlinedInput';
 // import FormHelperText from '@mui/material/FormHelperText';
@@ -34,7 +34,6 @@ import { Environment, Stars, PerspectiveCamera } from '@react-three/drei';
 import HoloplanetCanvas from '../../@core/components/login/models/Holoplanet';
 import BotCanvas from '../../@core/components/login/models/Officialbot';
 import Particles from '../../@core/components/login/adds/Particles';
-import * as THREE from 'three';
 
 import { makeStyles } from '@mui/styles';
 
@@ -52,7 +51,7 @@ import { useAuth } from 'src/hooks/useAuth';
 import { useSettings } from 'src/@core/hooks/useSettings';
 
 // ** Configs
-import themeConfig from 'src/configs/themeConfig';
+// import themeConfig from 'src/configs/themeConfig';
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout';
@@ -63,27 +62,6 @@ import HolocruxeLogo from '../../@core/icons/login/HolocruxeLogo';
 import FacebookIcon from '../../@core/icons/login/FacebookIcon';
 import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
 import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
-
-// ** Styled Components
-// ! esto no, ver comp
-const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  padding: theme.spacing(20),
-  paddingRight: '0 !important',
-  [theme.breakpoints.down('lg')]: {
-    padding: theme.spacing(10),
-  },
-}));
-
-// ! esto no, ver comp
-const LoginIllustration = styled('img')(({ theme }) => ({
-  maxWidth: '48rem',
-  [theme.breakpoints.down('xl')]: {
-    maxWidth: '38rem',
-  },
-  [theme.breakpoints.down('lg')]: {
-    maxWidth: '30rem',
-  },
-}));
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
@@ -187,12 +165,6 @@ const LoginPage = () => {
   //   });
   // };
 
-  // ! imagenes sacar??
-  // const imageSource =
-  //   skin === 'bordered'
-  //     ? 'auth-v2-login-illustration-bordered'
-  //     : 'auth-v2-login-illustration';
-
   // ** User
   const { user, isLoading } = useUser();
 
@@ -214,44 +186,31 @@ const LoginPage = () => {
   }, [user, isLoading, auth]); // agregue isLoading y auth, porque me lo marcaba como error (gianni)
 
   return (
-    // <Box className="content-right">
-    <Box component="div" sx={{ width: '100vw', heigth: '100vh' }}>
+    <Box component="div" sx={{ width: '100vw', height: '100dvh' }}>
       {!hidden ? (
         <Canvas shadows>
           <group rotation={[0, 0, Math.PI / 5]}>
-            {/* <Stars count={2500} speed={1} /> */}
+            <Stars count={2500} speed={1} />
           </group>
-          {/* <PerspectiveCamera
+          <PerspectiveCamera
             makeDefault
             position={[0, 5.5, 11]}
             fov={73}
-          ></PerspectiveCamera> */}
+          ></PerspectiveCamera>
           <Particles count={600} mouse={mouse} />
-          {/* <Environment files="/images/login-bg/bg.hdr" background blur={0.5} /> */}
-          {/* <HoloplanetCanvas /> */}
-          {/* <BotCanvas /> */}
+          <Environment files="/images/login-bg/bg.hdr" background blur={0.5} />
+          <HoloplanetCanvas />
+          <BotCanvas />
+          {/* <Holoplanet /> */}
         </Canvas>
-      ) : // <Box
-      //   sx={{
-      //     flex: 1,
-      //     display: 'flex',
-      //     position: 'relative',
-      //     alignItems: 'center',
-      //     justifyContent: 'center',
-      //   }}
-      // >
-      //   <LoginIllustrationWrapper>
-      //     <LoginIllustration
-      //       alt="login-illustration"
-      //       src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
-      //     />
-      //   </LoginIllustrationWrapper>
-      // </Box>
-      null}
+      ) : null}
       <RightWrapper
         sx={
           skin === 'bordered' && !hidden
-            ? { borderLeft: `1px solid ${theme.palette.divider}`, opacity: 0.7 }
+            ? {
+                borderLeft: `1px solid ${theme.palette.divider}`,
+                opacity: 0.8,
+              }
             : {}
         }
       >
@@ -373,27 +332,27 @@ const LoginPage = () => {
                   justifyContent: 'center',
                 }}
               >
-                {/* <IconButton
+                <IconButton
                   href="/api/auth/login"
                   component={Link}
                   className={classes.iconButton}
                 >
                   <FacebookIcon />
-                </IconButton> */}
-                {/* <IconButton
+                </IconButton>
+                <IconButton
                   href="/api/auth/login"
                   component={Link}
                   className={classes.iconButton}
                 >
                   <GoogleIcon />
-                </IconButton> */}
-                {/* <IconButton
+                </IconButton>
+                <IconButton
                   href="/api/auth/login"
                   component={Link}
                   className={classes.iconButton}
                 >
                   <LinkedinIcon />
-                </IconButton> */}
+                </IconButton>
               </Box>
             </form>
           </BoxWrapper>
