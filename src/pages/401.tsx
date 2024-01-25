@@ -35,7 +35,7 @@ const Img = styled('img')(({ theme }) => ({
 
 const Error401 = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
         sx={{
           p: 5,
@@ -44,6 +44,7 @@ const Error401 = () => {
           alignItems: 'center',
           textAlign: 'center',
         }}
+        component="div"
       >
         <BoxWrapper>
           <Typography variant="h1" sx={{ mb: 2.5 }}>
