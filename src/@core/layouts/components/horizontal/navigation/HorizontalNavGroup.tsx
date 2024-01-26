@@ -197,7 +197,7 @@ const HorizontalNavGroup = (props: Props) => {
           : { onMouseLeave: handleGroupClose })}
       >
         <ChildWrapper>
-          <List component="div" sx={{ py: skin === 'bordered' ? 2.625 : 2.75 }}>
+          <List sx={{ py: skin === 'bordered' ? 2.625 : 2.75 }}>
             <ListItem
               aria-haspopup="true"
               {...(WrapperCondition ? {} : { onMouseEnter: handleGroupOpen })}
@@ -224,6 +224,7 @@ const HorizontalNavGroup = (props: Props) => {
               }}
             >
               <Box
+                component="div"
                 sx={{
                   gap: 2,
                   width: '100%',
@@ -235,6 +236,7 @@ const HorizontalNavGroup = (props: Props) => {
                 ref={setReferenceElement}
               >
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -255,6 +257,7 @@ const HorizontalNavGroup = (props: Props) => {
                   </Typography>
                 </Box>
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -287,6 +290,7 @@ const HorizontalNavGroup = (props: Props) => {
               })}
             >
               <Box
+                component="div"
                 style={styles.popper}
                 ref={setPopperElement}
                 {...attributes.popper}

@@ -146,7 +146,7 @@ const columns: GridColDef[] = [
     field: 'actions',
     headerName: 'Actions',
     renderCell: ({ row }: CellType) => (
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
         <Tooltip title="Delete Invoice">
           <IconButton size="small">
             <Icon icon="mdi:delete-outline" fontSize={20} />

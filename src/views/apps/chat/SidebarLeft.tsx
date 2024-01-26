@@ -47,7 +47,11 @@ const ScrollWrapper = ({
   hidden: boolean;
 }) => {
   if (hidden) {
-    return <Box sx={{ height: '100%', overflow: 'auto' }}>{children}</Box>;
+    return (
+      <Box component="div" sx={{ height: '100%', overflow: 'auto' }}>
+        {children}
+      </Box>
+    );
   } else {
     return (
       <PerfectScrollbar options={{ wheelPropagation: false }}>
@@ -265,6 +269,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                   }
                 />
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'flex-end',
@@ -477,6 +482,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
         }}
       >
         <Box
+          component="div"
           sx={{
             px: 5.5,
             py: 3.5,
@@ -538,9 +544,9 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
           ) : null}
         </Box>
 
-        <Box sx={{ height: `calc(100% - 4.125rem)` }}>
+        <Box component="div" sx={{ height: `calc(100% - 4.125rem)` }}>
           <ScrollWrapper hidden={hidden}>
-            <Box sx={{ p: (theme) => theme.spacing(5, 3, 3) }}>
+            <Box component="div" sx={{ p: (theme) => theme.spacing(5, 3, 3) }}>
               <Typography
                 variant="h6"
                 sx={{ ml: 2, mb: 4, color: 'primary.main' }}

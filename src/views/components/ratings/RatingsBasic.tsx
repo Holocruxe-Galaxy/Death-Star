@@ -12,7 +12,7 @@ const RatingsBasic = () => {
 
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Controlled</Typography>
         <Rating
           value={value}
@@ -20,11 +20,11 @@ const RatingsBasic = () => {
           onChange={(event, newValue) => setValue(newValue)}
         />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Read only</Typography>
         <Rating readOnly value={value} name="read-only" />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Disabled</Typography>
         <Rating disabled value={value} name="disabled" />
       </Box>

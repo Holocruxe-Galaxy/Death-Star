@@ -9,7 +9,7 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
 
   return (
     <Box
-      component={'div'}
+      component="div"
       sx={{
         height: '100vh',
         display: 'flex',

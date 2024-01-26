@@ -46,7 +46,7 @@ const ButtonToggleCustomized = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+    <Box component="div" sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <ToggleButtonGroup
         exclusive
         value={alignment}

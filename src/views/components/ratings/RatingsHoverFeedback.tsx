@@ -25,7 +25,7 @@ const RatingsHoverFeedback = () => {
   const [value, setValue] = useState<number | null>(2);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
       <Rating
         value={value}
         precision={0.5}

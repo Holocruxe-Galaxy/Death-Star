@@ -114,8 +114,8 @@ const UserDropdown = (props: Props) => {
           horizontal: direction === 'ltr' ? 'right' : 'left',
         }}
       >
-        <Box sx={{ pt: 2, pb: 3, px: 4 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component="div" sx={{ pt: 2, pb: 3, px: 4 }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
             <Badge
               overlap="circular"
               badgeContent={<BadgeContentSpan />}
@@ -131,6 +131,7 @@ const UserDropdown = (props: Props) => {
               />
             </Badge>
             <Box
+              component="div"
               sx={{
                 display: 'flex',
                 ml: 3,
@@ -153,7 +154,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/pages/user-profile/profile')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:account-outline" />
             Profile
           </Box>
@@ -162,7 +163,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/apps/email')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:email-outline" />
             Inbox
           </Box>
@@ -171,7 +172,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/apps/chat')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:message-outline" />
             Chat
           </Box>
@@ -181,7 +182,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/pages/account-settings/account')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:cog-outline" />
             Settings
           </Box>
@@ -190,7 +191,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/pages/pricing')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:currency-usd" />
             Pricing
           </Box>
@@ -199,7 +200,7 @@ const UserDropdown = (props: Props) => {
           sx={{ p: 0 }}
           onClick={() => handleDropdownClose('/pages/faq')}
         >
-          <Box sx={styles}>
+          <Box component="div" sx={styles}>
             <Icon icon="mdi:help-circle-outline" />
             FAQ
           </Box>

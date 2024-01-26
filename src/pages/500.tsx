@@ -35,8 +35,9 @@ const Img = styled('img')(({ theme }) => ({
 
 const Error500 = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',

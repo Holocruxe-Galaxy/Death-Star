@@ -37,6 +37,7 @@ const Error401 = () => {
   return (
     <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',
@@ -44,7 +45,6 @@ const Error401 = () => {
           alignItems: 'center',
           textAlign: 'center',
         }}
-        component="div"
       >
         <BoxWrapper>
           <Typography variant="h1" sx={{ mb: 2.5 }}>

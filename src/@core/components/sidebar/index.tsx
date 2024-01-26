@@ -39,6 +39,7 @@ const Sidebar = (props: BoxProps & SidebarType) => {
   return (
     <Fragment>
       <Box
+        component="div"
         sx={{
           top: 0,
           height: '100%',

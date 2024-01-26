@@ -5,6 +5,7 @@ import Rating from '@mui/material/Rating';
 const RatingsSizes = () => {
   return (
     <Box
+      component="div"
       className="demo-space-y"
       sx={{ display: 'flex', flexDirection: 'column' }}
     >

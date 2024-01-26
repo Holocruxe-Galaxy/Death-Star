@@ -269,6 +269,7 @@ const VerticalNavGroup = (props: Props) => {
                 <Translations text={item.title} />
               </Typography>
               <Box
+                component="div"
                 className="menu-item-meta"
                 sx={{
                   display: 'flex',

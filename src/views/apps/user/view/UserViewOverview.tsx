@@ -61,6 +61,7 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Box
+                    component="div"
                     sx={{
                       mb: 2,
                       display: 'flex',
@@ -88,6 +89,7 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Box
+                    component="div"
                     sx={{
                       mb: 2,
                       display: 'flex',
@@ -107,13 +109,19 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                   <Typography variant="body2" sx={{ mb: 2 }}>
                     React Project meeting with John @10:15am
                   </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box
+                    component="div"
+                    sx={{ display: 'flex', alignItems: 'center' }}
+                  >
                     <Avatar
                       alt="Avatar"
                       src="/images/avatars/2.png"
                       sx={{ width: 40, height: 40, mr: 2 }}
                     />
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box
+                      component="div"
+                      sx={{ display: 'flex', flexDirection: 'column' }}
+                    >
                       <Typography
                         variant="body2"
                         sx={{ fontWeight: 600, color: 'text.primary' }}
@@ -135,6 +143,7 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Box
+                    component="div"
                     sx={{
                       mb: 2,
                       display: 'flex',
@@ -164,6 +173,7 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Box
+                    component="div"
                     sx={{
                       mb: 2,
                       display: 'flex',
@@ -183,8 +193,11 @@ const UserViewOverview = ({ invoiceData }: Props) => {
                   <Typography variant="body2">
                     Create new invoices and send to Leona Watkins
                   </Typography>
-                  <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-                    <Box sx={{ width: 28, height: 'auto' }}>
+                  <Box
+                    component="div"
+                    sx={{ mt: 2, display: 'flex', alignItems: 'center' }}
+                  >
+                    <Box component="div" sx={{ width: 28, height: 'auto' }}>
                       <Image
                         width={28}
                         height={28}

@@ -40,7 +40,7 @@ const CircularProgressIndeterminate = styled(CircularProgress)(({ theme }) => ({
 
 const ProgressCircularCustomization = () => {
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box component='div' sx={{ position: 'relative' }}>
       <CircularProgressDeterminate variant='determinate' size={50} thickness={5} value={100} />
       <CircularProgressIndeterminate variant='indeterminate' disableShrink size={50} thickness={5} />
     </Box>
@@ -64,9 +64,9 @@ import CircularProgress from '@mui/material/CircularProgress'
 
 const Progress = props => {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box component='div' sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress variant='determinate' {...props} size={50} />
-      <Box
+      <Box component='div'
         sx={{
           top: 0,
           left: 0,
@@ -207,7 +207,7 @@ const ProgressLinearControlledUncontrolled = () => {
 
   return (
     <>
-      <Box sx={{ mb: 4 }}>
+      <Box component='div' sx={{ mb: 4 }}>
         <Typography sx={{ fontWeight: 500, mb: 1.5 }}>Uncontrolled Progress</Typography>
         <LinearProgress variant='determinate' value={40} />
       </Box>
@@ -314,11 +314,11 @@ import LinearProgress from '@mui/material/LinearProgress'
 
 const LinearProgressWithLabel = props => {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ width: '100%', mr: 1 }}>
+    <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box component='div' sx={{ width: '100%', mr: 1 }}>
         <LinearProgress variant='determinate' {...props} />
       </Box>
-      <Box sx={{ minWidth: 35 }}>
+      <Box component='div' sx={{ minWidth: 35 }}>
         <Typography variant='body2' color='text.secondary'>{{Math.round(props.value)}%}</Typography>
       </Box>
     </Box>
@@ -463,7 +463,7 @@ const CircularProgressIndeterminate = styled(CircularProgress)<CircularProgressP
 
 const ProgressCircularCustomization = () => {
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box component='div' sx={{ position: 'relative' }}>
       <CircularProgressDeterminate variant='determinate' size={50} thickness={5} value={100} />
       <CircularProgressIndeterminate variant='indeterminate' disableShrink size={50} thickness={5} />
     </Box>
@@ -487,9 +487,9 @@ import CircularProgress, { CircularProgressProps } from '@mui/material/CircularP
 
 const Progress = (props: CircularProgressProps) => {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box component='div' sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress variant='determinate' {...props} size={50} />
-      <Box
+      <Box component='div'
         sx={{
           top: 0,
           left: 0,
@@ -658,11 +658,11 @@ import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgres
 
 const LinearProgressWithLabel = (props: LinearProgressProps & { value: number }) => {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ width: '100%', mr: 1 }}>
+    <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box component='div' sx={{ width: '100%', mr: 1 }}>
         <LinearProgress variant='determinate' {...props} />
       </Box>
-      <Box sx={{ minWidth: 35 }}>
+      <Box component='div' sx={{ minWidth: 35 }}>
         <Typography variant='body2' color='text.secondary'>{{Math.round(props.value)}%}</Typography>
       </Box>
     </Box>
@@ -736,7 +736,7 @@ const ProgressLinearControlledUncontrolled = () => {
 
   return (
     <>
-      <Box sx={{ mb: 4 }}>
+      <Box component='div' sx={{ mb: 4 }}>
         <Typography sx={{ fontWeight: 500, mb: 1.5 }}>Uncontrolled Progress</Typography>
         <LinearProgress variant='determinate' value={40} />
       </Box>

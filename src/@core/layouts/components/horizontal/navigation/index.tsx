@@ -21,6 +21,7 @@ interface Props {
 const Navigation = (props: Props) => {
   return (
     <Box
+      component="div"
       className="menu-content"
       sx={{
         display: 'flex',

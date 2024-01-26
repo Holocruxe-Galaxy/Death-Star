@@ -50,7 +50,10 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
   const ScrollWrapper = ({ children }: { children: ReactNode }) => {
     if (hidden) {
       return (
-        <Box sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+        <Box
+          component="div"
+          sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
+        >
           {children}
         </Box>
       );
@@ -90,6 +93,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
           </IconButton>
 
           <Box
+            component="div"
             sx={{
               px: 5,
               pb: 7,
@@ -98,7 +102,10 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
               flexDirection: 'column',
             }}
           >
-            <Box sx={{ mb: 4.25, display: 'flex', justifyContent: 'center' }}>
+            <Box
+              component="div"
+              sx={{ mb: 4.25, display: 'flex', justifyContent: 'center' }}
+            >
               <Badge
                 overlap="circular"
                 anchorOrigin={{
@@ -138,9 +145,9 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
             </Typography>
           </Box>
 
-          <Box sx={{ height: 'calc(100% - 13.375rem)' }}>
+          <Box component="div" sx={{ height: 'calc(100% - 13.375rem)' }}>
             <ScrollWrapper>
-              <Box sx={{ p: 5 }}>
+              <Box component="div" sx={{ p: 5 }}>
                 <Typography
                   variant="body2"
                   sx={{ mb: 1.5, textTransform: 'uppercase' }}

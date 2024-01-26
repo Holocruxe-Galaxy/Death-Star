@@ -328,6 +328,7 @@ const LoginPage = () => {
         }
       >
         <Box
+          component="div"
           sx={{
             top: 30,
             left: 34,
@@ -336,12 +337,12 @@ const LoginPage = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          component="div"
         >
           <HolocruxeLogo />
         </Box>
 
         <Box
+          component="div"
           sx={{
             p: 9,
             marginTop: 50,
@@ -357,7 +358,6 @@ const LoginPage = () => {
             top: 0,
             right: 40,
           }}
-          component="div"
         >
           <BoxWrapper>
             <Box component="div" sx={{ my: 6, textAlign: 'center' }}>
@@ -391,13 +391,13 @@ const LoginPage = () => {
               </Button>
 
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                   flexWrap: 'wrap',
                   justifyContent: 'center',
                 }}
-                component="div"
               >
                 <Typography sx={{ mr: 2, color: 'text.secondary' }}>
                   Eres nuevo en la plataforma?
@@ -472,7 +472,7 @@ const LoginPage = () => {
         </Box>
 
         {/* <BoxWrapper> */}
-        {/* <Box
+        {/* <Box component='div'
               sx={{
                 top: 30,
                 left: 40,
@@ -570,7 +570,7 @@ const LoginPage = () => {
                 {themeConfig.templateName}
               </Typography> */}
         {/* </Box> */}
-        {/* <Box sx={{ mb: 6 }}>
+        {/* <Box component='div' sx={{ mb: 6 }}>
               <TypographyStyled variant="h5">{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
               <Typography variant="body2">
                 Please sign-in to your account and start the adventure
@@ -676,7 +676,7 @@ const LoginPage = () => {
                 )}
               </FormControl>
               */}
-        {/* <Box
+        {/* <Box component='div'
                 sx={{
                   mb: 4,
                   display: 'flex',
@@ -715,7 +715,7 @@ const LoginPage = () => {
               >
                 Login
               </Button> */}
-        {/* <Box
+        {/* <Box component='div'
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -745,7 +745,7 @@ const LoginPage = () => {
               >
                 {/* or */}
         {/* </Divider>  */}
-        {/*<Box
+        {/*<Box component='div'
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
