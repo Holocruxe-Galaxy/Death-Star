@@ -93,7 +93,7 @@ const ForgotPassword = () => {
       : 'auth-v2-forgot-password-illustration';
 
   return (
-    <Box className="content-right">
+    <Box className="content-right" component="div">
       {!hidden ? (
         <Box
           sx={{
@@ -103,6 +103,7 @@ const ForgotPassword = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
+          component="div"
         >
           <ForgotPasswordIllustrationWrapper>
             <ForgotPasswordIllustration
@@ -128,6 +129,7 @@ const ForgotPassword = () => {
             justifyContent: 'center',
             backgroundColor: 'background.paper',
           }}
+          component="div"
         >
           <BoxWrapper>
             <Box
@@ -139,6 +141,7 @@ const ForgotPassword = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
+              component="div"
             >
               <svg
                 width={47}
@@ -228,7 +231,7 @@ const ForgotPassword = () => {
                 {themeConfig.templateName}
               </Typography>
             </Box>
-            <Box sx={{ mb: 6 }}>
+            <Box sx={{ mb: 6 }} component="div">
               <TypographyStyled variant="h5">
                 Forgot Password? 🔒
               </TypographyStyled>

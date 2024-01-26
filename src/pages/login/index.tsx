@@ -1,31 +1,41 @@
 // ** React Imports
-import { useEffect, useState, ReactNode } from 'react';
+import { useEffect, useState, ReactNode, useRef } from 'react';
 
 // ** Next Imports
 import Link from 'next/link';
 
 // ** MUI Components
-// import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
-// import TextField from '@mui/material/TextField';
-// import InputLabel from '@mui/material/InputLabel';
-// import IconButton from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
-// import FormControl from '@mui/material/FormControl';
 import useMediaQuery from '@mui/material/useMediaQuery';
-// import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled, useTheme } from '@mui/material/styles';
-// import FormHelperText from '@mui/material/FormHelperText';
-// import InputAdornment from '@mui/material/InputAdornment';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiFormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
+// import Alert from '@mui/material/Alert';
+// import TextField from '@mui/material/TextField';
+// import InputLabel from '@mui/material/InputLabel';
+// import FormControl from '@mui/material/FormControl';
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// import FormHelperText from '@mui/material/FormHelperText';
+// import InputAdornment from '@mui/material/InputAdornment';
 
 // ** Auth0 user Import
 import { useUser } from '@auth0/nextjs-auth0/client';
+
+// ** Threejs Imports
+
+import { Canvas } from '@react-three/fiber';
+import { Environment, Stars, PerspectiveCamera } from '@react-three/drei';
+import HoloplanetCanvas from '../../@core/components/login/models/Holoplanet';
+import BotCanvas from '../../@core/components/login/models/Officialbot';
+import Particles from '../../@core/components/login/adds/Particles';
+
+import { makeStyles } from '@mui/styles';
 
 // ** Icon Imports
 // import Icon from 'src/@core/components/icon';
@@ -41,30 +51,17 @@ import { useAuth } from 'src/hooks/useAuth';
 import { useSettings } from 'src/@core/hooks/useSettings';
 
 // ** Configs
-import themeConfig from 'src/configs/themeConfig';
+// import themeConfig from 'src/configs/themeConfig';
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout';
 import { loginToHolocruxe, registerToHolocruxe } from 'src/context/functions';
-
-// ** Styled Components
-const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  padding: theme.spacing(20),
-  paddingRight: '0 !important',
-  [theme.breakpoints.down('lg')]: {
-    padding: theme.spacing(10),
-  },
-}));
-
-const LoginIllustration = styled('img')(({ theme }) => ({
-  maxWidth: '48rem',
-  [theme.breakpoints.down('xl')]: {
-    maxWidth: '38rem',
-  },
-  [theme.breakpoints.down('lg')]: {
-    maxWidth: '30rem',
-  },
-}));
+import { Icon } from '@mui/material';
+import Rocket from 'src/@core/icons/login/Rocket';
+import HolocruxeLogo from '../../@core/icons/login/HolocruxeLogo';
+import FacebookIcon from '../../@core/icons/login/FacebookIcon';
+import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
+import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
@@ -114,6 +111,25 @@ const defaultValues = {
 //   password: string;
 // }
 
+const useStyles = makeStyles(() => ({
+  picker: {
+    position: 'absolute',
+    top: 90,
+    zIndex: 9999,
+  },
+  iconButton: {
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+    '&:active': {
+      backgroundColor: 'transparent',
+    },
+    '& .MuiIconButton-label': {
+      transition: 'none',
+    },
+  },
+}));
+
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
   // const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -149,13 +165,12 @@ const LoginPage = () => {
   //   });
   // };
 
-  const imageSource =
-    skin === 'bordered'
-      ? 'auth-v2-login-illustration-bordered'
-      : 'auth-v2-login-illustration';
-
   // ** User
   const { user, isLoading } = useUser();
+
+  const classes = useStyles();
+
+  const mouse = useRef([0, 0]);
 
   useEffect(() => {
     if (window.localStorage.getItem('createAccount') === 'true' && user) {
@@ -168,47 +183,296 @@ const LoginPage = () => {
     ) {
       loginToHolocruxe(user, auth);
     }
-  }, [user]);
+  }, [user, isLoading, auth]); // agregue isLoading y auth, porque me lo marcaba como error (gianni)
 
   return (
-    <Box className="content-right">
+    <Box component="div" sx={{ width: '100vw', height: '100dvh' }}>
       {!hidden ? (
-        <Box
-          sx={{
-            flex: 1,
-            display: 'flex',
-            position: 'relative',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <LoginIllustrationWrapper>
-            <LoginIllustration
-              alt="login-illustration"
-              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
-            />
-          </LoginIllustrationWrapper>
-        </Box>
+        <Canvas shadows>
+          <group rotation={[0, 0, Math.PI / 5]}>
+            <Stars count={2500} speed={1} />
+          </group>
+          <PerspectiveCamera
+            makeDefault
+            position={[0, 5.5, 11]}
+            fov={73}
+            key={undefined}
+            clear={undefined}
+            scale={undefined}
+            zoom={undefined}
+            add={undefined}
+            visible={undefined}
+            clone={undefined}
+            copy={undefined}
+            view={undefined}
+            quaternion={undefined}
+            attach={undefined}
+            args={undefined}
+            onUpdate={undefined}
+            up={undefined}
+            rotation={undefined}
+            matrix={undefined}
+            layers={undefined}
+            dispose={undefined}
+            raycast={undefined}
+            id={undefined}
+            onClick={undefined}
+            onContextMenu={undefined}
+            onDoubleClick={undefined}
+            onPointerDown={undefined}
+            onPointerMove={undefined}
+            onPointerUp={undefined}
+            onPointerCancel={undefined}
+            onPointerEnter={undefined}
+            onPointerLeave={undefined}
+            onPointerOver={undefined}
+            onPointerOut={undefined}
+            onWheel={undefined}
+            name={undefined}
+            type={undefined}
+            onPointerMissed={undefined}
+            parent={undefined}
+            toJSON={undefined}
+            uuid={undefined}
+            modelViewMatrix={undefined}
+            normalMatrix={undefined}
+            matrixWorld={undefined}
+            matrixAutoUpdate={undefined}
+            matrixWorldAutoUpdate={undefined}
+            matrixWorldNeedsUpdate={undefined}
+            castShadow={undefined}
+            receiveShadow={undefined}
+            frustumCulled={undefined}
+            renderOrder={undefined}
+            animations={undefined}
+            userData={undefined}
+            customDepthMaterial={undefined}
+            customDistanceMaterial={undefined}
+            isObject3D={undefined}
+            onBeforeRender={undefined}
+            onAfterRender={undefined}
+            applyMatrix4={undefined}
+            applyQuaternion={undefined}
+            setRotationFromAxisAngle={undefined}
+            setRotationFromEuler={undefined}
+            setRotationFromMatrix={undefined}
+            setRotationFromQuaternion={undefined}
+            rotateOnAxis={undefined}
+            rotateOnWorldAxis={undefined}
+            rotateX={undefined}
+            rotateY={undefined}
+            rotateZ={undefined}
+            translateOnAxis={undefined}
+            translateX={undefined}
+            translateY={undefined}
+            translateZ={undefined}
+            localToWorld={undefined}
+            worldToLocal={undefined}
+            lookAt={undefined}
+            remove={undefined}
+            removeFromParent={undefined}
+            getObjectById={undefined}
+            getObjectByName={undefined}
+            getObjectByProperty={undefined}
+            getObjectsByProperty={undefined}
+            getWorldPosition={undefined}
+            getWorldQuaternion={undefined}
+            getWorldScale={undefined}
+            getWorldDirection={undefined}
+            traverse={undefined}
+            traverseVisible={undefined}
+            traverseAncestors={undefined}
+            updateMatrix={undefined}
+            updateMatrixWorld={undefined}
+            updateWorldMatrix={undefined}
+            addEventListener={undefined}
+            hasEventListener={undefined}
+            removeEventListener={undefined}
+            dispatchEvent={undefined}
+            matrixWorldInverse={undefined}
+            projectionMatrix={undefined}
+            projectionMatrixInverse={undefined}
+            isCamera={undefined}
+            near={undefined}
+            far={undefined}
+            isPerspectiveCamera={undefined}
+            aspect={undefined}
+            focus={undefined}
+            filmGauge={undefined}
+            filmOffset={undefined}
+            setFocalLength={undefined}
+            getFocalLength={undefined}
+            getEffectiveFOV={undefined}
+            getFilmWidth={undefined}
+            getFilmHeight={undefined}
+            setViewOffset={undefined}
+            clearViewOffset={undefined}
+            updateProjectionMatrix={undefined}
+            setLens={undefined}
+          ></PerspectiveCamera>
+          <Particles count={600} mouse={mouse} />
+          <Environment files="/images/login-bg/bg.hdr" background blur={0.5} />
+          <HoloplanetCanvas />
+          <BotCanvas />
+          {/* <Holoplanet /> */}
+        </Canvas>
       ) : null}
       <RightWrapper
         sx={
           skin === 'bordered' && !hidden
-            ? { borderLeft: `1px solid ${theme.palette.divider}` }
+            ? {
+                borderLeft: `1px solid ${theme.palette.divider}`,
+                opacity: 0.8,
+              }
             : {}
         }
       >
         <Box
           sx={{
-            p: 7,
-            height: '100%',
+            top: 30,
+            left: 34,
+            display: 'flex',
+            position: 'absolute',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          component="div"
+        >
+          <HolocruxeLogo />
+        </Box>
+
+        <Box
+          sx={{
+            p: 9,
+            marginTop: 50,
+            height: '60%',
+            width: '28rem',
+            borderRadius: 2,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'background.paper',
+            backgroundColor: 'rgb(32, 67, 94, 0.5)',
+            position: 'absolute',
+            backdropFilter: 'blur(2px)',
+            top: 0,
+            right: 40,
           }}
+          component="div"
         >
           <BoxWrapper>
-            <Box
+            <Box component="div" sx={{ my: 6, textAlign: 'center' }}>
+              <TypographyStyled variant="h5">
+                Bienvenido a Holocruxe
+              </TypographyStyled>
+              <Icon sx={{ position: 'absolute', right: 54, top: 100 }}>
+                <Rocket />
+              </Icon>
+              <Typography
+                variant="body2"
+                sx={{ marginTop: 4, color: 'text.secondary' }}
+              >
+                Ingresa a tu cuenta y dale vida a tus momentos
+              </Typography>
+            </Box>
+
+            <form
+              noValidate
+              autoComplete="off"
+              // onSubmit={handleSubmit(onSubmit)}
+            >
+              <Button
+                fullWidth
+                size="large"
+                href={'/api/auth/login'}
+                variant="contained"
+                sx={{ mt: 9, mb: 3 }}
+              >
+                Iniciar Sesión
+              </Button>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                }}
+                component="div"
+              >
+                <Typography sx={{ mr: 2, color: 'text.secondary' }}>
+                  Eres nuevo en la plataforma?
+                </Typography>
+                <Typography
+                  onClick={() => {
+                    window.localStorage.setItem('createAccount', 'true');
+                    window.location.href = '/api/auth/login';
+                  }}
+                  href="/api/auth/login"
+                  component={Link}
+                  sx={{ textDecoration: 'none' }}
+                >
+                  Regístrate
+                </Typography>
+              </Box>
+
+              <Box component="div" sx={{ my: 3 }}>
+                <FormControlLabel
+                  label="Recordarme"
+                  control={
+                    <Checkbox
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                    />
+                  }
+                />
+              </Box>
+
+              <Divider
+                sx={{
+                  '& .MuiDivider-wrapper': { px: 4 },
+                  mt: (theme) => `${theme.spacing(5)} !important`,
+                  mb: (theme) => `${theme.spacing(7.5)} !important`,
+                }}
+              >
+                or
+              </Divider>
+
+              <Box
+                component="div"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  className={classes.iconButton}
+                >
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  className={classes.iconButton}
+                >
+                  <GoogleIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  className={classes.iconButton}
+                >
+                  <LinkedinIcon />
+                </IconButton>
+              </Box>
+            </form>
+          </BoxWrapper>
+        </Box>
+
+        {/* <BoxWrapper> */}
+        {/* <Box
               sx={{
                 top: 30,
                 left: 40,
@@ -217,8 +481,8 @@ const LoginPage = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
-            >
-              <svg
+            > */}
+        {/* <svg
                 width={47}
                 fill="none"
                 height={26}
@@ -293,8 +557,8 @@ const LoginPage = () => {
                     <stop offset="1" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-              </svg>
-              <Typography
+              </svg> */}
+        {/* <Typography
                 variant="h6"
                 sx={{
                   ml: 2,
@@ -304,15 +568,15 @@ const LoginPage = () => {
                 }}
               >
                 {themeConfig.templateName}
-              </Typography>
-            </Box>
-            <Box sx={{ mb: 6 }}>
+              </Typography> */}
+        {/* </Box> */}
+        {/* <Box sx={{ mb: 6 }}>
               <TypographyStyled variant="h5">{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
               <Typography variant="body2">
                 Please sign-in to your account and start the adventure
               </Typography>
-            </Box>
-            {/* <Alert
+            </Box> */}
+        {/* <Alert
               icon={false}
               sx={{
                 py: 3,
@@ -336,12 +600,12 @@ const LoginPage = () => {
                 <strong>client</strong>
               </Typography>
             </Alert> */}
-            <form
+        {/* <form
               noValidate
               autoComplete="off"
               // onSubmit={handleSubmit(onSubmit)}
-            >
-              {/* <FormControl fullWidth sx={{ mb: 4 }}>
+            > */}
+        {/* <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
                   name="username"
                   control={control}
@@ -364,7 +628,7 @@ const LoginPage = () => {
                   </FormHelperText>
                 )}
               </FormControl> */}
-              {/*  <FormControl fullWidth>
+        {/*  <FormControl fullWidth>
                 <InputLabel
                   htmlFor="auth-login-v2-password"
                   error={Boolean(errors.password)}
@@ -412,7 +676,7 @@ const LoginPage = () => {
                 )}
               </FormControl>
               */}
-              <Box
+        {/* <Box
                 sx={{
                   mb: 4,
                   display: 'flex',
@@ -438,8 +702,8 @@ const LoginPage = () => {
                 >
                   Forgot Password?
                 </Typography>
-              </Box>
-              <Button
+              </Box> */}
+        {/* <Button
                 onClick={() => {
                   window.localStorage.removeItem('createAccount');
                   window.location.href = '/api/auth/login';
@@ -450,8 +714,8 @@ const LoginPage = () => {
                 sx={{ mb: 7 }}
               >
                 Login
-              </Button>
-              <Box
+              </Button> */}
+        {/* <Box
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -471,8 +735,8 @@ const LoginPage = () => {
                 >
                   Create an account
                 </Typography>
-              </Box>
-              <Divider
+              </Box> */}
+        {/* <Divider
                 sx={{
                   '& .MuiDivider-wrapper': { px: 4 },
                   mt: (theme) => `${theme.spacing(5)} !important`,
@@ -480,8 +744,8 @@ const LoginPage = () => {
                 }}
               >
                 {/* or */}
-              </Divider>
-              {/*<Box
+        {/* </Divider>  */}
+        {/*<Box
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -523,9 +787,9 @@ const LoginPage = () => {
                   <Icon icon="mdi:google" />
                 </IconButton>
               </Box> */}
-            </form>
-          </BoxWrapper>
-        </Box>
+        {/* </form> */}
+        {/* </BoxWrapper> */}
+        {/* </Box> */}
       </RightWrapper>
     </Box>
   );
