@@ -111,7 +111,7 @@ const AuthProvider = ({ children }: Props) => {
       );
       const responseData = response.data;
 
-      let status = await afterLogin(token);
+      const status = await afterLogin(token);
       if (status === 'PENDING') {
         window.localStorage.setItem('AuthorizationToken', token);
         router.replace('/register');
