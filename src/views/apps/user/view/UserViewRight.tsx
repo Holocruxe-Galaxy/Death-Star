@@ -109,9 +109,10 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
           icon={<Icon icon="mdi:link-variant" />}
         />
       </TabList>
-      <Box sx={{ mt: 6 }}>
+      <Box component="div" sx={{ mt: 6 }}>
         {isLoading ? (
           <Box
+            component="div"
             sx={{
               mt: 6,
               display: 'flex',

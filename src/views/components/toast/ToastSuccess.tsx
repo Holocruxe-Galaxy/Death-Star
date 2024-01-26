@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 const ToastSuccess = () => {
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',

@@ -122,6 +122,7 @@ const HorizontalLayout = (props: LayoutProps) => {
         >
           {/* Navbar / AppBar */}
           <Box
+            component="div"
             className="layout-navbar"
             sx={{
               width: '100%',
@@ -160,6 +161,7 @@ const HorizontalLayout = (props: LayoutProps) => {
           {/* Navigation Menu */}
           {navHidden ? null : (
             <Box
+              component="div"
               className="layout-horizontal-nav"
               sx={{ width: '100%', ...horizontalLayoutProps?.navMenu?.sx }}
             >

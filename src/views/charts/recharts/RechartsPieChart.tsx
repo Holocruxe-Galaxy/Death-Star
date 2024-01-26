@@ -60,7 +60,7 @@ const RechartsPieChart = () => {
         }}
       />
       <CardContent>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <PieChart height={350} style={{ direction: 'ltr' }}>
               <Pie
@@ -79,6 +79,7 @@ const RechartsPieChart = () => {
           </ResponsiveContainer>
         </Box>
         <Box
+          component="div"
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -87,6 +88,7 @@ const RechartsPieChart = () => {
           }}
         >
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -98,6 +100,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">R&D</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -109,6 +112,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">Operational</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -120,6 +124,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">Networking</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',

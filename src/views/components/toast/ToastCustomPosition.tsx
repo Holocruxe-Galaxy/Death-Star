@@ -18,6 +18,7 @@ const ToastCustomPosition = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',

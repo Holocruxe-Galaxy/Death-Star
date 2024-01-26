@@ -103,7 +103,7 @@ const ApexLineChart = () => {
           '& .MuiCardHeader-content': { mb: [2, 0] },
         }}
         action={
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant="h6" sx={{ mr: 5 }}>
               $221,267
             </Typography>
@@ -113,6 +113,7 @@ const ApexLineChart = () => {
               sx={{ fontWeight: 500, borderRadius: 1, fontSize: '0.875rem' }}
               label={
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',

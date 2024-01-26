@@ -29,6 +29,7 @@ const CustomCheckboxIcons = (props: CustomCheckboxIconsProps) => {
     return (
       <Grid item {...gridProps}>
         <Box
+          component="div"
           onClick={() => handleChange(value)}
           sx={{
             p: 4,

@@ -34,7 +34,7 @@ const ListNested = () => {
           </ListItemButton>
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
+          <List disablePadding>
             <ListItem disablePadding>
               <ListItemButton sx={{ pl: 8 }}>
                 <ListItemIcon sx={{ mr: 4 }}>

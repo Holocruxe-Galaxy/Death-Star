@@ -30,6 +30,7 @@ const ToastPromise = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',

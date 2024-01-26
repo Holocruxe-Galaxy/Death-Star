@@ -242,6 +242,7 @@ const UserViewSecurity = () => {
             </Typography>
 
             <Box
+              component="div"
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -339,6 +340,7 @@ const UserViewSecurity = () => {
                   onChange={(e) => setMobileNumber(e.target.value)}
                 />
                 <Box
+                  component="div"
                   sx={{ mt: 6.5, display: 'flex', justifyContent: 'flex-end' }}
                 >
                   <Button
@@ -396,7 +398,10 @@ const UserViewSecurity = () => {
                     sx={{ '&:last-of-type td': { border: 0 } }}
                   >
                     <TableCell>
-                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Box
+                        component="div"
+                        sx={{ display: 'flex', alignItems: 'center' }}
+                      >
                         <Image
                           width="22"
                           height="22"

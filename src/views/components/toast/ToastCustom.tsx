@@ -16,6 +16,7 @@ const ToastCustom = () => {
     return toast(
       (t) => (
         <Box
+          component="div"
           sx={{
             width: '100%',
             display: 'flex',
@@ -23,7 +24,7 @@ const ToastCustom = () => {
             justifyContent: 'space-between',
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
             <Avatar
               alt="Victor Anderson"
               src="/images/avatars/1.png"
@@ -51,6 +52,7 @@ const ToastCustom = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',

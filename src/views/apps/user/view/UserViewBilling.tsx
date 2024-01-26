@@ -190,7 +190,7 @@ const UserViewBilling = () => {
           <CardContent>
             <Grid container spacing={6}>
               <Grid item xs={12} md={6}>
-                <Box sx={{ mb: 4 }}>
+                <Box component="div" sx={{ mb: 4 }}>
                   <Typography
                     sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}
                   >
@@ -200,7 +200,7 @@ const UserViewBilling = () => {
                     A simple start for everyone
                   </Typography>
                 </Box>
-                <Box sx={{ mb: 4 }}>
+                <Box component="div" sx={{ mb: 4 }}>
                   <Typography
                     sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}
                   >
@@ -211,7 +211,10 @@ const UserViewBilling = () => {
                   </Typography>
                 </Box>
                 <div>
-                  <Box sx={{ display: 'flex', mb: 1, alignItems: 'center' }}>
+                  <Box
+                    component="div"
+                    sx={{ display: 'flex', mb: 1, alignItems: 'center' }}
+                  >
                     <Typography
                       sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
                     >
@@ -249,6 +252,7 @@ const UserViewBilling = () => {
                   Your plan requires updates
                 </Alert>
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     mb: 2,
@@ -409,6 +413,7 @@ const UserViewBilling = () => {
                 User current plan is standard plan
               </Typography>
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -417,6 +422,7 @@ const UserViewBilling = () => {
                 }}
               >
                 <Box
+                  component="div"
                   sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}
                 >
                   <Sup>$</Sup>
@@ -465,6 +471,7 @@ const UserViewBilling = () => {
           <CardContent>
             {data.map((item: DataType, index: number) => (
               <Box
+                component="div"
                 key={index}
                 sx={{
                   p: 5,
@@ -479,7 +486,10 @@ const UserViewBilling = () => {
               >
                 <div>
                   <Image height="25" alt={item.imgAlt} src={item.imgSrc} />
-                  <Box sx={{ mt: 0.5, display: 'flex', alignItems: 'center' }}>
+                  <Box
+                    component="div"
+                    sx={{ mt: 0.5, display: 'flex', alignItems: 'center' }}
+                  >
                     <Typography sx={{ fontWeight: 500 }}>
                       {item.name}
                     </Typography>
@@ -505,7 +515,10 @@ const UserViewBilling = () => {
                   </Typography>
                 </div>
 
-                <Box sx={{ mt: [3, 0], textAlign: ['start', 'end'] }}>
+                <Box
+                  component="div"
+                  sx={{ mt: [3, 0], textAlign: ['start', 'end'] }}
+                >
                   <Button
                     variant="outlined"
                     sx={{ mr: 3 }}

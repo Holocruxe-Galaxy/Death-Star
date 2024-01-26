@@ -78,50 +78,80 @@ const SwiperThumbnails = ({ direction }: { direction: Direction }) => {
 
   return (
     <>
-      <Box ref={sliderRef} className="keen-slider">
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+      <Box component="div" ref={sliderRef} className="keen-slider">
+        <Box
+          component="div"
+          sx={{ display: 'flex' }}
+          className="keen-slider__slide"
+        >
           <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box
+          component="div"
+          sx={{ display: 'flex' }}
+          className="keen-slider__slide"
+        >
           <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box
+          component="div"
+          sx={{ display: 'flex' }}
+          className="keen-slider__slide"
+        >
           <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box
+          component="div"
+          sx={{ display: 'flex' }}
+          className="keen-slider__slide"
+        >
           <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box
+          component="div"
+          sx={{ display: 'flex' }}
+          className="keen-slider__slide"
+        >
           <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
         </Box>
       </Box>
 
-      <Box sx={{ mt: 4 }} ref={thumbnailRef} className="keen-slider thumbnail">
+      <Box
+        component="div"
+        sx={{ mt: 4 }}
+        ref={thumbnailRef}
+        className="keen-slider thumbnail"
+      >
         <Box
+          component="div"
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
           <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
         <Box
+          component="div"
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
           <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
         <Box
+          component="div"
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
           <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
         <Box
+          component="div"
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >
           <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
         <Box
+          component="div"
           className="keen-slider__slide"
           sx={{ display: 'flex', cursor: 'pointer' }}
         >

@@ -159,8 +159,9 @@ const RechartsScatterChart = ({ direction }: Props) => {
         }
       />
       <CardContent>
-        <Box sx={{ display: 'flex', mb: 4 }}>
+        <Box component="div" sx={{ display: 'flex', mb: 4 }}>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -172,6 +173,7 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">React</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -183,6 +185,7 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">Vue</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -193,7 +196,7 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">Angular</Typography>
           </Box>
         </Box>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <ScatterChart
               height={350}

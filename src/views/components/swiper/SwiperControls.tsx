@@ -34,21 +34,21 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
 
   return (
     <>
-      <Box className="navigation-wrapper">
-        <Box ref={sliderRef} className="keen-slider">
-          <Box className="keen-slider__slide">
+      <Box component="div" className="navigation-wrapper">
+        <Box component="div" ref={sliderRef} className="keen-slider">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
           </Box>
         </Box>
@@ -79,7 +79,7 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
         )}
       </Box>
       {loaded && instanceRef.current && (
-        <Box className="swiper-dots">
+        <Box component="div" className="swiper-dots">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map((idx) => {
@@ -87,7 +87,6 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
               <Badge
                 key={idx}
                 variant="dot"
-                component="div"
                 className={clsx({
                   active: currentSlide === idx,
                 })}

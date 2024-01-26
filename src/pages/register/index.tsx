@@ -110,9 +110,10 @@ const Register = () => {
       : 'auth-v2-register-illustration';
 
   return (
-    <Box className="content-right">
+    <Box component="div" className="content-right">
       {!hidden ? (
         <Box
+          component="div"
           sx={{
             flex: 1,
             display: 'flex',
@@ -137,6 +138,7 @@ const Register = () => {
         }
       >
         <Box
+          component="div"
           sx={{
             p: 7,
             height: '100%',
@@ -148,6 +150,7 @@ const Register = () => {
         >
           <BoxWrapper>
             <Box
+              component="div"
               sx={{
                 top: 30,
                 left: 40,
@@ -245,7 +248,7 @@ const Register = () => {
                 {themeConfig.templateName}
               </Typography>
             </Box>
-            <Box sx={{ mb: 6 }}>
+            <Box component="div" sx={{ mb: 6 }}>
               <TypographyStyled variant="h5">
                 Adventure starts here 🚀
               </TypographyStyled>
@@ -327,6 +330,7 @@ const Register = () => {
                 Sign up
               </Button>
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -355,6 +359,7 @@ const Register = () => {
                 or
               </Divider>
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',

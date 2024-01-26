@@ -10,7 +10,7 @@ const ButtonsFab = () => {
   return (
     <>
       <Typography sx={{ fontWeight: 500 }}>Circular Variant</Typography>
-      <Box sx={{ mb: 6 }} className="demo-space-x">
+      <Box component="div" sx={{ mb: 6 }} className="demo-space-x">
         <Fab aria-label="edit">
           <Icon icon="mdi:pencil" />
         </Fab>

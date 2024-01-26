@@ -10,9 +10,10 @@ import CircularProgress, {
 
 const Progress = (props: CircularProgressProps) => {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box component="div" sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress variant="determinate" {...props} size={50} />
       <Box
+        component="div"
         sx={{
           top: 0,
           left: 0,
@@ -24,7 +25,7 @@ const Progress = (props: CircularProgressProps) => {
           justifyContent: 'center',
         }}
       >
-        <Typography variant="caption" component="div" color="text.secondary">
+        <Typography variant="caption" color="text.secondary">
           {`${Math.round(props.value as number)}%`}
         </Typography>
       </Box>

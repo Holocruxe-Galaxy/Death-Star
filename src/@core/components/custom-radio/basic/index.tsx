@@ -24,6 +24,7 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
     if (meta && title && content) {
       return (
         <Box
+          component="div"
           sx={{
             width: '100%',
             height: '100%',
@@ -32,6 +33,7 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
           }}
         >
           <Box
+            component="div"
             sx={{
               mb: 1,
               width: '100%',
@@ -61,6 +63,7 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
     } else if (meta && title && !content) {
       return (
         <Box
+          component="div"
           sx={{
             width: '100%',
             display: 'flex',
@@ -82,7 +85,10 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
       );
     } else if (!meta && title && content) {
       return (
-        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Box
+          component="div"
+          sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        >
           {typeof title === 'string' ? (
             <Typography sx={{ mb: 1, fontWeight: 500 }}>{title}</Typography>
           ) : (
@@ -116,6 +122,7 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
     return (
       <Grid item {...gridProps}>
         <Box
+          component="div"
           onClick={() => handleChange(value)}
           sx={{
             p: 4,
