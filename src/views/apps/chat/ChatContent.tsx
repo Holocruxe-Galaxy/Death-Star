@@ -84,6 +84,7 @@ const ChatContent = (props: ChatContentType) => {
               <Icon icon="mdi:message-outline" fontSize="3.125rem" />
             </MuiAvatar>
             <Box
+              component="div"
               onClick={handleStartConversation}
               sx={{
                 px: 6,
@@ -103,6 +104,7 @@ const ChatContent = (props: ChatContentType) => {
       } else {
         return (
           <Box
+            component="div"
             sx={{
               width: 0,
               flexGrow: 1,
@@ -111,6 +113,7 @@ const ChatContent = (props: ChatContentType) => {
             }}
           >
             <Box
+              component="div"
               sx={{
                 py: 3,
                 px: 5,
@@ -120,13 +123,17 @@ const ChatContent = (props: ChatContentType) => {
                 borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
               }}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box
+                component="div"
+                sx={{ display: 'flex', alignItems: 'center' }}
+              >
                 {mdAbove ? null : (
                   <IconButton onClick={handleLeftSidebarToggle} sx={{ mr: 2 }}>
                     <Icon icon="mdi:menu" />
                   </IconButton>
                 )}
                 <Box
+                  component="div"
                   onClick={handleUserProfileRightSidebarToggle}
                   sx={{
                     display: 'flex',
@@ -176,7 +183,10 @@ const ChatContent = (props: ChatContentType) => {
                       </CustomAvatar>
                     )}
                   </Badge>
-                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <Box
+                    component="div"
+                    sx={{ display: 'flex', flexDirection: 'column' }}
+                  >
                     <Typography sx={{ color: 'text.secondary' }}>
                       {selectedChat.contact.fullName}
                     </Typography>
@@ -187,7 +197,10 @@ const ChatContent = (props: ChatContentType) => {
                 </Box>
               </Box>
 
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box
+                component="div"
+                sx={{ display: 'flex', alignItems: 'center' }}
+              >
                 {mdAbove ? (
                   <Fragment>
                     <IconButton size="small" sx={{ color: 'text.secondary' }}>

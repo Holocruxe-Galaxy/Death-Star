@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 const RatingsHalf = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Half Ratings</Typography>
         <Rating defaultValue={2.5} precision={0.5} name="half-rating" />
       </Box>

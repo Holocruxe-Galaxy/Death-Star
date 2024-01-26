@@ -13,7 +13,7 @@ import toast from 'react-hot-toast'
 
 const ToastSimple = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:checkbox-blank-outline' fontSize='2rem' />
@@ -52,7 +52,7 @@ const ToastCustomPosition = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:view-grid-plus-outline' fontSize='2rem' />
@@ -89,8 +89,8 @@ const ToastCustom = () => {
   const handleClick = () => {
     return toast(
       t => (
-        <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component='div' sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
             <Avatar alt='Victor Anderson' src='/images/avatars/1.png' sx={{ mr: 3, width: 40, height: 40 }} />
             <div>
               <Typography sx={{ fontWeight: 500 }}>John Doe</Typography>
@@ -111,7 +111,7 @@ const ToastCustom = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:pencil-outline' fontSize='2rem' />
@@ -144,7 +144,7 @@ import toast from 'react-hot-toast'
 
 const ToastEmoji = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:sticker-emoji' fontSize='2rem' />
@@ -177,7 +177,7 @@ import toast from 'react-hot-toast'
 
 const ToastError = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:close' fontSize='2rem' />
@@ -228,7 +228,7 @@ const ToastThemed = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:palette-outline' fontSize='2rem' />
@@ -267,7 +267,7 @@ const ToastMultiLine = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:text-box-outline' fontSize='2rem' />
@@ -318,7 +318,7 @@ const ToastPromise = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:timer-sand' fontSize='2rem' />
@@ -351,7 +351,7 @@ import toast from 'react-hot-toast'
 
 const ToastSuccess = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:check-circle-outline' fontSize='2rem' />
@@ -384,7 +384,7 @@ import toast from 'react-hot-toast'
 
 const ToastSimple = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:checkbox-blank-outline' fontSize='2rem' />
@@ -421,8 +421,8 @@ const ToastCustom = () => {
   const handleClick = () => {
     return toast(
       t => (
-        <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component='div' sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
             <Avatar alt='Victor Anderson' src='/images/avatars/1.png' sx={{ mr: 3, width: 40, height: 40 }} />
             <div>
               <Typography sx={{ fontWeight: 500 }}>John Doe</Typography>
@@ -443,7 +443,7 @@ const ToastCustom = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:pencil-outline' fontSize='2rem' />
@@ -482,7 +482,7 @@ const ToastCustomPosition = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:view-grid-plus-outline' fontSize='2rem' />
@@ -515,7 +515,7 @@ import toast from 'react-hot-toast'
 
 const ToastEmoji = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:sticker-emoji' fontSize='2rem' />
@@ -554,7 +554,7 @@ const ToastMultiLine = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:text-box-outline' fontSize='2rem' />
@@ -587,7 +587,7 @@ import toast from 'react-hot-toast'
 
 const ToastError = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:close' fontSize='2rem' />
@@ -638,7 +638,7 @@ const ToastPromise = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:timer-sand' fontSize='2rem' />
@@ -671,7 +671,7 @@ import toast from 'react-hot-toast'
 
 const ToastSuccess = () => {
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:check-circle-outline' fontSize='2rem' />
@@ -722,7 +722,7 @@ const ToastThemed = () => {
   }
 
   return (
-    <Box
+    <Box component='div'
       sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
     >
       <Icon icon='mdi:palette-outline' fontSize='2rem' />

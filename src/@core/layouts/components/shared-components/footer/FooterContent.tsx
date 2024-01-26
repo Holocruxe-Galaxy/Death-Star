@@ -19,6 +19,7 @@ const FooterContent = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -38,6 +39,7 @@ const FooterContent = () => {
       </Typography>
       {hidden ? null : (
         <Box
+          component="div"
           sx={{
             display: 'flex',
             flexWrap: 'wrap',

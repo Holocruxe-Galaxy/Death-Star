@@ -2,7 +2,7 @@ name: CIDD
 
 on:
   push:
-    branches: [develop]
+    branches: [feature/fix-components-box]
 
 jobs:
   build:
@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with: #ésto solo se usa para probar en una rama específica
+          ref: feature/fix-components-box
 
       - name: Install dependencies
         run: npm install

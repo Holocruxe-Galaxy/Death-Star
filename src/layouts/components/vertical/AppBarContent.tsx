@@ -134,6 +134,7 @@ const AppBarContent = (props: Props) => {
 
   return (
     <Box
+      component="div"
       sx={{
         width: '100%',
         display: 'flex',
@@ -142,6 +143,7 @@ const AppBarContent = (props: Props) => {
       }}
     >
       <Box
+        component="div"
         className="actions-left"
         sx={{ mr: 2, display: 'flex', alignItems: 'center' }}
       >
@@ -156,6 +158,7 @@ const AppBarContent = (props: Props) => {
         ) : null}
       </Box>
       <Box
+        component="div"
         className="actions-right"
         sx={{ display: 'flex', alignItems: 'center' }}
       >

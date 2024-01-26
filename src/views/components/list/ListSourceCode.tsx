@@ -112,7 +112,7 @@ const ListProgress = () => {
             <Icon icon='mdi:react' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='React is a JavaScript library for building user interfaces' />
           <LinearProgress color='info' value={90} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -123,7 +123,7 @@ const ListProgress = () => {
             <Icon icon='mdi:bootstrap' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Bootstrap is an open source toolkit' />
           <LinearProgress value={75} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -134,7 +134,7 @@ const ListProgress = () => {
             <Icon icon='mdi:vuejs' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Vue.js is the Progressive JavaScript Framework' />
           <LinearProgress color='success' value={85} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -145,7 +145,7 @@ const ListProgress = () => {
             <Icon icon='mdi:angular' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Angular implements Functional Programming concepts' />
           <LinearProgress color='error' value={60} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -156,7 +156,7 @@ const ListProgress = () => {
             <Icon icon='mdi:language-javascript' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='JavaScript is the programming language of the Web' />
           <LinearProgress color='warning' value={70} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -393,8 +393,8 @@ const ListWithSwitch = () => {
   return (
     <List subheader={<li />} sx={{ maxHeight: 300, overflow: 'auto', position: 'relative' }}>
       {[0, 1, 2, 3, 4].map(sectionId => (
-        <Box component='li' key={section-{sectionId}} sx={{ backgroundColor: 'background.paper' }}>
-          <Box component='ul' sx={{ p: 0, backgroundColor: 'inherit' }}>
+        <Box component='div' component='li' key={section-{sectionId}} sx={{ backgroundColor: 'background.paper' }}>
+          <Box component='div' component='ul' sx={{ p: 0, backgroundColor: 'inherit' }}>
             <ListSubheader>{I'm sticky {sectionId}}</ListSubheader>
             {[0, 1, 2].map(item => (
               <ListItem key={item-{sectionId}-{item}}>
@@ -465,8 +465,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Caroline Black' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Online</Typography>
             </Box>
@@ -487,8 +487,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Alfred Copeland' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'warning.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'warning.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Away</Typography>
             </Box>
@@ -509,8 +509,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Celia Schneider' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'secondary.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'secondary.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Offline</Typography>
             </Box>
@@ -532,8 +532,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Max Rogan' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'error.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'error.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>In Meeting</Typography>
             </Box>
@@ -1020,7 +1020,7 @@ const ListProgress = () => {
             <Icon icon='mdi:react' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='React is a JavaScript library for building user interfaces' />
           <LinearProgress color='info' value={90} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -1031,7 +1031,7 @@ const ListProgress = () => {
             <Icon icon='mdi:bootstrap' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Bootstrap is an open source toolkit' />
           <LinearProgress value={75} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -1042,7 +1042,7 @@ const ListProgress = () => {
             <Icon icon='mdi:vuejs' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Vue.js is the Progressive JavaScript Framework' />
           <LinearProgress color='success' value={85} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -1053,7 +1053,7 @@ const ListProgress = () => {
             <Icon icon='mdi:angular' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='Angular implements Functional Programming concepts' />
           <LinearProgress color='error' value={60} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -1064,7 +1064,7 @@ const ListProgress = () => {
             <Icon icon='mdi:language-javascript' />
           </CustomAvatar>
         </ListItemAvatar>
-        <Box sx={{ width: '100%' }}>
+        <Box component='div' sx={{ width: '100%' }}>
           <ListItemText primary='JavaScript is the programming language of the Web' />
           <LinearProgress color='warning' value={70} sx={{ height: 5 }} variant='determinate' />
         </Box>
@@ -1301,8 +1301,8 @@ const ListWithSwitch = () => {
   return (
     <List subheader={<li />} sx={{ maxHeight: 300, overflow: 'auto', position: 'relative' }}>
       {[0, 1, 2, 3, 4].map(sectionId => (
-        <Box component='li' key={section-{sectionId}} sx={{ backgroundColor: 'background.paper' }}>
-          <Box component='ul' sx={{ p: 0, backgroundColor: 'inherit' }}>
+        <Box component='div' component='li' key={section-{sectionId}} sx={{ backgroundColor: 'background.paper' }}>
+          <Box component='div' component='ul' sx={{ p: 0, backgroundColor: 'inherit' }}>
             <ListSubheader>{I'm sticky {sectionId}}</ListSubheader>
             {[0, 1, 2].map(item => (
               <ListItem key={item-{sectionId}-{item}}>
@@ -1373,8 +1373,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Caroline Black' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Online</Typography>
             </Box>
@@ -1395,8 +1395,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Alfred Copeland' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'warning.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'warning.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Away</Typography>
             </Box>
@@ -1417,8 +1417,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Celia Schneider' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'secondary.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'secondary.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>Offline</Typography>
             </Box>
@@ -1440,8 +1440,8 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary='Max Rogan' />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Box sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'error.main' } }}>
+          <Box component='div' sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box component='div' sx={{ mr: 3, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'error.main' } }}>
               <Icon icon='mdi:circle' fontSize='0.625rem' />
               <Typography variant='caption'>In Meeting</Typography>
             </Box>

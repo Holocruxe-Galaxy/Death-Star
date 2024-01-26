@@ -29,6 +29,7 @@ const CustomRadioIcons = (props: CustomRadioIconsProps) => {
     return (
       <Grid item {...gridProps}>
         <Box
+          component="div"
           onClick={() => handleChange(value)}
           sx={{
             p: 4,

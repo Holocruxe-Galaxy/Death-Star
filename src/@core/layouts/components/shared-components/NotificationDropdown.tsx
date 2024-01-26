@@ -126,7 +126,10 @@ const ScrollWrapper = ({
 }) => {
   if (hidden) {
     return (
-      <Box sx={{ maxHeight: 349, overflowY: 'auto', overflowX: 'hidden' }}>
+      <Box
+        component="div"
+        sx={{ maxHeight: 349, overflowY: 'auto', overflowX: 'hidden' }}
+      >
         {children}
       </Box>
     );
@@ -236,6 +239,7 @@ const NotificationDropdown = (props: Props) => {
           }}
         >
           <Box
+            component="div"
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -265,10 +269,12 @@ const NotificationDropdown = (props: Props) => {
             (notification: NotificationsType, index: number) => (
               <MenuItem key={index} onClick={handleDropdownClose}>
                 <Box
+                  component="div"
                   sx={{ width: '100%', display: 'flex', alignItems: 'center' }}
                 >
                   <RenderAvatar notification={notification} />
                   <Box
+                    component="div"
                     sx={{
                       mx: 4,
                       flex: '1 1',
