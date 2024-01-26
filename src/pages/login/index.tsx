@@ -8,7 +8,6 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled, useTheme } from '@mui/material/styles';
@@ -35,7 +34,7 @@ import HoloplanetCanvas from '../../@core/components/login/models/Holoplanet';
 import BotCanvas from '../../@core/components/login/models/Officialbot';
 import Particles from '../../@core/components/login/adds/Particles';
 
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 
 // ** Icon Imports
 // import Icon from 'src/@core/components/icon';
@@ -59,9 +58,6 @@ import { loginToHolocruxe, registerToHolocruxe } from 'src/context/functions';
 import { Icon } from '@mui/material';
 import Rocket from 'src/@core/icons/login/Rocket';
 import HolocruxeLogo from '../../@core/icons/login/HolocruxeLogo';
-import FacebookIcon from '../../@core/icons/login/FacebookIcon';
-import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
-import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
@@ -111,24 +107,24 @@ const defaultValues = {
 //   password: string;
 // }
 
-const useStyles = makeStyles(() => ({
-  picker: {
-    position: 'absolute',
-    top: 90,
-    zIndex: 9999,
-  },
-  iconButton: {
-    '&:hover': {
-      backgroundColor: 'transparent',
-    },
-    '&:active': {
-      backgroundColor: 'transparent',
-    },
-    '& .MuiIconButton-label': {
-      transition: 'none',
-    },
-  },
-}));
+// const useStyles = makeStyles(() => ({
+//   picker: {
+//     position: 'absolute',
+//     top: 90,
+//     zIndex: 9999,
+//   },
+//   iconButton: {
+//     '&:hover': {
+//       backgroundColor: 'transparent',
+//     },
+//     '&:active': {
+//       backgroundColor: 'transparent',
+//     },
+//     '& .MuiIconButton-label': {
+//       transition: 'none',
+//     },
+//   },
+// }));
 
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
@@ -167,8 +163,6 @@ const LoginPage = () => {
 
   // ** User
   const { user, isLoading } = useUser();
-
-  const classes = useStyles();
 
   const mouse = useRef([0, 0]);
 
