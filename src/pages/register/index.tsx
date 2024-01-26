@@ -1,29 +1,15 @@
 // ** React Imports
-import { ReactNode, useState } from 'react';
-
-// ** Next Import
-import Link from 'next/link';
+import { ReactNode } from 'react';
 
 // ** MUI Components
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
-import FormControl from '@mui/material/FormControl';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled, useTheme } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiFormControlLabel, {
-  FormControlLabelProps,
-} from '@mui/material/FormControlLabel';
-
-// ** Icon Imports
-import Icon from 'src/@core/components/icon';
+// import MuiFormControlLabel, {
+//   FormControlLabelProps,
+// } from '@mui/material/FormControlLabel';
 
 // ** Configs
 import themeConfig from 'src/configs/themeConfig';
@@ -78,24 +64,24 @@ const TypographyStyled = styled(Typography)<TypographyProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: { marginTop: theme.spacing(8) },
 }));
 
-const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
-  ({ theme }) => ({
-    marginBottom: theme.spacing(4),
-    '& .MuiFormControlLabel-label': {
-      fontSize: '0.875rem',
-      color: theme.palette.text.secondary,
-    },
-  }),
-);
+// const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
+//   ({ theme }) => ({
+//     marginBottom: theme.spacing(4),
+//     '& .MuiFormControlLabel-label': {
+//       fontSize: '0.875rem',
+//       color: theme.palette.text.secondary,
+//     },
+//   }),
+// );
 
-const LinkStyled = styled(Link)(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.primary.main,
-}));
+// const LinkStyled = styled(Link)(({ theme }) => ({
+//   textDecoration: 'none',
+//   color: theme.palette.primary.main,
+// }));
 
 const Register = () => {
   // ** States
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  // const [showPassword, setShowPassword] = useState<boolean>(false);
   const { logout } = useAuth();
   const handleLogout = () => {
     logout();
