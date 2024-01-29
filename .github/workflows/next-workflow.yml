@@ -38,8 +38,11 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: PM2 delete all
-        run: pm2 delete all --silent
+      - name: Run App
+        run: npm run start &
 
-      - name: Run build
-        run: pm2 start npm -- start
+      # - name: PM2 delete all
+      #   run: pm2 delete all --silent
+
+      # - name: Run build
+      #   run: pm2 start npm -- start
