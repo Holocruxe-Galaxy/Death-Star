@@ -18,7 +18,9 @@ jobs:
         
       - name: Clean and install dependencies
         run: |
-          rm -rf node_modules
+          if [ -d "node_modules" ]; then
+            rm -rf node_modules
+          fi
           npm install
 
       - name: Create .env
