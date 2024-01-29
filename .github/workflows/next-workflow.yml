@@ -42,11 +42,11 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Run App
-        run: nohup npm start &
+      - name: Install PM2
+        run: npm install pm2 -g
 
-      # - name: PM2 delete all
-      #   run: pm2 delete all --silent
+      - name: Start Application with PM2
+        run: pm2 start npm --name "my-app" -- start
 
-      # - name: Run build
-      #   run: pm2 start npm -- start
+      - name: Show PM2 Process List
+        run: pm2 list
