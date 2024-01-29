@@ -43,7 +43,7 @@ jobs:
         run: npm run build
 
       - name: Run App
-        run: npm run start &
+        run: nohup npm start &
 
       # - name: PM2 delete all
       #   run: pm2 delete all --silent
