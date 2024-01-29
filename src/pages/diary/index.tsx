@@ -23,7 +23,6 @@ import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 
 // ** Emoji Picker
 import data from '@emoji-mart/data';
@@ -44,6 +43,8 @@ import UploadButton from 'src/@core/components/icon/diary/UploadButton';
 //import ArtIcon from 'src/@core/icons/diary/ArtIcon'
 import IconEmojiButton from 'src/@core/components/icon/diary/IconEmojiButton';
 import Send from 'src/@core/components/icon/diary/Send';
+import ArtIcon from 'src/@core/components/icon/diary/ArtIcon';
+import { handleKeyDown } from 'src/utils/handle-key-down';
 
 const useStyles = makeStyles(() => ({
   picker: {
@@ -65,46 +66,55 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-  width: 62,
-  height: 34,
-  padding: 7,
+const CustomSwitch = styled(Switch)(() => ({
+  width: '50px',
+  height: '24px',
+  padding: '0px',
   '& .MuiSwitch-switchBase': {
-    margin: 1,
-    padding: 0,
-    transform: 'translateX(6px)',
-    '&.Mui-checked': {
-      color: '#fff',
-      transform: 'translateX(22px)',
-      '& .MuiSwitch-thumb:before': {
-        backgroundImage: `url()`,
-      },
-      '& + .MuiSwitch-track': {
-        opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-      },
+    padding: '1px',
+    '&.Mui-checked + .MuiSwitch-track': {
+      backgroundImage: 'linear-gradient(180deg, #00FFED 0%, #D5AEE2 80%)',
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.mode === 'dark' ? '#59C1BD' : '#59C1BD',
-    width: 32,
-    height: 32,
-    '&:before': {
-      content: "''",
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      left: 0,
-      top: 0,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundImage: `url()`,
-    },
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: 'linear-gradient(180deg, #00FFED 0%, #D5AEE2 80%)',
+    backgroundColor: 'transparent',
+    width: '18px',
+    height: '18px',
+    margin: '1.7px',
+  },
+  '& .Mui-checked .MuiSwitch-thumb': {
+    backgroundImage: 'none',
+    backgroundColor: '#010032',
+    width: '19px',
+    height: '19px',
+    margin: '1.7px',
   },
   '& .MuiSwitch-track': {
-    opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-    borderRadius: 20 / 2,
+    borderRadius: '20px',
+    backgroundColor: '#010032',
+    opacity: '1 !important',
+    '&:after': {
+      content: '"On"',
+      left: '6px',
+      color: '#010032',
+      fontSize: '11px',
+      position: 'absolute',
+      top: '3.5px',
+    },
+    '&:before': {
+      content: '"Off"',
+      right: '5px',
+      color: 'white',
+      fontSize: '11px',
+      position: 'absolute',
+      top: '3.8px',
+    },
+  },
+  '& .Mui-checked': {
+    color: 'white !important',
+    transform: 'translateX(26px) !important',
   },
 }));
 
@@ -138,7 +148,6 @@ const Diary = () => {
 
   const [toSend, setToSend] = useState<boolean>(false);
   const [isPickerVisible, setPickerVisible] = useState<boolean | null>(false);
-  const [checked, setChecked] = useState<boolean>(false);
   const [isMultiline, setMultiline] = useState<boolean>(false);
   const [file, setFile] = useState<FormData>();
 
@@ -149,6 +158,24 @@ const Diary = () => {
     content: '',
     favorite: false,
   });
+
+  const pickerToggleHandler = () => {
+    setPickerVisible((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (event: any) => {
+    if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+      setPickerVisible(false);
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchData());
@@ -193,12 +220,6 @@ const Diary = () => {
       const newValue = beforeCursor + emoji.native + afterCursor;
       inputRef.current.value = newValue;
     }
-
-    setPickerVisible(!isPickerVisible);
-  };
-
-  const handleChecked = () => {
-    setChecked(!checked);
   };
 
   const fileSelected = (e: ChangeEvent<HTMLInputElement>) => {
@@ -208,8 +229,8 @@ const Diary = () => {
     setFile(formData);
   };
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (e?: FormEvent<HTMLFormElement>) => {
+    e && e.preventDefault();
     if (inputRef.current && inputRef.current.value.length) {
       setDiary({ ...diary, content: inputRef.current.value });
       setToSend(!toSend);
@@ -247,6 +268,7 @@ const Diary = () => {
             <TextField
               focused={isMultiline ? true : false}
               variant="outlined"
+              onKeyDown={(e) => handleKeyDown(e, onSubmit, inputRef)}
               size="medium"
               multiline={true}
               minRows={isMultiline ? 4 : 0}
@@ -265,7 +287,7 @@ const Diary = () => {
                     {!isPickerVisible ? (
                       ''
                     ) : (
-                      <Card className={classes.picker} ref={pickerRef}>
+                      <div className={classes.picker} ref={pickerRef}>
                         <Picker
                           data={data}
                           emojiTooltip
@@ -274,12 +296,16 @@ const Diary = () => {
                           searchPosition="none"
                           onEmojiSelect={handleEmojiSelect}
                         />
-                      </Card>
+                      </div>
                     )}
                     <IconButton
-                      onClick={() => setPickerVisible(!isPickerVisible)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        pickerToggleHandler();
+                      }}
                       sx={isMultiline ? undefined : { display: 'none' }}
                       className={classes.iconButton}
+                      aria-expanded={isPickerVisible ? 'true' : 'false'}
                     >
                       <IconEmojiButton />
                     </IconButton>
@@ -302,11 +328,10 @@ const Diary = () => {
                   title="Al activarlo, se guardará como tus publicaciones favoritas"
                   placement="top"
                 >
-                  <MaterialUISwitch
-                    sx={{ marginRight: 3 }}
-                    onChange={handleSwitchChange}
-                    onClick={handleChecked}
-                    checked={checked}
+                  <CustomSwitch
+                    sx={{ mr: 3, mt: 1.5 }}
+                    onClick={handleSwitchChange}
+                    checked={diary.favorite}
                   />
                 </Tooltip>
 
@@ -334,12 +359,16 @@ const Diary = () => {
                 <Select
                   id="select"
                   value={diary.emoji || ''}
-                  sx={{ height: '2.5rem', pt: 2 }}
+                  sx={{
+                    height: '2.5rem',
+                    fontSize: '1.5rem',
+                    textAlign: 'center',
+                  }}
                   onChange={handleChange}
                   displayEmpty
                   renderValue={(selected) => {
                     if (selected === '' || !selected) {
-                      return <EmojiEmotionsIcon sx={{ pl: 10 }} />;
+                      return <ArtIcon />;
                     }
 
                     return selected;

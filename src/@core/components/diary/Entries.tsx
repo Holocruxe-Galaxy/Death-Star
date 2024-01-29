@@ -224,7 +224,7 @@ const Entries = ({ id, props }: any) => {
             </Tooltip>
 
             <Modal open={openEdit} onClose={handleCloseEdit}>
-              <Box sx={styleEdit}>
+              <Box component="div" sx={styleEdit}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <FormControl>
                     <Controller
@@ -332,7 +332,7 @@ const Entries = ({ id, props }: any) => {
               <DeleteIcon />
             </IconButton>
             <Modal open={open} onClose={handleClose}>
-              <Box sx={style}>
+              <Box component="div" sx={style}>
                 <Typography variant="h6" component="h2">
                   Deseas eliminar?
                 </Typography>
