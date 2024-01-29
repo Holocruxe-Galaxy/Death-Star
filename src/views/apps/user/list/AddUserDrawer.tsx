@@ -169,7 +169,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
           <Icon icon="mdi:close" fontSize={20} />
         </IconButton>
       </Header>
-      <Box sx={{ p: 5 }}>
+      <Box component="div" sx={{ p: 5 }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -334,7 +334,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
               <MenuItem value="team">Team</MenuItem>
             </Select>
           </FormControl>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
               size="large"
               type="submit"

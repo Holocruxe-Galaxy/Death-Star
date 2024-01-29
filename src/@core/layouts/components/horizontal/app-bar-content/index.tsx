@@ -43,6 +43,7 @@ const AppBarContent = (props: Props) => {
 
   return (
     <Box
+      component="div"
       sx={{
         width: '100%',
         display: 'flex',

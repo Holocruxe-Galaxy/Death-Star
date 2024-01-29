@@ -14,15 +14,15 @@ const RatingsBasic = () => {
 
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Controlled</Typography>
         <Rating value={value} name='simple-controlled' onChange={(event, newValue) => setValue(newValue)} />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Read only</Typography>
         <Rating readOnly value={value} name='read-only' />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Disabled</Typography>
         <Rating disabled value={value} name='disabled' />
       </Box>
@@ -49,7 +49,7 @@ import Typography from '@mui/material/Typography'
 const RatingsHalf = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Half Ratings</Typography>
         <Rating defaultValue={2.5} precision={0.5} name='half-rating' />
       </Box>
@@ -108,11 +108,11 @@ const IconContainer = props => {
 const RatingsCustomized = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom empty icon</Typography>
         <Rating name='customized-empty' defaultValue={2} precision={0.5} emptyIcon={<Icon icon='mdi:star' />} />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom icon and color</Typography>
         <Rating
           precision={0.5}
@@ -123,7 +123,7 @@ const RatingsCustomized = () => {
           emptyIcon={<Icon icon='mdi:heart' />}
         />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>10 stars</Typography>
         <Rating name='customized-10' defaultValue={7} max={10} />
       </Box>
@@ -148,7 +148,7 @@ import Rating from '@mui/material/Rating'
 
 const RatingsSizes = () => {
   return (
-    <Box className='demo-space-y' sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box component='div' className='demo-space-y' sx={{ display: 'flex', flexDirection: 'column' }}>
       <Rating defaultValue={2} name='size-small' size='small' />
       <Rating defaultValue={2} name='size-medium' />
       <Rating defaultValue={2} name='size-large' size='large' />
@@ -190,7 +190,7 @@ const RatingsHoverFeedback = () => {
   const [value, setValue] = useState(2)
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
       <Rating
         value={value}
         precision={0.5}
@@ -255,11 +255,11 @@ const IconContainer = (props: IconContainerProps) => {
 const RatingsCustomized = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom empty icon</Typography>
         <Rating name='customized-empty' defaultValue={2} precision={0.5} emptyIcon={<Icon icon='mdi:star' />} />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom icon and color</Typography>
         <Rating
           precision={0.5}
@@ -270,7 +270,7 @@ const RatingsCustomized = () => {
           emptyIcon={<Icon icon='mdi:heart' />}
         />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>10 stars</Typography>
         <Rating name='customized-10' defaultValue={7} max={10} />
       </Box>
@@ -297,7 +297,7 @@ import Typography from '@mui/material/Typography'
 const RatingsHalf = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Half Ratings</Typography>
         <Rating defaultValue={2.5} precision={0.5} name='half-rating' />
       </Box>
@@ -330,15 +330,15 @@ const RatingsBasic = () => {
 
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Controlled</Typography>
         <Rating value={value} name='simple-controlled' onChange={(event, newValue) => setValue(newValue)} />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Read only</Typography>
         <Rating readOnly value={value} name='read-only' />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component='div' sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Disabled</Typography>
         <Rating disabled value={value} name='disabled' />
       </Box>
@@ -363,7 +363,7 @@ import Rating from '@mui/material/Rating'
 
 const RatingsSizes = () => {
   return (
-    <Box className='demo-space-y' sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box component='div' className='demo-space-y' sx={{ display: 'flex', flexDirection: 'column' }}>
       <Rating defaultValue={2} name='size-small' size='small' />
       <Rating defaultValue={2} name='size-medium' />
       <Rating defaultValue={2} name='size-large' size='large' />
@@ -405,7 +405,7 @@ const RatingsHoverFeedback = () => {
   const [value, setValue] = useState<number | null>(2)
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
       <Rating
         value={value}
         precision={0.5}

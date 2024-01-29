@@ -150,7 +150,7 @@ const MenuContext = () => {
   }
 
   return (
-    <Box onContextMenu={handleClick} sx={{ cursor: 'context-menu' }}>
+    <Box component='div' onContextMenu={handleClick} sx={{ cursor: 'context-menu' }}>
       <Typography>
         Apple pie bonbon sweet brownie cake lemon drops carrot cake danish carrot cake. Marzipan jujubes cupcake cake
         bear claw jujubes. Macaroon candy canes jelly-o sugar plum biscuit. Cupcake cupcake oat cake cookie donut candy
@@ -716,7 +716,7 @@ const MenuContext = () => {
   }
 
   return (
-    <Box onContextMenu={handleClick} sx={{ cursor: 'context-menu' }}>
+    <Box component='div' onContextMenu={handleClick} sx={{ cursor: 'context-menu' }}>
       <Typography>
         Apple pie bonbon sweet brownie cake lemon drops carrot cake danish carrot cake. Marzipan jujubes cupcake cake
         bear claw jujubes. Macaroon candy canes jelly-o sugar plum biscuit. Cupcake cupcake oat cake cookie donut candy

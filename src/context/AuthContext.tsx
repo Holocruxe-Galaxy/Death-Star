@@ -17,6 +17,7 @@ import {
   // ErrCallbackType,
   UserDataType,
 } from './types';
+import { afterLogin } from './functions';
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -47,6 +48,15 @@ const AuthProvider = ({ children }: Props) => {
       const storedToken = window.localStorage.getItem(
         authConfig.storageTokenKeyName,
       )!;
+      if (window.localStorage.getItem('status') === 'PENDING') {
+        router.replace('/register');
+      }
+      if (
+        router.asPath !== '/register' &&
+        !window.localStorage.getItem('status')
+      ) {
+        router.replace('/login');
+      }
       if (storedToken) {
         setLoading(true);
         await axios
@@ -65,10 +75,13 @@ const AuthProvider = ({ children }: Props) => {
             });
           })
           .catch(() => {
-            localStorage.removeItem('userData');
-            localStorage.removeItem('refreshToken');
-            localStorage.removeItem('accessToken');
             setUser(null);
+            window.localStorage.removeItem('AuthorizationToken');
+            window.localStorage.removeItem('step');
+            window.localStorage.removeItem('status');
+            window.localStorage.removeItem('userData');
+            window.localStorage.removeItem(authConfig.storageTokenKeyName);
+            router.push('/api/auth/logout/');
             setLoading(false);
             if (
               authConfig.onTokenExpiration === 'logout' &&
@@ -86,43 +99,43 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleLogin = async (params: LoginParams) => {
-    const storedToken = window.localStorage.getItem(
-      authConfig.storageTokenKeyName,
-    )!;
-
+  const handleLogin = async (params: LoginParams, token: any) => {
     try {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_CORUSCANT}/users/verify`,
         {
           headers: {
-            Authorization: `Bearer ${storedToken}`,
+            Authorization: `Bearer ${token}`,
           },
         },
       );
-
       const responseData = response.data;
 
-      if (params.rememberMe) {
-        window.localStorage.setItem(
-          authConfig.storageTokenKeyName,
-          storedToken,
-        );
-        window.localStorage.setItem(
-          'userData',
-          JSON.stringify({ username: responseData.userMail, role: 'Admin' }),
-        );
+      const status = await afterLogin(token);
+      if (status === 'PENDING') {
+        window.localStorage.setItem('AuthorizationToken', token);
+        router.replace('/register');
+        return;
       }
+      if (status === 'COMPLETE') {
+        if (params.rememberMe) {
+          window.localStorage.setItem(authConfig.storageTokenKeyName, token);
+          window.localStorage.setItem(
+            'userData',
+            JSON.stringify({ username: responseData.userMail, role: 'client' }),
+          );
+        }
 
-      const returnUrl = router.query.returnUrl;
-      const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/';
+        const returnUrl = router.query.returnUrl;
+        const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/';
 
-      setUser({
-        id: responseData.userMail,
-        username: responseData.userMail,
-        role: 'admin',
-      });
-      router.replace(redirectURL as string);
+        setUser({
+          id: responseData.userMail,
+          username: responseData.userMail,
+          role: 'admin',
+        });
+        router.replace(redirectURL as string);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -130,6 +143,9 @@ const AuthProvider = ({ children }: Props) => {
 
   const handleLogout = () => {
     setUser(null);
+    window.localStorage.removeItem('AuthorizationToken');
+    window.localStorage.removeItem('step');
+    window.localStorage.removeItem('status');
     window.localStorage.removeItem('userData');
     window.localStorage.removeItem(authConfig.storageTokenKeyName);
     router.push('/api/auth/logout/');

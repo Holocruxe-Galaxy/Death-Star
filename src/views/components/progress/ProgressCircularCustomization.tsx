@@ -22,7 +22,7 @@ const CircularProgressIndeterminate = styled(
 
 const ProgressCircularCustomization = () => {
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box component="div" sx={{ position: 'relative' }}>
       <CircularProgressDeterminate
         variant="determinate"
         size={50}

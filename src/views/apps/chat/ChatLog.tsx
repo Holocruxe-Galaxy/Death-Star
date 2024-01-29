@@ -150,6 +150,7 @@ const ChatLog = (props: ChatLogType) => {
 
         return (
           <Box
+            component="div"
             key={index}
             sx={{
               display: 'flex',
@@ -192,6 +193,7 @@ const ChatLog = (props: ChatLogType) => {
             </div>
 
             <Box
+              component="div"
               className="chat-body"
               sx={{ maxWidth: ['calc(100% - 5.75rem)', '75%', '65%'] }}
             >
@@ -205,6 +207,7 @@ const ChatLog = (props: ChatLogType) => {
 
                   return (
                     <Box
+                      component="div"
                       key={index}
                       sx={{ '&:not(:last-of-type)': { mb: 3.5 } }}
                     >
@@ -232,6 +235,7 @@ const ChatLog = (props: ChatLogType) => {
                       </div>
                       {index + 1 === length ? (
                         <Box
+                          component="div"
                           sx={{
                             mt: 1,
                             display: 'flex',
@@ -271,6 +275,7 @@ const ChatLog = (props: ChatLogType) => {
     if (hidden) {
       return (
         <Box
+          component="div"
           ref={chatArea}
           sx={{ p: 5, height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
         >
@@ -287,7 +292,7 @@ const ChatLog = (props: ChatLogType) => {
   };
 
   return (
-    <Box sx={{ height: 'calc(100% - 8.4375rem)' }}>
+    <Box component="div" sx={{ height: 'calc(100% - 8.4375rem)' }}>
       <ScrollWrapper>{renderChats()}</ScrollWrapper>
     </Box>
   );

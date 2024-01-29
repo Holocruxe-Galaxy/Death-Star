@@ -238,7 +238,7 @@ const StyledTreeItem = props => {
     <StyledTreeItemRoot
       {...other}
       label={
-        <Box sx={{ py: 1, display: 'flex', alignItems: 'center', '& svg': { mr: 1 } }}>
+        <Box component='div' sx={{ py: 1, display: 'flex', alignItems: 'center', '& svg': { mr: 1 } }}>
           <Icon icon={labelIcon} color='inherit' />
           <Typography variant='body2' sx={{ flexGrow: 1, fontWeight: 'inherit' }}>
             {labelText}
@@ -490,7 +490,7 @@ const StyledTreeItem = (props: StyledTreeItemProps) => {
     <StyledTreeItemRoot
       {...other}
       label={
-        <Box sx={{ py: 1, display: 'flex', alignItems: 'center', '& svg': { mr: 1 } }}>
+        <Box component='div' sx={{ py: 1, display: 'flex', alignItems: 'center', '& svg': { mr: 1 } }}>
           <Icon icon={labelIcon} color='inherit' />
           <Typography variant='body2' sx={{ flexGrow: 1, fontWeight: 'inherit' }}>
             {labelText}

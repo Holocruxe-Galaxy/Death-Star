@@ -51,6 +51,7 @@ const StyledTreeItem = (props: StyledTreeItemProps) => {
       {...other}
       label={
         <Box
+          component="div"
           sx={{
             py: 1,
             display: 'flex',

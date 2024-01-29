@@ -41,7 +41,10 @@ const UserProfileRight = (props: UserProfileRightType) => {
   const ScrollWrapper = ({ children }: { children: ReactNode }) => {
     if (hidden) {
       return (
-        <Box sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+        <Box
+          component="div"
+          sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
+        >
           {children}
         </Box>
       );
@@ -73,7 +76,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
     >
       {store && store.selectedChat ? (
         <Fragment>
-          <Box sx={{ position: 'relative' }}>
+          <Box component="div" sx={{ position: 'relative' }}>
             <IconButton
               size="small"
               onClick={handleUserProfileRightSidebarToggle}
@@ -88,6 +91,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
               <Icon icon="mdi:close" />
             </IconButton>
             <Box
+              component="div"
               sx={{
                 px: 5,
                 pb: 7,
@@ -96,7 +100,10 @@ const UserProfileRight = (props: UserProfileRightType) => {
                 flexDirection: 'column',
               }}
             >
-              <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
+              <Box
+                component="div"
+                sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}
+              >
                 <Badge
                   overlap="circular"
                   anchorOrigin={{
@@ -155,9 +162,9 @@ const UserProfileRight = (props: UserProfileRightType) => {
             </Box>
           </Box>
 
-          <Box sx={{ height: 'calc(100% - 13.0625rem)' }}>
+          <Box component="div" sx={{ height: 'calc(100% - 13.0625rem)' }}>
             <ScrollWrapper>
-              <Box sx={{ p: 5 }}>
+              <Box component="div" sx={{ p: 5 }}>
                 <FormGroup sx={{ mb: 6 }}>
                   <Typography
                     variant="body2"
@@ -170,7 +177,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
                   </Typography>
                 </FormGroup>
 
-                <Box sx={{ mb: 6 }}>
+                <Box component="div" sx={{ mb: 6 }}>
                   <Typography
                     variant="body2"
                     sx={{ mb: 1.5, textTransform: 'uppercase' }}

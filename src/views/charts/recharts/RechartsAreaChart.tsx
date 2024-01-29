@@ -134,6 +134,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
           data.payload.map((i: any) => {
             return (
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -225,8 +226,9 @@ const RechartsAreaChart = ({ direction }: Props) => {
         }
       />
       <CardContent>
-        <Box sx={{ display: 'flex', mb: 4 }}>
+        <Box component="div" sx={{ display: 'flex', mb: 4 }}>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -238,6 +240,7 @@ const RechartsAreaChart = ({ direction }: Props) => {
             <Typography variant="body2">Click</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -249,6 +252,7 @@ const RechartsAreaChart = ({ direction }: Props) => {
             <Typography variant="body2">Sales</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -259,7 +263,7 @@ const RechartsAreaChart = ({ direction }: Props) => {
             <Typography variant="body2">Visits</Typography>
           </Box>
         </Box>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <AreaChart
               height={350}

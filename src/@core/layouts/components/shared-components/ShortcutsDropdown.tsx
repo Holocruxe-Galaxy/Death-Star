@@ -78,7 +78,10 @@ const ScrollWrapper = ({
 }) => {
   if (hidden) {
     return (
-      <Box sx={{ maxHeight: '30rem', overflowY: 'auto', overflowX: 'hidden' }}>
+      <Box
+        component="div"
+        sx={{ maxHeight: '30rem', overflowY: 'auto', overflowX: 'hidden' }}
+      >
         {children}
       </Box>
     );
@@ -149,6 +152,7 @@ const ShortcutsDropdown = (props: Props) => {
           }}
         >
           <Box
+            component="div"
             sx={{
               display: 'flex',
               justifyContent: 'space-between',

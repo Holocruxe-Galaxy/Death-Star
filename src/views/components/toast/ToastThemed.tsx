@@ -30,6 +30,7 @@ const ToastThemed = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',

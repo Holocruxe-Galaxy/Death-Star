@@ -19,7 +19,7 @@ const TabsVertical = () => {
 
   return (
     <TabContext value={value}>
-      <Box sx={{ display: 'flex' }}>
+      <Box component="div" sx={{ display: 'flex' }}>
         <TabList
           orientation="vertical"
           onChange={handleChange}

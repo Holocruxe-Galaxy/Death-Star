@@ -5,30 +5,24 @@ export function tokenExists(token: string | null): asserts token is string {
     throw new Error("The data hasn't been saved properly in Local Storage.");
 }
 
-export async function afterSignup() {
-  //   const token = localStorage.getItem('accessToken');
-  //   tokenExists(token);
+export async function afterSignup(token: string) {
+  const user = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/user`, {
+    method: 'POST',
+    headers: { authorization: `Bearer ${token}` },
+  });
 
-  //   const user = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/user`, {
-  //     method: 'POST',
-  //     headers: { authorization: `Bearer ${token}` },
-  //   });
-
-  //   const response = (await user.json()) as User;
-  //   console.log(response);
-
-  //   localStorage.setItem('step', step.toString());
-  console.log(`%cHi, I'm Cruxis! I hope we will be great friends!`);
+  const response = (await user.json()) as User;
+  return response;
 }
 
-export async function afterLogin() {
-  const token = localStorage.getItem('accessToken');
-  tokenExists(token);
+export async function afterLogin(token: any) {
+  await afterSignup(token);
 
   const user = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/user/data`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
+
   const { status, step } = (await user.json()) as User;
   if (status !== 'COMPLETE') {
     console.log(`%cHi, I'm Cruxis! I hope we will be great friends!`);
@@ -67,7 +61,6 @@ export async function registerToHolocruxe(user: any, auth: any) {
   } else {
     window.alert('Ésta cuenta ya existe, se iniciará sesión automáticamente');
     await loginToHolocruxe(user, auth);
-    await afterSignup();
   }
 }
 
@@ -95,16 +88,13 @@ export async function loginToHolocruxe(user: any, auth: any) {
       return;
     }
     const AuthorizationToken = response.headers.get('Authorization');
-    if (AuthorizationToken !== null) {
-      window.localStorage.setItem('accessToken', AuthorizationToken);
-    }
+
     const userLogin = {
       email: user?.email,
       last_connection: user?.updated_at,
       rememberMe: true,
     };
-    auth.login(userLogin);
-    afterLogin();
+    auth.login(userLogin, AuthorizationToken);
     return;
   } catch (error) {
     console.error('Error en la solicitud');

@@ -1,29 +1,15 @@
 // ** React Imports
-import { ReactNode, useState } from 'react';
-
-// ** Next Import
-import Link from 'next/link';
+import { ReactNode } from 'react';
 
 // ** MUI Components
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
-import FormControl from '@mui/material/FormControl';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled, useTheme } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiFormControlLabel, {
-  FormControlLabelProps,
-} from '@mui/material/FormControlLabel';
-
-// ** Icon Imports
-import Icon from 'src/@core/components/icon';
+// import MuiFormControlLabel, {
+//   FormControlLabelProps,
+// } from '@mui/material/FormControlLabel';
 
 // ** Configs
 import themeConfig from 'src/configs/themeConfig';
@@ -33,6 +19,7 @@ import BlankLayout from 'src/@core/layouts/BlankLayout';
 
 // ** Hooks
 import { useSettings } from 'src/@core/hooks/useSettings';
+import { useAuth } from 'src/hooks/useAuth';
 
 // ** Styled Components
 const RegisterIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -77,25 +64,28 @@ const TypographyStyled = styled(Typography)<TypographyProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: { marginTop: theme.spacing(8) },
 }));
 
-const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
-  ({ theme }) => ({
-    marginBottom: theme.spacing(4),
-    '& .MuiFormControlLabel-label': {
-      fontSize: '0.875rem',
-      color: theme.palette.text.secondary,
-    },
-  }),
-);
+// const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
+//   ({ theme }) => ({
+//     marginBottom: theme.spacing(4),
+//     '& .MuiFormControlLabel-label': {
+//       fontSize: '0.875rem',
+//       color: theme.palette.text.secondary,
+//     },
+//   }),
+// );
 
-const LinkStyled = styled(Link)(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.primary.main,
-}));
+// const LinkStyled = styled(Link)(({ theme }) => ({
+//   textDecoration: 'none',
+//   color: theme.palette.primary.main,
+// }));
 
 const Register = () => {
   // ** States
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-
+  // const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { logout } = useAuth();
+  const handleLogout = () => {
+    logout();
+  };
   // ** Hooks
   const theme = useTheme();
   const { settings } = useSettings();
@@ -110,9 +100,10 @@ const Register = () => {
       : 'auth-v2-register-illustration';
 
   return (
-    <Box className="content-right">
+    <Box component="div" className="content-right">
       {!hidden ? (
         <Box
+          component="div"
           sx={{
             flex: 1,
             display: 'flex',
@@ -137,6 +128,7 @@ const Register = () => {
         }
       >
         <Box
+          component="div"
           sx={{
             p: 7,
             height: '100%',
@@ -148,6 +140,7 @@ const Register = () => {
         >
           <BoxWrapper>
             <Box
+              component="div"
               sx={{
                 top: 30,
                 left: 40,
@@ -245,159 +238,31 @@ const Register = () => {
                 {themeConfig.templateName}
               </Typography>
             </Box>
-            <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant="h5">
-                Adventure starts here 🚀
+            <Box component="div" sx={{ mb: 6 }}>
+              <TypographyStyled variant="h4">
+                Aquí iría el onboarding
+              </TypographyStyled>
+              <br></br>
+              <br></br>
+              <TypographyStyled variant="h6">
+                Desloguearse para volver al Login
               </TypographyStyled>
               <Typography variant="body2">
-                Make your app management easy and fun!
+                si se quiere ir al /testin es necesario tener completo el
+                onboarding en el otro repo
               </Typography>
             </Box>
-            <form
-              noValidate
-              autoComplete="off"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <TextField
-                autoFocus
-                fullWidth
-                sx={{ mb: 4 }}
-                label="Username"
-                placeholder="johndoe"
-              />
-              <TextField
-                fullWidth
-                label="Email"
-                sx={{ mb: 4 }}
-                placeholder="user@email.com"
-              />
-              <FormControl fullWidth>
-                <InputLabel htmlFor="auth-login-v2-password">
-                  Password
-                </InputLabel>
-                <OutlinedInput
-                  label="Password"
-                  id="auth-login-v2-password"
-                  type={showPassword ? 'text' : 'password'}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        edge="end"
-                        onMouseDown={(e) => e.preventDefault()}
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        <Icon
-                          icon={
-                            showPassword
-                              ? 'mdi:eye-outline'
-                              : 'mdi:eye-off-outline'
-                          }
-                        />
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
 
-              <FormControlLabel
-                control={<Checkbox />}
-                sx={{
-                  mb: 4,
-                  mt: 1.5,
-                  '& .MuiFormControlLabel-label': { fontSize: '0.875rem' },
-                }}
-                label={
-                  <>
-                    <Typography variant="body2" component="span">
-                      I agree to{' '}
-                    </Typography>
-                    <LinkStyled href="/" onClick={(e) => e.preventDefault()}>
-                      privacy policy & terms
-                    </LinkStyled>
-                  </>
-                }
-              />
-              <Button
-                fullWidth
-                size="large"
-                type="submit"
-                variant="contained"
-                sx={{ mb: 7 }}
-              >
-                Sign up
-              </Button>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  justifyContent: 'center',
-                }}
-              >
-                <Typography sx={{ mr: 2, color: 'text.secondary' }}>
-                  Already have an account?
-                </Typography>
-                <Typography
-                  href="/login"
-                  component={Link}
-                  sx={{ color: 'primary.main', textDecoration: 'none' }}
-                >
-                  Sign in instead
-                </Typography>
-              </Box>
-              <Divider
-                sx={{
-                  '& .MuiDivider-wrapper': { px: 4 },
-                  mt: (theme) => `${theme.spacing(5)} !important`,
-                  mb: (theme) => `${theme.spacing(7.5)} !important`,
-                }}
-              >
-                or
-              </Divider>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <IconButton
-                  href="/"
-                  component={Link}
-                  sx={{ color: '#497ce2' }}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <Icon icon="mdi:facebook" />
-                </IconButton>
-                <IconButton
-                  href="/"
-                  component={Link}
-                  sx={{ color: '#1da1f2' }}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <Icon icon="mdi:twitter" />
-                </IconButton>
-                <IconButton
-                  href="/"
-                  component={Link}
-                  onClick={(e) => e.preventDefault()}
-                  sx={{
-                    color: (theme) =>
-                      theme.palette.mode === 'light' ? '#272727' : 'grey.300',
-                  }}
-                >
-                  <Icon icon="mdi:github" />
-                </IconButton>
-                <IconButton
-                  href="/"
-                  component={Link}
-                  sx={{ color: '#db4437' }}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <Icon icon="mdi:google" />
-                </IconButton>
-              </Box>
-            </form>
+            <Button
+              onClick={handleLogout}
+              fullWidth
+              size="large"
+              type="submit"
+              variant="contained"
+              sx={{ mb: 7 }}
+            >
+              Cerrar sesión
+            </Button>
           </BoxWrapper>
         </Box>
       </RightWrapper>

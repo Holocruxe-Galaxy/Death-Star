@@ -77,6 +77,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
           data.payload.map((i: any) => {
             return (
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -103,7 +104,7 @@ const RechartsRadarChart = () => {
     <Card>
       <CardHeader title="Mobile Comparison" />
       <CardContent>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <RadarChart
               cx="50%"
@@ -131,8 +132,12 @@ const RechartsRadarChart = () => {
             </RadarChart>
           </ResponsiveContainer>
         </Box>
-        <Box sx={{ display: 'flex', mb: 4, justifyContent: 'center' }}>
+        <Box
+          component="div"
+          sx={{ display: 'flex', mb: 4, justifyContent: 'center' }}
+        >
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -144,6 +149,7 @@ const RechartsRadarChart = () => {
             <Typography variant="body2">iPhone 11</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',

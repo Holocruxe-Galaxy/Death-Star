@@ -51,16 +51,20 @@ const SwiperMutationObserver = ({ direction }: { direction: Direction }) => {
 
   return (
     <>
-      <Box ref={ref} className="keen-slider">
+      <Box component="div" ref={ref} className="keen-slider">
         {slides.map((slide) => {
           return (
-            <Box key={slide} className="keen-slider__slide default-slide">
+            <Box
+              component="div"
+              key={slide}
+              className="keen-slider__slide default-slide"
+            >
               <Typography variant="h1">{slide}</Typography>
             </Box>
           );
         })}
       </Box>
-      <Box sx={{ mt: 4 }} className="demo-space-x">
+      <Box component="div" sx={{ mt: 4 }} className="demo-space-x">
         <Button
           variant="contained"
           onClick={() => setSlides([...slides, slides.length + 1])}

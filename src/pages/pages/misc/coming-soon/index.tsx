@@ -31,8 +31,9 @@ const Img = styled('img')(({ theme }) => ({
 
 const ComingSoon = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',
@@ -41,7 +42,7 @@ const ComingSoon = () => {
         }}
       >
         <BoxWrapper>
-          <Box sx={{ mb: 10, textAlign: 'center' }}>
+          <Box component="div" sx={{ mb: 10, textAlign: 'center' }}>
             <Typography
               variant="h5"
               sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
@@ -59,6 +60,7 @@ const ComingSoon = () => {
             onSubmit={(e) => e.preventDefault()}
           >
             <Box
+              component="div"
               sx={{
                 display: 'flex',
                 alignItems: 'center',
