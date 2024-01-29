@@ -168,6 +168,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (window.localStorage.getItem('createAccount') === 'true' && user) {
+      auth.setLoading(true);
       registerToHolocruxe(user, auth);
       return;
     } else if (
@@ -175,6 +176,7 @@ const LoginPage = () => {
       !isLoading &&
       window.localStorage.getItem('createAccount') !== 'true'
     ) {
+      auth.setLoading(true);
       loginToHolocruxe(user, auth);
     }
   }, [user, isLoading, auth]); // agregue isLoading y auth, porque me lo marcaba como error (gianni)

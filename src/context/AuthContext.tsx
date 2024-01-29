@@ -115,6 +115,7 @@ const AuthProvider = ({ children }: Props) => {
       if (status === 'PENDING') {
         window.localStorage.setItem('AuthorizationToken', token);
         router.replace('/register');
+        setLoading(false);
         return;
       }
       if (status === 'COMPLETE') {
@@ -124,6 +125,7 @@ const AuthProvider = ({ children }: Props) => {
             'userData',
             JSON.stringify({ username: responseData.userMail, role: 'client' }),
           );
+          setLoading(false);
         }
 
         const returnUrl = router.query.returnUrl;
