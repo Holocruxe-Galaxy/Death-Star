@@ -1,13 +1,13 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 export type CardLinksProps = {
-  activeIcon: ReactNode
-  inactiveIcon: ReactNode
-  name: string
-  classType?: string
-  href: string 
-}
+  activeIcon: ReactNode;
+  inactiveIcon: ReactNode;
+  name: string;
+  classType?: string;
+  href: string;
+};
 
 export type CardButtonsProps = {
-  data: CardLinksProps[]
-}
+  data: CardLinksProps[];
+};
