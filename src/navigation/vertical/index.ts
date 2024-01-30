@@ -4,9 +4,14 @@ import { VerticalNavItemsType } from 'src/@core/layouts/types';
 const navigation = (): VerticalNavItemsType => {
   return [
     {
-      title: 'Dashboards',
+      title: 'Home',
       icon: 'mdi:home-outline',
       path: '/',
+    },
+    {
+      title: 'Diary',
+      icon: 'mdi:home-outline',
+      path: '/diary',
     },
   ];
 };
