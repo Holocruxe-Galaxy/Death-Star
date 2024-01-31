@@ -19,9 +19,10 @@ jobs:
         script: |
           cd Death-Star/
           git pull origin testing/new-github-actions
+          export NVM_DIR=~/.nvm
+          export PATH=$PATH:/home/user/.npm-global/bin
+          source ~/.nvm/nvm.sh
           npm install
           npm run build
-          mkdir estuveaqui
           pm2 delete all 
-          ls
           pm2 start npm -- start
