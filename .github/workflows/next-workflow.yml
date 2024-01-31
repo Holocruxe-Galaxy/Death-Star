@@ -6,43 +6,23 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    steps:
-    
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Clean and install dependencies
-        run: |
-          if [ -d "node_modules" ]; then
-            rm -rf node_modules
-          fi
+    runs-on: ubuntu-latest
+
+    steps:       
+    - name: Connect to EC2 and Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd Death-Star/
+          git pull origin develop
+          export NVM_DIR=~/.nvm
+          export PATH=$PATH:/home/user/.npm-global/bin
+          source ~/.nvm/nvm.sh
           npm install
-
-      - name: Create .env
-        run: |
-          echo "NEXT_PUBLIC_JWT_EXPIRATION=${{ secrets.NEXT_PUBLIC_JWT_EXPIRATION }}" > .env
-          echo "NEXT_PUBLIC_JWT_SECRET=${{ secrets.NEXT_PUBLIC_JWT_SECRET }}" >> .env
-          echo "NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET=${{ secrets.NEXT_PUBLIC_JWT_REFRESH_TOKEN_SECRET }}" >> .env
-
-          echo "AUTH0_SECRET=${{ secrets.AUTH0_SECRET }}" >> .env
-          echo "AUTH0_BASE_URL=${{ secrets.AUTH0_BASE_URL }}" >> .env
-          echo "AUTH0_ISSUER_BASE_URL=${{ secrets.AUTH0_ISSUER_BASE_URL }}" >> .env
-          echo "AUTH0_CLIENT_ID=${{ secrets.AUTH0_CLIENT_ID }}" >> .env
-          echo "AUTH0_CLIENT_SECRET=${{ secrets.AUTH0_CLIENT_SECRET }}" >> .env
-
-          echo "NEXT_PUBLIC_MANDALORE=${{ secrets.NEXT_PUBLIC_MANDALORE }}" >> .env
-          echo "NEXT_PUBLIC_CORUSCANT=${{ secrets.NEXT_PUBLIC_CORUSCANT }}" >> .env
-          echo "NEXT_PUBLIC_CURRENT_URL=${{ secrets.NEXT_PUBLIC_CURRENT_URL }}" >> .env
-
-      - name: Build app
-        run: npm run build
-
-      - name: PM2 Delete All
-        run: pm2 delete all
-
-      - name: Start Application with PM2
-        run: pm2 start npm -- start
-
-      - name: Show PM2 Process List
-        run: pm2 list
+          npm run build
+          pm2 delete all 
+          pm2 start npm -- start
