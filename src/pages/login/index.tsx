@@ -39,6 +39,9 @@ import Particles from '../../@core/components/login/adds/Particles';
 
 // ** Icon Imports
 // import Icon from 'src/@core/components/icon';
+import FacebookIcon from 'src/@core/icons/login/FacebookIcon';
+import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
+import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 // ** Third Party Imports
 import * as yup from 'yup';
@@ -59,9 +62,6 @@ import { loginToHolocruxe, registerToHolocruxe } from 'src/context/functions';
 // import { Icon } from '@mui/material';
 // import Rocket from 'src/@core/icons/login/Rocket';
 import HolocruxeLogo from '../../@core/icons/login/HolocruxeLogo';
-import FacebookIcon from '../../@core/icons/login/FacebookIcon';
-import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
-import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
