@@ -354,7 +354,7 @@ const LoginPage = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'rgb(32, 67, 94, 0.9)',
+            backgroundColor: 'holocruxe.bg',
             position: 'absolute',
             // backdropFilter: 'blur(7px)',
             top: 0,
@@ -364,12 +364,15 @@ const LoginPage = () => {
         >
           <BoxWrapper>
             <Box component="div" sx={{ mt: 10, textAlign: 'center' }}>
-              <TypographyStyled variant="h5" sx={{ color: 'common.white' }}>
+              <TypographyStyled
+                variant="h5"
+                sx={{ color: 'holocruxe.fontWhite' }}
+              >
                 Bienvenid@s! 👋🏻
               </TypographyStyled>
               <Typography
                 variant="body2"
-                sx={{ marginTop: 0, color: 'common.white' }}
+                sx={{ marginTop: 0, color: 'holocruxe.fontWhite' }}
               >
                 Ingresa a tu cuenta y dale vida a tus momentos
               </Typography>
@@ -388,7 +391,7 @@ const LoginPage = () => {
                 fullWidth
                 size="large"
                 variant="contained"
-                sx={{ mt: 9, mb: 3, bgcolor: '#268182' }}
+                sx={{ mt: 9, mb: 3, bgcolor: 'holocruxe.btn' }}
               >
                 Iniciar Sesión
               </Button>
@@ -422,7 +425,7 @@ const LoginPage = () => {
                   component={Link}
                   sx={{
                     textDecoration: 'none',
-                    color: '#268182',
+                    color: 'holocruxe.btn',
                     textAlign: 'rigth',
                   }}
                 >
@@ -439,7 +442,7 @@ const LoginPage = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography sx={{ mr: 2, color: 'text.secondary' }}>
+                <Typography sx={{ mr: 2, color: 'holocruxe.fontWhite' }}>
                   Eres nuev@ en la plataforma?
                 </Typography>
                 <Typography
@@ -450,7 +453,7 @@ const LoginPage = () => {
                   }}
                   href={'/'}
                   component={Link}
-                  sx={{ textDecoration: 'none', color: '#268182' }}
+                  sx={{ textDecoration: 'none', color: 'holocruxe.btn' }}
                 >
                   Regístrate
                 </Typography>
