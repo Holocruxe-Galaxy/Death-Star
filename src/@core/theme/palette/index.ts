@@ -20,6 +20,19 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
   };
 
   return {
+    // holocruxe palette
+    holocruxe: {
+      // hacer condicional cuando tengamos paleta deambos modos
+      bg: '#20435e',
+      fontWhite: '#f7f9f9',
+      ligthText: '#c2e6e5',
+      mediumText: '#8dd3d1',
+      darkText: '#59c1bd',
+      contrastText: '#7596b6',
+      btn: '#268182',
+      card: '#4c789c',
+      focus: '#2e5674',
+    },
     customColors: {
       dark: darkColor,
       main: mainColor,

@@ -15,6 +15,7 @@ import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiFormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
+import IconButton from '@mui/material/IconButton';
 // import Alert from '@mui/material/Alert';
 // import TextField from '@mui/material/TextField';
 // import InputLabel from '@mui/material/InputLabel';
@@ -38,6 +39,9 @@ import Particles from '../../@core/components/login/adds/Particles';
 
 // ** Icon Imports
 // import Icon from 'src/@core/components/icon';
+import FacebookIcon from 'src/@core/icons/login/FacebookIcon';
+import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
+import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 // ** Third Party Imports
 import * as yup from 'yup';
@@ -55,8 +59,8 @@ import { useSettings } from 'src/@core/hooks/useSettings';
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout';
 import { loginToHolocruxe, registerToHolocruxe } from 'src/context/functions';
-import { Icon } from '@mui/material';
-import Rocket from 'src/@core/icons/login/Rocket';
+// import { Icon } from '@mui/material';
+// import Rocket from 'src/@core/icons/login/Rocket';
 import HolocruxeLogo from '../../@core/icons/login/HolocruxeLogo';
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -305,9 +309,10 @@ const LoginPage = () => {
             clearViewOffset={undefined}
             updateProjectionMatrix={undefined}
             setLens={undefined}
+            // no borrar propiedades en PerspectiveCamera, por algún motivo rompe el código en el build
           ></PerspectiveCamera>
           <Particles count={600} mouse={mouse} />
-          <Environment files="/images/login-bg/bg.hdr" background blur={0.5} />
+          <Environment files="/images/login-bg/bg.hdr" background blur={0.3} />
           <HoloplanetCanvas />
           <BotCanvas />
           {/* <Holoplanet /> */}
@@ -318,7 +323,7 @@ const LoginPage = () => {
           skin === 'bordered' && !hidden
             ? {
                 borderLeft: `1px solid ${theme.palette.divider}`,
-                opacity: 0.8,
+                opacity: 1,
               }
             : {}
         }
@@ -340,6 +345,7 @@ const LoginPage = () => {
         <Box
           component="div"
           sx={{
+            boxSizing: 'border-box',
             p: 9,
             marginTop: 50,
             height: '60%',
@@ -348,24 +354,25 @@ const LoginPage = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'rgb(32, 67, 94, 0.5)',
+            backgroundColor: 'holocruxe.bg',
             position: 'absolute',
-            backdropFilter: 'blur(2px)',
+            // backdropFilter: 'blur(7px)',
             top: 0,
             right: 40,
+            boxShadow: '2px 2px 12px -3px rgba(255, 255, 255, 0.5)',
           }}
         >
           <BoxWrapper>
-            <Box component="div" sx={{ my: 6, textAlign: 'center' }}>
-              <TypographyStyled variant="h5">
-                Bienvenido a Holocruxe
+            <Box component="div" sx={{ mt: 10, textAlign: 'center' }}>
+              <TypographyStyled
+                variant="h5"
+                sx={{ color: 'holocruxe.fontWhite' }}
+              >
+                Bienvenid@s! 👋🏻
               </TypographyStyled>
-              <Icon sx={{ position: 'absolute', right: 54, top: 100 }}>
-                <Rocket />
-              </Icon>
               <Typography
                 variant="body2"
-                sx={{ marginTop: 4, color: 'text.secondary' }}
+                sx={{ marginTop: 0, color: 'holocruxe.fontWhite' }}
               >
                 Ingresa a tu cuenta y dale vida a tus momentos
               </Typography>
@@ -384,10 +391,47 @@ const LoginPage = () => {
                 fullWidth
                 size="large"
                 variant="contained"
-                sx={{ mt: 9, mb: 3 }}
+                sx={{ mt: 9, mb: 3, bgcolor: 'holocruxe.btn' }}
               >
                 Iniciar Sesión
               </Button>
+
+              <Box
+                component="div"
+                sx={{
+                  mt: 0,
+                  mb: 10,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <FormControlLabel
+                  label="Recordarme"
+                  control={
+                    <Checkbox
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                    />
+                  }
+                />
+                <Typography
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.localStorage.setItem('createAccount', 'true');
+                    window.location.href = '/api/auth/login';
+                  }}
+                  href={'/'}
+                  component={Link}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'holocruxe.btn',
+                    textAlign: 'rigth',
+                  }}
+                >
+                  Olvidaste tu contraseña?
+                </Typography>
+              </Box>
 
               <Box
                 component="div"
@@ -398,8 +442,8 @@ const LoginPage = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography sx={{ mr: 2, color: 'text.secondary' }}>
-                  Eres nuevo en la plataforma?
+                <Typography sx={{ mr: 2, color: 'holocruxe.fontWhite' }}>
+                  Eres nuev@ en la plataforma?
                 </Typography>
                 <Typography
                   onClick={(e) => {
@@ -409,22 +453,10 @@ const LoginPage = () => {
                   }}
                   href={'/'}
                   component={Link}
-                  sx={{ textDecoration: 'none' }}
+                  sx={{ textDecoration: 'none', color: 'holocruxe.btn' }}
                 >
                   Regístrate
                 </Typography>
-              </Box>
-
-              <Box component="div" sx={{ my: 3 }}>
-                <FormControlLabel
-                  label="Recordarme"
-                  control={
-                    <Checkbox
-                      checked={rememberMe}
-                      onChange={(e) => setRememberMe(e.target.checked)}
-                    />
-                  }
-                />
               </Box>
 
               <Divider
@@ -433,7 +465,39 @@ const LoginPage = () => {
                   mt: (theme) => `${theme.spacing(5)} !important`,
                   mb: (theme) => `${theme.spacing(7.5)} !important`,
                 }}
-              ></Divider>
+              >
+                O
+              </Divider>
+              <Box
+                component="div"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  // className={classes.iconButton}
+                >
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  // className={classes.iconButton}
+                >
+                  <GoogleIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  // className={classes.iconButton}
+                >
+                  <LinkedinIcon />
+                </IconButton>
+              </Box>
             </form>
           </BoxWrapper>
         </Box>
