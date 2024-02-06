@@ -18,7 +18,7 @@ jobs:
         port: 22
         script: |
           cd Death-Star/
-          git pull origin develop
+          git reset --hard origin/develop
           export NVM_DIR=~/.nvm
           export PATH=$PATH:/home/user/.npm-global/bin
           source ~/.nvm/nvm.sh
