@@ -19,6 +19,7 @@ jobs:
         script: |
           cd Death-Star/
           git reset --hard origin/develop
+          git pull origin develop
           export NVM_DIR=~/.nvm
           export PATH=$PATH:/home/user/.npm-global/bin
           source ~/.nvm/nvm.sh
