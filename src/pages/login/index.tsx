@@ -41,7 +41,6 @@ import Particles from '../../@core/components/login/adds/Particles';
 // import Icon from 'src/@core/components/icon';
 import FacebookIcon from 'src/@core/icons/login/FacebookIcon';
 import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
-import LinkedinIcon from 'src/@core/icons/login/LinkedInIcon';
 
 // ** Third Party Imports
 import * as yup from 'yup';
@@ -315,7 +314,6 @@ const LoginPage = () => {
           <Environment files="/images/login-bg/bg.hdr" background blur={0.3} />
           <HoloplanetCanvas />
           <BotCanvas />
-          {/* <Holoplanet /> */}
         </Canvas>
       ) : null}
       <RightWrapper
@@ -323,7 +321,7 @@ const LoginPage = () => {
           skin === 'bordered' && !hidden
             ? {
                 borderLeft: `1px solid ${theme.palette.divider}`,
-                opacity: 1,
+                opacity: 0.8,
               }
             : {}
         }
@@ -356,7 +354,7 @@ const LoginPage = () => {
             justifyContent: 'center',
             backgroundColor: 'holocruxe.bg',
             position: 'absolute',
-            // backdropFilter: 'blur(7px)',
+            backdropFilter: 'blur(7px)',
             top: 0,
             right: 40,
             boxShadow: '2px 2px 12px -3px rgba(255, 255, 255, 0.5)',
@@ -391,7 +389,12 @@ const LoginPage = () => {
                 fullWidth
                 size="large"
                 variant="contained"
-                sx={{ mt: 9, mb: 3, bgcolor: 'holocruxe.btn' }}
+                sx={{
+                  mt: 9,
+                  mb: 3,
+                  bgcolor: 'holocruxe.btn',
+                  '&:hover': { bgcolor: 'holocruxe.darkText' },
+                }}
               >
                 Iniciar Sesión
               </Button>
@@ -407,9 +410,21 @@ const LoginPage = () => {
                 }}
               >
                 <FormControlLabel
+                  sx={{
+                    '.MuiFormControlLabel-label': {
+                      color: 'holocruxe.fontWhite',
+                    },
+                  }}
                   label="Recordarme"
                   control={
                     <Checkbox
+                      size="medium"
+                      sx={{
+                        color: 'holocruxe.fontWhite',
+                        '&.Mui-checked': {
+                          color: 'holocruxe.btn',
+                        },
+                      }}
                       checked={rememberMe}
                       onChange={(e) => setRememberMe(e.target.checked)}
                     />
@@ -427,6 +442,7 @@ const LoginPage = () => {
                     textDecoration: 'none',
                     color: 'holocruxe.btn',
                     textAlign: 'rigth',
+                    '&:hover': { color: 'holocruxe.darkText' },
                   }}
                 >
                   Olvidaste tu contraseña?
@@ -453,7 +469,11 @@ const LoginPage = () => {
                   }}
                   href={'/'}
                   component={Link}
-                  sx={{ textDecoration: 'none', color: 'holocruxe.btn' }}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'holocruxe.btn',
+                    '&:hover': { color: 'holocruxe.darkText' },
+                  }}
                 >
                   Regístrate
                 </Typography>
@@ -474,6 +494,9 @@ const LoginPage = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  gap: 10,
+                  position: 'relative',
+                  bottom: 20,
                 }}
               >
                 <IconButton
@@ -489,13 +512,6 @@ const LoginPage = () => {
                   // className={classes.iconButton}
                 >
                   <GoogleIcon />
-                </IconButton>
-                <IconButton
-                  href="/api/auth/login"
-                  component={Link}
-                  // className={classes.iconButton}
-                >
-                  <LinkedinIcon />
                 </IconButton>
               </Box>
             </form>
