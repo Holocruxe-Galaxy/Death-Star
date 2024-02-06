@@ -315,7 +315,6 @@ const LoginPage = () => {
           <Environment files="/images/login-bg/bg.hdr" background blur={0.3} />
           <HoloplanetCanvas />
           <BotCanvas />
-          {/* <Holoplanet /> */}
         </Canvas>
       ) : null}
       <RightWrapper
@@ -323,7 +322,7 @@ const LoginPage = () => {
           skin === 'bordered' && !hidden
             ? {
                 borderLeft: `1px solid ${theme.palette.divider}`,
-                opacity: 1,
+                opacity: 0.8,
               }
             : {}
         }
@@ -356,7 +355,7 @@ const LoginPage = () => {
             justifyContent: 'center',
             backgroundColor: 'holocruxe.bg',
             position: 'absolute',
-            // backdropFilter: 'blur(7px)',
+            backdropFilter: 'blur(7px)',
             top: 0,
             right: 40,
             boxShadow: '2px 2px 12px -3px rgba(255, 255, 255, 0.5)',
@@ -391,7 +390,12 @@ const LoginPage = () => {
                 fullWidth
                 size="large"
                 variant="contained"
-                sx={{ mt: 9, mb: 3, bgcolor: 'holocruxe.btn' }}
+                sx={{
+                  mt: 9,
+                  mb: 3,
+                  bgcolor: 'holocruxe.btn',
+                  '&:hover': { bgcolor: 'holocruxe.darkText' },
+                }}
               >
                 Iniciar Sesión
               </Button>
@@ -407,9 +411,21 @@ const LoginPage = () => {
                 }}
               >
                 <FormControlLabel
+                  sx={{
+                    '.MuiFormControlLabel-label': {
+                      color: 'holocruxe.fontWhite',
+                    },
+                  }}
                   label="Recordarme"
                   control={
                     <Checkbox
+                      size="medium"
+                      sx={{
+                        color: 'holocruxe.fontWhite',
+                        '&.Mui-checked': {
+                          color: 'holocruxe.btn',
+                        },
+                      }}
                       checked={rememberMe}
                       onChange={(e) => setRememberMe(e.target.checked)}
                     />
@@ -427,6 +443,7 @@ const LoginPage = () => {
                     textDecoration: 'none',
                     color: 'holocruxe.btn',
                     textAlign: 'rigth',
+                    '&:hover': { color: 'holocruxe.darkText' },
                   }}
                 >
                   Olvidaste tu contraseña?
@@ -453,7 +470,11 @@ const LoginPage = () => {
                   }}
                   href={'/'}
                   component={Link}
-                  sx={{ textDecoration: 'none', color: 'holocruxe.btn' }}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'holocruxe.btn',
+                    '&:hover': { color: 'holocruxe.darkText' },
+                  }}
                 >
                   Regístrate
                 </Typography>
