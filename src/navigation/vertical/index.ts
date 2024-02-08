@@ -13,6 +13,11 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'mdi:home-outline',
       path: '/diary',
     },
+    {
+      title: 'Account',
+      icon: 'mdi:home-outline',
+      path: '/account',
+    },
   ];
 };
 
