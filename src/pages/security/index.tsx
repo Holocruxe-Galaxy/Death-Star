@@ -7,7 +7,6 @@ import {
   Stack,
   TextField,
   Typography,
-  Item,
 } from '@mui/material';
 
 const Security = () => {
@@ -91,24 +90,59 @@ const Security = () => {
         </Grid>
       </Paper>
       <Paper sx={{ padding: 5, marginY: 4 }}>
-        <Typography fontSize={20} fontWeight={500}>
-          API Key List & Access
-        </Typography>
-        <Typography>
-          An API key is a simple encrypted string that identifies an application
-          without any principal. They are useful for accessing public data
-          anonymously, and are used to associate API requests with your project
-          for quota and billing.
-        </Typography>
         <Stack spacing={4}>
-          <Paper>
-            <Typography fontSize={20} fontWeight={500}>
-              Server Key 1
-            </Typography>
-            <Typography>23eaf7f0-f4f7-495e-8b86-fad3261282ac</Typography>
-            <Typography>Created on 12 Feb 2021, 10:30 GTM+2:30</Typography>
+          <Typography fontSize={20} fontWeight={500}>
+            API Key List & Access
+          </Typography>
+          <Typography>
+            An API key is a simple encrypted string that identifies an
+            application without any principal. They are useful for accessing
+            public data anonymously, and are used to associate API requests with
+            your project for quota and billing.
+          </Typography>
+        </Stack>
+        <Stack spacing={4} marginY={4}>
+          <Paper sx={{ backgroundColor: '#2E5674', padding: 5 }}>
+            <Stack spacing={3}>
+              <Typography fontSize={20} fontWeight={500}>
+                Server Key 1
+              </Typography>
+              <Typography>23eaf7f0-f4f7-495e-8b86-fad3261282ac</Typography>
+              <Typography fontSize={12} color="GrayText">
+                Created on 12 Feb 2021, 10:30 GTM+2:30
+              </Typography>
+            </Stack>
+          </Paper>
+          <Paper sx={{ backgroundColor: '#2E5674', padding: 5 }}>
+            <Stack spacing={3}>
+              <Typography fontSize={20} fontWeight={500}>
+                Server Key 1
+              </Typography>
+              <Typography>23eaf7f0-f4f7-495e-8b86-fad3261282ac</Typography>
+              <Typography fontSize={12} color="GrayText">
+                Created on 12 Feb 2021, 10:30 GTM+2:30
+              </Typography>
+            </Stack>
+          </Paper>
+          <Paper sx={{ backgroundColor: '#2E5674', padding: 5 }}>
+            <Stack spacing={3}>
+              <Typography fontSize={20} fontWeight={500}>
+                Server Key 1
+              </Typography>
+              <Typography>23eaf7f0-f4f7-495e-8b86-fad3261282ac</Typography>
+              <Typography fontSize={12} color="GrayText">
+                Created on 12 Feb 2021, 10:30 GTM+2:30
+              </Typography>
+            </Stack>
           </Paper>
         </Stack>
+      </Paper>
+      <Paper sx={{ padding: 5, marginY: 4 }}>
+        <Typography fontSize={20} fontWeight={500}>
+          Recent Devices
+        </Typography>
+        {/* Here is the table of devices and activities */}
+        <Typography>Here is the table of devices and activities </Typography>
       </Paper>
     </Container>
   );
