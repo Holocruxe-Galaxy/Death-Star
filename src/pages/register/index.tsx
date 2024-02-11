@@ -20,6 +20,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout';
 // ** Hooks
 import { useSettings } from 'src/@core/hooks/useSettings';
 import { useAuth } from 'src/hooks/useAuth';
+import ChatBotIcon from 'src/@core/components/Chat-Icon/Chat-Icon';
+import Chat from 'src/@core/components/ChatComponent/ChatComponent';
 
 // ** Styled Components
 const RegisterIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -101,6 +103,8 @@ const Register = () => {
 
   return (
     <Box component="div" className="content-right">
+      <ChatBotIcon></ChatBotIcon>
+      <Chat></Chat>
       {!hidden ? (
         <Box
           component="div"

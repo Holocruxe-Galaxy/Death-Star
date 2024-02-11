@@ -16,13 +16,6 @@ import MuiFormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
-// import Alert from '@mui/material/Alert';
-// import TextField from '@mui/material/TextField';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/material/FormControl';
-// import OutlinedInput from '@mui/material/OutlinedInput';
-// import FormHelperText from '@mui/material/FormHelperText';
-// import InputAdornment from '@mui/material/InputAdornment';
 
 // ** Auth0 user Import
 import { useUser } from '@auth0/nextjs-auth0/client';
@@ -105,35 +98,9 @@ const defaultValues = {
   username: 'admin4872',
 };
 
-// interface FormData {
-//   username: string;
-//   password: string;
-// }
-
-// const useStyles = makeStyles(() => ({
-//   picker: {
-//     position: 'absolute',
-//     top: 90,
-//     zIndex: 9999,
-//   },
-//   iconButton: {
-//     '&:hover': {
-//       backgroundColor: 'transparent',
-//     },
-//     '&:active': {
-//       backgroundColor: 'transparent',
-//     },
-//     '& .MuiIconButton-label': {
-//       transition: 'none',
-//     },
-//   },
-// }));
-
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
-  // const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  // ** Hooks
   const auth = useAuth();
   const theme = useTheme();
   // const bgColors = useBgColor();
@@ -153,16 +120,6 @@ const LoginPage = () => {
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
-
-  // const onSubmit = (data: FormData) => {
-  //   const { username, password } = data;
-  //   auth.login({ username, password, rememberMe }, () => {
-  //     setError('username', {
-  //       type: 'manual',
-  //       message: 'Username or Password is invalid',
-  //     });
-  //   });
-  // };
 
   // ** User
   const { user, isLoading } = useUser();
@@ -432,9 +389,10 @@ const LoginPage = () => {
                 />
                 <Typography
                   onClick={(e) => {
+                    window.localStorage.removeItem('createAccount');
                     e.preventDefault();
-                    window.localStorage.setItem('createAccount', 'true');
-                    window.location.href = '/api/auth/login';
+                    window.location.href =
+                      'https://support.google.com/accounts/answer/7682439?hl=es-419';
                   }}
                   href={'/'}
                   component={Link}
@@ -500,6 +458,11 @@ const LoginPage = () => {
                 }}
               >
                 <IconButton
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.localStorage.removeItem('createAccount');
+                    window.location.href = '/api/auth/login';
+                  }}
                   href="/api/auth/login"
                   component={Link}
                   // className={classes.iconButton}
@@ -507,6 +470,11 @@ const LoginPage = () => {
                   <FacebookIcon />
                 </IconButton>
                 <IconButton
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.localStorage.removeItem('createAccount');
+                    window.location.href = '/api/auth/login';
+                  }}
                   href="/api/auth/login"
                   component={Link}
                   // className={classes.iconButton}
