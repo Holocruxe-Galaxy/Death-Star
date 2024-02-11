@@ -40,11 +40,14 @@ const Security = () => {
             * At least one number, symbol, or whitespace character
           </Typography>
         </Stack>
-        <Box sx={{ display: 'flex', flexDirection: 'row', marginY: 4 }}>
+        <Box
+          component={'div'}
+          sx={{ display: 'flex', flexDirection: 'row', marginY: 4 }}
+        >
           <Button sx={{ marginRight: 3 }} variant="contained">
             SAVE CHANGES
           </Button>
-          <Button sx={{ marginRight: 3 }} variant="outlined" disabled="true">
+          <Button sx={{ marginRight: 3 }} variant="outlined">
             CANCEL
           </Button>
         </Box>
