@@ -17,9 +17,9 @@ const Account = () => {
 
   return (
     <Container sx={{ display: 'flex', flexDirection: 'column' }}>
-      <Box display="flex" alignItems={'center'}>
+      <Box component={'div'} display="flex" alignItems={'center'}>
         <img src="https://i.imgur.com/RsZ2Ows.png" alt="profile-img" />
-        <Box marginLeft={5}>
+        <Box component={'div'} marginLeft={5}>
           <Button variant="contained">UPLOAD NEW PHOTO</Button>
           <Button variant="outlined" color="error" sx={{ marginX: 3 }}>
             RESET
@@ -38,7 +38,7 @@ const Account = () => {
           marginTop: 5,
         }}
       >
-        <Box sx={{ display: 'flex' }}>
+        <Box component={'div'} sx={{ display: 'flex' }}>
           <Stack spacing={3} width={'100%'} marginRight={2}>
             <TextField label="First Namae" variant="outlined" />
             <TextField label="Email" variant="outlined" />
@@ -56,7 +56,7 @@ const Account = () => {
             <TextField label="Currency" variant="outlined" />
           </Stack>
         </Box>
-        <Box sx={{ marginY: 6 }}>
+        <Box component={'div'} sx={{ marginY: 6 }}>
           <Button variant="contained"> SAVE CHANGES </Button>
           <Button variant="outlined" color="error" sx={{ marginLeft: 3 }}>
             CANCEL
@@ -65,7 +65,7 @@ const Account = () => {
       </Paper>
       <Paper elevation={3} sx={{ padding: 5, marginTop: 5 }}>
         <Typography>Delete Account</Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component={'div'} sx={{ display: 'flex', alignItems: 'center' }}>
           <Checkbox />
           <Typography> I confirm my account deactivation </Typography>
         </Box>
