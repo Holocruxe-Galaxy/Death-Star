@@ -128,14 +128,14 @@ const App = (props: ExtendedAppProps) => {
       <Provider store={store}>
         <CacheProvider value={emotionCache}>
           <Head>
-            <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
+            <title>{`${themeConfig.templateName} - Una experiencia única`}</title>
             <meta
               name="description"
-              content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
+              content={`${themeConfig.templateName} – Travel through your memories. Relive your past, reinvent your future by combining magic and artificial intelligence. Connect with your memories in a different way.`}
             />
             <meta
               name="keywords"
-              content="Material Design, MUI, Admin Template, React Admin Template"
+              content="Material Design, MUI, React, Next, Remember, legacy, memories, AI, artificial intelligence, magic, emotions, feelings, travel, past, future, connect, unique, experience, relive, reinvent, connect, memories, different, way, emotions, feelings, travel, past, future, connect, unique, experience, relive, reinvent, connect, memories, different, way"
             />
             <meta
               name="viewport"
