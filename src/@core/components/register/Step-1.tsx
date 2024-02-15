@@ -22,9 +22,6 @@ const StepPersonalInformation = ({
     <>
       <Box component={'div'} sx={{ mb: 4 }}>
         <Typography variant="h5">Queremos conocerte</Typography>
-        <Typography sx={{ color: 'text.secondary' }}>
-          Enter Your Personal Information
-        </Typography>
       </Box>
 
       <Grid container spacing={5}>
