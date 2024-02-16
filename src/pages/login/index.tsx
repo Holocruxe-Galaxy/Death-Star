@@ -34,6 +34,8 @@ import Particles from '../../@core/components/login/adds/Particles';
 // import Icon from 'src/@core/components/icon';
 import FacebookIcon from 'src/@core/icons/login/FacebookIcon';
 import GoogleIcon from 'src/@core/icons/login/GoogleIcon';
+import MicrosoftIcon from 'src/@core/icons/login/MicrosoftIcon';
+import YahooIcon from 'src/@core/icons/login/YahooIcon';
 
 // ** Third Party Imports
 import * as yup from 'yup';
@@ -480,6 +482,20 @@ const LoginPage = () => {
                   // className={classes.iconButton}
                 >
                   <GoogleIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  // className={classes.iconButton}
+                >
+                  <MicrosoftIcon />
+                </IconButton>
+                <IconButton
+                  href="/api/auth/login"
+                  component={Link}
+                  // className={classes.iconButton}
+                >
+                  <YahooIcon />
                 </IconButton>
               </Box>
             </form>
