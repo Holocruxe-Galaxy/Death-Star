@@ -6,7 +6,6 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 // ** Icon Imports
@@ -34,8 +33,10 @@ const StepPersonalInformation = ({
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl fullWidth>
-            <InputLabel id="state-select">País</InputLabel>
-            <Select labelId="state-select" defaultValue="Argentina">
+            <Select labelId="state-select" defaultValue="País">
+              <MenuItem value="País" disabled>
+                País
+              </MenuItem>
               <MenuItem value="Argentina">Argentina</MenuItem>
               <MenuItem value="Venezuela">Venezuela</MenuItem>
               <MenuItem value="New York">New York</MenuItem>
