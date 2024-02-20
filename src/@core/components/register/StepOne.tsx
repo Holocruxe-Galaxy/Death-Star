@@ -7,9 +7,14 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
+import FamaleIcon from '@mui/icons-material/Female';
+import MaleIcon from '@mui/icons-material/Male';
+import EmojiEmotions from '@mui/icons-material/EmojiEmotions';
 
 const StepPersonalInformation = ({
   handleNext,
@@ -49,6 +54,17 @@ const StepPersonalInformation = ({
         </Grid>
         <Box component={'div'} sx={{ mb: 4 }}>
           <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
+          <Stack direction="row" spacing={4}>
+            <IconButton>
+              <FamaleIcon fontSize="large" />
+            </IconButton>
+            <IconButton>
+              <MaleIcon fontSize="large" />
+            </IconButton>
+            <IconButton>
+              <EmojiEmotions fontSize="large" />
+            </IconButton>
+          </Stack>
         </Box>
         <Grid item xs={12}>
           <Box
