@@ -30,6 +30,10 @@ import StepperWrapper from 'src/@core/styles/mui/stepper';
 import { useAuth } from 'src/hooks/useAuth';
 import { useRouter } from 'next/router';
 
+// ** Import ChatBot
+import ChatBotIcon from 'src/@core/components/Chat-Icon/Chat-Icon';
+import Chat from 'src/@core/components/ChatComponent/ChatComponent';
+
 const steps = [
   {
     title: 'Personal',
@@ -94,6 +98,8 @@ const Register = () => {
   return (
     <>
       <Box component="div" display="flex" justifyContent="space-between">
+        <ChatBotIcon></ChatBotIcon>
+        <Chat></Chat>
         <Box component="div">
           <HolocruxeLogo />
         </Box>
@@ -109,7 +115,7 @@ const Register = () => {
           </MenuItem>
         </Box>
       </Box>
-      <Card>
+      <Card sx={{ textAlign: 'center' }}>
         <StepperWrapper sx={{ mb: 10 }}>
           <Stepper activeStep={activeStep}>
             {steps.map((step, index) => {
