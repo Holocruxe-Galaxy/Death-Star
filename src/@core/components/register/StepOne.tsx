@@ -57,12 +57,15 @@ const StepPersonalInformation = ({
           <Stack direction="row" spacing={4}>
             <IconButton>
               <FamaleIcon fontSize="large" />
+              <Typography>Femenino</Typography>
             </IconButton>
             <IconButton>
               <MaleIcon fontSize="large" />
+              <Typography>Masculino</Typography>
             </IconButton>
             <IconButton>
               <EmojiEmotions fontSize="large" />
+              <Typography>Otro</Typography>
             </IconButton>
           </Stack>
         </Box>
