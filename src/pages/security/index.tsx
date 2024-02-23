@@ -1,57 +1,8 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Button, Container, Grid, Paper, Stack, TextField, Typography } from '@mui/material';
 
 const Security = () => {
   return (
     <Container>
-      <Paper sx={{ padding: 5 }}>
-        <Typography fontSize={20} fontWeight={500}>
-          Change Password
-        </Typography>
-        <Grid columns={2} sx={{ display: 'flex', marginY: 3 }}>
-          <Stack
-            spacing={3}
-            sx={{ display: 'flex', flexDirection: 'column', marginRight: 3 }}
-          >
-            <TextField label="First Name" placeholder="John" />
-            <TextField
-              label="Email"
-              type="email"
-              placeholder="john.doe@gmail.com"
-            />
-          </Stack>
-          <TextField label="Organization" placeholder="ThemeSelection" />
-        </Grid>
-        <Stack spacing={3}>
-          <Typography>Password Requirements:</Typography>
-          <Typography>
-            * Minimum 8 characters long - the more, the better
-          </Typography>
-          <Typography>* At least one lowercase character</Typography>
-          <Typography>
-            * At least one number, symbol, or whitespace character
-          </Typography>
-        </Stack>
-        <Box
-          component={'div'}
-          sx={{ display: 'flex', flexDirection: 'row', marginY: 4 }}
-        >
-          <Button sx={{ marginRight: 3 }} variant="contained">
-            SAVE CHANGES
-          </Button>
-          <Button sx={{ marginRight: 3 }} variant="outlined">
-            CANCEL
-          </Button>
-        </Box>
-      </Paper>
       <Paper sx={{ padding: 5, marginY: 4 }}>
         <Stack spacing={3}>
           <Typography fontSize={20} fontWeight={500}>
@@ -59,9 +10,8 @@ const Security = () => {
           </Typography>
           <Typography>Two factor authentication is not enabled yet.</Typography>
           <Typography>
-            Two-factor authentication adds an additional layer of security to
-            your account by requiring more than just a password to log in. Learn
-            more.
+            Two-factor authentication adds an additional layer of security to your account by requiring more than just a
+            password to log in. Learn more.
           </Typography>
         </Stack>
         <Button variant="contained" sx={{ marginY: 3 }}>
@@ -98,10 +48,9 @@ const Security = () => {
             API Key List & Access
           </Typography>
           <Typography>
-            An API key is a simple encrypted string that identifies an
-            application without any principal. They are useful for accessing
-            public data anonymously, and are used to associate API requests with
-            your project for quota and billing.
+            An API key is a simple encrypted string that identifies an application without any principal. They are
+            useful for accessing public data anonymously, and are used to associate API requests with your project for
+            quota and billing.
           </Typography>
         </Stack>
         <Stack spacing={4} marginY={4}>
