@@ -47,14 +47,7 @@ const ContentWrapper = styled('main')(({ theme }) => ({
 
 const VerticalLayout = (props: LayoutProps) => {
   // ** Props
-  const {
-    settings,
-    children,
-    scrollToTop,
-    footerProps,
-    contentHeightFixed,
-    verticalLayoutProps,
-  } = props;
+  const { settings, children, scrollToTop, footerProps, contentHeightFixed, verticalLayoutProps } = props;
 
   // ** Vars
   const { skin, navHidden, contentWidth } = settings;
@@ -73,8 +66,7 @@ const VerticalLayout = (props: LayoutProps) => {
     <>
       <VerticalLayoutWrapper className="layout-wrapper">
         {/* Navigation Menu */}
-        {navHidden &&
-        !(navHidden && settings.lastLayout === 'horizontal') ? null : (
+        {navHidden && !(navHidden && settings.lastLayout === 'horizontal') ? null : (
           <Navigation
             navWidth={navWidth}
             navVisible={navVisible}
@@ -124,11 +116,7 @@ const VerticalLayout = (props: LayoutProps) => {
           </ContentWrapper>
 
           {/* Footer Component */}
-          <Footer
-            footerStyles={footerProps?.sx}
-            footerContent={footerProps?.content}
-            {...props}
-          />
+          <Footer footerStyles={footerProps?.sx} footerContent={footerProps?.content} {...props} />
         </MainContentWrapper>
       </VerticalLayoutWrapper>
 

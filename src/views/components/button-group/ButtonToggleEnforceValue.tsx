@@ -15,19 +15,13 @@ const ButtonToggleEnforceValue = () => {
   const [formats, setFormats] = useState<string[]>(() => ['phone']);
   const [alignment, setAlignment] = useState<string | null>('left');
 
-  const handleAlignment = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string | null,
-  ) => {
+  const handleAlignment = (event: MouseEvent<HTMLElement>, newAlignment: string | null) => {
     if (newAlignment !== null) {
       setAlignment(newAlignment);
     }
   };
 
-  const handleFormat = (
-    event: MouseEvent<HTMLElement>,
-    newFormats: string[],
-  ) => {
+  const handleFormat = (event: MouseEvent<HTMLElement>, newFormats: string[]) => {
     if (newFormats.length) {
       setFormats(newFormats);
     }
@@ -36,15 +30,8 @@ const ButtonToggleEnforceValue = () => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sm={6}>
-        <Typography sx={{ fontWeight: 500, mb: 2 }}>
-          Exclusive Selection
-        </Typography>
-        <ToggleButtonGroup
-          exclusive
-          value={alignment}
-          onChange={handleAlignment}
-          aria-label="text alignment"
-        >
+        <Typography sx={{ fontWeight: 500, mb: 2 }}>Exclusive Selection</Typography>
+        <ToggleButtonGroup exclusive value={alignment} onChange={handleAlignment} aria-label="text alignment">
           <ToggleButton value="left" aria-label="left aligned">
             <Icon icon="mdi:format-align-left" />
           </ToggleButton>
@@ -60,14 +47,8 @@ const ButtonToggleEnforceValue = () => {
         </ToggleButtonGroup>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <Typography sx={{ fontWeight: 500, mb: 2 }}>
-          Multiple Selection
-        </Typography>
-        <ToggleButtonGroup
-          value={formats}
-          onChange={handleFormat}
-          aria-label="device"
-        >
+        <Typography sx={{ fontWeight: 500, mb: 2 }}>Multiple Selection</Typography>
+        <ToggleButtonGroup value={formats} onChange={handleFormat} aria-label="device">
           <ToggleButton value="laptop" aria-label="laptop">
             <Icon icon="mdi:laptop" />
           </ToggleButton>

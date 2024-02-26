@@ -42,20 +42,11 @@ const BlankLayoutAppBar = () => {
         sx={{
           justifyContent: 'space-between',
           p: (theme) => `${theme.spacing(0, 6)} !important`,
-          minHeight: `${
-            (theme.mixins.toolbar.minHeight as number) -
-            (skin === 'bordered' ? 1 : 0)
-          }px !important`,
+          minHeight: `${(theme.mixins.toolbar.minHeight as number) - (skin === 'bordered' ? 1 : 0)}px !important`,
         }}
       >
         <LinkStyled href="/">
-          <svg
-            width={40}
-            fill="none"
-            height={22}
-            viewBox="0 0 268 150"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width={40} fill="none" height={22} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
             <rect
               rx="25.1443"
               width="50.2886"
@@ -125,10 +116,7 @@ const BlankLayoutAppBar = () => {
               </linearGradient>
             </defs>
           </svg>
-          <Typography
-            variant="h6"
-            sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}
-          >
+          <Typography variant="h6" sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}>
             {themeConfig.templateName}
           </Typography>
         </LinkStyled>

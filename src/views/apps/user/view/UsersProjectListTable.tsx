@@ -38,9 +38,7 @@ const columns: GridColDef[] = [
       <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
         <Img src={row.img} alt={`project-${row.projectTitle}`} />
         <Box component="div" sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography sx={{ fontWeight: 500, fontSize: '0.875rem' }}>
-            {row.projectTitle}
-          </Typography>
+          <Typography sx={{ fontWeight: 500, fontSize: '0.875rem' }}>{row.projectTitle}</Typography>
           <Typography variant="caption" sx={{ color: 'text.disabled' }}>
             {row.projectType}
           </Typography>
@@ -53,9 +51,7 @@ const columns: GridColDef[] = [
     minWidth: 100,
     field: 'totalTask',
     headerName: 'Total Tasks',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">{row.totalTask}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">{row.totalTask}</Typography>,
   },
   {
     flex: 0.15,
@@ -79,9 +75,7 @@ const columns: GridColDef[] = [
     minWidth: 100,
     field: 'hours',
     headerName: 'Hours',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">{row.hours}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">{row.hours}</Typography>,
   },
 ];
 

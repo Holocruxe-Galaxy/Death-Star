@@ -78,16 +78,7 @@ const ApexRadarChart = () => {
     },
     yaxis: { show: false },
     xaxis: {
-      categories: [
-        'Battery',
-        'Brand',
-        'Camera',
-        'Memory',
-        'Storage',
-        'Display',
-        'OS',
-        'Price',
-      ],
+      categories: ['Battery', 'Brand', 'Camera', 'Memory', 'Storage', 'Display', 'OS', 'Price'],
       labels: {
         style: {
           colors: [
@@ -109,12 +100,7 @@ const ApexRadarChart = () => {
     <Card>
       <CardHeader title="Mobile Comparison" />
       <CardContent>
-        <ReactApexcharts
-          type="radar"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="radar" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

@@ -27,9 +27,7 @@ const TransitionDown = (props: TransitionProps) => {
 const SnackbarControlSlideDirection = () => {
   // ** States
   const [open, setOpen] = useState<boolean>(false);
-  const [transition, setTransition] = useState<
-    ComponentType<TransitionProps> | undefined
-  >(undefined);
+  const [transition, setTransition] = useState<ComponentType<TransitionProps> | undefined>(undefined);
 
   const handleClick = (Transition: ComponentType<TransitionProps>) => () => {
     setTransition(() => Transition);

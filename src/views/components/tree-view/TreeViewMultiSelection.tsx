@@ -10,8 +10,7 @@ interface Props {
 }
 
 const TreeViewMultiSelection = ({ direction }: Props) => {
-  const ExpandIcon =
-    direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
+  const ExpandIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
 
   return (
     <TreeView

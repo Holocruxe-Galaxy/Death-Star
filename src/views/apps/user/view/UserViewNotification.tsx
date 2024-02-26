@@ -22,10 +22,7 @@ const UserViewNotification = () => {
       <Divider sx={{ m: '0 !important' }} />
 
       <CardContent>
-        <Typography
-          variant="body2"
-          sx={{ fontWeight: 600, color: 'text.primary' }}
-        >
+        <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.primary' }}>
           You will receive notification for the below selected items.
         </Typography>
       </CardContent>
@@ -36,10 +33,7 @@ const UserViewNotification = () => {
         <Table sx={{ minWidth: 500 }}>
           <TableHead
             sx={{
-              backgroundColor: (theme) =>
-                theme.palette.mode === 'light'
-                  ? 'grey.50'
-                  : 'background.default',
+              backgroundColor: (theme) => (theme.palette.mode === 'light' ? 'grey.50' : 'background.default'),
             }}
           >
             <TableRow>
@@ -59,85 +53,49 @@ const UserViewNotification = () => {
           <TableBody>
             <TableRow hover>
               <TableCell>New for you</TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox />
               </TableCell>
             </TableRow>
             <TableRow hover>
               <TableCell>Account activity</TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
             </TableRow>
             <TableRow hover>
               <TableCell>A new browser used to sign in</TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
             </TableRow>
             <TableRow hover>
               <TableCell>A new device is linked</TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox defaultChecked />
               </TableCell>
-              <TableCell
-                align="center"
-                sx={{ pt: '0 !important', pb: '0 !important' }}
-              >
+              <TableCell align="center" sx={{ pt: '0 !important', pb: '0 !important' }}>
                 <Checkbox />
               </TableCell>
             </TableRow>

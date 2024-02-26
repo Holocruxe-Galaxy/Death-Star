@@ -4,22 +4,16 @@ import { useEffect, useState } from 'react';
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import LinearProgress, {
-  LinearProgressProps,
-} from '@mui/material/LinearProgress';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
 
-const LinearProgressWithLabel = (
-  props: LinearProgressProps & { value: number },
-) => {
+const LinearProgressWithLabel = (props: LinearProgressProps & { value: number }) => {
   return (
     <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
       <Box component="div" sx={{ width: '100%', mr: 1 }}>
         <LinearProgress variant="determinate" {...props} />
       </Box>
       <Box component="div" sx={{ minWidth: 35 }}>
-        <Typography variant="body2" color="text.secondary">{`${Math.round(
-          props.value,
-        )}%`}</Typography>
+        <Typography variant="body2" color="text.secondary">{`${Math.round(props.value)}%`}</Typography>
       </Box>
     </Box>
   );
@@ -31,9 +25,7 @@ export default function ProcessLinearWithLabel() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 10 : prevProgress + 10,
-      );
+      setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
     }, 800);
 
     return () => {

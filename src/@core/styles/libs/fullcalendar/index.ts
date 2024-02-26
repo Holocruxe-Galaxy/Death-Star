@@ -19,10 +19,9 @@ const CalendarWrapper = styled(Box)<BoxProps>(({ theme }) => {
     '& .fc': {
       zIndex: 1,
 
-      '.fc-col-header, .fc-daygrid-body, .fc-scrollgrid-sync-table, .fc-timegrid-body, .fc-timegrid-body table':
-        {
-          width: '100% !important',
-        },
+      '.fc-col-header, .fc-daygrid-body, .fc-scrollgrid-sync-table, .fc-timegrid-body, .fc-timegrid-body table': {
+        width: '100% !important',
+      },
 
       // ** Toolbar
       '& .fc-toolbar': {
@@ -109,22 +108,21 @@ const CalendarWrapper = styled(Box)<BoxProps>(({ theme }) => {
               marginLeft: 0,
             },
           },
-          '.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, & .fc-listMonth-button':
-            {
-              padding: theme.spacing(2.2, 6),
+          '.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, & .fc-listMonth-button': {
+            padding: theme.spacing(2.2, 6),
 
-              '&:last-of-type, &:first-of-type': {
-                borderRadius: theme.shape.borderRadius,
-              },
-              '&:first-of-type': {
-                borderTopRightRadius: 0,
-                borderBottomRightRadius: 0,
-              },
-              '&:last-of-type': {
-                borderTopLeftRadius: 0,
-                borderBottomLeftRadius: 0,
-              },
+            '&:last-of-type, &:first-of-type': {
+              borderRadius: theme.shape.borderRadius,
             },
+            '&:first-of-type': {
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+            '&:last-of-type': {
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+            },
+          },
         },
         '& > * > :not(:first-of-type)': {
           marginLeft: 0,
@@ -136,10 +134,9 @@ const CalendarWrapper = styled(Box)<BoxProps>(({ theme }) => {
           marginLeft: theme.spacing(2.5),
           fontSize: theme.typography.h5.fontSize,
         },
-        '.fc-button:empty:not(.fc-sidebarToggle-button), & .fc-toolbar-chunk:empty':
-          {
-            display: 'none',
-          },
+        '.fc-button:empty:not(.fc-sidebarToggle-button), & .fc-toolbar-chunk:empty': {
+          display: 'none',
+        },
       },
 
       // ** Calendar head & body common
@@ -325,11 +322,10 @@ const CalendarWrapper = styled(Box)<BoxProps>(({ theme }) => {
         paddingTop: 0,
         paddingLeft: theme.spacing(2),
       },
-      '& .fc-daygrid-day-number, & .fc-timegrid-slot-label-cushion, & .fc-list-event-time':
-        {
-          textDecoration: 'none !important',
-          color: `${theme.palette.text.primary} !important`,
-        },
+      '& .fc-daygrid-day-number, & .fc-timegrid-slot-label-cushion, & .fc-list-event-time': {
+        textDecoration: 'none !important',
+        color: `${theme.palette.text.primary} !important`,
+      },
       '& .fc-day-today:not(.fc-popover)': {
         '&:not(.fc-col-header-cell)': {
           background: `${theme.palette.background.default} !important`,

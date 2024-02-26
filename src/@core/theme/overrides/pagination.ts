@@ -15,10 +15,7 @@ const Pagination = () => {
           '&.Mui-selected': {
             backgroundColor: hexToRGBA(theme.palette.primary.main, 0.12),
             '&:hover': {
-              backgroundColor: `${hexToRGBA(
-                theme.palette.primary.main,
-                0.24,
-              )} !important`,
+              backgroundColor: `${hexToRGBA(theme.palette.primary.main, 0.24)} !important`,
             },
           },
         }),
@@ -26,10 +23,7 @@ const Pagination = () => {
           '&.Mui-selected': {
             backgroundColor: hexToRGBA(theme.palette.secondary.main, 0.12),
             '&:hover': {
-              backgroundColor: `${hexToRGBA(
-                theme.palette.secondary.main,
-                0.24,
-              )} !important`,
+              backgroundColor: `${hexToRGBA(theme.palette.secondary.main, 0.24)} !important`,
             },
           },
         }),

@@ -23,16 +23,12 @@ interface ScatterProps {
 
 const ChartjsScatterChart = (props: ScatterProps) => {
   // ** Props
-  const { green, warning, primary, labelColor, borderColor, legendColor } =
-    props;
+  const { green, warning, primary, labelColor, borderColor, legendColor } = props;
 
   // ** State
   const [active, setActive] = useState<string | null>('daily');
 
-  const handleActive = (
-    event: MouseEvent<HTMLElement>,
-    newActive: string | null,
-  ) => {
+  const handleActive = (event: MouseEvent<HTMLElement>, newActive: string | null) => {
     setActive(newActive);
   };
 

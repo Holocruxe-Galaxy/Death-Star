@@ -6,16 +6,7 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 
 // ** Third Party Imports
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  TooltipProps,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, TooltipProps } from 'recharts';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -52,9 +43,7 @@ const CustomTooltip = (props: TooltipProps<any, any>) => {
   if (active && payload) {
     return (
       <div className="recharts-custom-tooltip">
-        <Typography
-          sx={{ fontSize: '0.875rem' }}
-        >{`${payload[0].value}%`}</Typography>
+        <Typography sx={{ fontSize: '0.875rem' }}>{`${payload[0].value}%`}</Typography>
       </div>
     );
   }
@@ -106,12 +95,7 @@ const RechartsLineChart = ({ direction }: Props) => {
       <CardContent>
         <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
-            <LineChart
-              height={350}
-              data={data}
-              style={{ direction }}
-              margin={{ left: -20 }}
-            >
+            <LineChart height={350} data={data} style={{ direction }} margin={{ left: -20 }}>
               <CartesianGrid />
               <XAxis dataKey="name" reversed={direction === 'rtl'} />
               <YAxis orientation={direction === 'rtl' ? 'right' : 'left'} />

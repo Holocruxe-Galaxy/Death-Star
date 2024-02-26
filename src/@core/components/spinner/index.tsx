@@ -19,13 +19,7 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
         ...sx,
       }}
     >
-      <svg
-        width="32"
-        height="38"
-        viewBox="0 0 32 38"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg width="32" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_22_7122)">
           <path
             d="M1.0022 17.3118C1.0022 13.2283 1.0022 9.14487 1.0022 5.06583C1.01099 2.70008 2.29483 1.24867 4.3569 1.22204C6.41896 1.19541 7.75116 2.66013 7.77315 4.99481C7.80392 7.97753 7.80832 10.9558 7.77315 13.9341C7.77315 14.8484 7.99738 15.1858 8.96466 15.168C12.3106 15.1147 15.6609 15.128 19.0068 15.168C19.8026 15.168 20.1235 15.0304 20.1895 14.1116C20.3478 11.848 21.8119 10.5253 23.7684 10.6495C25.725 10.7738 26.9824 12.2075 26.9868 14.4933C27.0044 19.571 27.0044 24.6473 26.9868 29.722C26.9868 32.1632 25.6326 33.7167 23.5486 33.6768C21.4645 33.6368 20.1675 32.1721 20.1499 29.6821C20.1279 27.0855 20.1015 24.4934 20.1499 21.9013C20.1763 20.8715 19.9652 20.4543 18.8309 20.4854C15.6066 20.5653 12.3692 20.5653 9.11854 20.4854C7.99298 20.4588 7.72918 20.8449 7.75996 21.9013C7.82591 24.4357 7.78634 26.9746 7.75996 29.5134C7.75996 32.1766 6.53767 33.6679 4.40086 33.6857C2.26406 33.7034 1.0066 32.1988 1.0022 29.5622C0.999267 25.4788 0.999267 21.3953 1.0022 17.3118Z"
@@ -64,21 +58,9 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
             <feOffset dx="2" dy="2" />
             <feGaussianBlur stdDeviation="1" />
             <feComposite in2="hardAlpha" operator="out" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="BackgroundImageFix"
-              result="effect1_dropShadow_22_7122"
-            />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="effect1_dropShadow_22_7122"
-              result="shape"
-            />
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_22_7122" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_22_7122" result="shape" />
           </filter>
           <filter
             id="filter1_d_22_7122"
@@ -99,21 +81,9 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
             <feOffset dx="1" dy="1" />
             <feGaussianBlur stdDeviation="0.55" />
             <feComposite in2="hardAlpha" operator="out" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0.925 0 0 0 0 0.925 0 0 0 0 0.925 0 0 0 0.33 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="BackgroundImageFix"
-              result="effect1_dropShadow_22_7122"
-            />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="effect1_dropShadow_22_7122"
-              result="shape"
-            />
+            <feColorMatrix type="matrix" values="0 0 0 0 0.925 0 0 0 0 0.925 0 0 0 0 0.925 0 0 0 0.33 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_22_7122" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_22_7122" result="shape" />
           </filter>
         </defs>
       </svg>

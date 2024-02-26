@@ -22,9 +22,7 @@ const CanViewNavSectionTitle = (props: Props) => {
   if (navTitle && navTitle.auth === false) {
     return <>{children}</>;
   } else {
-    return ability && ability.can(navTitle?.action, navTitle?.subject) ? (
-      <>{children}</>
-    ) : null;
+    return ability && ability.can(navTitle?.action, navTitle?.subject) ? <>{children}</> : null;
   }
 };
 

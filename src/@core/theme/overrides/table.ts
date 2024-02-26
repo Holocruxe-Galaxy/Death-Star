@@ -32,11 +32,10 @@ const Table = () => {
             fontSize: '0.875rem',
             lineHeight: '1.358rem',
             letterSpacing: '0.15px',
-            '&:not(.MuiTableCell-sizeSmall):not(.MuiTableCell-paddingCheckbox):not(.MuiTableCell-paddingNone)':
-              {
-                paddingTop: theme.spacing(4),
-                paddingBottom: theme.spacing(4),
-              },
+            '&:not(.MuiTableCell-sizeSmall):not(.MuiTableCell-paddingCheckbox):not(.MuiTableCell-paddingNone)': {
+              paddingTop: theme.spacing(4),
+              paddingBottom: theme.spacing(4),
+            },
           },
         }),
       },

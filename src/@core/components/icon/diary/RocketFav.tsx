@@ -1,12 +1,6 @@
 const RocketFav = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="60"
-      viewBox="0 0 95 95"
-      fill="none"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" viewBox="0 0 95 95" fill="none">
       <g filter="url(#filter0_d_849_49601)">
         <path
           d="M30.2666 52.7425L35.7558 47.3339L45.1016 45.6777L44.1778 50.569L31.5432 54.4524L30.7268 54.0997L30.2666 52.7425Z"
@@ -114,21 +108,9 @@ const RocketFav = () => {
           <feOffset />
           <feGaussianBlur stdDeviation="15" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 0.929412 0 0 0 0.5 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_849_49601"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_849_49601"
-            result="shape"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 0.929412 0 0 0 0.5 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_849_49601" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_849_49601" result="shape" />
         </filter>
       </defs>
     </svg>

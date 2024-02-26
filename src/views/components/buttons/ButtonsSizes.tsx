@@ -45,11 +45,7 @@ const ButtonsSizes = () => {
         </Button>
       </div>
       <div className="demo-space-x">
-        <IconButton
-          aria-label="capture screenshot"
-          color="secondary"
-          size="small"
-        >
+        <IconButton aria-label="capture screenshot" color="secondary" size="small">
           <Icon icon="mdi:camera-iris" fontSize="inherit" />
         </IconButton>
         <IconButton aria-label="capture screenshot" color="secondary">
@@ -58,11 +54,7 @@ const ButtonsSizes = () => {
         <IconButton aria-label="capture screenshot" color="secondary">
           <Icon icon="mdi:camera-iris" />
         </IconButton>
-        <IconButton
-          aria-label="capture screenshot"
-          color="secondary"
-          size="large"
-        >
+        <IconButton aria-label="capture screenshot" color="secondary" size="large">
           <Icon icon="mdi:camera-iris" fontSize={35} />
         </IconButton>
       </div>

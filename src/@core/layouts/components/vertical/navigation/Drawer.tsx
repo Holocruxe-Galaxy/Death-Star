@@ -1,8 +1,6 @@
 // ** MUI Imports
 import { styled } from '@mui/material/styles';
-import MuiSwipeableDrawer, {
-  SwipeableDrawerProps,
-} from '@mui/material/SwipeableDrawer';
+import MuiSwipeableDrawer, { SwipeableDrawerProps } from '@mui/material/SwipeableDrawer';
 
 // ** Type Import
 import { LayoutProps } from 'src/@core/layouts/types';
@@ -112,9 +110,7 @@ const Drawer = (props: Props) => {
           width: navCollapsed && !navHover ? collapsedNavWidth : navWidth,
           ...(!hidden && navCollapsed && navHover ? { boxShadow: 10 } : {}),
           borderRight: (theme) =>
-            navigationBorderWidth === 0
-              ? 0
-              : `${navigationBorderWidth}px solid ${theme.palette.divider}`,
+            navigationBorderWidth === 0 ? 0 : `${navigationBorderWidth}px solid ${theme.palette.divider}`,
           ...userNavMenuPaperStyle,
         },
         ...navMenuProps?.PaperProps,

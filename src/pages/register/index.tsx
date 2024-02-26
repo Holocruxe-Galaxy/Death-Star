@@ -96,10 +96,7 @@ const Register = () => {
   // ** Vars
   const { skin } = settings;
 
-  const imageSource =
-    skin === 'bordered'
-      ? 'auth-v2-register-illustration-bordered'
-      : 'auth-v2-register-illustration';
+  const imageSource = skin === 'bordered' ? 'auth-v2-register-illustration-bordered' : 'auth-v2-register-illustration';
 
   return (
     <Box component="div" className="content-right">
@@ -124,13 +121,7 @@ const Register = () => {
           </RegisterIllustrationWrapper>
         </Box>
       ) : null}
-      <RightWrapper
-        sx={
-          skin === 'bordered' && !hidden
-            ? { borderLeft: `1px solid ${theme.palette.divider}` }
-            : {}
-        }
-      >
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
           component="div"
           sx={{
@@ -154,13 +145,7 @@ const Register = () => {
                 justifyContent: 'center',
               }}
             >
-              <svg
-                width={47}
-                fill="none"
-                height={26}
-                viewBox="0 0 268 150"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width={47} fill="none" height={26} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
                 <rect
                   rx="25.1443"
                   width="50.2886"
@@ -243,28 +228,16 @@ const Register = () => {
               </Typography>
             </Box>
             <Box component="div" sx={{ mb: 6 }}>
-              <TypographyStyled variant="h4">
-                Aquí iría el onboarding
-              </TypographyStyled>
+              <TypographyStyled variant="h4">Aquí iría el onboarding</TypographyStyled>
               <br></br>
               <br></br>
-              <TypographyStyled variant="h6">
-                Desloguearse para volver al Login
-              </TypographyStyled>
+              <TypographyStyled variant="h6">Desloguearse para volver al Login</TypographyStyled>
               <Typography variant="body2">
-                si se quiere ir al /testin es necesario tener completo el
-                onboarding en el otro repo
+                si se quiere ir al /testin es necesario tener completo el onboarding en el otro repo
               </Typography>
             </Box>
 
-            <Button
-              onClick={handleLogout}
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-              sx={{ mb: 7 }}
-            >
+            <Button onClick={handleLogout} fullWidth size="large" type="submit" variant="contained" sx={{ mb: 7 }}>
               Cerrar sesión
             </Button>
           </BoxWrapper>

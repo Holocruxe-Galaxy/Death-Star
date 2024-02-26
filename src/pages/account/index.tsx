@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  Container,
-  Paper,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Checkbox, Container, Paper, TextField, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { useContext } from 'react';
 import { AuthContext } from 'src/context/AuthContext';
@@ -24,9 +16,7 @@ const Account = () => {
           <Button variant="outlined" color="error" sx={{ marginX: 3 }}>
             RESET
           </Button>
-          <Typography sx={{ marginTop: 4 }}>
-            Allowed JPG, GIF or PNG. Max size of 800K
-          </Typography>
+          <Typography sx={{ marginTop: 4 }}>Allowed JPG, GIF or PNG. Max size of 800K</Typography>
         </Box>
       </Box>
       <Paper

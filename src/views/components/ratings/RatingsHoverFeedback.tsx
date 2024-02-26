@@ -34,9 +34,7 @@ const RatingsHoverFeedback = () => {
         onChange={(event, newValue) => setValue(newValue)}
         onChangeActive={(event, newHover) => setHover(newHover)}
       />
-      {value !== null && (
-        <Typography>{labels[hover !== -1 ? hover : value]}</Typography>
-      )}
+      {value !== null && <Typography>{labels[hover !== -1 ? hover : value]}</Typography>}
     </Box>
   );
 };

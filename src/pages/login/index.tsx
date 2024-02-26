@@ -12,9 +12,7 @@ import Box, { BoxProps } from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled, useTheme } from '@mui/material/styles';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiFormControlLabel, {
-  FormControlLabelProps,
-} from '@mui/material/FormControlLabel';
+import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
 
 // ** Auth0 user Import
@@ -81,14 +79,12 @@ const TypographyStyled = styled(Typography)<TypographyProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: { marginTop: theme.spacing(8) },
 }));
 
-const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
-  ({ theme }) => ({
-    '& .MuiFormControlLabel-label': {
-      fontSize: '0.875rem',
-      color: theme.palette.text.secondary,
-    },
-  }),
-);
+const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
+  '& .MuiFormControlLabel-label': {
+    fontSize: '0.875rem',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const schema = yup.object().shape({
   username: yup.string().required(),
@@ -133,11 +129,7 @@ const LoginPage = () => {
       auth.setLoading(true);
       registerToHolocruxe(user, auth);
       return;
-    } else if (
-      user &&
-      !isLoading &&
-      window.localStorage.getItem('createAccount') !== 'true'
-    ) {
+    } else if (user && !isLoading && window.localStorage.getItem('createAccount') !== 'true') {
       auth.setLoading(true);
       loginToHolocruxe(user, auth);
     }
@@ -321,16 +313,10 @@ const LoginPage = () => {
         >
           <BoxWrapper>
             <Box component="div" sx={{ mt: 10, textAlign: 'center' }}>
-              <TypographyStyled
-                variant="h5"
-                sx={{ color: 'holocruxe.fontWhite' }}
-              >
+              <TypographyStyled variant="h5" sx={{ color: 'holocruxe.fontWhite' }}>
                 Bienvenid@s! 👋🏻
               </TypographyStyled>
-              <Typography
-                variant="body2"
-                sx={{ marginTop: 0, color: 'holocruxe.fontWhite' }}
-              >
+              <Typography variant="body2" sx={{ marginTop: 0, color: 'holocruxe.fontWhite' }}>
                 Ingresa a tu cuenta y dale vida a tus momentos
               </Typography>
             </Box>
@@ -393,8 +379,7 @@ const LoginPage = () => {
                   onClick={(e) => {
                     window.localStorage.removeItem('createAccount');
                     e.preventDefault();
-                    window.location.href =
-                      'https://support.google.com/accounts/answer/7682439?hl=es-419';
+                    window.location.href = 'https://support.google.com/accounts/answer/7682439?hl=es-419';
                   }}
                   href={'/'}
                   component={Link}
@@ -418,9 +403,7 @@ const LoginPage = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography sx={{ mr: 2, color: 'holocruxe.fontWhite' }}>
-                  Eres nuev@ en la plataforma?
-                </Typography>
+                <Typography sx={{ mr: 2, color: 'holocruxe.fontWhite' }}>Eres nuev@ en la plataforma?</Typography>
                 <Typography
                   onClick={(e) => {
                     e.preventDefault();
