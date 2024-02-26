@@ -1,12 +1,6 @@
 const IconEmojiButton = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="27"
-      height="48"
-      viewBox="0 0 48 48"
-      fill="none"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="48" viewBox="0 0 48 48" fill="none">
       <g filter="url(#filter0_di_849_49992)">
         <path
           d="M24 40C35.0457 40 44 31.0457 44 20C44 8.95431 35.0457 0 24 0C12.9543 0 4 8.95431 4 20C4 31.0457 12.9543 40 24 40Z"
@@ -45,21 +39,9 @@ const IconEmojiButton = () => {
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_849_49992"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_849_49992"
-            result="shape"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_849_49992" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_849_49992" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -69,15 +51,8 @@ const IconEmojiButton = () => {
           <feOffset dx="4" dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.9875 0 0 0 0 0.626984 0 0 0 0 0.0411458 0 0 0 0.5 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect2_innerShadow_849_49992"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.9875 0 0 0 0 0.626984 0 0 0 0 0.0411458 0 0 0 0.5 0" />
+          <feBlend mode="normal" in2="shape" result="effect2_innerShadow_849_49992" />
         </filter>
       </defs>
     </svg>

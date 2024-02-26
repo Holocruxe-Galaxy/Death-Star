@@ -4,11 +4,7 @@ import { ReactNode } from 'react';
 // ** MUI Imports
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import {
-  ThemeProvider,
-  createTheme,
-  responsiveFontSizes,
-} from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // ** Type Imports
 import { Settings } from 'src/@core/context/settingsContext';

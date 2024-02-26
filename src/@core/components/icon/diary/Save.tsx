@@ -30,13 +30,7 @@ const Save = () => {
           strokeWidth="2"
           strokeLinejoin="round"
         />
-        <path
-          d="M2.66699 1H16.7122"
-          stroke="#2F88FF"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M2.66699 1H16.7122" stroke="#2F88FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path
           d="M5.44434 12.1111H16.5554"
           stroke="white"
@@ -72,21 +66,9 @@ const Save = () => {
           <feOffset dx="4" dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_1641_5707"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_1641_5707"
-            result="shape"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1641_5707" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1641_5707" result="shape" />
         </filter>
       </defs>
     </svg>

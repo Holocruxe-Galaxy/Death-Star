@@ -11,14 +11,7 @@ import { CustomRadioImgProps } from 'src/@core/components/custom-radio/types';
 
 const CustomRadioImg = (props: CustomRadioImgProps) => {
   // ** Props
-  const {
-    name,
-    data,
-    selected,
-    gridProps,
-    handleChange,
-    color = 'primary',
-  } = props;
+  const { name, data, selected, gridProps, handleChange, color = 'primary' } = props;
 
   const { alt, img, value } = data;
 
@@ -43,8 +36,7 @@ const CustomRadioImg = (props: CustomRadioImgProps) => {
               ? { borderColor: `${color}.main` }
               : {
                   '&:hover': {
-                    borderColor: (theme) =>
-                      `rgba(${theme.palette.customColors.main}, 0.25)`,
+                    borderColor: (theme) => `rgba(${theme.palette.customColors.main}, 0.25)`,
                   },
                 }),
             '& img': {
@@ -54,11 +46,7 @@ const CustomRadioImg = (props: CustomRadioImgProps) => {
             },
           }}
         >
-          {typeof img === 'string' ? (
-            <Image src={img} alt={alt ?? `radio-image-${value}`} />
-          ) : (
-            img
-          )}
+          {typeof img === 'string' ? <Image src={img} alt={alt ?? `radio-image-${value}`} /> : img}
           <Radio
             name={name}
             size="small"

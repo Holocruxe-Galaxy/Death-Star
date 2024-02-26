@@ -41,10 +41,9 @@ const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
         },
       },
       '& .Mui-error': {
-        '& .MuiStepLabel-labelContainer, & .step-number, & .step-title, & .step-subtitle':
-          {
-            color: theme.palette.error.main,
-          },
+        '& .MuiStepLabel-labelContainer, & .step-number, & .step-title, & .step-subtitle': {
+          color: theme.palette.error.main,
+        },
       },
     },
     '& .MuiStepConnector-root': {

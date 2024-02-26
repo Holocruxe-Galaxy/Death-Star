@@ -15,12 +15,8 @@ interface Props {
   toggleNavVisibility: () => void;
   settings: LayoutProps['settings'];
   saveSettings: LayoutProps['saveSettings'];
-  appBarContent: NonNullable<
-    LayoutProps['verticalLayoutProps']['appBar']
-  >['content'];
-  appBarProps: NonNullable<
-    LayoutProps['verticalLayoutProps']['appBar']
-  >['componentProps'];
+  appBarContent: NonNullable<LayoutProps['verticalLayoutProps']['appBar']>['content'];
+  appBarProps: NonNullable<LayoutProps['verticalLayoutProps']['appBar']>['componentProps'];
 }
 
 const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme }) => ({
@@ -43,8 +39,7 @@ const Toolbar = styled(MuiToolbar)<ToolbarProps>(({ theme }) => ({
   borderBottomLeftRadius: theme.shape.borderRadius,
   borderBottomRightRadius: theme.shape.borderRadius,
   minHeight: `${theme.mixins.toolbar.minHeight}px !important`,
-  transition:
-    'padding .25s ease-in-out, box-shadow .25s ease-in-out, background-color .25s ease-in-out',
+  transition: 'padding .25s ease-in-out, box-shadow .25s ease-in-out, background-color .25s ease-in-out',
 }));
 
 const LayoutAppBar = (props: Props) => {
@@ -66,10 +61,7 @@ const LayoutAppBar = (props: Props) => {
       px: `${theme.spacing(6)} !important`,
       boxShadow: skin === 'bordered' ? 0 : 3,
       ...(appBarBlur && { backdropFilter: 'blur(8px)' }),
-      backgroundColor: hexToRGBA(
-        theme.palette.background.paper,
-        appBarBlur ? 0.9 : 1,
-      ),
+      backgroundColor: hexToRGBA(theme.palette.background.paper, appBarBlur ? 0.9 : 1),
       ...(skin === 'bordered' && {
         border: `1px solid ${theme.palette.divider}`,
         borderTopWidth: 0,
@@ -100,8 +92,7 @@ const LayoutAppBar = (props: Props) => {
       <Toolbar
         className="navbar-content-container"
         sx={{
-          ...(appBar === 'fixed' &&
-            scrollTrigger && { ...appBarFixedStyles() }),
+          ...(appBar === 'fixed' && scrollTrigger && { ...appBarFixedStyles() }),
           ...(contentWidth === 'boxed' && {
             '@media (min-width:1440px)': {
               maxWidth: `calc(1440px - ${theme.spacing(6)} * 2)`,

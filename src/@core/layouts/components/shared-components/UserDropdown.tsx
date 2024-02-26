@@ -124,11 +124,7 @@ const UserDropdown = (props: Props) => {
                 horizontal: 'right',
               }}
             >
-              <Avatar
-                alt="John Doe"
-                src="/images/avatars/1.png"
-                sx={{ width: '2.5rem', height: '2.5rem' }}
-              />
+              <Avatar alt="John Doe" src="/images/avatars/1.png" sx={{ width: '2.5rem', height: '2.5rem' }} />
             </Badge>
             <Box
               component="div"
@@ -140,66 +136,45 @@ const UserDropdown = (props: Props) => {
               }}
             >
               <Typography sx={{ fontWeight: 600 }}>John Doe</Typography>
-              <Typography
-                variant="body2"
-                sx={{ fontSize: '0.8rem', color: 'text.disabled' }}
-              >
+              <Typography variant="body2" sx={{ fontSize: '0.8rem', color: 'text.disabled' }}>
                 Admin
               </Typography>
             </Box>
           </Box>
         </Box>
         <Divider sx={{ mt: '0 !important' }} />
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/pages/user-profile/profile')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/pages/user-profile/profile')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:account-outline" />
             Profile
           </Box>
         </MenuItem>
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/apps/email')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/apps/email')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:email-outline" />
             Inbox
           </Box>
         </MenuItem>
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/apps/chat')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/apps/chat')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:message-outline" />
             Chat
           </Box>
         </MenuItem>
         <Divider />
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/pages/account-settings/account')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/pages/account-settings/account')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:cog-outline" />
             Settings
           </Box>
         </MenuItem>
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/pages/pricing')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/pages/pricing')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:currency-usd" />
             Pricing
           </Box>
         </MenuItem>
-        <MenuItem
-          sx={{ p: 0 }}
-          onClick={() => handleDropdownClose('/pages/faq')}
-        >
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/pages/faq')}>
           <Box component="div" sx={styles}>
             <Icon icon="mdi:help-circle-outline" />
             FAQ

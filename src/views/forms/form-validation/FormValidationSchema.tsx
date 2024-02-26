@@ -110,10 +110,7 @@ const FormValidationSchema = () => {
                   )}
                 />
                 {errors.firstName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-schema-first-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-schema-first-name">
                     {errors.firstName.message}
                   </FormHelperText>
                 )}
@@ -138,10 +135,7 @@ const FormValidationSchema = () => {
                   )}
                 />
                 {errors.lastName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-schema-last-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-schema-last-name">
                     {errors.lastName.message}
                   </FormHelperText>
                 )}
@@ -167,10 +161,7 @@ const FormValidationSchema = () => {
                   )}
                 />
                 {errors.email && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-schema-email"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-schema-email">
                     {errors.email.message}
                   </FormHelperText>
                 )}
@@ -179,10 +170,7 @@ const FormValidationSchema = () => {
 
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel
-                  htmlFor="validation-schema-password"
-                  error={Boolean(errors.password)}
-                >
+                <InputLabel htmlFor="validation-schema-password" error={Boolean(errors.password)}>
                   Password
                 </InputLabel>
                 <Controller
@@ -205,13 +193,7 @@ const FormValidationSchema = () => {
                             onMouseDown={(e) => e.preventDefault()}
                             aria-label="toggle password visibility"
                           >
-                            <Icon
-                              icon={
-                                state.showPassword
-                                  ? 'mdi:eye-outline'
-                                  : 'mdi:eye-off-outline'
-                              }
-                            />
+                            <Icon icon={state.showPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>
                         </InputAdornment>
                       }
@@ -219,10 +201,7 @@ const FormValidationSchema = () => {
                   )}
                 />
                 {errors.password && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-schema-password"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-schema-password">
                     {errors.password.message}
                   </FormHelperText>
                 )}

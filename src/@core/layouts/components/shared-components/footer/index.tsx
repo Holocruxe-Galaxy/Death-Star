@@ -45,9 +45,7 @@ const Footer = (props: Props) => {
             ? { px: [4, 6] }
             : {
                 backgroundColor: 'background.paper',
-                ...(skin === 'bordered'
-                  ? { borderTop: `1px solid ${theme.palette.divider}` }
-                  : { boxShadow: 6 }),
+                ...(skin === 'bordered' ? { borderTop: `1px solid ${theme.palette.divider}` } : { boxShadow: 6 }),
               }),
         }),
         ...footerStyles,
@@ -58,9 +56,7 @@ const Footer = (props: Props) => {
         className="footer-content-container"
         sx={{
           width: '100%',
-          py: theme.spacing(
-            footer === 'fixed' && skin === 'bordered' ? 3.875 : 4,
-          ),
+          py: theme.spacing(footer === 'fixed' && skin === 'bordered' ? 3.875 : 4),
           ...(contentWidth === 'boxed' && {
             '@media (min-width:1440px)': { maxWidth: 1440 },
           }),

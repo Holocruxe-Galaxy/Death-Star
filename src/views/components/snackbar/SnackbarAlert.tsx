@@ -34,12 +34,7 @@ const SnackbarAlert = () => {
         Open alert snackbar
       </Button>
       <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}>
-        <Alert
-          variant="filled"
-          elevation={skin === 'bordered' ? 0 : 3}
-          onClose={handleClose}
-          severity="success"
-        >
+        <Alert variant="filled" elevation={skin === 'bordered' ? 0 : 3} onClose={handleClose} severity="success">
           This is a success message!
         </Alert>
       </Snackbar>

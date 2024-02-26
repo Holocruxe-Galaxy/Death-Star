@@ -137,10 +137,7 @@ interface Diary {
   photos?: string[];
 }
 
-export type PostDiary = Omit<
-  Diary,
-  '_id' | 'createdAt' | 'updatedAt' | 'photos'
->;
+export type PostDiary = Omit<Diary, '_id' | 'createdAt' | 'updatedAt' | 'photos'>;
 
 const Diary = () => {
   const { data: diaryData } = useSelector((state: RootState) => state.diary);
@@ -261,10 +258,7 @@ const Diary = () => {
           }
           component="div"
         >
-          <form
-            onSubmit={onSubmit}
-            style={{ display: 'flex', flexDirection: 'row' }}
-          >
+          <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'row' }}>
             <TextField
               focused={isMultiline ? true : false}
               variant="outlined"
@@ -324,15 +318,8 @@ const Diary = () => {
                   zIndex: 1,
                 }}
               >
-                <Tooltip
-                  title="Al activarlo, se guardará como tus publicaciones favoritas"
-                  placement="top"
-                >
-                  <CustomSwitch
-                    sx={{ mr: 3, mt: 1.5 }}
-                    onClick={handleSwitchChange}
-                    checked={diary.favorite}
-                  />
+                <Tooltip title="Al activarlo, se guardará como tus publicaciones favoritas" placement="top">
+                  <CustomSwitch sx={{ mr: 3, mt: 1.5 }} onClick={handleSwitchChange} checked={diary.favorite} />
                 </Tooltip>
 
                 <Button
@@ -349,11 +336,7 @@ const Diary = () => {
                   }}
                   className={classes.iconButton}
                 >
-                  <VisuallyHiddenInput
-                    type="file"
-                    accept="image/*"
-                    onChange={fileSelected}
-                  />
+                  <VisuallyHiddenInput type="file" accept="image/*" onChange={fileSelected} />
                 </Button>
 
                 <Select
@@ -411,12 +394,7 @@ const Diary = () => {
       <CardContent>
         {diaryData.length ? (
           diaryData.map((entrie) => (
-            <Stack
-              spacing={2}
-              key={entrie._id}
-              direction="column"
-              marginTop={3}
-            >
+            <Stack spacing={2} key={entrie._id} direction="column" marginTop={3}>
               <Entries id={entrie._id} props={entrie} />
             </Stack>
           ))

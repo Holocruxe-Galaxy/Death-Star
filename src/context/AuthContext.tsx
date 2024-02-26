@@ -45,16 +45,11 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
-      const storedToken = window.localStorage.getItem(
-        authConfig.storageTokenKeyName,
-      )!;
+      const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)!;
       if (window.localStorage.getItem('status') === 'PENDING') {
         router.replace('/register');
       }
-      if (
-        router.asPath !== '/register' &&
-        !window.localStorage.getItem('status')
-      ) {
+      if (router.asPath !== '/register' && !window.localStorage.getItem('status')) {
         router.replace('/login');
       }
       if (storedToken) {
@@ -83,10 +78,7 @@ const AuthProvider = ({ children }: Props) => {
             window.localStorage.removeItem(authConfig.storageTokenKeyName);
             router.push('/api/auth/logout/');
             setLoading(false);
-            if (
-              authConfig.onTokenExpiration === 'logout' &&
-              !router.pathname.includes('login')
-            ) {
+            if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
               router.replace('/login');
             }
           });
@@ -101,14 +93,11 @@ const AuthProvider = ({ children }: Props) => {
 
   const handleLogin = async (params: LoginParams, token: any) => {
     try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_CORUSCANT}/users/verify`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_CORUSCANT}/users/verify`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
       const responseData = response.data;
 
       const status = await afterLogin(token);
@@ -120,10 +109,7 @@ const AuthProvider = ({ children }: Props) => {
       if (status === 'COMPLETE') {
         if (params.rememberMe) {
           window.localStorage.setItem(authConfig.storageTokenKeyName, token);
-          window.localStorage.setItem(
-            'userData',
-            JSON.stringify({ username: responseData.userMail, role: 'client' }),
-          );
+          window.localStorage.setItem('userData', JSON.stringify({ username: responseData.userMail, role: 'client' }));
           setLoading(false);
         }
 

@@ -13,14 +13,7 @@ const Holoplanet = () => {
     }
   });
 
-  return (
-    <primitive
-      ref={holoplanetRef}
-      object={holoplanet.scene}
-      scale={2.5}
-      position={[0, -2.5, -1]}
-    />
-  );
+  return <primitive ref={holoplanetRef} object={holoplanet.scene} scale={2.5} position={[0, -2.5, -1]} />;
 };
 
 const HoloplanetCanvas = () => {

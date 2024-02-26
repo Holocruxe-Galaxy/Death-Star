@@ -59,30 +59,22 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
               className={clsx('arrow arrow-left', {
                 'arrow-disabled': currentSlide === 0,
               })}
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
+              onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
             />
 
             <Icon
               icon="mdi:chevron-right"
               className={clsx('arrow arrow-right', {
-                'arrow-disabled':
-                  currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1,
+                'arrow-disabled': currentSlide === instanceRef.current.track.details.slides.length - 1,
               })}
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
+              onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
             />
           </>
         )}
       </Box>
       {loaded && instanceRef.current && (
         <Box component="div" className="swiper-dots">
-          {[
-            ...Array(instanceRef.current.track.details.slides.length).keys(),
-          ].map((idx) => {
+          {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
             return (
               <Badge
                 key={idx}

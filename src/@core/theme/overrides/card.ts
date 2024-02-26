@@ -14,10 +14,9 @@ const Card = (skin: Skin) => {
             marginTop: theme.spacing(-1),
             marginRight: theme.spacing(-3),
           },
-          '& .MuiTableContainer-root, & .MuiDataGrid-root, & .MuiDataGrid-columnHeaders':
-            {
-              borderRadius: 0,
-            },
+          '& .MuiTableContainer-root, & .MuiDataGrid-root, & .MuiDataGrid-columnHeaders': {
+            borderRadius: 0,
+          },
         }),
       },
       defaultProps: {
@@ -28,10 +27,9 @@ const Card = (skin: Skin) => {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
           padding: theme.spacing(5),
-          '& + .MuiCardContent-root, & + .MuiCardActions-root, & + .MuiCollapse-root .MuiCardContent-root':
-            {
-              paddingTop: 0,
-            },
+          '& + .MuiCardContent-root, & + .MuiCardActions-root, & + .MuiCollapse-root .MuiCardContent-root': {
+            paddingTop: 0,
+          },
           '& .MuiCardHeader-subheader': {
             fontSize: '0.875rem',
             color: theme.palette.text.secondary,
@@ -56,10 +54,9 @@ const Card = (skin: Skin) => {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
           padding: theme.spacing(5),
-          '& + .MuiCardHeader-root, & + .MuiCardContent-root, & + .MuiCardActions-root':
-            {
-              paddingTop: 0,
-            },
+          '& + .MuiCardHeader-root, & + .MuiCardContent-root, & + .MuiCardActions-root': {
+            paddingTop: 0,
+          },
           '&:last-of-type': {
             paddingBottom: theme.spacing(5),
           },
@@ -82,10 +79,9 @@ const Card = (skin: Skin) => {
           },
           '.MuiCard-root &:first-of-type': {
             paddingTop: theme.spacing(2.5),
-            '& + .MuiCardHeader-root, & + .MuiCardContent-root, & + .MuiCardActions-root':
-              {
-                paddingTop: 0,
-              },
+            '& + .MuiCardHeader-root, & + .MuiCardContent-root, & + .MuiCardActions-root': {
+              paddingTop: 0,
+            },
           },
         }),
       },

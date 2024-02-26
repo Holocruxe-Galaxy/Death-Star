@@ -34,21 +34,9 @@ const EditArtIcon = () => {
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_849_49985"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_849_49985"
-            result="shape"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_849_49985" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_849_49985" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -58,15 +46,8 @@ const EditArtIcon = () => {
           <feOffset dx="4" dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect2_innerShadow_849_49985"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect2_innerShadow_849_49985" />
         </filter>
       </defs>
     </svg>

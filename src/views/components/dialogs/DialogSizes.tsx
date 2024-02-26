@@ -82,9 +82,7 @@ const DialogSizes = () => {
             <FormControlLabel
               label="Full width"
               sx={{ mt: 2 }}
-              control={
-                <Switch checked={fullWidth} onChange={handleFullWidthChange} />
-              }
+              control={<Switch checked={fullWidth} onChange={handleFullWidthChange} />}
             />
           </Form>
         </DialogContent>

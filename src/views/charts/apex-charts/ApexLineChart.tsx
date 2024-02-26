@@ -18,9 +18,7 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts';
 
 const series = [
   {
-    data: [
-      280, 200, 220, 180, 270, 250, 70, 90, 200, 150, 160, 100, 150, 100, 50,
-    ],
+    data: [280, 200, 220, 180, 270, 250, 70, 90, 200, 150, 160, 100, 150, 100, 50],
   },
 ];
 
@@ -129,12 +127,7 @@ const ApexLineChart = () => {
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type="line"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="line" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

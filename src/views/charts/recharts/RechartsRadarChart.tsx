@@ -86,9 +86,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
                 key={i.dataKey}
               >
                 <Icon icon="mdi:circle" fontSize="0.6rem" />
-                <Typography variant="body2">{`${i.dataKey} : ${
-                  i.payload[i.dataKey]
-                }`}</Typography>
+                <Typography variant="body2">{`${i.dataKey} : ${i.payload[i.dataKey]}`}</Typography>
               </Box>
             );
           })}
@@ -106,36 +104,17 @@ const RechartsRadarChart = () => {
       <CardContent>
         <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
-            <RadarChart
-              cx="50%"
-              cy="50%"
-              height={350}
-              data={data}
-              style={{ direction: 'ltr' }}
-            >
+            <RadarChart cx="50%" cy="50%" height={350} data={data} style={{ direction: 'ltr' }}>
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
               <PolarRadiusAxis />
               <Tooltip content={CustomTooltip} />
-              <Radar
-                dataKey="iPhone 11"
-                stroke="#fde802"
-                fill="#fde802"
-                fillOpacity={1}
-              />
-              <Radar
-                dataKey="Samsung s20"
-                stroke="#9b88fa"
-                fill="#9b88fa"
-                fillOpacity={0.8}
-              />
+              <Radar dataKey="iPhone 11" stroke="#fde802" fill="#fde802" fillOpacity={1} />
+              <Radar dataKey="Samsung s20" stroke="#9b88fa" fill="#9b88fa" fillOpacity={0.8} />
             </RadarChart>
           </ResponsiveContainer>
         </Box>
-        <Box
-          component="div"
-          sx={{ display: 'flex', mb: 4, justifyContent: 'center' }}
-        >
+        <Box component="div" sx={{ display: 'flex', mb: 4, justifyContent: 'center' }}>
           <Box
             component="div"
             sx={{

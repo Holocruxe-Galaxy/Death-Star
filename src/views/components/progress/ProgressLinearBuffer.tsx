@@ -10,7 +10,7 @@ const ProcessLinearBuffer = () => {
   const [progress, setProgress] = useState<number>(0);
 
   // eslint-disable-next-line
-  const progressRef = useRef(() => {})
+  const progressRef = useRef(() => {});
 
   useEffect(() => {
     progressRef.current = () => {
@@ -36,9 +36,7 @@ const ProcessLinearBuffer = () => {
     };
   }, []);
 
-  return (
-    <LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />
-  );
+  return <LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />;
 };
 
 export default ProcessLinearBuffer;

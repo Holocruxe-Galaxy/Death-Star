@@ -1,12 +1,6 @@
 const Rocket = () => {
   return (
-    <svg
-      width="50"
-      height="44"
-      viewBox="0 0 85 85"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="50" height="44" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1.2666 24.7425L6.75582 19.3339L16.1016 17.6777L15.1778 22.569L2.54316 26.4524L1.72684 26.0997L1.2666 24.7425Z"
         fill="#010032"

@@ -4,12 +4,7 @@ import { useRef, useState } from 'react';
 // ** MUI Imports
 import List from '@mui/material/List';
 import Box, { BoxProps } from '@mui/material/Box';
-import {
-  createTheme,
-  responsiveFontSizes,
-  styled,
-  ThemeProvider,
-} from '@mui/material/styles';
+import { createTheme, responsiveFontSizes, styled, ThemeProvider } from '@mui/material/styles';
 
 // ** Third Party Components
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -75,13 +70,7 @@ const StyledBoxForShadow = styled(Box)<BoxProps>(({ theme }) => ({
 
 const Navigation = (props: Props) => {
   // ** Props
-  const {
-    hidden,
-    settings,
-    afterNavMenuContent,
-    beforeNavMenuContent,
-    navMenuContent: userNavMenuContent,
-  } = props;
+  const { hidden, settings, afterNavMenuContent, beforeNavMenuContent, navMenuContent: userNavMenuContent } = props;
 
   // ** States
   const [navHover, setNavHover] = useState<boolean>(false);
@@ -92,10 +81,7 @@ const Navigation = (props: Props) => {
   const shadowRef = useRef(null);
 
   // ** Var
-  const {
-    afterVerticalNavMenuContentPosition,
-    beforeVerticalNavMenuContentPosition,
-  } = themeConfig;
+  const { afterVerticalNavMenuContentPosition, beforeVerticalNavMenuContentPosition } = themeConfig;
 
   const navMenuContentProps = {
     ...props,
@@ -131,10 +117,7 @@ const Navigation = (props: Props) => {
 
   // ** Scroll Menu
   const scrollMenu = (container: any) => {
-    if (
-      beforeVerticalNavMenuContentPosition === 'static' ||
-      !beforeNavMenuContent
-    ) {
+    if (beforeVerticalNavMenuContentPosition === 'static' || !beforeNavMenuContent) {
       container = hidden ? container.target : container;
       if (shadowRef && container.scrollTop > 0) {
         // @ts-ignore
@@ -155,12 +138,12 @@ const Navigation = (props: Props) => {
     <ThemeProvider theme={darkTheme}>
       <Drawer {...props} navHover={navHover} setNavHover={setNavHover}>
         <VerticalNavHeader {...props} navHover={navHover} />
-        {beforeNavMenuContent &&
-        beforeVerticalNavMenuContentPosition === 'fixed'
+        {beforeNavMenuContent && beforeVerticalNavMenuContentPosition === 'fixed'
           ? beforeNavMenuContent(navMenuContentProps)
           : null}
-        {(beforeVerticalNavMenuContentPosition === 'static' ||
-          !beforeNavMenuContent) && <StyledBoxForShadow ref={shadowRef} />}
+        {(beforeVerticalNavMenuContentPosition === 'static' || !beforeNavMenuContent) && (
+          <StyledBoxForShadow ref={shadowRef} />
+        )}
         <Box component="div" sx={{ position: 'relative', overflow: 'hidden' }}>
           {/* @ts-ignore */}
           <ScrollWrapper
@@ -179,17 +162,13 @@ const Navigation = (props: Props) => {
                   containerRef: (ref: any) => handleInfiniteScroll(ref),
                 })}
           >
-            {beforeNavMenuContent &&
-            beforeVerticalNavMenuContentPosition === 'static'
+            {beforeNavMenuContent && beforeVerticalNavMenuContentPosition === 'static'
               ? beforeNavMenuContent(navMenuContentProps)
               : null}
             {userNavMenuContent ? (
               userNavMenuContent(navMenuContentProps)
             ) : (
-              <List
-                className="nav-items"
-                sx={{ pt: 0, '& > :first-child': { mt: '0' } }}
-              >
+              <List className="nav-items" sx={{ pt: 0, '& > :first-child': { mt: '0' } }}>
                 <VerticalNavItems
                   navHover={navHover}
                   groupActive={groupActive}
@@ -200,8 +179,7 @@ const Navigation = (props: Props) => {
                 />
               </List>
             )}
-            {afterNavMenuContent &&
-            afterVerticalNavMenuContentPosition === 'static'
+            {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'static'
               ? afterNavMenuContent(navMenuContentProps)
               : null}
           </ScrollWrapper>

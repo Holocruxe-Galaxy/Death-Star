@@ -83,31 +83,11 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
         aria-label="forced scroll tabs example"
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
-        <Tab
-          value="overview"
-          label="Overview"
-          icon={<Icon icon="mdi:account-outline" />}
-        />
-        <Tab
-          value="security"
-          label="Security"
-          icon={<Icon icon="mdi:lock-outline" />}
-        />
-        <Tab
-          value="billing-plan"
-          label="Billing & Plan"
-          icon={<Icon icon="mdi:bookmark-outline" />}
-        />
-        <Tab
-          value="notification"
-          label="Notification"
-          icon={<Icon icon="mdi:bell-outline" />}
-        />
-        <Tab
-          value="connection"
-          label="Connection"
-          icon={<Icon icon="mdi:link-variant" />}
-        />
+        <Tab value="overview" label="Overview" icon={<Icon icon="mdi:account-outline" />} />
+        <Tab value="security" label="Security" icon={<Icon icon="mdi:lock-outline" />} />
+        <Tab value="billing-plan" label="Billing & Plan" icon={<Icon icon="mdi:bookmark-outline" />} />
+        <Tab value="notification" label="Notification" icon={<Icon icon="mdi:bell-outline" />} />
+        <Tab value="connection" label="Connection" icon={<Icon icon="mdi:link-variant" />} />
       </TabList>
       <Box component="div" sx={{ mt: 6 }}>
         {isLoading ? (

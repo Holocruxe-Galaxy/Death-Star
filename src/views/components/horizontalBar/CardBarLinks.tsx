@@ -15,18 +15,14 @@ const CardLinks = (props: CardLinksProps) => {
 
   const useStyles = makeStyles(() => ({
     cardInactive: {
-      boxShadow:
-        '4px 4px 25px 0px rgba(0, 0, 0, 0.70), 4px 4px 4px 0px rgba(66, 65, 136, 0.50) inset',
+      boxShadow: '4px 4px 25px 0px rgba(0, 0, 0, 0.70), 4px 4px 4px 0px rgba(66, 65, 136, 0.50) inset',
       '&:hover': {
-        background:
-          'linear-gradient(180deg, #00FFED -10%, rgba(248, 54, 244, 0.20) 100%)',
+        background: 'linear-gradient(180deg, #00FFED -10%, rgba(248, 54, 244, 0.20) 100%)',
       },
     },
     cardActive: {
-      background:
-        'linear-gradient(180deg, #00FFED -10%, rgba(248, 54, 244, 0.20) 100%)',
-      boxShadow:
-        '4px 4px 25px 0px rgba(255, 255, 255, 0.20), 4px 4px 4px 0px rgba(255, 255, 255, 0.25) inset;',
+      background: 'linear-gradient(180deg, #00FFED -10%, rgba(248, 54, 244, 0.20) 100%)',
+      boxShadow: '4px 4px 25px 0px rgba(255, 255, 255, 0.20), 4px 4px 4px 0px rgba(255, 255, 255, 0.25) inset;',
     },
     typoInactive: {
       color: 'rgba(0, 255, 237, 1)',
@@ -45,9 +41,7 @@ const CardLinks = (props: CardLinksProps) => {
 
   return (
     <Card
-      className={
-        classType === 'cardActive' ? classes.cardActive : classes.cardInactive
-      }
+      className={classType === 'cardActive' ? classes.cardActive : classes.cardInactive}
       sx={{
         display: 'flex',
         alignItems: 'center',
@@ -76,14 +70,7 @@ const CardLinks = (props: CardLinksProps) => {
           >
             {classType === 'cardActive' ? activeIcon : inactiveIcon}
           </IconButton>
-          <Typography
-            className={
-              classType === 'cardActive'
-                ? classes.typoActive
-                : classes.typoInactive
-            }
-            variant="h6"
-          >
+          <Typography className={classType === 'cardActive' ? classes.typoActive : classes.typoInactive} variant="h6">
             {name}
           </Typography>
         </Box>
