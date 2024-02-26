@@ -60,9 +60,7 @@ const Error404 = () => {
           >
             Page Not Found ⚠️
           </Typography>
-          <Typography variant="body2">
-            We couldn&prime;t find the page you are looking for.
-          </Typography>
+          <Typography variant="body2">We couldn&prime;t find the page you are looking for.</Typography>
         </BoxWrapper>
         <Img alt="error-illustration" src="/images/pages/404.png" />
         <Button href="/" component={Link} variant="contained" sx={{ px: 5.5 }}>

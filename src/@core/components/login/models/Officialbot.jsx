@@ -39,11 +39,7 @@ const BotCanvas = () => {
     <>
       <directionalLight position={[9, 5, 0]} shadow-mapSize={1024} castShadow />
       <Bot />
-      <mesh
-        rotation={[-0.5 * Math.PI, 0, 0]}
-        position={[0, -1.2, 0]}
-        receiveShadow
-      >
+      <mesh rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -1.2, 0]} receiveShadow>
         <planeGeometry args={[10, 10, 1, 1]} />
         <shadowMaterial transparent opacity={0.2} />
       </mesh>

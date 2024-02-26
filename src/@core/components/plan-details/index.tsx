@@ -41,15 +41,8 @@ const PlanDetails = (props: PricingPlanProps) => {
 
   const renderFeatures = () => {
     return data?.planBenefits.map((item: string, index: number) => (
-      <Box
-        component="div"
-        key={index}
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
-        <Box
-          component="span"
-          sx={{ display: 'inline-flex', color: 'text.secondary', mr: 2 }}
-        >
+      <Box component="div" key={index} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component="span" sx={{ display: 'inline-flex', color: 'text.secondary', mr: 2 }}>
           <Icon icon="mdi:circle-outline" fontSize="0.75rem" />
         </Box>
         <Typography variant="body2">{item}</Typography>
@@ -84,10 +77,7 @@ const PlanDetails = (props: PricingPlanProps) => {
           }}
         />
       ) : null}
-      <Box
-        component="div"
-        sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}
-      >
+      <Box component="div" sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
         <Image
           width={data?.imgWidth}
           src={`${data?.imgSrc}`}
@@ -101,28 +91,14 @@ const PlanDetails = (props: PricingPlanProps) => {
         </Typography>
         <Typography variant="body2">{data?.subtitle}</Typography>
         <Box component="div" sx={{ my: 7, position: 'relative' }}>
-          <Box
-            component="div"
-            sx={{ display: 'flex', justifyContent: 'center' }}
-          >
-            <Typography
-              variant="body2"
-              sx={{ mt: 1.6, fontWeight: 600, alignSelf: 'flex-start' }}
-            >
+          <Box component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Typography variant="body2" sx={{ mt: 1.6, fontWeight: 600, alignSelf: 'flex-start' }}>
               $
             </Typography>
-            <Typography
-              variant="h3"
-              sx={{ fontWeight: 600, color: 'primary.main', lineHeight: 1.17 }}
-            >
-              {plan === 'monthly'
-                ? data?.monthlyPrice
-                : data?.yearlyPlan.perMonth}
+            <Typography variant="h3" sx={{ fontWeight: 600, color: 'primary.main', lineHeight: 1.17 }}>
+              {plan === 'monthly' ? data?.monthlyPrice : data?.yearlyPlan.perMonth}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{ mb: 1.6, fontWeight: 600, alignSelf: 'flex-end' }}
-            >
+            <Typography variant="body2" sx={{ mb: 1.6, fontWeight: 600, alignSelf: 'flex-end' }}>
               /month
             </Typography>
           </Box>

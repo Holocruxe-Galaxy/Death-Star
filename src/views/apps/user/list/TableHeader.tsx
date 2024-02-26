@@ -36,10 +36,7 @@ const TableHeader = (props: TableHeaderProps) => {
       >
         Export
       </Button>
-      <Box
-        component="div"
-        sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}
-      >
+      <Box component="div" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <TextField
           size="small"
           value={value}

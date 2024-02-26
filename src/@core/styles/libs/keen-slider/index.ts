@@ -72,9 +72,7 @@ const KeenSliderWrapper = styled('div')(({ theme }) => ({
       position: 'absolute',
       transform: 'translateY(-50%)',
       color: theme.palette.common.white,
-      ...(theme.direction === 'rtl'
-        ? { transform: 'translateY(-50%) rotate(180deg)' }
-        : {}),
+      ...(theme.direction === 'rtl' ? { transform: 'translateY(-50%) rotate(180deg)' } : {}),
       '&.arrow-disabled': {
         cursor: 'not-allowed',
         pointerEvents: 'none',

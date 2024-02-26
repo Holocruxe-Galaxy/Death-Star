@@ -17,13 +17,7 @@ export type AppBar = 'fixed' | 'static' | 'hidden';
 
 export type Footer = 'fixed' | 'static' | 'hidden';
 
-export type ThemeColor =
-  | 'primary'
-  | 'secondary'
-  | 'error'
-  | 'warning'
-  | 'info'
-  | 'success';
+export type ThemeColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
 export type VerticalNavToggle = 'accordion' | 'collapse';
 
@@ -52,14 +46,7 @@ export type NavGroup = {
   subject?: string;
   badgeContent?: string;
   children?: (NavGroup | NavLink)[];
-  badgeColor?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'warning'
-    | 'info';
+  badgeColor?: 'default' | 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
 };
 
 export type NavLink = {
@@ -73,14 +60,7 @@ export type NavLink = {
   badgeContent?: string;
   externalLink?: boolean;
   openInNewTab?: boolean;
-  badgeColor?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'warning'
-    | 'info';
+  badgeColor?: 'default' | 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
 };
 
 export type VerticalNavItemsType = (NavLink | NavGroup | NavSectionTitle)[];

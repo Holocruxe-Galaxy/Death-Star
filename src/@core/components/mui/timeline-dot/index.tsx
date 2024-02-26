@@ -60,11 +60,7 @@ const TimelineDot = (props: CustomTimelineDotProps) => {
   return (
     <MuiTimelineDot
       {...props}
-      sx={
-        color && skin === 'light' && variant === 'filled'
-          ? Object.assign(colors[color], sx)
-          : sx
-      }
+      sx={color && skin === 'light' && variant === 'filled' ? Object.assign(colors[color], sx) : sx}
     />
   );
 };

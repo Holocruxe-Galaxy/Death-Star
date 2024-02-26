@@ -43,19 +43,11 @@ const DialogSimple = () => {
       <Button variant="outlined" onClick={handleClickOpen}>
         Open simple dialog
       </Button>
-      <Dialog
-        onClose={handleDialogClose}
-        aria-labelledby="simple-dialog-title"
-        open={open}
-      >
+      <Dialog onClose={handleDialogClose} aria-labelledby="simple-dialog-title" open={open}>
         <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
         <List sx={{ pt: 0, px: '0 !important' }}>
           {emails.map((email) => (
-            <ListItem
-              key={email}
-              disablePadding
-              onClick={() => handleClose(email)}
-            >
+            <ListItem key={email} disablePadding onClick={() => handleClose(email)}>
               <ListItemButton>
                 <ListItemAvatar>
                   <CustomAvatar skin="light">

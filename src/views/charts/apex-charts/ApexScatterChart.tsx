@@ -82,10 +82,7 @@ const ApexScatterChart = () => {
   // ** Hook
   const theme = useTheme();
 
-  const handleActive = (
-    event: MouseEvent<HTMLElement>,
-    newActive: string | null,
-  ) => {
+  const handleActive = (event: MouseEvent<HTMLElement>, newActive: string | null) => {
     setActive(newActive);
   };
 
@@ -108,11 +105,7 @@ const ApexScatterChart = () => {
         horizontal: 10,
       },
     },
-    colors: [
-      scatterColors.series1,
-      scatterColors.series2,
-      scatterColors.series3,
-    ],
+    colors: [scatterColors.series1, scatterColors.series2, scatterColors.series3],
     grid: {
       borderColor: theme.palette.divider,
       xaxis: {
@@ -157,12 +150,7 @@ const ApexScatterChart = () => {
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type="scatter"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="scatter" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

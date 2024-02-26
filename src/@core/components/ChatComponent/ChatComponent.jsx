@@ -21,10 +21,7 @@ const Chat = () => {
     if (newMessage.trim() !== '') {
       setNewMessage('');
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: '...', sender: 'loading' },
-      ]);
+      setMessages((prevMessages) => [...prevMessages, { text: '...', sender: 'loading' }]);
       let data = {
         repeated: repeat,
         token: token,
@@ -36,22 +33,14 @@ const Chat = () => {
         },
         body: JSON.stringify(data),
       };
-      let response = await fetch(
-        'https://cruxy.holocruxe.com/questions?question=' + newMessage,
-        options,
-      );
+      let response = await fetch('https://cruxy.holocruxe.com/questions?question=' + newMessage, options);
 
       if (response.status == 200) {
-        setMessages((prevMessages) =>
-          prevMessages.filter((message) => message.sender !== 'loading'),
-        );
+        setMessages((prevMessages) => prevMessages.filter((message) => message.sender !== 'loading'));
         let data = await response.json();
         setRepeat(data.repeated);
         setToken(data.token);
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: data.response, sender: 'chatbot' },
-        ]);
+        setMessages((prevMessages) => [...prevMessages, { text: data.response, sender: 'chatbot' }]);
         let chatContainer = document.getElementById('messages-container');
         chatContainer.scrollTop = chatContainer.scrollHeight;
       }
@@ -64,11 +53,7 @@ const Chat = () => {
   return (
     <div id="chatbot-container" className={styles.chatContainer}>
       <div className={`${styles.chatHeader}`}>
-        <img
-          className={`${styles.holoLogo}`}
-          src="/images/logos/logochat.png"
-          alt="Holocruxe"
-        />
+        <img className={`${styles.holoLogo}`} src="/images/logos/logochat.png" alt="Holocruxe" />
         <IoCloseCircleOutline
           onClick={() => {
             let chatIcon = document.getElementById('chat-bot-icon');
@@ -84,9 +69,7 @@ const Chat = () => {
       </div>
       <div id="messages-container" className={styles.chatMessages}>
         <div key={'first-message'} className={styles.message}>
-          <div className={styles.botMessage}>
-            ¡Hola, Bienvenido a Holocruxe!
-          </div>
+          <div className={styles.botMessage}>¡Hola, Bienvenido a Holocruxe!</div>
         </div>
         {messages.map((message, index) => (
           <div key={index} className={styles.message}>

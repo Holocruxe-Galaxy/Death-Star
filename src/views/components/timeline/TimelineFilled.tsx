@@ -51,30 +51,18 @@ const TimelineLeft = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Get on the flight
             </Typography>
             <Typography variant="caption">Wednesday</Typography>
           </Box>
           <Typography variant="body2" sx={{ color: 'text.primary' }}>
-            <span>Charles de Gaulle Airport, Paris</span>{' '}
-            <Icon icon="mdi:arrow-right" fontSize={20} />{' '}
+            <span>Charles de Gaulle Airport, Paris</span> <Icon icon="mdi:arrow-right" fontSize={20} />{' '}
             <span>Heathrow Airport, London</span>
           </Typography>
           <Typography variant="caption">6:30 AM</Typography>
-          <Box
-            component="div"
-            sx={{ mt: 2, display: 'flex', alignItems: 'center' }}
-          >
-            <ImgShoe
-              width={28}
-              height={28}
-              alt="invoice.pdf"
-              src="/images/icons/file-icons/pdf.png"
-            />
+          <Box component="div" sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
+            <ImgShoe width={28} height={28} alt="invoice.pdf" src="/images/icons/file-icons/pdf.png" />
             <Typography variant="subtitle2" sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -98,32 +86,19 @@ const TimelineLeft = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Interview Schedule
             </Typography>
             <Typography variant="caption">6th October</Typography>
           </Box>
           <Typography variant="body2" sx={{ color: 'text.primary' }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-            quos, voluptates voluptas rem.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus quos, voluptates voluptas rem.
           </Typography>
           <Divider sx={{ my: (theme) => `${theme.spacing(3)} !important` }} />
-          <Box
-            component="div"
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
-          >
+          <Box component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Box component="div" sx={{ display: 'flex' }}>
-              <Avatar
-                src="/images/avatars/2.png"
-                sx={{ width: '2rem', height: '2rem', mr: 2 }}
-              />
-              <Box
-                component="div"
-                sx={{ display: 'flex', flexDirection: 'column' }}
-              >
+              <Avatar src="/images/avatars/2.png" sx={{ width: '2rem', height: '2rem', mr: 2 }} />
+              <Box component="div" sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="body2" sx={{ fontWeight: 600 }}>
                   Rebecca Godman
                 </Typography>
@@ -156,12 +131,7 @@ const TimelineLeft = () => {
               flexDirection: { sm: 'row', xs: 'column' },
             }}
           >
-            <ImgShoe
-              width="85"
-              height="85"
-              alt="Shoe img"
-              src="/images/misc/shoe.jpeg"
-            />
+            <ImgShoe width="85" height="85" alt="Shoe img" src="/images/misc/shoe.jpeg" />
             <Box component="div" sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
                 component="div"
@@ -197,8 +167,8 @@ const TimelineLeft = () => {
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ mb: 2, color: 'text.primary' }}>
-                PUMA presents the latest shoes from its collection. Light &
-                comfortable made with highly durable material.
+                PUMA presents the latest shoes from its collection. Light & comfortable made with highly durable
+                material.
               </Typography>
             </Box>
           </Box>
@@ -249,10 +219,7 @@ const TimelineLeft = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Design Review
             </Typography>
             <Typography variant="caption">4th October</Typography>
@@ -261,10 +228,7 @@ const TimelineLeft = () => {
             Weekly review of freshly prepared design for our new application.
           </Typography>
           <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
-            <Avatar
-              src="/images/avatars/1.png"
-              sx={{ width: '2rem', height: '2rem', mr: 2 }}
-            />
+            <Avatar src="/images/avatars/1.png" sx={{ width: '2rem', height: '2rem', mr: 2 }} />
             <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
               John Doe (Client)
             </Typography>

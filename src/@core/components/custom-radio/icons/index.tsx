@@ -12,16 +12,7 @@ import Icon from 'src/@core/components/icon';
 
 const CustomRadioIcons = (props: CustomRadioIconsProps) => {
   // ** Props
-  const {
-    data,
-    icon,
-    name,
-    selected,
-    gridProps,
-    iconProps,
-    handleChange,
-    color = 'primary',
-  } = props;
+  const { data, icon, name, selected, gridProps, iconProps, handleChange, color = 'primary' } = props;
 
   const { title, value, content } = data;
 
@@ -45,8 +36,7 @@ const CustomRadioIcons = (props: CustomRadioIconsProps) => {
               ? { borderColor: `${color}.main` }
               : {
                   '&:hover': {
-                    borderColor: (theme) =>
-                      `rgba(${theme.palette.customColors.main}, 0.25)`,
+                    borderColor: (theme) => `rgba(${theme.palette.customColors.main}, 0.25)`,
                   },
                 }),
           }}
@@ -68,10 +58,7 @@ const CustomRadioIcons = (props: CustomRadioIconsProps) => {
           ) : null}
           {content ? (
             typeof content === 'string' ? (
-              <Typography
-                variant="body2"
-                sx={{ my: 'auto', textAlign: 'center' }}
-              >
+              <Typography variant="body2" sx={{ my: 'auto', textAlign: 'center' }}>
                 {content}
               </Typography>
             ) : (

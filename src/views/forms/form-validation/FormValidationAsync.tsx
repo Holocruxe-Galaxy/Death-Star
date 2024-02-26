@@ -63,8 +63,7 @@ const FormValidationAsync = () => {
 
   const onSubmit = async () => {
     setLoading(true);
-    const sleep = (ms: number) =>
-      new Promise((resolve) => setTimeout(resolve, ms));
+    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
     await sleep(2000);
     setLoading(false);
     toast.success('Form Submitted');
@@ -94,10 +93,7 @@ const FormValidationAsync = () => {
                   )}
                 />
                 {errors.firstName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-async-first-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-async-first-name">
                     This field is required
                   </FormHelperText>
                 )}
@@ -122,10 +118,7 @@ const FormValidationAsync = () => {
                   )}
                 />
                 {errors.lastName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-async-last-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-async-last-name">
                     This field is required
                   </FormHelperText>
                 )}
@@ -151,10 +144,7 @@ const FormValidationAsync = () => {
                   )}
                 />
                 {errors.email && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-async-email"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-async-email">
                     This field is required
                   </FormHelperText>
                 )}
@@ -163,10 +153,7 @@ const FormValidationAsync = () => {
 
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel
-                  htmlFor="validation-async-password"
-                  error={Boolean(errors.password)}
-                >
+                <InputLabel htmlFor="validation-async-password" error={Boolean(errors.password)}>
                   Password
                 </InputLabel>
                 <Controller
@@ -189,13 +176,7 @@ const FormValidationAsync = () => {
                             onMouseDown={(e) => e.preventDefault()}
                             aria-label="toggle password visibility"
                           >
-                            <Icon
-                              icon={
-                                state.showPassword
-                                  ? 'mdi:eye-outline'
-                                  : 'mdi:eye-off-outline'
-                              }
-                            />
+                            <Icon icon={state.showPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>
                         </InputAdornment>
                       }
@@ -203,10 +184,7 @@ const FormValidationAsync = () => {
                   )}
                 />
                 {errors.password && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-async-password"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-async-password">
                     This field is required
                   </FormHelperText>
                 )}

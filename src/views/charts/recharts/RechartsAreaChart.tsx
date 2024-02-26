@@ -14,16 +14,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 // ** Third Party Imports
 import format from 'date-fns/format';
 import DatePicker from 'react-datepicker';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  TooltipProps,
-} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, TooltipProps } from 'recharts';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -143,9 +134,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
                 key={i.dataKey}
               >
                 <Icon icon="mdi:circle" fontSize="0.6rem" />
-                <Typography variant="body2">{`${i.dataKey} : ${
-                  i.payload[i.dataKey]
-                }`}</Typography>
+                <Typography variant="body2">{`${i.dataKey} : ${i.payload[i.dataKey]}`}</Typography>
               </Box>
             );
           })}
@@ -162,10 +151,8 @@ const RechartsAreaChart = ({ direction }: Props) => {
   const [startDate, setStartDate] = useState<DateType>(null);
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -216,12 +203,7 @@ const RechartsAreaChart = ({ direction }: Props) => {
             startDate={startDate}
             onChange={handleOnChange}
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />
@@ -265,34 +247,14 @@ const RechartsAreaChart = ({ direction }: Props) => {
         </Box>
         <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
-            <AreaChart
-              height={350}
-              data={data}
-              style={{ direction }}
-              margin={{ left: -20 }}
-            >
+            <AreaChart height={350} data={data} style={{ direction }} margin={{ left: -20 }}>
               <CartesianGrid />
               <XAxis dataKey="name" reversed={direction === 'rtl'} />
               <YAxis orientation={direction === 'rtl' ? 'right' : 'left'} />
               <Tooltip content={CustomTooltip} />
-              <Area
-                dataKey="Clicks"
-                stackId="Clicks"
-                stroke="0"
-                fill="rgb(115, 103, 240)"
-              />
-              <Area
-                dataKey="Sales"
-                stackId="Sales"
-                stroke="0"
-                fill="rgba(115, 103, 240, .5)"
-              />
-              <Area
-                dataKey="Visits"
-                stackId="Visits"
-                stroke="0"
-                fill="rgba(115, 103, 240, .2)"
-              />
+              <Area dataKey="Clicks" stackId="Clicks" stroke="0" fill="rgb(115, 103, 240)" />
+              <Area dataKey="Sales" stackId="Sales" stroke="0" fill="rgba(115, 103, 240, .5)" />
+              <Area dataKey="Visits" stackId="Visits" stroke="0" fill="rgba(115, 103, 240, .2)" />
             </AreaChart>
           </ResponsiveContainer>
         </Box>

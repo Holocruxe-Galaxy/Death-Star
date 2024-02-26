@@ -85,13 +85,7 @@ const ApexColumnChart = () => {
         columnWidth: '15%',
         colors: {
           backgroundBarRadius: 10,
-          backgroundBarColors: [
-            columnColors.bg,
-            columnColors.bg,
-            columnColors.bg,
-            columnColors.bg,
-            columnColors.bg,
-          ],
+          backgroundBarColors: [columnColors.bg, columnColors.bg, columnColors.bg, columnColors.bg, columnColors.bg],
         },
       },
     },
@@ -109,17 +103,7 @@ const ApexColumnChart = () => {
     xaxis: {
       axisBorder: { show: false },
       axisTicks: { color: theme.palette.divider },
-      categories: [
-        '7/12',
-        '8/12',
-        '9/12',
-        '10/12',
-        '11/12',
-        '12/12',
-        '13/12',
-        '14/12',
-        '15/12',
-      ],
+      categories: ['7/12', '8/12', '9/12', '10/12', '11/12', '12/12', '13/12', '14/12', '15/12'],
       crosshairs: {
         stroke: { color: theme.palette.divider },
       },
@@ -142,10 +126,8 @@ const ApexColumnChart = () => {
   };
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -196,22 +178,12 @@ const ApexColumnChart = () => {
             startDate={startDate}
             onChange={handleOnChange}
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type="bar"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="bar" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

@@ -109,9 +109,7 @@ const HorizontalNavLink = (props: Props) => {
             }
           }}
           sx={{
-            ...(item.disabled
-              ? { pointerEvents: 'none' }
-              : { cursor: 'pointer' }),
+            ...(item.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' }),
             ...(!hasParent
               ? {
                   borderRadius: '8px',
@@ -126,8 +124,7 @@ const HorizontalNavLink = (props: Props) => {
               : {
                   '&.active, &.active:hover': {
                     '&:focus-visible': {
-                      backgroundColor: (theme) =>
-                        hexToRGBA(theme.palette.primary.main, 0.24),
+                      backgroundColor: (theme) => hexToRGBA(theme.palette.primary.main, 0.24),
                     },
                   },
                 }),
@@ -151,13 +148,8 @@ const HorizontalNavLink = (props: Props) => {
                 ...(menuTextTruncate && { overflow: 'hidden' }),
               }}
             >
-              <ListItemIcon
-                sx={{ mr: hasParent ? 3 : 2.5, color: 'text.primary' }}
-              >
-                <UserIcon
-                  icon={icon}
-                  fontSize={icon === navSubItemIcon ? '0.5rem' : '1.5rem'}
-                />
+              <ListItemIcon sx={{ mr: hasParent ? 3 : 2.5, color: 'text.primary' }}>
+                <UserIcon icon={icon} fontSize={icon === navSubItemIcon ? '0.5rem' : '1.5rem'} />
               </ListItemIcon>
               <Typography {...(menuTextTruncate && { noWrap: true })}>
                 <Translations text={item.title} />

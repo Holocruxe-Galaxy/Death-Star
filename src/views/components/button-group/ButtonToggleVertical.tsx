@@ -12,21 +12,12 @@ const ButtonToggleVertical = () => {
   // ** State
   const [view, setView] = useState<string | null>('left');
 
-  const handleView = (
-    event: MouseEvent<HTMLElement>,
-    newView: string | null,
-  ) => {
+  const handleView = (event: MouseEvent<HTMLElement>, newView: string | null) => {
     setView(newView);
   };
 
   return (
-    <ToggleButtonGroup
-      exclusive
-      value={view}
-      orientation="vertical"
-      onChange={handleView}
-      aria-label="text alignment"
-    >
+    <ToggleButtonGroup exclusive value={view} orientation="vertical" onChange={handleView} aria-label="text alignment">
       <ToggleButton value="left" aria-label="left aligned">
         <Icon icon="mdi:view-list" />
       </ToggleButton>

@@ -20,24 +20,17 @@ type PostDiaryAndFile = PostDiary & { file?: FormData };
 
 type DiaryAndFile = Diary & { file?: FormData };
 
-async function photoUploader(
-  token: string,
-  _id: string,
-  counter = 0,
-): Promise<any> {
+async function photoUploader(token: string, _id: string, counter = 0): Promise<any> {
   counter++;
   if (counter === 10) return;
 
-  const responseWithFile = await fetch(
-    `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/entry/${_id}`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
+  const responseWithFile = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/entry/${_id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
     },
-  );
+  });
   const response: Diary = await responseWithFile.json();
   if (!response.photos?.length) return photoUploader(token, _id, counter);
 
@@ -48,16 +41,13 @@ async function photoUploader(
 export const fetchData = createAsyncThunk('appDiary/fetchData', async () => {
   const token = localStorage.getItem('accessToken');
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
+  const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
     },
-  );
+  });
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.message);
@@ -73,36 +63,30 @@ export const fetchData = createAsyncThunk('appDiary/fetchData', async () => {
 });
 
 // ** Add Entry
-export const addDiary = createAsyncThunk(
-  'appDiary/addDiary',
-  async (data: PostDiary, { getState }: Redux) => {
-    const token = localStorage.getItem('accessToken');
+export const addDiary = createAsyncThunk('appDiary/addDiary', async (data: PostDiary, { getState }: Redux) => {
+  const token = localStorage.getItem('accessToken');
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      },
-    );
+  const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message);
-    }
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message);
+  }
 
-    const prevState: Diary[] = [...getState().diary.data];
-    const res: Diary = await response.json();
+  const prevState: Diary[] = [...getState().diary.data];
+  const res: Diary = await response.json();
 
-    prevState.unshift(res);
+  prevState.unshift(res);
 
-    return { data: prevState };
-  },
-);
+  return { data: prevState };
+});
 
 // ** Add Entry
 export const addDiaryWithPhoto = createAsyncThunk(
@@ -112,17 +96,14 @@ export const addDiaryWithPhoto = createAsyncThunk(
     const file = data.file;
     delete data.file;
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+    const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify(data),
+    });
 
     if (!response.ok) {
       const error = await response.json();
@@ -131,16 +112,13 @@ export const addDiaryWithPhoto = createAsyncThunk(
 
     const { _id } = await response.json();
 
-    const fileResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}/upload`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: file,
+    const fileResponse = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}/upload`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    );
+      body: file,
+    });
 
     if (!fileResponse.ok) {
       const error = await response.json();
@@ -167,17 +145,14 @@ export const editEntrie = createAsyncThunk(
   async ({ _id, ...changes }: Diary, { dispatch }: Redux) => {
     const token = localStorage.getItem('accessToken');
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}`,
-      {
-        method: 'PATCH',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(changes),
+    const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify(changes),
+    });
 
     if (!response.ok) {
       const error = await response.json();
@@ -196,23 +171,15 @@ export const editEntrieWithFile = createAsyncThunk(
     const file = changes.file;
     delete changes.file;
 
-    await axios.patch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}`,
-      changes,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      },
-    );
+    await axios.patch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}`, changes, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
-    await axios.post(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}/upload`,
-      file,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    await axios.post(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${_id}/upload`, file, {
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    );
+    });
 
     if (token) await photoUploader(token, _id);
 
@@ -226,16 +193,13 @@ export const deleteDiary = createAsyncThunk(
   async (id: number | string, { dispatch }: Redux) => {
     const token = localStorage.getItem('accessToken');
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${id}`,
-      {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
+    const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-    );
+    });
 
     if (!response.ok) {
       const error = await response.json();

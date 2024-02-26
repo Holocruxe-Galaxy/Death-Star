@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react';
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import CircularProgress, {
-  CircularProgressProps,
-} from '@mui/material/CircularProgress';
+import CircularProgress, { CircularProgressProps } from '@mui/material/CircularProgress';
 
 const Progress = (props: CircularProgressProps) => {
   return (
@@ -39,9 +37,7 @@ const ProgressCircularWithLabel = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 0 : prevProgress + 10,
-      );
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
     }, 800);
 
     return () => {

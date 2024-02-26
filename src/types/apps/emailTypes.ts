@@ -4,13 +4,7 @@ import { ReactElement, SyntheticEvent } from 'react';
 
 export type MailLabelType = 'personal' | 'company' | 'important' | 'private';
 
-export type MailFolderType =
-  | 'inbox'
-  | 'sent'
-  | 'draft'
-  | 'starred'
-  | 'spam'
-  | 'trash';
+export type MailFolderType = 'inbox' | 'sent' | 'draft' | 'starred' | 'spam' | 'trash';
 
 export type RouteParams = {
   label?: string;

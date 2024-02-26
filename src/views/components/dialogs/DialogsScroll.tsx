@@ -50,11 +50,7 @@ const DialogsScroll = () => {
       >
         <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
-          <DialogContentText
-            id="scroll-dialog-description"
-            ref={descriptionElementRef}
-            tabIndex={-1}
-          >
+          <DialogContentText id="scroll-dialog-description" ref={descriptionElementRef} tabIndex={-1}>
             {[...new Array(50)].map(
               () =>
                 `Cotton candy sesame snaps toffee chupa chups caramels. Candy icing gummi bears pastry cake icing brownie
@@ -63,9 +59,7 @@ const DialogsScroll = () => {
             )}
           </DialogContentText>
         </DialogContent>
-        <DialogActions
-          sx={{ p: (theme) => `${theme.spacing(2.5)} !important` }}
-        >
+        <DialogActions sx={{ p: (theme) => `${theme.spacing(2.5)} !important` }}>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleClose}>Subscribe</Button>
         </DialogActions>

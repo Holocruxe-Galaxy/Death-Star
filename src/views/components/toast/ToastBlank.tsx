@@ -23,14 +23,8 @@ const ToastSimple = () => {
     >
       <Icon icon="mdi:checkbox-blank-outline" fontSize="2rem" />
       <Typography sx={{ mb: 4, fontWeight: 600 }}>Blank</Typography>
-      <Typography sx={{ mb: 3 }}>
-        The most basic variant does not have an icon.
-      </Typography>
-      <Button
-        sx={{ mb: 8 }}
-        variant="contained"
-        onClick={() => toast('Blank Toast')}
-      >
+      <Typography sx={{ mb: 3 }}>The most basic variant does not have an icon.</Typography>
+      <Button sx={{ mb: 8 }} variant="contained" onClick={() => toast('Blank Toast')}>
         Blank
       </Button>
     </Box>
