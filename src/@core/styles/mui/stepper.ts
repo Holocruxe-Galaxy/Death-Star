@@ -21,23 +21,26 @@ const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
         letterSpacing: 0.25,
         fontSize: '2.125rem',
         marginRight: theme.spacing(2.5),
-        color: theme.palette.text.primary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .step-title': {
         fontWeight: 500,
         fontSize: '0.875rem',
         letterSpacing: '0.1px',
-        color: theme.palette.text.primary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .step-subtitle': {
         fontWeight: 400,
         fontSize: '0.75rem',
         letterSpacing: '0.4px',
-        color: theme.palette.text.secondary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .MuiStepLabel-root.Mui-disabled': {
-        '& .step-number': {
-          color: theme.palette.text.disabled,
+        '& .step-number, & .step-title': {
+          color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
+        },
+        '& .step-subtitle': {
+          color: alpha(theme.palette.holocruxe.fontWhite, 0.6),
         },
       },
       '& .Mui-error': {
