@@ -36,7 +36,7 @@ const StepperCustomDot = (props: StepIconProps) => {
       <Icon
         icon="mdi:check-circle"
         fontSize={20}
-        color={theme.palette.primary.main}
+        color={theme.palette.holocruxe.darkText}
         transform="scale(1.2)"
       />
     );
@@ -46,8 +46,8 @@ const StepperCustomDot = (props: StepIconProps) => {
         component="div"
         sx={{
           borderColor: active
-            ? 'primary.main'
-            : alpha(theme.palette.primary.main, 0.3),
+            ? 'holocruxe.darkText'
+            : alpha(theme.palette.holocruxe.fontWhite, 0.8),
         }}
       />
     );
