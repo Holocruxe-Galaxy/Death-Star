@@ -12,9 +12,10 @@ import IconButton from '@mui/material/IconButton';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
-import FamaleIcon from '@mui/icons-material/Female';
-import MaleIcon from '@mui/icons-material/Male';
-import EmojiEmotions from '@mui/icons-material/EmojiEmotions';
+import FemaleIcon from '../icon/register/FemaleIcon';
+import MaleIcon from '../icon/register/MaleIcon';
+import NeutroIcon from '../icon/register/NeutroIcon';
+import OtherIcon from '../icon/register/OtherIcon';
 
 const StepPersonalInformation = ({
   handleNext,
@@ -65,15 +66,19 @@ const StepPersonalInformation = ({
             <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
             <Stack direction="row" spacing={4}>
               <IconButton sx={{ flexDirection: 'column' }}>
-                <FamaleIcon fontSize="large" />
+                <FemaleIcon />
                 <Typography>Femenino</Typography>
               </IconButton>
               <IconButton sx={{ flexDirection: 'column' }}>
-                <MaleIcon fontSize="large" />
+                <MaleIcon />
                 <Typography>Masculino</Typography>
               </IconButton>
               <IconButton sx={{ flexDirection: 'column' }}>
-                <EmojiEmotions fontSize="large" />
+                <NeutroIcon />
+                <Typography>Neutro</Typography>
+              </IconButton>
+              <IconButton sx={{ flexDirection: 'column' }}>
+                <OtherIcon />
                 <Typography>Otro</Typography>
               </IconButton>
             </Stack>
