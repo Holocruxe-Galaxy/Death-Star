@@ -9,6 +9,7 @@ import Head from 'next/head';
 import { Router } from 'next/router';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import Script from 'next/script';
 
 // ** Store Imports
 import { store } from 'src/store';
@@ -28,6 +29,7 @@ import themeConfig from 'src/configs/themeConfig';
 
 // ** Third Party Import
 import { Toaster } from 'react-hot-toast';
+// import { hotjar } from 'react-hotjar';
 
 // ** Component Imports
 import UserLayout from 'src/layouts/UserLayout';
@@ -41,10 +43,7 @@ import Spinner from 'src/@core/components/spinner';
 
 // ** Contexts
 import { AuthProvider } from 'src/context/AuthContext';
-import {
-  SettingsConsumer,
-  SettingsProvider,
-} from 'src/@core/context/settingsContext';
+import { SettingsConsumer, SettingsProvider } from 'src/@core/context/settingsContext';
 
 // ** Styled Components
 import ReactHotToast from 'src/@core/styles/libs/react-hot-toast';
@@ -110,10 +109,7 @@ const App = (props: ExtendedAppProps) => {
   // Variables
   const contentHeightFixed = Component.contentHeightFixed ?? false;
   const getLayout =
-    Component.getLayout ??
-    ((page) => (
-      <UserLayout contentHeightFixed={contentHeightFixed}>{page}</UserLayout>
-    ));
+    Component.getLayout ?? ((page) => <UserLayout contentHeightFixed={contentHeightFixed}>{page}</UserLayout>);
 
   const setConfig = Component.setConfig ?? undefined;
 
@@ -127,6 +123,22 @@ const App = (props: ExtendedAppProps) => {
     <UserProvider>
       <Provider store={store}>
         <CacheProvider value={emotionCache}>
+          {/* Hotjar Tracking Code for Login */}
+          <Script
+            id="hotjar"
+            dangerouslySetInnerHTML={{
+              __html: `
+                      (function(h,o,t,j,a,r){
+                      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                      h._hjSettings={hjid:3877312,hjsv:6};
+                      a=o.getElementsByTagName('head')[0];
+                      r=o.createElement('script');r.async=1;
+                      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                      a.appendChild(r);
+                  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                      `,
+            }}
+          ></Script>
           <Head>
             <title>{`${themeConfig.templateName} - Una experiencia única`}</title>
             <meta
@@ -137,34 +149,22 @@ const App = (props: ExtendedAppProps) => {
               name="keywords"
               content="Material Design, MUI, React, Next, Remember, legacy, memories, AI, artificial intelligence, magic, emotions, feelings, travel, past, future, connect, unique, experience, relive, reinvent, connect, memories, different, way, emotions, feelings, travel, past, future, connect, unique, experience, relive, reinvent, connect, memories, different, way"
             />
-            <meta
-              name="viewport"
-              content="initial-scale=1, width=device-width"
-            />
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
           </Head>
 
           <AuthProvider>
-            <SettingsProvider
-              {...(setConfig ? { pageSettings: setConfig() } : {})}
-            >
+            <SettingsProvider {...(setConfig ? { pageSettings: setConfig() } : {})}>
               <SettingsConsumer>
                 {({ settings }) => {
                   return (
                     <ThemeComponent settings={settings}>
                       <Guard authGuard={authGuard} guestGuard={guestGuard}>
-                        <AclGuard
-                          aclAbilities={aclAbilities}
-                          guestGuard={guestGuard}
-                          authGuard={authGuard}
-                        >
+                        <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}>
                           {getLayout(<Component {...pageProps} />)}
                         </AclGuard>
                       </Guard>
                       <ReactHotToast>
-                        <Toaster
-                          position={settings.toastPosition}
-                          toastOptions={{ className: 'react-hot-toast' }}
-                        />
+                        <Toaster position={settings.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />
                       </ReactHotToast>
                     </ThemeComponent>
                   );
