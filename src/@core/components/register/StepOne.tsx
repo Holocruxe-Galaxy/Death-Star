@@ -24,55 +24,68 @@ const StepPersonalInformation = ({
 }) => {
   return (
     <>
-      <Box component={'div'} sx={{ mb: 4 }}>
+      <Box component={'div'} sx={{ mb: 6 }}>
         <Typography variant="h5">Queremos conocerte</Typography>
       </Box>
 
-      <Grid container spacing={5}>
-        <Grid item xs={12} sm={6}>
-          <TextField fullWidth placeholder="Tu nombre" />
-        </Grid>
+      <Grid container spacing={5} justifyContent="center">
+        <Grid
+          xs={16}
+          md={8}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+            <TextField fullWidth placeholder="Tu nombre" />
+          </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <TextField fullWidth placeholder="Fecha de Nacimiento" />
+          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+            <TextField fullWidth placeholder="Fecha de Nacimiento" />
+          </Grid>
+          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+            <FormControl fullWidth>
+              <Select labelId="state-select" defaultValue="País">
+                <MenuItem value="País" disabled>
+                  País
+                </MenuItem>
+                <MenuItem value="Argentina">Argentina</MenuItem>
+                <MenuItem value="Venezuela">Venezuela</MenuItem>
+                <MenuItem value="New York">New York</MenuItem>
+                <MenuItem value="California">California</MenuItem>
+                <MenuItem value="Florida">Florida</MenuItem>
+                <MenuItem value="Washington">Washington</MenuItem>
+                <MenuItem value="Texas">Texas</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Box component={'div'} sx={{ mb: 4 }}>
+            <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
+            <Stack direction="row" spacing={4}>
+              <IconButton sx={{ flexDirection: 'column' }}>
+                <FamaleIcon fontSize="large" />
+                <Typography>Femenino</Typography>
+              </IconButton>
+              <IconButton sx={{ flexDirection: 'column' }}>
+                <MaleIcon fontSize="large" />
+                <Typography>Masculino</Typography>
+              </IconButton>
+              <IconButton sx={{ flexDirection: 'column' }}>
+                <EmojiEmotions fontSize="large" />
+                <Typography>Otro</Typography>
+              </IconButton>
+            </Stack>
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <FormControl fullWidth>
-            <Select labelId="state-select" defaultValue="País">
-              <MenuItem value="País" disabled>
-                País
-              </MenuItem>
-              <MenuItem value="Argentina">Argentina</MenuItem>
-              <MenuItem value="Venezuela">Venezuela</MenuItem>
-              <MenuItem value="New York">New York</MenuItem>
-              <MenuItem value="California">California</MenuItem>
-              <MenuItem value="Florida">Florida</MenuItem>
-              <MenuItem value="Washington">Washington</MenuItem>
-              <MenuItem value="Texas">Texas</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-        <Box component={'div'} sx={{ mb: 4 }}>
-          <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
-          <Stack direction="row" spacing={4}>
-            <IconButton>
-              <FamaleIcon fontSize="large" />
-              <Typography>Femenino</Typography>
-            </IconButton>
-            <IconButton>
-              <MaleIcon fontSize="large" />
-              <Typography>Masculino</Typography>
-            </IconButton>
-            <IconButton>
-              <EmojiEmotions fontSize="large" />
-              <Typography>Otro</Typography>
-            </IconButton>
-          </Stack>
-        </Box>
         <Grid item xs={12}>
           <Box
             component="div"
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
           >
             <Button
               color="secondary"
