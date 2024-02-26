@@ -1,4 +1,154 @@
 import { Button, Container, Grid, Paper, Stack, TextField, Typography } from '@mui/material';
+import MaterialTable from 'material-table';
+
+const columns = [
+  {
+    title: 'Browser',
+    field: 'browser',
+  },
+  {
+    title: 'Device',
+    field: 'device',
+  },
+  {
+    title: 'Location',
+    field: 'location',
+  },
+  {
+    title: 'Recent Activity',
+    field: 'recentActivity',
+  },
+];
+
+// In the future the data should be placed in a state
+const data = [
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+  {
+    browser: 'Chrome',
+    device: 'Windows',
+    location: 'New York, USA',
+    recentActivity: '5 minutes ago',
+  },
+];
 
 const Security = () => {
   return (
@@ -93,8 +243,21 @@ const Security = () => {
         <Typography fontSize={20} fontWeight={500}>
           Recent Devices
         </Typography>
-        {/* Here is the table of devices and activities */}
-        <Typography>Here is the table of devices and activities </Typography>
+        {/* https://material-table.com/#/docs/get-started */}
+        <MaterialTable
+          options={{
+            search: false,
+            paging: false,
+            headerStyle: {
+              backgroundColor: '#4C789C',
+              color: '#FFF',
+            },
+            maxBodyHeight: 400,
+            showTitle: false,
+          }}
+          columns={columns}
+          data={data}
+        />
       </Paper>
     </Container>
   );
