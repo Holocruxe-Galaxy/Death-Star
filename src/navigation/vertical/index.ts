@@ -14,14 +14,18 @@ const navigation = (): VerticalNavItemsType => {
       path: '/diary',
     },
     {
-      title: 'Account',
-      icon: 'mdi:home-outline',
-      path: '/account',
-    },
-    {
-      title: 'Security',
-      icon: 'mdi:home-outline',
-      path: '/security',
+      title: 'Settings',
+      icon: 'mdi:settings-outline',
+      children: [
+        {
+          title: 'Account',
+          path: '/account',
+        },
+        {
+          title: 'Security',
+          path: '/security',
+        },
+      ],
     },
   ];
 };
