@@ -9,9 +9,14 @@ const navigation = (): VerticalNavItemsType => {
       path: '/',
     },
     {
-      title: 'Diary',
-      icon: 'mdi:home-outline',
-      path: '/diary',
+      title: 'My Weblog',
+      icon: 'mdi:book-open-variant',
+      children: [
+        {
+          title: 'Diary',
+          path: '/diary',
+        },
+      ],
     },
     {
       title: 'Settings',
