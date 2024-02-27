@@ -54,6 +54,23 @@ const CustomSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
+const CustomBackButton = styled(Button)(({ theme }) => ({
+  backgroundColor: 'transparent',
+  color: alpha(theme.palette.holocruxe.fontWhite, 0.5),
+  border: `2px solid ${alpha(theme.palette.holocruxe.fontWhite, 0.2)}`,
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.holocruxe.darkText, 0.6),
+  },
+}));
+
+const CustomNextButton = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.palette.holocruxe.btn,
+  color: theme.palette.holocruxe.fontWhite,
+  '&:hover': {
+    backgroundColor: theme.palette.holocruxe.darkText,
+  },
+}));
+
 const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
   return (
     <>
@@ -124,26 +141,22 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
               justifyContent: 'space-between',
             }}
           >
-            <Button
+            <CustomBackButton
               color="secondary"
               variant="contained"
               onClick={handlePrev}
               startIcon={<Icon icon="mdi:chevron-left" fontSize={20} />}
             >
               Atrás
-            </Button>
-            <Button
+            </CustomBackButton>
+            <CustomNextButton
               color="primary"
               variant="contained"
               onClick={handleNext}
               endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
-              sx={{
-                bgcolor: 'holocruxe.btn',
-                '&:hover': { bgcolor: 'holocruxe.darkText' },
-              }}
             >
               Siguiente
-            </Button>
+            </CustomNextButton>
           </Box>
         </Grid>
       </Grid>
