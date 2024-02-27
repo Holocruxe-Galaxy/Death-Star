@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/material/styles';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -33,6 +34,20 @@ import { useRouter } from 'next/router';
 // ** Import ChatBot
 import ChatBotIcon from 'src/@core/components/Chat-Icon/Chat-Icon';
 import Chat from 'src/@core/components/ChatComponent/ChatComponent';
+
+const CustomCard = styled(Card)(({ theme }) => ({
+  width: '80%',
+  height: '80%',
+  margin: 'auto',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  padding: theme.spacing(4),
+  backgroundColor: theme.palette.holocruxe.bg,
+  boxShadow: '2px 2px 12px -3px rgba(255, 255, 255, 0.5)',
+}));
 
 const steps = [
   {
@@ -97,52 +112,77 @@ const Register = () => {
 
   return (
     <>
-      <Box component="div" display="flex" justifyContent="space-between">
-        <ChatBotIcon></ChatBotIcon>
-        <Chat></Chat>
-        <Box component="div">
-          <HolocruxeLogo />
+      <Box
+        component="div"
+        sx={{
+          backgroundColor: 'holocruxe.bg',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Box component="div" display="flex" justifyContent="space-between">
+          <ChatBotIcon></ChatBotIcon>
+          <Chat></Chat>
+          <Box component="div">
+            <HolocruxeLogo />
+          </Box>
+          <Box component="div">
+            <MenuItem
+              onClick={handleLogout}
+              sx={{
+                py: 2,
+                '& svg': {
+                  mr: 2,
+                  fontSize: '1.375rem',
+                  color: 'holocruxe.fontWhite',
+                },
+              }}
+            >
+              <Icon icon="mdi:logout-variant" />
+            </MenuItem>
+          </Box>
         </Box>
-        <Box component="div">
-          <MenuItem
-            onClick={handleLogout}
-            sx={{
-              py: 2,
-              '& svg': { mr: 2, fontSize: '1.375rem', color: 'text.primary' },
-            }}
-          >
-            <Icon icon="mdi:logout-variant" />
-          </MenuItem>
+        <Box
+          component="div"
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexGrow: 1,
+            mt: 5,
+          }}
+        >
+          <CustomCard>
+            <StepperWrapper sx={{ mb: 10 }}>
+              <Stepper activeStep={activeStep}>
+                {steps.map((step, index) => {
+                  return (
+                    <Step key={index}>
+                      <StepLabel StepIconComponent={StepperCustomDot}>
+                        <div className="step-label">
+                          <Typography className="step-number">
+                            {`0${index + 1}`}
+                          </Typography>
+                          <div>
+                            <Typography className="step-title">
+                              {step.title}
+                            </Typography>
+                            <Typography className="step-subtitle">
+                              {step.subtitle}
+                            </Typography>
+                          </div>
+                        </div>
+                      </StepLabel>
+                    </Step>
+                  );
+                })}
+              </Stepper>
+            </StepperWrapper>
+            {renderContent()}
+          </CustomCard>
         </Box>
       </Box>
-      <Card sx={{ textAlign: 'center' }}>
-        <StepperWrapper sx={{ mb: 10 }}>
-          <Stepper activeStep={activeStep}>
-            {steps.map((step, index) => {
-              return (
-                <Step key={index}>
-                  <StepLabel StepIconComponent={StepperCustomDot}>
-                    <div className="step-label">
-                      <Typography className="step-number">
-                        {`0${index + 1}`}
-                      </Typography>
-                      <div>
-                        <Typography className="step-title">
-                          {step.title}
-                        </Typography>
-                        <Typography className="step-subtitle">
-                          {step.subtitle}
-                        </Typography>
-                      </div>
-                    </div>
-                  </StepLabel>
-                </Step>
-              );
-            })}
-          </Stepper>
-        </StepperWrapper>
-        {renderContent()}
-      </Card>
     </>
   );
 };
