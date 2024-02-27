@@ -54,15 +54,6 @@ const CustomSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
-const CustomBackButton = styled(Button)(({ theme }) => ({
-  backgroundColor: 'transparent',
-  color: alpha(theme.palette.holocruxe.fontWhite, 0.5),
-  border: `2px solid ${alpha(theme.palette.holocruxe.fontWhite, 0.2)}`,
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.holocruxe.darkText, 0.6),
-  },
-}));
-
 const CustomNextButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.holocruxe.btn,
   color: theme.palette.holocruxe.fontWhite,
@@ -71,10 +62,10 @@ const CustomNextButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
+const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) => {
   return (
     <>
-      <Box component={'div'} sx={{ mb: 6 }}>
+      <Box component={'div'} sx={{ mb: 10 }}>
         <CustomTypography variant="h5">Queremos conocerte</CustomTypography>
       </Box>
 
@@ -88,14 +79,14 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
             alignItems: 'center',
           }}
         >
-          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+          <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
             <CustomTextField fullWidth placeholder="Tu nombre" />
           </Grid>
 
-          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+          <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
             <CustomTextField fullWidth placeholder="Fecha de Nacimiento" />
           </Grid>
-          <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
+          <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
             <FormControl fullWidth sx={{ width: '370px', height: '40px' }}>
               <CustomSelect labelId="state-select" defaultValue="País">
                 <MenuItem value="País" disabled>
@@ -138,17 +129,9 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
             component="div"
             sx={{
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'flex-end',
             }}
           >
-            <CustomBackButton
-              color="secondary"
-              variant="contained"
-              onClick={handlePrev}
-              startIcon={<Icon icon="mdi:chevron-left" fontSize={20} />}
-            >
-              Atrás
-            </CustomBackButton>
             <CustomNextButton
               color="primary"
               variant="contained"
