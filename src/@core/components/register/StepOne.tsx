@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
+import { alpha, styled } from '@mui/material/styles';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -17,16 +18,27 @@ import MaleIcon from '../icon/register/MaleIcon';
 import NeutroIcon from '../icon/register/NeutroIcon';
 import OtherIcon from '../icon/register/OtherIcon';
 
-const StepPersonalInformation = ({
-  handleNext,
-  handlePrev,
-}: {
-  [key: string]: () => void;
-}) => {
+const CustomTypography = styled(Typography)(({ theme }) => ({
+  color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
+}));
+
+const CustomTextField = styled(TextField)(({ theme }) => ({
+  '& .MuiInputBase-root': {
+    backgroundColor: alpha(theme.palette.holocruxe.fontWhite, 0.1),
+    border: `2px solid ${theme.palette.holocruxe.mediumText}`,
+    width: '370px',
+    height: '40px',
+    '& input': {
+      color: theme.palette.holocruxe.fontWhite,
+    },
+  },
+}));
+
+const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
   return (
     <>
       <Box component={'div'} sx={{ mb: 6 }}>
-        <Typography variant="h5">Queremos conocerte</Typography>
+        <CustomTypography variant="h5">Queremos conocerte</CustomTypography>
       </Box>
 
       <Grid container spacing={5} justifyContent="center">
@@ -40,15 +52,23 @@ const StepPersonalInformation = ({
           }}
         >
           <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
-            <TextField fullWidth placeholder="Tu nombre" />
+            <CustomTextField fullWidth placeholder="Tu nombre" />
           </Grid>
 
           <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
-            <TextField fullWidth placeholder="Fecha de Nacimiento" />
+            <CustomTextField fullWidth placeholder="Fecha de Nacimiento" />
           </Grid>
           <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
-            <FormControl fullWidth>
-              <Select labelId="state-select" defaultValue="País">
+            <FormControl fullWidth sx={{ width: '370px', height: '40px' }}>
+              <Select
+                labelId="state-select"
+                defaultValue="País"
+                sx={{
+                  width: '370px',
+                  height: '40px',
+                  color: 'holocruxe.fontWhite',
+                }}
+              >
                 <MenuItem value="País" disabled>
                   País
                 </MenuItem>
@@ -63,23 +83,23 @@ const StepPersonalInformation = ({
             </FormControl>
           </Grid>
           <Box component={'div'} sx={{ mb: 4 }}>
-            <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
+            <CustomTypography>Género:</CustomTypography>
             <Stack direction="row" spacing={4}>
               <IconButton sx={{ flexDirection: 'column' }}>
                 <FemaleIcon />
-                <Typography>Femenino</Typography>
+                <CustomTypography>Femenino</CustomTypography>
               </IconButton>
               <IconButton sx={{ flexDirection: 'column' }}>
                 <MaleIcon />
-                <Typography>Masculino</Typography>
+                <CustomTypography>Masculino</CustomTypography>
               </IconButton>
               <IconButton sx={{ flexDirection: 'column' }}>
                 <NeutroIcon />
-                <Typography>Neutro</Typography>
+                <CustomTypography>Neutro</CustomTypography>
               </IconButton>
               <IconButton sx={{ flexDirection: 'column' }}>
                 <OtherIcon />
-                <Typography>Otro</Typography>
+                <CustomTypography>Otro</CustomTypography>
               </IconButton>
             </Stack>
           </Box>
@@ -100,11 +120,7 @@ const StepPersonalInformation = ({
             >
               Atrás
             </Button>
-            <Button
-              variant="contained"
-              onClick={handleNext}
-              endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
-            >
+            <Button variant="contained" onClick={handleNext} endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}>
               Siguiente
             </Button>
           </Box>
