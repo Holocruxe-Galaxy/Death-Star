@@ -118,10 +118,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.firstName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-first-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-first-name">
                     This field is required
                   </FormHelperText>
                 )}
@@ -146,10 +143,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.lastName && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-last-name"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-last-name">
                     This field is required
                   </FormHelperText>
                 )}
@@ -175,10 +169,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.email && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-email"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-email">
                     This field is required
                   </FormHelperText>
                 )}
@@ -187,10 +178,7 @@ const FormValidationBasic = () => {
 
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel
-                  htmlFor="validation-basic-password"
-                  error={Boolean(errors.password)}
-                >
+                <InputLabel htmlFor="validation-basic-password" error={Boolean(errors.password)}>
                   Password
                 </InputLabel>
                 <Controller
@@ -213,13 +201,7 @@ const FormValidationBasic = () => {
                             onMouseDown={(e) => e.preventDefault()}
                             aria-label="toggle password visibility"
                           >
-                            <Icon
-                              icon={
-                                state.showPassword
-                                  ? 'mdi:eye-outline'
-                                  : 'mdi:eye-off-outline'
-                              }
-                            />
+                            <Icon icon={state.showPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>
                         </InputAdornment>
                       }
@@ -227,10 +209,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.password && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-password"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-password">
                     This field is required
                   </FormHelperText>
                 )}
@@ -262,10 +241,7 @@ const FormValidationBasic = () => {
                 )}
               />
               {errors.dob && (
-                <FormHelperText
-                  sx={{ mx: 3.5, color: 'error.main' }}
-                  id="validation-basic-dob"
-                >
+                <FormHelperText sx={{ mx: 3.5, color: 'error.main' }} id="validation-basic-dob">
                   This field is required
                 </FormHelperText>
               )}
@@ -301,10 +277,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.select && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-select"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-select">
                     This field is required
                   </FormHelperText>
                 )}
@@ -329,10 +302,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.textarea && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-textarea"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-textarea">
                     This field is required
                   </FormHelperText>
                 )}
@@ -347,50 +317,30 @@ const FormValidationBasic = () => {
                   control={control}
                   rules={{ required: true }}
                   render={({ field }) => (
-                    <RadioGroup
-                      row
-                      {...field}
-                      aria-label="gender"
-                      name="validation-basic-radio"
-                    >
+                    <RadioGroup row {...field} aria-label="gender" name="validation-basic-radio">
                       <FormControlLabel
                         value="female"
                         label="Female"
                         sx={errors.radio ? { color: 'error.main' } : null}
-                        control={
-                          <Radio
-                            sx={errors.radio ? { color: 'error.main' } : null}
-                          />
-                        }
+                        control={<Radio sx={errors.radio ? { color: 'error.main' } : null} />}
                       />
                       <FormControlLabel
                         value="male"
                         label="Male"
                         sx={errors.radio ? { color: 'error.main' } : null}
-                        control={
-                          <Radio
-                            sx={errors.radio ? { color: 'error.main' } : null}
-                          />
-                        }
+                        control={<Radio sx={errors.radio ? { color: 'error.main' } : null} />}
                       />
                       <FormControlLabel
                         value="other"
                         label="Other"
                         sx={errors.radio ? { color: 'error.main' } : null}
-                        control={
-                          <Radio
-                            sx={errors.radio ? { color: 'error.main' } : null}
-                          />
-                        }
+                        control={<Radio sx={errors.radio ? { color: 'error.main' } : null} />}
                       />
                     </RadioGroup>
                   )}
                 />
                 {errors.radio && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-radio"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-radio">
                     This field is required
                   </FormHelperText>
                 )}
@@ -418,10 +368,7 @@ const FormValidationBasic = () => {
                   )}
                 />
                 {errors.checkbox && (
-                  <FormHelperText
-                    sx={{ color: 'error.main' }}
-                    id="validation-basic-checkbox"
-                  >
+                  <FormHelperText sx={{ color: 'error.main' }} id="validation-basic-checkbox">
                     This field is required
                   </FormHelperText>
                 )}

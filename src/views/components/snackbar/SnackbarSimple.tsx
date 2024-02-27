@@ -39,12 +39,7 @@ const SnackbarSimple = () => {
             <Button size="small" onClick={handleClose}>
               Undo
             </Button>
-            <IconButton
-              size="small"
-              aria-label="close"
-              color="inherit"
-              onClick={handleClose}
-            >
+            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
               <Icon icon="mdi:close" fontSize={20} />
             </IconButton>
           </Fragment>

@@ -10,11 +10,7 @@ const ButtonsWithIconAndLabel = () => {
       <Button variant="contained" endIcon={<Icon icon="mdi:send" />}>
         Send
       </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        startIcon={<Icon icon="mdi:delete-outline" />}
-      >
+      <Button variant="contained" color="secondary" startIcon={<Icon icon="mdi:delete-outline" />}>
         Delete
       </Button>
     </div>

@@ -14,13 +14,7 @@ import { promises as fs } from 'fs';
 import { dirname } from 'path';
 
 // Installation: npm install --save-dev @iconify/tools @iconify/utils @iconify/json @iconify/iconify
-import {
-  importDirectory,
-  cleanupSVG,
-  parseColors,
-  isEmptyColor,
-  runSVGO,
-} from '@iconify/tools';
+import { importDirectory, cleanupSVG, parseColors, isEmptyColor, runSVGO } from '@iconify/tools';
 import { getIcons, stringToIcon, minifyIconSet } from '@iconify/utils';
 import type { IconifyJSON, IconifyMetaData } from '@iconify/types';
 
@@ -30,34 +24,34 @@ import type { IconifyJSON, IconifyMetaData } from '@iconify/types';
  */
 interface BundleScriptCustomSVGConfig {
   // Path to SVG files
-  dir: string
+  dir: string;
 
   // True if icons should be treated as monotone: colors replaced with currentColor
-  monotone: boolean
+  monotone: boolean;
 
   // Icon set prefix
-  prefix: string
+  prefix: string;
 }
 
 interface BundleScriptCustomJSONConfig {
   // Path to JSON file
-  filename: string
+  filename: string;
 
   // List of icons to import. If missing, all icons will be imported
-  icons?: string[]
+  icons?: string[];
 }
 
 interface BundleScriptConfig {
   // Custom SVG to import and bundle
-  svg?: BundleScriptCustomSVGConfig[]
+  svg?: BundleScriptCustomSVGConfig[];
 
   // Icons to bundled from @iconify/json packages
-  icons?: string[]
+  icons?: string[];
 
   // List of JSON files to bundled
   // Entry can be a string, pointing to filename or a BundleScriptCustomJSONConfig object (see type above)
   // If entry is a string or object without 'icons' property, an entire JSON file will be bundled
-  json?: (string | BundleScriptCustomJSONConfig)[]
+  json?: (string | BundleScriptCustomJSONConfig)[];
 }
 /* eslint-enable */
 
@@ -160,9 +154,7 @@ const target = 'src/iconify-bundle/icons-bundle-react.js';
 
       // Load icon set
       const filename = typeof item === 'string' ? item : item.filename;
-      let content = JSON.parse(
-        await fs.readFile(filename, 'utf8'),
-      ) as IconifyJSON;
+      let content = JSON.parse(await fs.readFile(filename, 'utf8')) as IconifyJSON;
 
       // Filter icons
       if (typeof item !== 'string' && item.icons?.length) {
@@ -219,9 +211,7 @@ const target = 'src/iconify-bundle/icons-bundle-react.js';
             await parseColors(svg, {
               defaultColor: 'currentColor',
               callback: (attr, colorStr, color) => {
-                return !color || isEmptyColor(color)
-                  ? colorStr
-                  : 'currentColor';
+                return !color || isEmptyColor(color) ? colorStr : 'currentColor';
               },
             });
           }
@@ -259,14 +249,7 @@ const target = 'src/iconify-bundle/icons-bundle-react.js';
  * Remove metadata from icon set
  */
 function removeMetaData(iconSet: IconifyJSON) {
-  const props: (keyof IconifyMetaData)[] = [
-    'info',
-    'chars',
-    'categories',
-    'themes',
-    'prefixes',
-    'suffixes',
-  ];
+  const props: (keyof IconifyMetaData)[] = ['info', 'chars', 'categories', 'themes', 'prefixes', 'suffixes'];
   props.forEach((prop) => {
     delete iconSet[prop];
   });

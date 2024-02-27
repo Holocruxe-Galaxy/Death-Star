@@ -9,14 +9,7 @@ import { CustomRadioBasicProps } from 'src/@core/components/custom-radio/types';
 
 const CustomRadioBasic = (props: CustomRadioBasicProps) => {
   // ** Props
-  const {
-    name,
-    data,
-    selected,
-    gridProps,
-    handleChange,
-    color = 'primary',
-  } = props;
+  const { name, data, selected, gridProps, handleChange, color = 'primary' } = props;
 
   const { meta, title, value, content } = data;
 
@@ -42,22 +35,10 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
               justifyContent: 'space-between',
             }}
           >
-            {typeof title === 'string' ? (
-              <Typography sx={{ mr: 2, fontWeight: 500 }}>{title}</Typography>
-            ) : (
-              title
-            )}
-            {typeof meta === 'string' ? (
-              <Typography sx={{ color: 'text.secondary' }}>{meta}</Typography>
-            ) : (
-              meta
-            )}
+            {typeof title === 'string' ? <Typography sx={{ mr: 2, fontWeight: 500 }}>{title}</Typography> : title}
+            {typeof meta === 'string' ? <Typography sx={{ color: 'text.secondary' }}>{meta}</Typography> : meta}
           </Box>
-          {typeof content === 'string' ? (
-            <Typography variant="body2">{content}</Typography>
-          ) : (
-            content
-          )}
+          {typeof content === 'string' ? <Typography variant="body2">{content}</Typography> : content}
         </Box>
       );
     } else if (meta && title && !content) {
@@ -71,48 +52,21 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
             justifyContent: 'space-between',
           }}
         >
-          {typeof title === 'string' ? (
-            <Typography sx={{ mr: 2, fontWeight: 500 }}>{title}</Typography>
-          ) : (
-            title
-          )}
-          {typeof meta === 'string' ? (
-            <Typography sx={{ color: 'text.secondary' }}>{meta}</Typography>
-          ) : (
-            meta
-          )}
+          {typeof title === 'string' ? <Typography sx={{ mr: 2, fontWeight: 500 }}>{title}</Typography> : title}
+          {typeof meta === 'string' ? <Typography sx={{ color: 'text.secondary' }}>{meta}</Typography> : meta}
         </Box>
       );
     } else if (!meta && title && content) {
       return (
-        <Box
-          component="div"
-          sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-        >
-          {typeof title === 'string' ? (
-            <Typography sx={{ mb: 1, fontWeight: 500 }}>{title}</Typography>
-          ) : (
-            title
-          )}
-          {typeof content === 'string' ? (
-            <Typography variant="body2">{content}</Typography>
-          ) : (
-            content
-          )}
+        <Box component="div" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+          {typeof title === 'string' ? <Typography sx={{ mb: 1, fontWeight: 500 }}>{title}</Typography> : title}
+          {typeof content === 'string' ? <Typography variant="body2">{content}</Typography> : content}
         </Box>
       );
     } else if (!meta && !title && content) {
-      return typeof content === 'string' ? (
-        <Typography variant="body2">{content}</Typography>
-      ) : (
-        content
-      );
+      return typeof content === 'string' ? <Typography variant="body2">{content}</Typography> : content;
     } else if (!meta && title && !content) {
-      return typeof title === 'string' ? (
-        <Typography sx={{ fontWeight: 500 }}>{title}</Typography>
-      ) : (
-        title
-      );
+      return typeof title === 'string' ? <Typography sx={{ fontWeight: 500 }}>{title}</Typography> : title;
     } else {
       return null;
     }
@@ -137,8 +91,7 @@ const CustomRadioBasic = (props: CustomRadioBasicProps) => {
               ? { borderColor: `${color}.main` }
               : {
                   '&:hover': {
-                    borderColor: (theme) =>
-                      `rgba(${theme.palette.customColors.main}, 0.25)`,
+                    borderColor: (theme) => `rgba(${theme.palette.customColors.main}, 0.25)`,
                   },
                 }),
           }}

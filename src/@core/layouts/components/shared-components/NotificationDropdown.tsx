@@ -117,30 +117,15 @@ const MenuItemSubtitle = styled(Typography)<TypographyProps>({
   textOverflow: 'ellipsis',
 });
 
-const ScrollWrapper = ({
-  children,
-  hidden,
-}: {
-  children: ReactNode;
-  hidden: boolean;
-}) => {
+const ScrollWrapper = ({ children, hidden }: { children: ReactNode; hidden: boolean }) => {
   if (hidden) {
     return (
-      <Box
-        component="div"
-        sx={{ maxHeight: 349, overflowY: 'auto', overflowX: 'hidden' }}
-      >
+      <Box component="div" sx={{ maxHeight: 349, overflowY: 'auto', overflowX: 'hidden' }}>
         {children}
       </Box>
     );
   } else {
-    return (
-      <PerfectScrollbar
-        options={{ wheelPropagation: false, suppressScrollX: true }}
-      >
-        {children}
-      </PerfectScrollbar>
-    );
+    return <PerfectScrollbar options={{ wheelPropagation: false, suppressScrollX: true }}>{children}</PerfectScrollbar>;
   }
 };
 
@@ -149,9 +134,7 @@ const NotificationDropdown = (props: Props) => {
   const { settings, notifications } = props;
 
   // ** States
-  const [anchorEl, setAnchorEl] = useState<(EventTarget & Element) | null>(
-    null,
-  );
+  const [anchorEl, setAnchorEl] = useState<(EventTarget & Element) | null>(null);
 
   // ** Hook
   const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
@@ -167,13 +150,8 @@ const NotificationDropdown = (props: Props) => {
     setAnchorEl(null);
   };
 
-  const RenderAvatar = ({
-    notification,
-  }: {
-    notification: NotificationsType;
-  }) => {
-    const { avatarAlt, avatarImg, avatarIcon, avatarText, avatarColor } =
-      notification;
+  const RenderAvatar = ({ notification }: { notification: NotificationsType }) => {
+    const { avatarAlt, avatarImg, avatarIcon, avatarText, avatarColor } = notification;
 
     if (avatarImg) {
       return <Avatar alt={avatarAlt} src={avatarImg} />;
@@ -194,12 +172,7 @@ const NotificationDropdown = (props: Props) => {
 
   return (
     <Fragment>
-      <IconButton
-        color="inherit"
-        aria-haspopup="true"
-        onClick={handleDropdownOpen}
-        aria-controls="customized-menu"
-      >
+      <IconButton color="inherit" aria-haspopup="true" onClick={handleDropdownOpen} aria-controls="customized-menu">
         <Badge
           color="error"
           variant="dot"
@@ -208,8 +181,7 @@ const NotificationDropdown = (props: Props) => {
             '& .MuiBadge-badge': {
               top: 4,
               right: 4,
-              boxShadow: (theme) =>
-                `0 0 0 2px ${theme.palette.background.paper}`,
+              boxShadow: (theme) => `0 0 0 2px ${theme.palette.background.paper}`,
             },
           }}
         >
@@ -247,9 +219,7 @@ const NotificationDropdown = (props: Props) => {
               width: '100%',
             }}
           >
-            <Typography sx={{ cursor: 'text', fontWeight: 600 }}>
-              Notifications
-            </Typography>
+            <Typography sx={{ cursor: 'text', fontWeight: 600 }}>Notifications</Typography>
             <CustomChip
               skin="light"
               size="small"
@@ -265,36 +235,29 @@ const NotificationDropdown = (props: Props) => {
           </Box>
         </MenuItem>
         <ScrollWrapper hidden={hidden}>
-          {notifications.map(
-            (notification: NotificationsType, index: number) => (
-              <MenuItem key={index} onClick={handleDropdownClose}>
+          {notifications.map((notification: NotificationsType, index: number) => (
+            <MenuItem key={index} onClick={handleDropdownClose}>
+              <Box component="div" sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+                <RenderAvatar notification={notification} />
                 <Box
                   component="div"
-                  sx={{ width: '100%', display: 'flex', alignItems: 'center' }}
+                  sx={{
+                    mx: 4,
+                    flex: '1 1',
+                    display: 'flex',
+                    overflow: 'hidden',
+                    flexDirection: 'column',
+                  }}
                 >
-                  <RenderAvatar notification={notification} />
-                  <Box
-                    component="div"
-                    sx={{
-                      mx: 4,
-                      flex: '1 1',
-                      display: 'flex',
-                      overflow: 'hidden',
-                      flexDirection: 'column',
-                    }}
-                  >
-                    <MenuItemTitle>{notification.title}</MenuItemTitle>
-                    <MenuItemSubtitle variant="body2">
-                      {notification.subtitle}
-                    </MenuItemSubtitle>
-                  </Box>
-                  <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-                    {notification.meta}
-                  </Typography>
+                  <MenuItemTitle>{notification.title}</MenuItemTitle>
+                  <MenuItemSubtitle variant="body2">{notification.subtitle}</MenuItemSubtitle>
                 </Box>
-              </MenuItem>
-            ),
-          )}
+                <Typography variant="caption" sx={{ color: 'text.disabled' }}>
+                  {notification.meta}
+                </Typography>
+              </Box>
+            </MenuItem>
+          ))}
         </ScrollWrapper>
         <MenuItem
           disableRipple

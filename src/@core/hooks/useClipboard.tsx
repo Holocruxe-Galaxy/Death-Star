@@ -17,9 +17,7 @@ interface ClipboardAPI {
   readonly target: RefObject<any>;
 }
 
-const isInputLike = (
-  node: any,
-): node is HTMLInputElement | HTMLTextAreaElement => {
+const isInputLike = (node: any): node is HTMLInputElement | HTMLTextAreaElement => {
   return node && (node.nodeName === 'TEXTAREA' || node.nodeName === 'INPUT');
 };
 

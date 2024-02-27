@@ -14,11 +14,7 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
 
-const options = [
-  'Create a merge commit',
-  'Squash and merge',
-  'Rebase and merge',
-];
+const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
 
 const ButtonGroupSplit = () => {
   // ** States
@@ -47,11 +43,7 @@ const ButtonGroupSplit = () => {
 
   return (
     <Fragment>
-      <ButtonGroup
-        variant="contained"
-        ref={anchorRef}
-        aria-label="split button"
-      >
+      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
         <Button onClick={handleClick}>{options[selectedIndex]}</Button>
         <Button
           sx={{ px: '0' }}
@@ -64,19 +56,12 @@ const ButtonGroupSplit = () => {
           <Icon icon="mdi:menu-down" />
         </Button>
       </ButtonGroup>
-      <Popper
-        open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        transition
-        disablePortal
-      >
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
+              transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
             }}
           >
             <Paper>

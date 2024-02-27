@@ -26,12 +26,7 @@ const DialogFullScreen = () => {
       <Button variant="outlined" onClick={handleClickOpen}>
         Open dialog
       </Button>
-      <Dialog
-        fullScreen
-        onClose={handleClose}
-        aria-labelledby="full-screen-dialog-title"
-        open={open}
-      >
+      <Dialog fullScreen onClose={handleClose} aria-labelledby="full-screen-dialog-title" open={open}>
         <DialogTitle id="full-screen-dialog-title">
           <Typography variant="h6" component="span">
             Modal title
@@ -46,20 +41,17 @@ const DialogFullScreen = () => {
         </DialogTitle>
         <DialogContent>
           <Typography sx={{ mb: 4 }}>
-            Chupa chups jelly-o candy sweet roll wafer cake chocolate bar.
-            Brownie sweet roll topping cake chocolate cake cheesecake tiramisu
-            chocolate cake. Jujubes liquorice chocolate bar pastry. Chocolate
-            jujubes caramels pastry.
+            Chupa chups jelly-o candy sweet roll wafer cake chocolate bar. Brownie sweet roll topping cake chocolate
+            cake cheesecake tiramisu chocolate cake. Jujubes liquorice chocolate bar pastry. Chocolate jujubes caramels
+            pastry.
           </Typography>
           <Typography sx={{ mb: 4 }}>
-            Ice cream marshmallow dragée bonbon croissant. Carrot cake sweet
-            donut ice cream bonbon oat cake danish sugar plum. Gingerbread
-            gummies marzipan gingerbread.
+            Ice cream marshmallow dragée bonbon croissant. Carrot cake sweet donut ice cream bonbon oat cake danish
+            sugar plum. Gingerbread gummies marzipan gingerbread.
           </Typography>
           <Typography>
-            Soufflé toffee ice cream. Jelly-o pudding sweet roll bonbon.
-            Marshmallow liquorice icing. Jelly beans chocolate bar chocolate
-            marzipan candy fruitcake jujubes.
+            Soufflé toffee ice cream. Jelly-o pudding sweet roll bonbon. Marshmallow liquorice icing. Jelly beans
+            chocolate bar chocolate marzipan candy fruitcake jujubes.
           </Typography>
         </DialogContent>
         <DialogActions className="dialog-actions-dense">

@@ -38,29 +38,25 @@ const BlankLayoutAppBar = () => {
         sx={{
           justifyContent: 'space-between',
           p: (theme) => `${theme.spacing(0, 6)} !important`,
-          minHeight: `${
-            (theme.mixins.toolbar.minHeight as number) -
-            (skin === 'bordered' ? 1 : 0)
-          }px !important`,
+          minHeight: `${(theme.mixins.toolbar.minHeight as number) - (skin === 'bordered' ? 1 : 0)}px !important`,
         }}
       >
         <LinkStyled href="/">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="280"
-            x="744.13"
-            y="-640.34"
-            viewBox="0 0 1617.68 257.73"
-          >
-            <path
-              fill="#CCC7CE"
-              d="M235.07,144.74a16.45,16.45,0,0,0-16.46,16.45v5.48H158.29V115.49a16.45,16.45,0,1,0-32.9,0v124.3a16.45,16.45,0,1,0,32.9,0V192.26h60.32v47.53a16.46,16.46,0,0,0,32.91,0v-78.6A16.45,16.45,0,0,0,235.07,144.74Z"
-              transform="translate(-64.16 -39.63)"
+          <svg width={40} fill="none" height={22} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
+            <rect
+              rx="25.1443"
+              width="50.2886"
+              height="143.953"
+              fill={theme.palette.primary.main}
+              transform="matrix(-0.865206 0.501417 0.498585 0.866841 195.571 0)"
             />
-            <path
-              fill="#CCC7CE"
-              d="M552.21,227.91H537.58V116.41a16.45,16.45,0,1,0-32.9,0V240.7c0,.31,0,.61.05.92s-.05.6-.05.91a14.62,14.62,0,0,0,14.62,14.62h32.91a14.62,14.62,0,1,0,0-29.24Z"
-              transform="translate(-64.16 -39.63)"
+            <rect
+              rx="25.1443"
+              width="50.2886"
+              height="143.953"
+              fillOpacity="0.4"
+              fill="url(#paint0_linear_7821_79167)"
+              transform="matrix(-0.865206 0.501417 0.498585 0.866841 196.084 0)"
             />
             <path
               fill="#CCC7CE"
@@ -107,6 +103,9 @@ const BlankLayoutAppBar = () => {
               transform="translate(-64.16 -39.63)"
             />
           </svg>
+          <Typography variant="h6" sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}>
+            {themeConfig.templateName}
+          </Typography>
         </LinkStyled>
       </Toolbar>
     </AppBar>

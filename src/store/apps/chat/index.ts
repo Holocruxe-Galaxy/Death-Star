@@ -9,24 +9,18 @@ import { Dispatch } from 'redux';
 import { SendMsgParamsType } from 'src/types/apps/chatTypes';
 
 // ** Fetch User Profile
-export const fetchUserProfile = createAsyncThunk(
-  'appChat/fetchUserProfile',
-  async () => {
-    const response = await axios.get('/apps/chat/users/profile-user');
+export const fetchUserProfile = createAsyncThunk('appChat/fetchUserProfile', async () => {
+  const response = await axios.get('/apps/chat/users/profile-user');
 
-    return response.data;
-  },
-);
+  return response.data;
+});
 
 // ** Fetch Chats & Contacts
-export const fetchChatsContacts = createAsyncThunk(
-  'appChat/fetchChatsContacts',
-  async () => {
-    const response = await axios.get('/apps/chat/chats-and-contacts');
+export const fetchChatsContacts = createAsyncThunk('appChat/fetchChatsContacts', async () => {
+  const response = await axios.get('/apps/chat/chats-and-contacts');
 
-    return response.data;
-  },
-);
+  return response.data;
+});
 
 // ** Select Chat
 export const selectChat = createAsyncThunk(
@@ -44,22 +38,19 @@ export const selectChat = createAsyncThunk(
 );
 
 // ** Send Msg
-export const sendMsg = createAsyncThunk(
-  'appChat/sendMsg',
-  async (obj: SendMsgParamsType, { dispatch }) => {
-    const response = await axios.post('/apps/chat/send-msg', {
-      data: {
-        obj,
-      },
-    });
-    if (obj.contact) {
-      await dispatch(selectChat(obj.contact.id));
-    }
-    await dispatch(fetchChatsContacts());
+export const sendMsg = createAsyncThunk('appChat/sendMsg', async (obj: SendMsgParamsType, { dispatch }) => {
+  const response = await axios.post('/apps/chat/send-msg', {
+    data: {
+      obj,
+    },
+  });
+  if (obj.contact) {
+    await dispatch(selectChat(obj.contact.id));
+  }
+  await dispatch(fetchChatsContacts());
 
-    return response.data;
-  },
-);
+  return response.data;
+});
 
 export const appChatSlice = createSlice({
   name: 'appChat',

@@ -25,12 +25,7 @@ const ApexDonutChart = () => {
   const options: ApexOptions = {
     stroke: { width: 0 },
     labels: ['Operational', 'Networking', 'Hiring', 'R&D'],
-    colors: [
-      donutColors.series1,
-      donutColors.series5,
-      donutColors.series3,
-      donutColors.series2,
-    ],
+    colors: [donutColors.series1, donutColors.series5, donutColors.series3, donutColors.series2],
     dataLabels: {
       enabled: true,
       formatter: (val: string) => `${parseInt(val, 10)}%`,
@@ -119,12 +114,7 @@ const ApexDonutChart = () => {
         }}
       />
       <CardContent>
-        <ReactApexcharts
-          type="donut"
-          height={400}
-          options={options}
-          series={[85, 16, 50, 50]}
-        />
+        <ReactApexcharts type="donut" height={400} options={options} series={[85, 16, 50, 50]} />
       </CardContent>
     </Card>
   );

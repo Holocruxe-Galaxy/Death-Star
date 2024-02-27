@@ -10,16 +10,7 @@ import { SidebarType } from './type';
 
 const Sidebar = (props: BoxProps & SidebarType) => {
   // ** Props
-  const {
-    sx,
-    show,
-    direction,
-    children,
-    hideBackdrop,
-    onOpen,
-    onClose,
-    backDropClick,
-  } = props;
+  const { sx, show, direction, children, hideBackdrop, onOpen, onClose, backDropClick } = props;
 
   const handleBackdropClick = () => {
     if (backDropClick) {

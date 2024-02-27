@@ -12,9 +12,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box, { BoxProps } from '@mui/material/Box';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton, {
-  ListItemButtonProps,
-} from '@mui/material/ListItemButton';
+import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton';
 
 // ** Configs Import
 import themeConfig from 'src/configs/themeConfig';
@@ -117,12 +115,7 @@ const VerticalNavLink = ({
         sx={{
           mt: 1.5,
           transition: 'padding .25s ease-in-out',
-          px: (theme) =>
-            parent
-              ? '0 !important'
-              : `${theme.spacing(
-                  navCollapsed && !navHover ? 2 : 3,
-                )} !important`,
+          px: (theme) => (parent ? '0 !important' : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`),
         }}
       >
         <MenuNavLink
@@ -142,17 +135,9 @@ const VerticalNavLink = ({
           }}
           sx={{
             py: 2.25,
-            ...(item.disabled
-              ? { pointerEvents: 'none' }
-              : { cursor: 'pointer' }),
-            pr:
-              navCollapsed && !navHover
-                ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8
-                : 3,
-            pl:
-              navCollapsed && !navHover
-                ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8
-                : 4,
+            ...(item.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' }),
+            pr: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 3,
+            pl: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 4,
           }}
         >
           {isSubToSub ? null : (
@@ -163,9 +148,7 @@ const VerticalNavLink = ({
                 ...(navCollapsed && !navHover ? { mr: 0 } : { mr: 2 }),
                 ...(parent ? { ml: 2, mr: 4 } : {}), // This line should be after (navCollapsed && !navHover) condition for proper styling
                 '& svg': {
-                  ...(!parent
-                    ? { fontSize: '1.5rem' }
-                    : { fontSize: '0.5rem' }),
+                  ...(!parent ? { fontSize: '1.5rem' } : { fontSize: '0.5rem' }),
                   ...(parent && item.icon ? { fontSize: '0.875rem' } : {}),
                 },
               }}
@@ -181,10 +164,7 @@ const VerticalNavLink = ({
             }}
           >
             <Typography
-              {...((themeConfig.menuTextTruncate ||
-                (!themeConfig.menuTextTruncate &&
-                  navCollapsed &&
-                  !navHover)) && {
+              {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
                 noWrap: true,
               })}
             >

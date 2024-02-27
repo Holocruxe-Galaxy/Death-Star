@@ -27,10 +27,7 @@ const MenuSelected = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (
-    event: MouseEvent<HTMLElement>,
-    index: number,
-  ) => {
+  const handleMenuItemClick = (event: MouseEvent<HTMLElement>, index: number) => {
     setAnchorEl(null);
     setSelectedIndex(index);
   };
@@ -50,20 +47,11 @@ const MenuSelected = () => {
           aria-label="when device is locked"
         >
           <ListItemButton>
-            <ListItemText
-              primary="When device is locked"
-              secondary={options[selectedIndex]}
-            />
+            <ListItemText primary="When device is locked" secondary={options[selectedIndex]} />
           </ListItemButton>
         </ListItem>
       </List>
-      <Menu
-        id="lock-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
+      <Menu id="lock-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {options.map((option, index) => (
           <MenuItem
             key={option}

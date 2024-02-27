@@ -12,47 +12,34 @@ import MuiToggleButton, { ToggleButtonProps } from '@mui/material/ToggleButton';
 import Icon from 'src/@core/components/icon';
 
 // Styled ToggleButton component
-const ToggleButton = styled(MuiToggleButton)<ToggleButtonProps>(
-  ({ theme }) => ({
-    margin: theme.spacing(1),
-    border: 'none !important',
-    padding: theme.spacing(2),
-    '&:not(:first-of-type)': {
-      borderRadius: `${theme.shape.borderRadius}px !important`,
-    },
-    '&:first-of-type': {
-      borderRadius: `${theme.shape.borderRadius}px !important`,
-    },
-  }),
-);
+const ToggleButton = styled(MuiToggleButton)<ToggleButtonProps>(({ theme }) => ({
+  margin: theme.spacing(1),
+  border: 'none !important',
+  padding: theme.spacing(2),
+  '&:not(:first-of-type)': {
+    borderRadius: `${theme.shape.borderRadius}px !important`,
+  },
+  '&:first-of-type': {
+    borderRadius: `${theme.shape.borderRadius}px !important`,
+  },
+}));
 
 const ButtonToggleCustomized = () => {
   // ** States
   const [alignment, setAlignment] = useState<string | null>('left');
   const [formats, setFormats] = useState<string[]>(() => ['italic']);
 
-  const handleAlignment = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string | null,
-  ) => {
+  const handleAlignment = (event: MouseEvent<HTMLElement>, newAlignment: string | null) => {
     setAlignment(newAlignment);
   };
 
-  const handleFormat = (
-    event: MouseEvent<HTMLElement>,
-    newFormats: string[],
-  ) => {
+  const handleFormat = (event: MouseEvent<HTMLElement>, newFormats: string[]) => {
     setFormats(newFormats);
   };
 
   return (
     <Box component="div" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      <ToggleButtonGroup
-        exclusive
-        value={alignment}
-        onChange={handleAlignment}
-        aria-label="text alignment"
-      >
+      <ToggleButtonGroup exclusive value={alignment} onChange={handleAlignment} aria-label="text alignment">
         <ToggleButton value="left" aria-label="left aligned">
           <Icon icon="mdi:format-align-left" />
         </ToggleButton>
@@ -67,11 +54,7 @@ const ButtonToggleCustomized = () => {
         </ToggleButton>
       </ToggleButtonGroup>
       <Divider flexItem orientation="vertical" sx={{ m: 1 }} />
-      <ToggleButtonGroup
-        value={formats}
-        onChange={handleFormat}
-        aria-label="text alignment"
-      >
+      <ToggleButtonGroup value={formats} onChange={handleFormat} aria-label="text alignment">
         <ToggleButton value="bold" aria-label="bold">
           <Icon icon="mdi:format-bold" />
         </ToggleButton>

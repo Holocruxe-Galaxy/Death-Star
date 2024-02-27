@@ -50,19 +50,12 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
   const ScrollWrapper = ({ children }: { children: ReactNode }) => {
     if (hidden) {
       return (
-        <Box
-          component="div"
-          sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
-        >
+        <Box component="div" sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
           {children}
         </Box>
       );
     } else {
-      return (
-        <PerfectScrollbar options={{ wheelPropagation: false }}>
-          {children}
-        </PerfectScrollbar>
-      );
+      return <PerfectScrollbar options={{ wheelPropagation: false }}>{children}</PerfectScrollbar>;
     }
   };
 
@@ -102,10 +95,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
               flexDirection: 'column',
             }}
           >
-            <Box
-              component="div"
-              sx={{ mb: 4.25, display: 'flex', justifyContent: 'center' }}
-            >
+            <Box component="div" sx={{ mb: 4.25, display: 'flex', justifyContent: 'center' }}>
               <Badge
                 overlap="circular"
                 anchorOrigin={{
@@ -121,8 +111,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
                       borderRadius: '50%',
                       color: `${statusObj[userStatus]}.main`,
                       backgroundColor: `${statusObj[userStatus]}.main`,
-                      boxShadow: (theme) =>
-                        `0 0 0 2px ${theme.palette.background.paper}`,
+                      boxShadow: (theme) => `0 0 0 2px ${theme.palette.background.paper}`,
                     }}
                   />
                 }
@@ -137,10 +126,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
             <Typography sx={{ mb: 0.75, fontWeight: 600, textAlign: 'center' }}>
               {store.userProfile.fullName}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{ textAlign: 'center', textTransform: 'capitalize' }}
-            >
+            <Typography variant="body2" sx={{ textAlign: 'center', textTransform: 'capitalize' }}>
               {store.userProfile.role}
             </Typography>
           </Box>
@@ -148,37 +134,19 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
           <Box component="div" sx={{ height: 'calc(100% - 13.375rem)' }}>
             <ScrollWrapper>
               <Box component="div" sx={{ p: 5 }}>
-                <Typography
-                  variant="body2"
-                  sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                >
+                <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                   About
                 </Typography>
-                <TextField
-                  minRows={3}
-                  multiline
-                  fullWidth
-                  sx={{ mb: 6 }}
-                  defaultValue={store.userProfile.about}
-                />
-                <Typography
-                  variant="body2"
-                  sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                >
+                <TextField minRows={3} multiline fullWidth sx={{ mb: 6 }} defaultValue={store.userProfile.about} />
+                <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                   Status
                 </Typography>
-                <RadioGroup
-                  value={userStatus}
-                  sx={{ mb: 6.5, ml: 0.8 }}
-                  onChange={handleUserStatus}
-                >
+                <RadioGroup value={userStatus} sx={{ mb: 6.5, ml: 0.8 }} onChange={handleUserStatus}>
                   <div>
                     <FormControlLabel
                       value="online"
                       label="Online"
-                      control={
-                        <Radio size="small" color="success" sx={{ p: 1.5 }} />
-                      }
+                      control={<Radio size="small" color="success" sx={{ p: 1.5 }} />}
                       sx={{
                         '& .MuiFormControlLabel-label': {
                           ml: 1,
@@ -191,9 +159,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
                     <FormControlLabel
                       value="away"
                       label="Away"
-                      control={
-                        <Radio size="small" color="warning" sx={{ p: 1.5 }} />
-                      }
+                      control={<Radio size="small" color="warning" sx={{ p: 1.5 }} />}
                       sx={{
                         '& .MuiFormControlLabel-label': {
                           ml: 1,
@@ -206,9 +172,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
                     <FormControlLabel
                       value="busy"
                       label="Do not Disturb"
-                      control={
-                        <Radio size="small" color="error" sx={{ p: 1.5 }} />
-                      }
+                      control={<Radio size="small" color="error" sx={{ p: 1.5 }} />}
                       sx={{
                         '& .MuiFormControlLabel-label': {
                           ml: 1,
@@ -221,9 +185,7 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
                     <FormControlLabel
                       value="offline"
                       label="Offline"
-                      control={
-                        <Radio size="small" color="secondary" sx={{ p: 1.5 }} />
-                      }
+                      control={<Radio size="small" color="secondary" sx={{ p: 1.5 }} />}
                       sx={{
                         '& .MuiFormControlLabel-label': {
                           ml: 1,
@@ -233,31 +195,19 @@ const UserProfileLeft = (props: UserProfileLeftType) => {
                     />
                   </div>
                 </RadioGroup>
-                <Typography
-                  variant="body2"
-                  sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                >
+                <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                   Settings
                 </Typography>
                 <List dense sx={{ p: 0, mb: 6 }}>
-                  <ListItem
-                    disablePadding
-                    secondaryAction={<Switch defaultChecked />}
-                  >
+                  <ListItem disablePadding secondaryAction={<Switch defaultChecked />}>
                     <ListItemButton sx={{ px: 2 }}>
                       <ListItemIcon sx={{ mr: 2 }}>
-                        <Icon
-                          icon="mdi:check-circle-outline"
-                          fontSize="1.25rem"
-                        />
+                        <Icon icon="mdi:check-circle-outline" fontSize="1.25rem" />
                       </ListItemIcon>
                       <ListItemText secondary="Two-step Verification" />
                     </ListItemButton>
                   </ListItem>
-                  <ListItem
-                    disablePadding
-                    secondaryAction={<Switch defaultChecked />}
-                  >
+                  <ListItem disablePadding secondaryAction={<Switch defaultChecked />}>
                     <ListItemButton sx={{ px: 2 }}>
                       <ListItemIcon sx={{ mr: 2 }}>
                         <Icon icon="mdi:bell-outline" fontSize="1.25rem" />

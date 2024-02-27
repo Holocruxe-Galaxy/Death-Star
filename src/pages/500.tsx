@@ -50,10 +50,7 @@ const Error500 = () => {
           <Typography variant="h1" sx={{ mb: 2.5 }}>
             500
           </Typography>
-          <Typography
-            variant="h5"
-            sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
-          >
+          <Typography variant="h5" sx={{ mb: 2.5, fontSize: '1.5rem !important' }}>
             Internal server error 👨🏻‍💻
           </Typography>
           <Typography variant="body2">Oops, something went wrong!</Typography>

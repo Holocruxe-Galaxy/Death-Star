@@ -161,10 +161,7 @@ const VerticalNavGroup = (props: Props) => {
       setGroupActive([]);
     }
 
-    if (
-      (navCollapsed && navHover) ||
-      (groupActive.length === 0 && !navCollapsed)
-    ) {
+    if ((navCollapsed && navHover) || (groupActive.length === 0 && !navCollapsed)) {
       setGroupActive([...currentActiveGroup]);
     }
 
@@ -180,8 +177,7 @@ const VerticalNavGroup = (props: Props) => {
 
   const icon = parent && !item.icon ? themeConfig.navSubItemIcon : item.icon;
 
-  const menuGroupCollapsedStyles =
-    navCollapsed && !navHover ? { opacity: 0 } : { opacity: 1 };
+  const menuGroupCollapsedStyles = navCollapsed && !navHover ? { opacity: 0 } : { opacity: 1 };
 
   return (
     <CanViewNavGroup navGroup={item}>
@@ -197,30 +193,20 @@ const VerticalNavGroup = (props: Props) => {
             px: (theme) =>
               parent && item.children
                 ? '0 !important'
-                : `${theme.spacing(
-                    navCollapsed && !navHover ? 2 : 3,
-                  )} !important`,
+                : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`,
           }}
         >
           <ListItemButton
             className={clsx({
-              'Mui-selected':
-                groupActive.includes(item.title) ||
-                currentActiveGroup.includes(item.title),
+              'Mui-selected': groupActive.includes(item.title) || currentActiveGroup.includes(item.title),
             })}
             sx={{
               py: 2.25,
               width: '100%',
               borderRadius: '8px',
               transition: 'padding-left .25s ease-in-out',
-              pr:
-                navCollapsed && !navHover
-                  ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8
-                  : 3,
-              pl:
-                navCollapsed && !navHover
-                  ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8
-                  : 4,
+              pr: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 3,
+              pl: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 4,
               '&.Mui-selected': {
                 backgroundColor: 'action.selected',
                 '&:hover': {
@@ -242,14 +228,10 @@ const VerticalNavGroup = (props: Props) => {
                   ...(parent && navCollapsed && !navHover ? {} : { mr: 2 }),
                   ...(navCollapsed && !navHover ? { mr: 0 } : {}), // this condition should come after (parent && navCollapsed && !navHover) condition for proper styling
                   ...(parent && item.children ? { ml: 2, mr: 4 } : {}),
-                  color:
-                    parent && item.children ? 'text.secondary' : 'text.primary',
+                  color: parent && item.children ? 'text.secondary' : 'text.primary',
                 }}
               >
-                <UserIcon
-                  icon={icon as string}
-                  {...(parent && { fontSize: '0.5rem' })}
-                />
+                <UserIcon icon={icon as string} {...(parent && { fontSize: '0.5rem' })} />
               </ListItemIcon>
             )}
             <MenuItemTextWrapper
@@ -259,10 +241,7 @@ const VerticalNavGroup = (props: Props) => {
               }}
             >
               <Typography
-                {...((themeConfig.menuTextTruncate ||
-                  (!themeConfig.menuTextTruncate &&
-                    navCollapsed &&
-                    !navHover)) && {
+                {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
                   noWrap: true,
                 })}
               >
@@ -277,10 +256,7 @@ const VerticalNavGroup = (props: Props) => {
                   '& svg': {
                     transition: 'transform .25s ease-in-out',
                     ...(groupActive.includes(item.title) && {
-                      transform:
-                        direction === 'ltr'
-                          ? 'rotate(90deg)'
-                          : 'rotate(-90deg)',
+                      transform: direction === 'ltr' ? 'rotate(90deg)' : 'rotate(-90deg)',
                     }),
                   },
                 }}
@@ -300,13 +276,7 @@ const VerticalNavGroup = (props: Props) => {
                     }}
                   />
                 ) : null}
-                <Icon
-                  icon={
-                    direction === 'ltr'
-                      ? 'mdi:chevron-right'
-                      : 'mdi:chevron-left'
-                  }
-                />
+                <Icon icon={direction === 'ltr' ? 'mdi:chevron-right' : 'mdi:chevron-left'} />
               </Box>
             </MenuItemTextWrapper>
           </ListItemButton>

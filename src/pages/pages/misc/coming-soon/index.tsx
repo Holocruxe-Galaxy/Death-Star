@@ -43,22 +43,14 @@ const ComingSoon = () => {
       >
         <BoxWrapper>
           <Box component="div" sx={{ mb: 10, textAlign: 'center' }}>
-            <Typography
-              variant="h5"
-              sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
-            >
+            <Typography variant="h5" sx={{ mb: 2.5, fontSize: '1.5rem !important' }}>
               We are launching soon 🚀
             </Typography>
             <Typography variant="body2">
-              Our website is opening soon. Please register to get notified when
-              it&prime;s ready!
+              Our website is opening soon. Please register to get notified when it&prime;s ready!
             </Typography>
           </Box>
-          <form
-            noValidate
-            autoComplete="off"
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <form noValidate autoComplete="off" onSubmit={(e) => e.preventDefault()}>
             <Box
               component="div"
               sx={{
@@ -67,23 +59,14 @@ const ComingSoon = () => {
                 justifyContent: 'center',
               }}
             >
-              <TextField
-                autoFocus
-                size="small"
-                type="email"
-                sx={{ mr: 6 }}
-                placeholder="Enter your email"
-              />
+              <TextField autoFocus size="small" type="email" sx={{ mr: 6 }} placeholder="Enter your email" />
               <Button type="submit" variant="contained">
                 Notify
               </Button>
             </Box>
           </form>
         </BoxWrapper>
-        <Img
-          alt="coming-soon-illustration"
-          src="/images/pages/misc-coming-soon.png"
-        />
+        <Img alt="coming-soon-illustration" src="/images/pages/misc-coming-soon.png" />
       </Box>
     </Box>
   );

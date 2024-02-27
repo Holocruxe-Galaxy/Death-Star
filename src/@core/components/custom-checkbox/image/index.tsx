@@ -11,14 +11,7 @@ import { CustomCheckboxImgProps } from 'src/@core/components/custom-checkbox/typ
 
 const CustomCheckboxImg = (props: CustomCheckboxImgProps) => {
   // ** Props
-  const {
-    data,
-    name,
-    selected,
-    gridProps,
-    handleChange,
-    color = 'primary',
-  } = props;
+  const { data, name, selected, gridProps, handleChange, color = 'primary' } = props;
 
   const { alt, img, value } = data;
 
@@ -48,8 +41,7 @@ const CustomCheckboxImg = (props: CustomCheckboxImgProps) => {
               ? { borderColor: `${color}.main` }
               : {
                   '&:hover': {
-                    borderColor: (theme) =>
-                      `rgba(${theme.palette.customColors.main}, 0.25)`,
+                    borderColor: (theme) => `rgba(${theme.palette.customColors.main}, 0.25)`,
                   },
                   '&:not(:hover)': {
                     '& .MuiCheckbox-root': { display: 'none' },
@@ -57,11 +49,7 @@ const CustomCheckboxImg = (props: CustomCheckboxImgProps) => {
                 }),
           }}
         >
-          {typeof img === 'string' ? (
-            <Image src={img} alt={alt ?? `checkbox-image-${value}`} />
-          ) : (
-            img
-          )}
+          {typeof img === 'string' ? <Image src={img} alt={alt ?? `checkbox-image-${value}`} /> : img}
           <Checkbox
             size="small"
             color={color}

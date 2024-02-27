@@ -1,6 +1,6 @@
-import { Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
-import React from 'react';
+import { NewsCard } from 'src/components';
 
 const Home = () => {
   return (
@@ -13,9 +13,8 @@ const Home = () => {
                 ¡Te damos la Bienvenida!
               </Typography>
               <Typography>
-                La verdadera aventura comienza cuando decides ser tú mismo.
-                Completa tu perfil y déjanos conocerte mejor. ¡Estamos ansiosos
-                por descubrir juntos el viaje que te espera!
+                La verdadera aventura comienza cuando decides ser tú mismo. Completa tu perfil y déjanos conocerte
+                mejor. ¡Estamos ansiosos por descubrir juntos el viaje que te espera!
               </Typography>
             </Stack>
             <Button variant="contained">VER PERFIL</Button>
@@ -40,10 +39,7 @@ const Home = () => {
               alignItems: 'center',
             }}
           >
-            <Stack
-              spacing={5}
-              sx={{ display: 'flex', flexDirection: 'column' }}
-            >
+            <Stack spacing={5} sx={{ display: 'flex', flexDirection: 'column' }}>
               <img src="https://i.imgur.com/49mV0Tr.png" alt="" />
               <Button variant="contained">INICIAR CHAT</Button>
             </Stack>
@@ -53,7 +49,36 @@ const Home = () => {
       <Typography fontSize={20} fontWeight={600}>
         Novedades
       </Typography>
-      <Typography>Aquí van las card de novedades</Typography>
+      {/* <Typography>Aquí van las card de novedades</Typography> */}
+
+      <Box
+        component="div"
+        sx={{
+          display: 'flex',
+          gap: 10,
+          flexWrap: 'wrap',
+        }}
+      >
+        <NewsCard
+          variant="location"
+          title="Stumptown - Asadores de café"
+          rating="4 estrellas | 98 opiniones"
+          description="Antes de que existieran los Estados Unidos de América, había cafeterías."
+          image="https://i.imgur.com/GJzUK2f.png"
+        />
+        <NewsCard
+          variant="info"
+          title="Apple Watch"
+          description="Procesador Intel Core i5 de décima generación de 6 núcleos a 3,1 GHz, Turbo Boost de hasta 4,5 GHz"
+          image="https://i.imgur.com/WiumID2.png"
+        />
+        <NewsCard
+          variant="single"
+          title="Influir en el influencer"
+          description="¡Cancún está de regreso, mejor que nunca! Más de cien centros turísticos en México han reabierto y el secretario de turismo del estado predice que Cancún atraerá tantos visitantes en 2006 como hace dos años."
+          image="https://i.imgur.com/XOeRDyT.png"
+        />
+      </Box>
     </Container>
   );
 };

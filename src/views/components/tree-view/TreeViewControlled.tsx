@@ -25,8 +25,7 @@ const TreeViewControlled = ({ direction }: Props) => {
     setSelected(nodeIds);
   };
 
-  const ExpandIcon =
-    direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
+  const ExpandIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
 
   return (
     <TreeView

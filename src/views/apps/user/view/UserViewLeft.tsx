@@ -95,8 +95,7 @@ const UserViewLeft = () => {
   const [openEdit, setOpenEdit] = useState<boolean>(false);
   const [openPlans, setOpenPlans] = useState<boolean>(false);
   const [suspendDialogOpen, setSuspendDialogOpen] = useState<boolean>(false);
-  const [subscriptionDialogOpen, setSubscriptionDialogOpen] =
-    useState<boolean>(false);
+  const [subscriptionDialogOpen, setSubscriptionDialogOpen] = useState<boolean>(false);
 
   // Handle Edit dialog
   const handleEditClickOpen = () => setOpenEdit(true);
@@ -170,10 +169,7 @@ const UserViewLeft = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Box
-                  component="div"
-                  sx={{ mr: 8, display: 'flex', alignItems: 'center' }}
-                >
+                <Box component="div" sx={{ mr: 8, display: 'flex', alignItems: 'center' }}>
                   <CustomAvatar skin="light" variant="rounded" sx={{ mr: 3 }}>
                     <Icon icon="mdi:check" />
                   </CustomAvatar>
@@ -184,10 +180,7 @@ const UserViewLeft = () => {
                     <Typography variant="body2">Task Done</Typography>
                   </div>
                 </Box>
-                <Box
-                  component="div"
-                  sx={{ display: 'flex', alignItems: 'center' }}
-                >
+                <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
                   <CustomAvatar skin="light" variant="rounded" sx={{ mr: 3 }}>
                     <Icon icon="mdi:briefcase-variant-outline" />
                   </CustomAvatar>
@@ -203,33 +196,22 @@ const UserViewLeft = () => {
 
             <CardContent>
               <Typography variant="h6">Details</Typography>
-              <Divider
-                sx={{ mt: (theme) => `${theme.spacing(4)} !important` }}
-              />
+              <Divider sx={{ mt: (theme) => `${theme.spacing(4)} !important` }} />
               <Box component="div" sx={{ pt: 2, pb: 1 }}>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ mr: 2, color: 'text.primary' }}
-                  >
+                  <Typography variant="subtitle2" sx={{ mr: 2, color: 'text.primary' }}>
                     Username:
                   </Typography>
                   <Typography variant="body2">@{data.username}</Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ mr: 2, color: 'text.primary' }}
-                  >
+                  <Typography variant="subtitle2" sx={{ mr: 2, color: 'text.primary' }}>
                     Billing Email:
                   </Typography>
                   <Typography variant="body2">{data.email}</Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ mr: 2, color: 'text.primary' }}
-                  >
+                  <Typography variant="subtitle2" sx={{ mr: 2, color: 'text.primary' }}>
                     Status:
                   </Typography>
                   <CustomChip
@@ -247,66 +229,35 @@ const UserViewLeft = () => {
                   />
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                  >
-                    Role:
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ textTransform: 'capitalize' }}
-                  >
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Role:</Typography>
+                  <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>
                     {data.role}
                   </Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                  >
-                    Tax ID:
-                  </Typography>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Tax ID:</Typography>
                   <Typography variant="body2">Tax-8894</Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                  >
-                    Contact:
-                  </Typography>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Contact:</Typography>
                   <Typography variant="body2">+1 {data.contact}</Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography
-                    sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                  >
-                    Language:
-                  </Typography>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Language:</Typography>
                   <Typography variant="body2">English</Typography>
                 </Box>
                 <Box component="div" sx={{ display: 'flex' }}>
-                  <Typography
-                    sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                  >
-                    Country:
-                  </Typography>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Country:</Typography>
                   <Typography variant="body2">{data.country}</Typography>
                 </Box>
               </Box>
             </CardContent>
 
             <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button
-                variant="contained"
-                sx={{ mr: 2 }}
-                onClick={handleEditClickOpen}
-              >
+              <Button variant="contained" sx={{ mr: 2 }} onClick={handleEditClickOpen}>
                 Edit
               </Button>
-              <Button
-                color="error"
-                variant="outlined"
-                onClick={() => setSuspendDialogOpen(true)}
-              >
+              <Button color="error" variant="outlined" onClick={() => setSuspendDialogOpen(true)}>
                 Suspend
               </Button>
             </CardActions>
@@ -323,14 +274,8 @@ const UserViewLeft = () => {
                 sx={{
                   textAlign: 'center',
                   fontSize: '1.5rem !important',
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
-                  pt: (theme) => [
-                    `${theme.spacing(8)} !important`,
-                    `${theme.spacing(12.5)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                  pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
                 }}
               >
                 Edit User Information
@@ -338,27 +283,16 @@ const UserViewLeft = () => {
               <DialogContent
                 sx={{
                   pb: (theme) => `${theme.spacing(8)} !important`,
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
                 }}
               >
-                <DialogContentText
-                  variant="body2"
-                  id="user-view-edit-description"
-                  sx={{ textAlign: 'center', mb: 7 }}
-                >
+                <DialogContentText variant="body2" id="user-view-edit-description" sx={{ textAlign: 'center', mb: 7 }}>
                   Updating user details will receive a privacy audit.
                 </DialogContentText>
                 <form>
                   <Grid container spacing={6}>
                     <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Full Name"
-                        defaultValue={data.fullName}
-                      />
+                      <TextField fullWidth label="Full Name" defaultValue={data.fullName} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -366,25 +300,16 @@ const UserViewLeft = () => {
                         label="Username"
                         defaultValue={data.username}
                         InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">@</InputAdornment>
-                          ),
+                          startAdornment: <InputAdornment position="start">@</InputAdornment>,
                         }}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        type="email"
-                        label="Billing Email"
-                        defaultValue={data.email}
-                      />
+                      <TextField fullWidth type="email" label="Billing Email" defaultValue={data.email} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
-                        <InputLabel id="user-view-status-label">
-                          Status
-                        </InputLabel>
+                        <InputLabel id="user-view-status-label">Status</InputLabel>
                         <Select
                           label="Status"
                           defaultValue={data.status}
@@ -398,24 +323,14 @@ const UserViewLeft = () => {
                       </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="TAX ID"
-                        defaultValue="Tax-8894"
-                      />
+                      <TextField fullWidth label="TAX ID" defaultValue="Tax-8894" />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Contact"
-                        defaultValue={`+1 ${data.contact}`}
-                      />
+                      <TextField fullWidth label="Contact" defaultValue={`+1 ${data.contact}`} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
-                        <InputLabel id="user-view-language-label">
-                          Language
-                        </InputLabel>
+                        <InputLabel id="user-view-language-label">Language</InputLabel>
                         <Select
                           label="Language"
                           defaultValue="English"
@@ -433,9 +348,7 @@ const UserViewLeft = () => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
-                        <InputLabel id="user-view-country-label">
-                          Country
-                        </InputLabel>
+                        <InputLabel id="user-view-country-label">Country</InputLabel>
                         <Select
                           label="Country"
                           defaultValue="USA"
@@ -464,41 +377,21 @@ const UserViewLeft = () => {
               <DialogActions
                 sx={{
                   justifyContent: 'center',
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
-                  pb: (theme) => [
-                    `${theme.spacing(8)} !important`,
-                    `${theme.spacing(12.5)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                  pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
                 }}
               >
-                <Button
-                  variant="contained"
-                  sx={{ mr: 2 }}
-                  onClick={handleEditClose}
-                >
+                <Button variant="contained" sx={{ mr: 2 }} onClick={handleEditClose}>
                   Submit
                 </Button>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleEditClose}
-                >
+                <Button variant="outlined" color="secondary" onClick={handleEditClose}>
                   Cancel
                 </Button>
               </DialogActions>
             </Dialog>
 
-            <UserSuspendDialog
-              open={suspendDialogOpen}
-              setOpen={setSuspendDialogOpen}
-            />
-            <UserSubscriptionDialog
-              open={subscriptionDialogOpen}
-              setOpen={setSubscriptionDialogOpen}
-            />
+            <UserSuspendDialog open={suspendDialogOpen} setOpen={setSuspendDialogOpen} />
+            <UserSubscriptionDialog open={subscriptionDialogOpen} setOpen={setSubscriptionDialogOpen} />
           </Card>
         </Grid>
 
@@ -524,10 +417,7 @@ const UserViewLeft = () => {
                 label="Standard"
                 sx={{ fontSize: '0.75rem', borderRadius: '4px' }}
               />
-              <Box
-                component="div"
-                sx={{ display: 'flex', position: 'relative' }}
-              >
+              <Box component="div" sx={{ display: 'flex', position: 'relative' }}>
                 <Sup>$</Sup>
                 <Typography
                   variant="h3"
@@ -598,32 +488,18 @@ const UserViewLeft = () => {
                   justifyContent: 'space-between',
                 }}
               >
-                <Typography
-                  variant="body2"
-                  sx={{ fontWeight: 600, color: 'text.secondary' }}
-                >
+                <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
                   Days
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ fontWeight: 600, color: 'text.secondary' }}
-                >
+                <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
                   26 of 30 Days
                 </Typography>
               </Box>
-              <LinearProgress
-                value={86.66}
-                variant="determinate"
-                sx={{ height: 8, borderRadius: '5px' }}
-              />
+              <LinearProgress value={86.66} variant="determinate" sx={{ height: 8, borderRadius: '5px' }} />
               <Typography variant="caption" sx={{ mt: 1.5, mb: 6 }}>
                 4 days remaining
               </Typography>
-              <Button
-                variant="contained"
-                sx={{ width: '100%' }}
-                onClick={handlePlansClickOpen}
-              >
+              <Button variant="contained" sx={{ width: '100%' }} onClick={handlePlansClickOpen}>
                 Upgrade Plan
               </Button>
             </CardContent>
@@ -640,14 +516,8 @@ const UserViewLeft = () => {
                 sx={{
                   textAlign: 'center',
                   fontSize: '1.5rem !important',
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
-                  pt: (theme) => [
-                    `${theme.spacing(8)} !important`,
-                    `${theme.spacing(12.5)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                  pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
                 }}
               >
                 Upgrade Plan
@@ -655,17 +525,10 @@ const UserViewLeft = () => {
 
               <DialogContent
                 sx={{
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
                 }}
               >
-                <DialogContentText
-                  variant="body2"
-                  sx={{ textAlign: 'center' }}
-                  id="user-view-plans-description"
-                >
+                <DialogContentText variant="body2" sx={{ textAlign: 'center' }} id="user-view-plans-description">
                   Choose the best plan for the user.
                 </DialogContentText>
               </DialogContent>
@@ -677,20 +540,11 @@ const UserViewLeft = () => {
                   flexWrap: ['wrap', 'nowrap'],
                   pt: (theme) => `${theme.spacing(2)} !important`,
                   pb: (theme) => `${theme.spacing(8)} !important`,
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
                 }}
               >
-                <FormControl
-                  fullWidth
-                  size="small"
-                  sx={{ mr: [0, 3], mb: [3, 0] }}
-                >
-                  <InputLabel id="user-view-plans-select-label">
-                    Choose Plan
-                  </InputLabel>
+                <FormControl fullWidth size="small" sx={{ mr: [0, 3], mb: [3, 0] }}>
+                  <InputLabel id="user-view-plans-select-label">Choose Plan</InputLabel>
                   <Select
                     label="Choose Plan"
                     defaultValue="Standard"
@@ -699,9 +553,7 @@ const UserViewLeft = () => {
                   >
                     <MenuItem value="Basic">Basic - $0/month</MenuItem>
                     <MenuItem value="Standard">Standard - $99/month</MenuItem>
-                    <MenuItem value="Enterprise">
-                      Enterprise - $499/month
-                    </MenuItem>
+                    <MenuItem value="Enterprise">Enterprise - $499/month</MenuItem>
                     <MenuItem value="Company">Company - $999/month</MenuItem>
                   </Select>
                 </FormControl>
@@ -714,23 +566,12 @@ const UserViewLeft = () => {
 
               <DialogContent
                 sx={{
-                  pt: (theme) => [
-                    `${theme.spacing(8)} !important`,
-                    `${theme.spacing(8)} !important`,
-                  ],
-                  px: (theme) => [
-                    `${theme.spacing(5)} !important`,
-                    `${theme.spacing(15)} !important`,
-                  ],
-                  pb: (theme) => [
-                    `${theme.spacing(8)} !important`,
-                    `${theme.spacing(12.5)} !important`,
-                  ],
+                  pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(8)} !important`],
+                  px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                  pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
                 }}
               >
-                <Typography
-                  sx={{ fontWeight: 500, mb: 2, fontSize: '0.875rem' }}
-                >
+                <Typography sx={{ fontWeight: 500, mb: 2, fontSize: '0.875rem' }}>
                   User current plan is standard plan
                 </Typography>
                 <Box

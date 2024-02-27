@@ -60,10 +60,7 @@ const StyledTreeItem = (props: StyledTreeItemProps) => {
           }}
         >
           <Icon icon={labelIcon} color="inherit" />
-          <Typography
-            variant="body2"
-            sx={{ flexGrow: 1, fontWeight: 'inherit' }}
-          >
+          <Typography variant="body2" sx={{ flexGrow: 1, fontWeight: 'inherit' }}>
             {labelText}
           </Typography>
           {labelInfo ? (
@@ -78,11 +75,7 @@ const StyledTreeItem = (props: StyledTreeItemProps) => {
 };
 
 const TreeViewGmailClone = ({ direction }: Props) => {
-  const ExpandIcon = (
-    <Icon
-      icon={direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right'}
-    />
-  );
+  const ExpandIcon = <Icon icon={direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right'} />;
 
   return (
     <TreeView
@@ -91,51 +84,15 @@ const TreeViewGmailClone = ({ direction }: Props) => {
       defaultExpandIcon={ExpandIcon}
       defaultCollapseIcon={<Icon icon="mdi:chevron-down" />}
     >
-      <StyledTreeItem
-        nodeId="1"
-        labelText="All Mail"
-        labelIcon="mdi:email-outline"
-      />
-      <StyledTreeItem
-        nodeId="2"
-        labelText="Trash"
-        labelIcon="mdi:delete-outline"
-      />
-      <StyledTreeItem
-        nodeId="3"
-        labelText="Categories"
-        labelIcon="mdi:label-outline"
-      >
-        <StyledTreeItem
-          nodeId="5"
-          labelInfo="90"
-          labelText="Social"
-          labelIcon="mdi:account-supervisor-outline"
-        />
-        <StyledTreeItem
-          nodeId="6"
-          labelInfo="2,294"
-          labelText="Updates"
-          labelIcon="mdi:information-outline"
-        />
-        <StyledTreeItem
-          nodeId="7"
-          labelInfo="3,566"
-          labelText="Forums"
-          labelIcon="mdi:forum-outline"
-        />
-        <StyledTreeItem
-          nodeId="8"
-          labelInfo="733"
-          labelText="Promotions"
-          labelIcon="mdi:tag-outline"
-        />
+      <StyledTreeItem nodeId="1" labelText="All Mail" labelIcon="mdi:email-outline" />
+      <StyledTreeItem nodeId="2" labelText="Trash" labelIcon="mdi:delete-outline" />
+      <StyledTreeItem nodeId="3" labelText="Categories" labelIcon="mdi:label-outline">
+        <StyledTreeItem nodeId="5" labelInfo="90" labelText="Social" labelIcon="mdi:account-supervisor-outline" />
+        <StyledTreeItem nodeId="6" labelInfo="2,294" labelText="Updates" labelIcon="mdi:information-outline" />
+        <StyledTreeItem nodeId="7" labelInfo="3,566" labelText="Forums" labelIcon="mdi:forum-outline" />
+        <StyledTreeItem nodeId="8" labelInfo="733" labelText="Promotions" labelIcon="mdi:tag-outline" />
       </StyledTreeItem>
-      <StyledTreeItem
-        nodeId="4"
-        labelText="History"
-        labelIcon="mdi:label-outline"
-      />
+      <StyledTreeItem nodeId="4" labelText="History" labelIcon="mdi:label-outline" />
     </TreeView>
   );
 };

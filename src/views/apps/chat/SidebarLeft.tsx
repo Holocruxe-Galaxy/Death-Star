@@ -27,11 +27,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import Icon from 'src/@core/components/icon';
 
 // ** Types
-import {
-  ContactType,
-  ChatSidebarLeftType,
-  ChatsArrType,
-} from 'src/types/apps/chatTypes';
+import { ContactType, ChatSidebarLeftType, ChatsArrType } from 'src/types/apps/chatTypes';
 
 // ** Custom Components Import
 import CustomAvatar from 'src/@core/components/mui/avatar';
@@ -39,13 +35,7 @@ import CustomAvatar from 'src/@core/components/mui/avatar';
 // ** Chat App Components Imports
 import UserProfileLeft from 'src/views/apps/chat/UserProfileLeft';
 
-const ScrollWrapper = ({
-  children,
-  hidden,
-}: {
-  children: ReactNode;
-  hidden: boolean;
-}) => {
+const ScrollWrapper = ({ children, hidden }: { children: ReactNode; hidden: boolean }) => {
   if (hidden) {
     return (
       <Box component="div" sx={{ height: '100%', overflow: 'auto' }}>
@@ -53,11 +43,7 @@ const ScrollWrapper = ({
       </Box>
     );
   } else {
-    return (
-      <PerfectScrollbar options={{ wheelPropagation: false }}>
-        {children}
-      </PerfectScrollbar>
-    );
+    return <PerfectScrollbar options={{ wheelPropagation: false }}>{children}</PerfectScrollbar>;
   }
 };
 
@@ -138,26 +124,18 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
       if (query.length && !filteredChat.length) {
         return (
           <ListItem>
-            <Typography sx={{ color: 'text.secondary' }}>
-              No Chats Found
-            </Typography>
+            <Typography sx={{ color: 'text.secondary' }}>No Chats Found</Typography>
           </ListItem>
         );
       } else {
-        const arrToMap =
-          query.length && filteredChat.length ? filteredChat : store.chats;
+        const arrToMap = query.length && filteredChat.length ? filteredChat : store.chats;
 
         return arrToMap.map((chat: ChatsArrType, index: number) => {
           const { lastMessage } = chat.chat;
-          const activeCondition =
-            active !== null && active.id === chat.id && active.type === 'chat';
+          const activeCondition = active !== null && active.id === chat.id && active.type === 'chat';
 
           return (
-            <ListItem
-              key={index}
-              disablePadding
-              sx={{ '&:not(:last-child)': { mb: 1.5 } }}
-            >
+            <ListItem key={index} disablePadding sx={{ '&:not(:last-child)': { mb: 1.5 } }}>
               <ListItemButton
                 disableRipple
                 onClick={() => handleChatClick('chat', chat.id)}
@@ -168,8 +146,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                   borderRadius: 1,
                   alignItems: 'flex-start',
                   ...(activeCondition && {
-                    backgroundColor: (theme) =>
-                      `${theme.palette.primary.main} !important`,
+                    backgroundColor: (theme) => `${theme.palette.primary.main} !important`,
                   }),
                 }}
               >
@@ -191,9 +168,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                           backgroundColor: `${statusObj[chat.status]}.main`,
                           boxShadow: (theme) =>
                             `0 0 0 2px ${
-                              !activeCondition
-                                ? theme.palette.background.paper
-                                : theme.palette.common.white
+                              !activeCondition ? theme.palette.background.paper : theme.palette.common.white
                             }`,
                         }}
                       />
@@ -207,11 +182,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                           width: 40,
                           height: 40,
                           outline: (theme) =>
-                            `2px solid ${
-                              activeCondition
-                                ? theme.palette.common.white
-                                : 'transparent'
-                            }`,
+                            `2px solid ${activeCondition ? theme.palette.common.white : 'transparent'}`,
                         }}
                       />
                     ) : (
@@ -223,11 +194,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                           height: 40,
                           fontSize: '1rem',
                           outline: (theme) =>
-                            `2px solid ${
-                              activeCondition
-                                ? theme.palette.common.white
-                                : 'transparent'
-                            }`,
+                            `2px solid ${activeCondition ? theme.palette.common.white : 'transparent'}`,
                         }}
                       >
                         {getInitials(chat.fullName)}
@@ -248,9 +215,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                     <Typography
                       noWrap
                       sx={{
-                        ...(!activeCondition
-                          ? { color: 'text.secondary' }
-                          : {}),
+                        ...(!activeCondition ? { color: 'text.secondary' } : {}),
                       }}
                     >
                       {chat.fullName}
@@ -283,14 +248,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                       color: activeCondition ? 'common.white' : 'text.disabled',
                     }}
                   >
-                    <>
-                      {lastMessage
-                        ? formatDateToMonthShort(
-                            lastMessage.time as string,
-                            true,
-                          )
-                        : new Date()}
-                    </>
+                    <>{lastMessage ? formatDateToMonthShort(lastMessage.time as string, true) : new Date()}</>
                   </Typography>
                   {chat.chat.unseenMsgs && chat.chat.unseenMsgs > 0 ? (
                     <Chip
@@ -319,47 +277,29 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
       if (query.length && !filteredContacts.length) {
         return (
           <ListItem>
-            <Typography sx={{ color: 'text.secondary' }}>
-              No Contacts Found
-            </Typography>
+            <Typography sx={{ color: 'text.secondary' }}>No Contacts Found</Typography>
           </ListItem>
         );
       } else {
-        const arrToMap =
-          query.length && filteredContacts.length
-            ? filteredContacts
-            : store.contacts;
+        const arrToMap = query.length && filteredContacts.length ? filteredContacts : store.contacts;
 
         return arrToMap !== null
           ? arrToMap.map((contact: ContactType, index: number) => {
               const activeCondition =
-                active !== null &&
-                active.id === contact.id &&
-                active.type === 'contact' &&
-                !hasActiveId(contact.id);
+                active !== null && active.id === contact.id && active.type === 'contact' && !hasActiveId(contact.id);
 
               return (
-                <ListItem
-                  key={index}
-                  disablePadding
-                  sx={{ '&:not(:last-child)': { mb: 1.5 } }}
-                >
+                <ListItem key={index} disablePadding sx={{ '&:not(:last-child)': { mb: 1.5 } }}>
                   <ListItemButton
                     disableRipple
-                    onClick={() =>
-                      handleChatClick(
-                        hasActiveId(contact.id) ? 'chat' : 'contact',
-                        contact.id,
-                      )
-                    }
+                    onClick={() => handleChatClick(hasActiveId(contact.id) ? 'chat' : 'contact', contact.id)}
                     sx={{
                       px: 2.5,
                       py: 2.5,
                       width: '100%',
                       borderRadius: 1,
                       ...(activeCondition && {
-                        backgroundColor: (theme) =>
-                          `${theme.palette.primary.main} !important`,
+                        backgroundColor: (theme) => `${theme.palette.primary.main} !important`,
                       }),
                     }}
                   >
@@ -372,11 +312,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                             width: 40,
                             height: 40,
                             outline: (theme) =>
-                              `2px solid ${
-                                activeCondition
-                                  ? theme.palette.common.white
-                                  : 'transparent'
-                              }`,
+                              `2px solid ${activeCondition ? theme.palette.common.white : 'transparent'}`,
                           }}
                         />
                       ) : (
@@ -388,11 +324,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                             height: 40,
                             fontSize: '1rem',
                             outline: (theme) =>
-                              `2px solid ${
-                                activeCondition
-                                  ? theme.palette.common.white
-                                  : 'transparent'
-                              }`,
+                              `2px solid ${activeCondition ? theme.palette.common.white : 'transparent'}`,
                           }}
                         >
                           {getInitials(contact.fullName)}
@@ -410,9 +342,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                       primary={
                         <Typography
                           sx={{
-                            ...(!activeCondition
-                              ? { color: 'text.secondary' }
-                              : {}),
+                            ...(!activeCondition ? { color: 'text.secondary' } : {}),
                           }}
                         >
                           {contact.fullName}
@@ -509,8 +439,7 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
                     borderRadius: '50%',
                     color: `${statusObj[userStatus]}.main`,
                     backgroundColor: `${statusObj[userStatus]}.main`,
-                    boxShadow: (theme) =>
-                      `0 0 0 2px ${theme.palette.background.paper}`,
+                    boxShadow: (theme) => `0 0 0 2px ${theme.palette.background.paper}`,
                   }}
                 />
               }
@@ -547,17 +476,11 @@ const SidebarLeft = (props: ChatSidebarLeftType) => {
         <Box component="div" sx={{ height: `calc(100% - 4.125rem)` }}>
           <ScrollWrapper hidden={hidden}>
             <Box component="div" sx={{ p: (theme) => theme.spacing(5, 3, 3) }}>
-              <Typography
-                variant="h6"
-                sx={{ ml: 2, mb: 4, color: 'primary.main' }}
-              >
+              <Typography variant="h6" sx={{ ml: 2, mb: 4, color: 'primary.main' }}>
                 Chats
               </Typography>
               <List sx={{ mb: 7.5, p: 0 }}>{renderChats()}</List>
-              <Typography
-                variant="h6"
-                sx={{ ml: 2, mb: 4, color: 'primary.main' }}
-              >
+              <Typography variant="h6" sx={{ ml: 2, mb: 4, color: 'primary.main' }}>
                 Contacts
               </Typography>
               <List sx={{ p: 0 }}>{renderContacts()}</List>

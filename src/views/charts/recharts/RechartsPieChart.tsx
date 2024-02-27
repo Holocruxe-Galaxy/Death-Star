@@ -37,13 +37,7 @@ const renderCustomizedLabel = (props: LabelProp) => {
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text
-      x={x}
-      y={y}
-      fill="#fff"
-      textAnchor="middle"
-      dominantBaseline="central"
-    >
+    <text x={x} y={y} fill="#fff" textAnchor="middle" dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
@@ -63,13 +57,7 @@ const RechartsPieChart = () => {
         <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <PieChart height={350} style={{ direction: 'ltr' }}>
-              <Pie
-                data={data}
-                innerRadius={80}
-                dataKey="value"
-                label={renderCustomizedLabel}
-                labelLine={false}
-              >
+              <Pie data={data} innerRadius={80} dataKey="value" label={renderCustomizedLabel} labelLine={false}>
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}

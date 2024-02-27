@@ -207,10 +207,7 @@ const Entries = ({ id, props }: any) => {
           <>
             {props.emoji && <IconButton>{props.emoji}</IconButton>}
             {props.favorite && (
-              <Tooltip
-                title="Tu publicación se encuentra dentro de tus favoritos"
-                placement="top"
-              >
+              <Tooltip title="Tu publicación se encuentra dentro de tus favoritos" placement="top">
                 <IconButton>
                   <RocketLaunchIcon />
                 </IconButton>
@@ -237,10 +234,7 @@ const Entries = ({ id, props }: any) => {
                           inputRef={contentRef}
                           inputProps={{
                             endAdornment: (
-                              <InputAdornment
-                                position="end"
-                                sx={{ display: 'flex' }}
-                              >
+                              <InputAdornment position="end" sx={{ display: 'flex' }}>
                                 {!isPickerVisible ? (
                                   ''
                                 ) : (
@@ -265,11 +259,7 @@ const Entries = ({ id, props }: any) => {
                       name="favorite"
                       control={control}
                       render={({ field: { value, onChange } }) => (
-                        <MaterialUISwitch
-                          checked={value}
-                          onChange={onChange}
-                          inputRef={favoriteRef}
-                        ></MaterialUISwitch>
+                        <MaterialUISwitch checked={value} onChange={onChange} inputRef={favoriteRef}></MaterialUISwitch>
                       )}
                     />
                     <Controller
@@ -286,11 +276,7 @@ const Entries = ({ id, props }: any) => {
                           displayEmpty
                           renderValue={(selected) => {
                             if (selected === '' || !selected) {
-                              return (
-                                <EmojiEmotionsIcon
-                                  sx={{ paddingTop: 1, paddingLeft: 3 }}
-                                />
-                              );
+                              return <EmojiEmotionsIcon sx={{ paddingTop: 1, paddingLeft: 3 }} />;
                             }
 
                             return selected;
@@ -313,12 +299,7 @@ const Entries = ({ id, props }: any) => {
                             <IconButton onClick={() => remove(index)}>
                               <ClearIcon />
                             </IconButton>
-                            <CardMedia
-                              component="img"
-                              height="500"
-                              image={props.photos[0]}
-                              alt="img"
-                            />
+                            <CardMedia component="img" height="500" image={props.photos[0]} alt="img" />
                           </CardContent>
                         ))}
                       </>
@@ -336,19 +317,11 @@ const Entries = ({ id, props }: any) => {
                 <Typography variant="h6" component="h2">
                   Deseas eliminar?
                 </Typography>
-                <Button
-                  onClick={handleDelete}
-                  variant="contained"
-                  sx={{ marginRight: 2, marginTop: 3 }}
-                >
+                <Button onClick={handleDelete} variant="contained" sx={{ marginRight: 2, marginTop: 3 }}>
                   Si
                 </Button>
 
-                <Button
-                  onClick={handleOpen}
-                  variant="contained"
-                  sx={{ marginTop: 3 }}
-                >
+                <Button onClick={handleOpen} variant="contained" sx={{ marginTop: 3 }}>
                   No
                 </Button>
               </Box>
@@ -366,24 +339,14 @@ const Entries = ({ id, props }: any) => {
       {props.photos && props.photos.length > 0 && (
         <>
           <CardActions disableSpacing>
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
+            <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
               <ExpandMoreIcon />
             </ExpandMore>
           </CardActions>
 
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <CardMedia
-                component="img"
-                height="500"
-                image={props.photos}
-                alt="img"
-              />
+              <CardMedia component="img" height="500" image={props.photos} alt="img" />
             </CardContent>
           </Collapse>
         </>

@@ -29,11 +29,7 @@ export default function Particles({ count, mouse }) {
   // The innards of this hook will run every frame
   useFrame(() => {
     // Makes the light follow the mouse
-    light.current.position.set(
-      mouse.current[0] / aspect,
-      -mouse.current[1] / aspect,
-      0,
-    );
+    light.current.position.set(mouse.current[0] / aspect, -mouse.current[1] / aspect, 0);
 
     // Run through the randomized data to calculate some movement
     particles.forEach((particle, i) => {
@@ -49,18 +45,9 @@ export default function Particles({ count, mouse }) {
 
       // Update the dummy object
       dummy.position.set(
-        (particle.mx / 10) * a +
-          xFactor +
-          Math.cos((t / 10) * factor) +
-          (Math.sin(t * 1) * factor) / 10,
-        (particle.my / 10) * b +
-          yFactor +
-          Math.sin((t / 10) * factor) +
-          (Math.cos(t * 2) * factor) / 10,
-        (particle.my / 10) * b +
-          zFactor +
-          Math.cos((t / 10) * factor) +
-          (Math.sin(t * 3) * factor) / 10,
+        (particle.mx / 10) * a + xFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
+        (particle.my / 10) * b + yFactor + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,
+        (particle.my / 10) * b + zFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 3) * factor) / 10,
       );
       dummy.scale.set(s, s, s);
       dummy.rotation.set(s * 5, s * 5, s * 5);
