@@ -4,6 +4,7 @@ import { alpha, styled } from '@mui/material/styles';
 
 const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
   return {
+    width: '80%',
     [theme.breakpoints.down('md')]: {
       '& .MuiStepper-horizontal:not(.MuiStepper-alternativeLabel)': {
         flexDirection: 'column',
@@ -56,11 +57,11 @@ const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
       },
       '&.Mui-active, &.Mui-completed': {
         '& .MuiStepConnector-line': {
-          borderColor: theme.palette.primary.main,
+          borderColor: theme.palette.holocruxe.darkText,
         },
       },
       '&.Mui-disabled .MuiStepConnector-line': {
-        borderColor: alpha(theme.palette.primary.main, 0.3),
+        borderColor: alpha(theme.palette.holocruxe.fontWhite, 0.6),
       },
     },
     '& .MuiStepper-alternativeLabel': {
