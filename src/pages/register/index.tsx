@@ -38,7 +38,6 @@ import Chat from 'src/@core/components/ChatComponent/ChatComponent';
 const CustomCard = styled(Card)(({ theme }) => ({
   width: '80%',
   height: '80%',
-  margin: 'auto',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
