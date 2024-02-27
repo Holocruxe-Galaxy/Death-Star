@@ -34,6 +34,26 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
+const CustomSelect = styled(Select)(({ theme }) => ({
+  backgroundColor: alpha(theme.palette.holocruxe.fontWhite, 0.1),
+  border: `2px solid ${theme.palette.holocruxe.mediumText}`,
+  width: '370px',
+  height: '40px',
+  color: theme.palette.holocruxe.fontWhite,
+  '&:focus': {
+    backgroundColor: alpha(theme.palette.holocruxe.fontWhite, 0.1),
+  },
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.holocruxe.fontWhite, 0.1),
+  },
+  '& .MuiSelect-icon': {
+    color: theme.palette.holocruxe.fontWhite,
+  },
+  '& .MuiSelect-select:focus': {
+    backgroundColor: 'transparent',
+  },
+}));
+
 const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
   return (
     <>
@@ -60,15 +80,7 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
           </Grid>
           <Grid item xs={12} sm={6} sx={{ mb: 2 }}>
             <FormControl fullWidth sx={{ width: '370px', height: '40px' }}>
-              <Select
-                labelId="state-select"
-                defaultValue="País"
-                sx={{
-                  width: '370px',
-                  height: '40px',
-                  color: 'holocruxe.fontWhite',
-                }}
-              >
+              <CustomSelect labelId="state-select" defaultValue="País">
                 <MenuItem value="País" disabled>
                   País
                 </MenuItem>
@@ -79,7 +91,7 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
                 <MenuItem value="Florida">Florida</MenuItem>
                 <MenuItem value="Washington">Washington</MenuItem>
                 <MenuItem value="Texas">Texas</MenuItem>
-              </Select>
+              </CustomSelect>
             </FormControl>
           </Grid>
           <Box component={'div'} sx={{ mb: 4 }}>
