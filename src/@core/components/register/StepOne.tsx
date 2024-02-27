@@ -120,7 +120,16 @@ const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: ()
             >
               Atrás
             </Button>
-            <Button variant="contained" onClick={handleNext} endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={handleNext}
+              endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
+              sx={{
+                bgcolor: 'holocruxe.btn',
+                '&:hover': { bgcolor: 'holocruxe.darkText' },
+              }}
+            >
               Siguiente
             </Button>
           </Box>
