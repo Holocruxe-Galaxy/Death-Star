@@ -12,20 +12,12 @@ const ButtonToggleSimple = () => {
   // ** State
   const [alignment, setAlignment] = useState<string | null>('left');
 
-  const handleAlignment = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string | null,
-  ) => {
+  const handleAlignment = (event: MouseEvent<HTMLElement>, newAlignment: string | null) => {
     setAlignment(newAlignment);
   };
 
   return (
-    <ToggleButtonGroup
-      exclusive
-      value={alignment}
-      onChange={handleAlignment}
-      aria-label="text alignment"
-    >
+    <ToggleButtonGroup exclusive value={alignment} onChange={handleAlignment} aria-label="text alignment">
       <ToggleButton value="left" aria-label="left aligned">
         <Icon icon="mdi:format-align-left" />
       </ToggleButton>

@@ -31,8 +31,9 @@ const Img = styled('img')(({ theme }) => ({
 
 const ComingSoon = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',
@@ -41,47 +42,31 @@ const ComingSoon = () => {
         }}
       >
         <BoxWrapper>
-          <Box sx={{ mb: 10, textAlign: 'center' }}>
-            <Typography
-              variant="h5"
-              sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
-            >
+          <Box component="div" sx={{ mb: 10, textAlign: 'center' }}>
+            <Typography variant="h5" sx={{ mb: 2.5, fontSize: '1.5rem !important' }}>
               We are launching soon 🚀
             </Typography>
             <Typography variant="body2">
-              Our website is opening soon. Please register to get notified when
-              it&prime;s ready!
+              Our website is opening soon. Please register to get notified when it&prime;s ready!
             </Typography>
           </Box>
-          <form
-            noValidate
-            autoComplete="off"
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <form noValidate autoComplete="off" onSubmit={(e) => e.preventDefault()}>
             <Box
+              component="div"
               sx={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <TextField
-                autoFocus
-                size="small"
-                type="email"
-                sx={{ mr: 6 }}
-                placeholder="Enter your email"
-              />
+              <TextField autoFocus size="small" type="email" sx={{ mr: 6 }} placeholder="Enter your email" />
               <Button type="submit" variant="contained">
                 Notify
               </Button>
             </Box>
           </form>
         </BoxWrapper>
-        <Img
-          alt="coming-soon-illustration"
-          src="/images/pages/misc-coming-soon.png"
-        />
+        <Img alt="coming-soon-illustration" src="/images/pages/misc-coming-soon.png" />
       </Box>
     </Box>
   );

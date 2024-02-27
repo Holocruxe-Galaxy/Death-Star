@@ -47,11 +47,7 @@ import CustomChip from 'src/@core/components/mui/chip';
 import UserSubscriptionDialog from 'src/views/apps/user/view/UserSubscriptionDialog';
 
 // ** Util Import
-import {
-  formatCVC,
-  formatExpirationDate,
-  formatCreditCardNumber,
-} from 'src/@core/utils/format';
+import { formatCVC, formatExpirationDate, formatCreditCardNumber } from 'src/@core/utils/format';
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types';
@@ -131,8 +127,7 @@ const UserViewBilling = () => {
   const [openEditCard, setOpenEditCard] = useState<boolean>(false);
   const [openAddressCard, setOpenAddressCard] = useState<boolean>(false);
   const [openUpgradePlans, setOpenUpgradePlans] = useState<boolean>(false);
-  const [subscriptionDialogOpen, setSubscriptionDialogOpen] =
-    useState<boolean>(false);
+  const [subscriptionDialogOpen, setSubscriptionDialogOpen] = useState<boolean>(false);
 
   // Handle Edit Card dialog and get card ID
   const handleEditCardClickOpen = (id: number) => {
@@ -190,33 +185,21 @@ const UserViewBilling = () => {
           <CardContent>
             <Grid container spacing={6}>
               <Grid item xs={12} md={6}>
-                <Box sx={{ mb: 4 }}>
-                  <Typography
-                    sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}
-                  >
+                <Box component="div" sx={{ mb: 4 }}>
+                  <Typography sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}>
                     Your Current Plan is <strong>Basic</strong>
                   </Typography>
-                  <Typography variant="body2">
-                    A simple start for everyone
-                  </Typography>
+                  <Typography variant="body2">A simple start for everyone</Typography>
                 </Box>
-                <Box sx={{ mb: 4 }}>
-                  <Typography
-                    sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}
-                  >
+                <Box component="div" sx={{ mb: 4 }}>
+                  <Typography sx={{ fontWeight: 500, mb: 1, fontSize: '0.875rem' }}>
                     Active until Dec 09, 2021
                   </Typography>
-                  <Typography variant="body2">
-                    We will send you a notification upon Subscription expiration
-                  </Typography>
+                  <Typography variant="body2">We will send you a notification upon Subscription expiration</Typography>
                 </Box>
                 <div>
-                  <Box sx={{ display: 'flex', mb: 1, alignItems: 'center' }}>
-                    <Typography
-                      sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}
-                    >
-                      $99 Per Month
-                    </Typography>
+                  <Box component="div" sx={{ display: 'flex', mb: 1, alignItems: 'center' }}>
+                    <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>$99 Per Month</Typography>
                     <CustomChip
                       skin="light"
                       size="small"
@@ -230,9 +213,7 @@ const UserViewBilling = () => {
                       }}
                     />
                   </Box>
-                  <Typography variant="body2">
-                    Standard plan for small to medium businesses
-                  </Typography>
+                  <Typography variant="body2">Standard plan for small to medium businesses</Typography>
                 </div>
               </Grid>
 
@@ -249,24 +230,17 @@ const UserViewBilling = () => {
                   Your plan requires updates
                 </Alert>
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     mb: 2,
                     justifyContent: 'space-between',
                   }}
                 >
-                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
-                    Days
-                  </Typography>
-                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
-                    26 of 30 Days
-                  </Typography>
+                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>Days</Typography>
+                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>26 of 30 Days</Typography>
                 </Box>
-                <LinearProgress
-                  value={86.6666666}
-                  variant="determinate"
-                  sx={{ height: 10, borderRadius: '5px' }}
-                />
+                <LinearProgress value={86.6666666} variant="determinate" sx={{ height: 10, borderRadius: '5px' }} />
                 <Typography variant="body2" sx={{ mt: 2, mb: 4 }}>
                   Your plan requires update
                 </Typography>
@@ -282,28 +256,17 @@ const UserViewBilling = () => {
                   alignItems: 'flex-start',
                 }}
               >
-                <Button
-                  variant="contained"
-                  onClick={handleUpgradePlansClickOpen}
-                  sx={{ mr: 3, mb: [3, 0] }}
-                >
+                <Button variant="contained" onClick={handleUpgradePlansClickOpen} sx={{ mr: 3, mb: [3, 0] }}>
                   Upgrade Plan
                 </Button>
-                <Button
-                  variant="outlined"
-                  color="error"
-                  onClick={() => setSubscriptionDialogOpen(true)}
-                >
+                <Button variant="outlined" color="error" onClick={() => setSubscriptionDialogOpen(true)}>
                   Cancel Subscription
                 </Button>
               </Grid>
             </Grid>
           </CardContent>
 
-          <UserSubscriptionDialog
-            open={subscriptionDialogOpen}
-            setOpen={setSubscriptionDialogOpen}
-          />
+          <UserSubscriptionDialog open={subscriptionDialogOpen} setOpen={setSubscriptionDialogOpen} />
 
           <Dialog
             open={openUpgradePlans}
@@ -317,14 +280,8 @@ const UserViewBilling = () => {
               sx={{
                 textAlign: 'center',
                 fontSize: '1.5rem !important',
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pt: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
               Upgrade Plan
@@ -332,17 +289,10 @@ const UserViewBilling = () => {
 
             <DialogContent
               sx={{
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
               }}
             >
-              <DialogContentText
-                variant="body2"
-                sx={{ textAlign: 'center' }}
-                id="user-view-plans-description"
-              >
+              <DialogContentText variant="body2" sx={{ textAlign: 'center' }} id="user-view-plans-description">
                 Choose the best plan for the user.
               </DialogContentText>
             </DialogContent>
@@ -354,20 +304,11 @@ const UserViewBilling = () => {
                 flexWrap: ['wrap', 'nowrap'],
                 pt: (theme) => `${theme.spacing(2)} !important`,
                 pb: (theme) => `${theme.spacing(8)} !important`,
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
               }}
             >
-              <FormControl
-                fullWidth
-                size="small"
-                sx={{ mr: [0, 3], mb: [3, 0] }}
-              >
-                <InputLabel id="user-view-plans-select-label">
-                  Choose Plan
-                </InputLabel>
+              <FormControl fullWidth size="small" sx={{ mr: [0, 3], mb: [3, 0] }}>
+                <InputLabel id="user-view-plans-select-label">Choose Plan</InputLabel>
                 <Select
                   label="Choose Plan"
                   defaultValue="Standard"
@@ -376,9 +317,7 @@ const UserViewBilling = () => {
                 >
                   <MenuItem value="Basic">Basic - $0/month</MenuItem>
                   <MenuItem value="Standard">Standard - $99/month</MenuItem>
-                  <MenuItem value="Enterprise">
-                    Enterprise - $499/month
-                  </MenuItem>
+                  <MenuItem value="Enterprise">Enterprise - $499/month</MenuItem>
                   <MenuItem value="Company">Company - $999/month</MenuItem>
                 </Select>
               </FormControl>
@@ -391,24 +330,16 @@ const UserViewBilling = () => {
 
             <DialogContent
               sx={{
-                pt: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(8)} !important`,
-                ],
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pb: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(8)} !important`],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
               <Typography sx={{ fontWeight: 500, mb: 2, fontSize: '0.875rem' }}>
                 User current plan is standard plan
               </Typography>
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -416,9 +347,7 @@ const UserViewBilling = () => {
                   justifyContent: 'space-between',
                 }}
               >
-                <Box
-                  sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}
-                >
+                <Box component="div" sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}>
                   <Sup>$</Sup>
                   <Typography
                     variant="h3"
@@ -433,12 +362,7 @@ const UserViewBilling = () => {
                   </Typography>
                   <Sub>/ month</Sub>
                 </Box>
-                <Button
-                  color="error"
-                  variant="outlined"
-                  sx={{ mt: 2 }}
-                  onClick={() => setSubscriptionDialogOpen(true)}
-                >
+                <Button color="error" variant="outlined" sx={{ mt: 2 }} onClick={() => setSubscriptionDialogOpen(true)}>
                   Cancel Subscription
                 </Button>
               </Box>
@@ -452,11 +376,7 @@ const UserViewBilling = () => {
           <CardHeader
             title="Payment Methods"
             action={
-              <Button
-                variant="contained"
-                onClick={handleAddCardClickOpen}
-                sx={{ '& svg': { mr: 1 } }}
-              >
+              <Button variant="contained" onClick={handleAddCardClickOpen} sx={{ '& svg': { mr: 1 } }}>
                 <Icon icon="mdi:plus" fontSize="1.125rem" />
                 Add Card
               </Button>
@@ -465,6 +385,7 @@ const UserViewBilling = () => {
           <CardContent>
             {data.map((item: DataType, index: number) => (
               <Box
+                component="div"
                 key={index}
                 sx={{
                   p: 5,
@@ -479,10 +400,8 @@ const UserViewBilling = () => {
               >
                 <div>
                   <Image height="25" alt={item.imgAlt} src={item.imgSrc} />
-                  <Box sx={{ mt: 0.5, display: 'flex', alignItems: 'center' }}>
-                    <Typography sx={{ fontWeight: 500 }}>
-                      {item.name}
-                    </Typography>
+                  <Box component="div" sx={{ mt: 0.5, display: 'flex', alignItems: 'center' }}>
+                    <Typography sx={{ fontWeight: 500 }}>{item.name}</Typography>
                     {item.cardStatus ? (
                       <CustomChip
                         skin="light"
@@ -500,17 +419,12 @@ const UserViewBilling = () => {
                     ) : null}
                   </Box>
                   <Typography variant="body2">
-                    **** **** ****{' '}
-                    {item.cardNumber.substring(item.cardNumber.length - 4)}
+                    **** **** **** {item.cardNumber.substring(item.cardNumber.length - 4)}
                   </Typography>
                 </div>
 
-                <Box sx={{ mt: [3, 0], textAlign: ['start', 'end'] }}>
-                  <Button
-                    variant="outlined"
-                    sx={{ mr: 3 }}
-                    onClick={() => handleEditCardClickOpen(index)}
-                  >
+                <Box component="div" sx={{ mt: [3, 0], textAlign: ['start', 'end'] }}>
+                  <Button variant="outlined" sx={{ mr: 3 }} onClick={() => handleEditCardClickOpen(index)}>
                     Edit
                   </Button>
                   <Button variant="outlined" color="secondary">
@@ -536,14 +450,8 @@ const UserViewBilling = () => {
               sx={{
                 textAlign: 'center',
                 fontSize: '1.5rem !important',
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pt: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
               {dialogTitle} Card
@@ -551,10 +459,7 @@ const UserViewBilling = () => {
             <DialogContent
               sx={{
                 pb: (theme) => `${theme.spacing(5)} !important`,
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
               }}
             >
               <DialogContentText
@@ -568,13 +473,7 @@ const UserViewBilling = () => {
                 <Grid container spacing={6}>
                   <Grid item xs={12}>
                     <CardWrapper sx={{ '& .rccs': { m: '0 auto' } }}>
-                      <Cards
-                        cvc={cvc}
-                        focused={focus}
-                        expiry={expiry}
-                        name={name}
-                        number={cardNumber}
-                      />
+                      <Cards cvc={cvc} focused={focus} expiry={expiry} name={name} number={cardNumber} />
                     </CardWrapper>
                   </Grid>
                   <Grid item xs={12}>
@@ -620,18 +519,12 @@ const UserViewBilling = () => {
                       </Grid>
                       <Grid item xs={12} sm={8}>
                         <FormControl fullWidth>
-                          <InputLabel id="user-view-billing-edit-card-status-label">
-                            Card Status
-                          </InputLabel>
+                          <InputLabel id="user-view-billing-edit-card-status-label">Card Status</InputLabel>
                           <Select
                             label="Card Status"
                             id="user-view-billing-edit-card-status"
                             labelId="user-view-billing-edit-card-status-label"
-                            defaultValue={
-                              data[cardId].cardStatus
-                                ? data[cardId].cardStatus
-                                : ''
-                            }
+                            defaultValue={data[cardId].cardStatus ? data[cardId].cardStatus : ''}
                           >
                             <MenuItem value="Primary">Primary</MenuItem>
                             <MenuItem value="Expired">Expired</MenuItem>
@@ -649,11 +542,7 @@ const UserViewBilling = () => {
                           onBlur={handleBlur}
                           onChange={handleInputChange}
                           onFocus={(e) => setFocus(e.target.name as Focused)}
-                          placeholder={
-                            Payment.fns.cardType(cardNumber) === 'amex'
-                              ? '1234'
-                              : '123'
-                          }
+                          placeholder={Payment.fns.cardType(cardNumber) === 'amex' ? '1234' : '123'}
                         />
                       </Grid>
                       <Grid item xs={12}>
@@ -675,28 +564,14 @@ const UserViewBilling = () => {
             <DialogActions
               sx={{
                 justifyContent: 'center',
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pb: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
-              <Button
-                variant="contained"
-                sx={{ mr: 2 }}
-                onClick={handleEditCardClose}
-              >
+              <Button variant="contained" sx={{ mr: 2 }} onClick={handleEditCardClose}>
                 Submit
               </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={handleEditCardClose}
-              >
+              <Button variant="outlined" color="secondary" onClick={handleEditCardClose}>
                 Cancel
               </Button>
             </DialogActions>
@@ -709,10 +584,7 @@ const UserViewBilling = () => {
           <CardHeader
             title="Billing Address"
             action={
-              <Button
-                variant="contained"
-                onClick={() => setOpenAddressCard(true)}
-              >
+              <Button variant="contained" onClick={() => setOpenAddressCard(true)}>
                 Edit Address
               </Button>
             }
@@ -814,9 +686,7 @@ const UserViewBilling = () => {
                             Billing Address:
                           </Typography>
                         </TableCell>
-                        <TableCell>
-                          100 Water Plant Avenue, Building 1303 Wake Island
-                        </TableCell>
+                        <TableCell>100 Water Plant Avenue, Building 1303 Wake Island</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -923,14 +793,8 @@ const UserViewBilling = () => {
               sx={{
                 textAlign: 'center',
                 fontSize: '1.5rem !important',
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pt: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
               Edit Address
@@ -938,49 +802,25 @@ const UserViewBilling = () => {
             <DialogContent
               sx={{
                 pb: (theme) => `${theme.spacing(8)} !important`,
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
               }}
             >
-              <DialogContentText
-                variant="body2"
-                id="user-address-edit-description"
-                sx={{ textAlign: 'center', mb: 7 }}
-              >
+              <DialogContentText variant="body2" id="user-address-edit-description" sx={{ textAlign: 'center', mb: 7 }}>
                 Edit Address for future billing
               </DialogContentText>
               <form>
                 <Grid container spacing={6}>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      defaultValue="Pixinvent"
-                      label="Company Name"
-                    />
+                    <TextField fullWidth defaultValue="Pixinvent" label="Company Name" />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      type="email"
-                      defaultValue="gertrude@gmail.com"
-                      label="Email"
-                    />
+                    <TextField fullWidth type="email" defaultValue="gertrude@gmail.com" label="Email" />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      defaultValue="TAX-875623"
-                      label="Tax ID"
-                    />
+                    <TextField fullWidth defaultValue="TAX-875623" label="Tax ID" />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      defaultValue="SDF754K77"
-                      label="VAT Number"
-                    />
+                    <TextField fullWidth defaultValue="SDF754K77" label="VAT Number" />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
@@ -992,20 +832,12 @@ const UserViewBilling = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      defaultValue="+1(609) 933-44-22"
-                      label="Contact"
-                    />
+                    <TextField fullWidth defaultValue="+1(609) 933-44-22" label="Contact" />
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth>
                       <InputLabel id="country-select">Country</InputLabel>
-                      <Select
-                        labelId="country-select"
-                        defaultValue="usa"
-                        label="Country"
-                      >
+                      <Select labelId="country-select" defaultValue="usa" label="Country">
                         <MenuItem value="usa">USA</MenuItem>
                         <MenuItem value="uk">UK</MenuItem>
                         <MenuItem value="france">France</MenuItem>
@@ -1015,19 +847,10 @@ const UserViewBilling = () => {
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      defaultValue="Capholim"
-                      label="State"
-                    />
+                    <TextField fullWidth defaultValue="Capholim" label="State" />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      type="number"
-                      defaultValue="403114"
-                      label="Zip Code"
-                    />
+                    <TextField fullWidth type="number" defaultValue="403114" label="Zip Code" />
                   </Grid>
                 </Grid>
               </form>
@@ -1035,28 +858,14 @@ const UserViewBilling = () => {
             <DialogActions
               sx={{
                 justifyContent: 'center',
-                px: (theme) => [
-                  `${theme.spacing(5)} !important`,
-                  `${theme.spacing(15)} !important`,
-                ],
-                pb: (theme) => [
-                  `${theme.spacing(8)} !important`,
-                  `${theme.spacing(12.5)} !important`,
-                ],
+                px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+                pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
               }}
             >
-              <Button
-                variant="contained"
-                sx={{ mr: 2 }}
-                onClick={() => setOpenAddressCard(false)}
-              >
+              <Button variant="contained" sx={{ mr: 2 }} onClick={() => setOpenAddressCard(false)}>
                 Submit
               </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={() => setOpenAddressCard(false)}
-              >
+              <Button variant="outlined" color="secondary" onClick={() => setOpenAddressCard(false)}>
                 Cancel
               </Button>
             </DialogActions>

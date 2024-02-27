@@ -34,21 +34,21 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
 
   return (
     <>
-      <Box className="navigation-wrapper">
-        <Box ref={sliderRef} className="keen-slider">
-          <Box className="keen-slider__slide">
+      <Box component="div" className="navigation-wrapper">
+        <Box component="div" ref={sliderRef} className="keen-slider">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
           </Box>
-          <Box className="keen-slider__slide">
+          <Box component="div" className="keen-slider__slide">
             <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
           </Box>
         </Box>
@@ -59,35 +59,26 @@ const SwiperControls = ({ direction }: { direction: Direction }) => {
               className={clsx('arrow arrow-left', {
                 'arrow-disabled': currentSlide === 0,
               })}
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
+              onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
             />
 
             <Icon
               icon="mdi:chevron-right"
               className={clsx('arrow arrow-right', {
-                'arrow-disabled':
-                  currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1,
+                'arrow-disabled': currentSlide === instanceRef.current.track.details.slides.length - 1,
               })}
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
+              onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
             />
           </>
         )}
       </Box>
       {loaded && instanceRef.current && (
-        <Box className="swiper-dots">
-          {[
-            ...Array(instanceRef.current.track.details.slides.length).keys(),
-          ].map((idx) => {
+        <Box component="div" className="swiper-dots">
+          {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
             return (
               <Badge
                 key={idx}
                 variant="dot"
-                component="div"
                 className={clsx({
                   active: currentSlide === idx,
                 })}

@@ -27,21 +27,15 @@ const SwiperFader = ({ direction }: { direction: Direction }) => {
     slides: images.length,
     rtl: direction === 'rtl',
     detailsChanged(s) {
-      const new_opacities = s.track.details.slides.map(
-        (slide) => slide.portion,
-      );
+      const new_opacities = s.track.details.slides.map((slide) => slide.portion);
       setOpacities(new_opacities);
     },
   });
 
   return (
-    <Box ref={sliderRef} className="fader" sx={{ height: [200, 250, 395] }}>
+    <Box component="div" ref={sliderRef} className="fader" sx={{ height: [200, 250, 395] }}>
       {images.map((src, idx) => (
-        <Box
-          key={idx}
-          className="fader__slide"
-          sx={{ opacity: opacities[idx] }}
-        >
+        <Box component="div" key={idx} className="fader__slide" sx={{ opacity: opacities[idx] }}>
           <Image src={src} alt={`slider ${idx}`} />
         </Box>
       ))}

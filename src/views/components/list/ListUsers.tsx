@@ -48,8 +48,9 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary="Caroline Black" />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <Box
+              component="div"
               sx={{
                 mr: 3,
                 display: 'flex',
@@ -77,8 +78,9 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary="Alfred Copeland" />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <Box
+              component="div"
               sx={{
                 mr: 3,
                 display: 'flex',
@@ -106,8 +108,9 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary="Celia Schneider" />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <Box
+              component="div"
               sx={{
                 mr: 3,
                 display: 'flex',
@@ -136,8 +139,9 @@ const ListUsers = () => {
         </ListItemAvatar>
         <div>
           <ListItemText primary="Max Rogan" />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <Box
+              component="div"
               sx={{
                 mr: 3,
                 display: 'flex',

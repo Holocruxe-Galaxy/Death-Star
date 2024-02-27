@@ -13,14 +13,13 @@ import HorizontalNavItems from './HorizontalNavItems';
 // ** Types
 interface Props {
   settings: LayoutProps['settings'];
-  horizontalNavItems: NonNullable<
-    NonNullable<LayoutProps['horizontalLayoutProps']>['navMenu']
-  >['navItems'];
+  horizontalNavItems: NonNullable<NonNullable<LayoutProps['horizontalLayoutProps']>['navMenu']>['navItems'];
 }
 
 const Navigation = (props: Props) => {
   return (
     <Box
+      component="div"
       className="menu-content"
       sx={{
         display: 'flex',

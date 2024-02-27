@@ -35,8 +35,9 @@ const Img = styled('img')(({ theme }) => ({
 
 const Error401 = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',
@@ -49,15 +50,10 @@ const Error401 = () => {
           <Typography variant="h1" sx={{ mb: 2.5 }}>
             401
           </Typography>
-          <Typography
-            variant="h5"
-            sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
-          >
+          <Typography variant="h5" sx={{ mb: 2.5, fontSize: '1.5rem !important' }}>
             You are not authorized! 🔐
           </Typography>
-          <Typography variant="body2">
-            You don&prime;t have permission to access this page. Go Home!
-          </Typography>
+          <Typography variant="body2">You don&prime;t have permission to access this page. Go Home!</Typography>
         </BoxWrapper>
         <Img alt="error-illustration" src="/images/pages/401.png" />
         <Button href="/" component={Link} variant="contained" sx={{ px: 5.5 }}>

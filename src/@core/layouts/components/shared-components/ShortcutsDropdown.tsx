@@ -69,27 +69,15 @@ const PerfectScrollbar = styled(PerfectScrollbarComponent)({
   maxHeight: '30rem',
 });
 
-const ScrollWrapper = ({
-  children,
-  hidden,
-}: {
-  children: ReactNode;
-  hidden: boolean;
-}) => {
+const ScrollWrapper = ({ children, hidden }: { children: ReactNode; hidden: boolean }) => {
   if (hidden) {
     return (
-      <Box sx={{ maxHeight: '30rem', overflowY: 'auto', overflowX: 'hidden' }}>
+      <Box component="div" sx={{ maxHeight: '30rem', overflowY: 'auto', overflowX: 'hidden' }}>
         {children}
       </Box>
     );
   } else {
-    return (
-      <PerfectScrollbar
-        options={{ wheelPropagation: false, suppressScrollX: true }}
-      >
-        {children}
-      </PerfectScrollbar>
-    );
+    return <PerfectScrollbar options={{ wheelPropagation: false, suppressScrollX: true }}>{children}</PerfectScrollbar>;
   }
 };
 
@@ -98,9 +86,7 @@ const ShortcutsDropdown = (props: Props) => {
   const { shortcuts, settings } = props;
 
   // ** States
-  const [anchorEl, setAnchorEl] = useState<(EventTarget & Element) | null>(
-    null,
-  );
+  const [anchorEl, setAnchorEl] = useState<(EventTarget & Element) | null>(null);
 
   // ** Hook
   const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
@@ -118,12 +104,7 @@ const ShortcutsDropdown = (props: Props) => {
 
   return (
     <Fragment>
-      <IconButton
-        color="inherit"
-        aria-haspopup="true"
-        onClick={handleDropdownOpen}
-        aria-controls="customized-menu"
-      >
+      <IconButton color="inherit" aria-haspopup="true" onClick={handleDropdownOpen} aria-controls="customized-menu">
         <Icon icon="mdi:view-grid-outline" />
       </IconButton>
       <Menu
@@ -149,6 +130,7 @@ const ShortcutsDropdown = (props: Props) => {
           }}
         >
           <Box
+            component="div"
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -210,16 +192,10 @@ const ShortcutsDropdown = (props: Props) => {
                     justifyContent: 'center',
                   }}
                 >
-                  <CustomAvatar
-                    skin="light"
-                    color="secondary"
-                    sx={{ mb: 2, width: 50, height: 50 }}
-                  >
+                  <CustomAvatar skin="light" color="secondary" sx={{ mb: 2, width: 50, height: 50 }}>
                     <Icon icon={shortcut.icon} />
                   </CustomAvatar>
-                  <Typography sx={{ fontWeight: 600, color: 'text.secondary' }}>
-                    {shortcut.title}
-                  </Typography>
+                  <Typography sx={{ fontWeight: 600, color: 'text.secondary' }}>{shortcut.title}</Typography>
                   <Typography variant="body2" sx={{ color: 'text.disabled' }}>
                     {shortcut.subtitle}
                   </Typography>

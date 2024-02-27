@@ -63,11 +63,7 @@ const columns: GridColDef[] = [
     field: 'id',
     minWidth: 90,
     headerName: '# ID',
-    renderCell: ({ row }: CellType) => (
-      <LinkStyled
-        href={`/apps/invoice/preview/${row.id}`}
-      >{`#${row.id}`}</LinkStyled>
-    ),
+    renderCell: ({ row }: CellType) => <LinkStyled href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</LinkStyled>,
   },
   {
     flex: 0.15,
@@ -77,44 +73,29 @@ const columns: GridColDef[] = [
     renderCell: ({ row }: CellType) => {
       const { dueDate, balance, invoiceStatus } = row;
 
-      const color = invoiceStatusObj[invoiceStatus]
-        ? invoiceStatusObj[invoiceStatus].color
-        : 'primary';
+      const color = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].color : 'primary';
 
       return (
         <Tooltip
           title={
             <>
-              <Typography
-                variant="caption"
-                sx={{ color: 'common.white', fontWeight: 600 }}
-              >
+              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
                 {invoiceStatus}
               </Typography>
               <br />
-              <Typography
-                variant="caption"
-                sx={{ color: 'common.white', fontWeight: 600 }}
-              >
+              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
                 Balance:
               </Typography>{' '}
               {balance}
               <br />
-              <Typography
-                variant="caption"
-                sx={{ color: 'common.white', fontWeight: 600 }}
-              >
+              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
                 Due Date:
               </Typography>{' '}
               {dueDate}
             </>
           }
         >
-          <CustomAvatar
-            skin="light"
-            color={color}
-            sx={{ width: '1.875rem', height: '1.875rem' }}
-          >
+          <CustomAvatar skin="light" color={color} sx={{ width: '1.875rem', height: '1.875rem' }}>
             <Icon icon={invoiceStatusObj[invoiceStatus].icon} fontSize="1rem" />
           </CustomAvatar>
         </Tooltip>
@@ -126,18 +107,14 @@ const columns: GridColDef[] = [
     minWidth: 90,
     field: 'total',
     headerName: 'Total',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">${row.total || 0}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">${row.total || 0}</Typography>,
   },
   {
     flex: 0.3,
     minWidth: 125,
     field: 'issuedDate',
     headerName: 'Issued Date',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">{row.issuedDate}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">{row.issuedDate}</Typography>,
   },
   {
     flex: 0.1,
@@ -146,18 +123,14 @@ const columns: GridColDef[] = [
     field: 'actions',
     headerName: 'Actions',
     renderCell: ({ row }: CellType) => (
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
         <Tooltip title="Delete Invoice">
           <IconButton size="small">
             <Icon icon="mdi:delete-outline" fontSize={20} />
           </IconButton>
         </Tooltip>
         <Tooltip title="View">
-          <IconButton
-            size="small"
-            component={Link}
-            href={`/apps/invoice/preview/${row.id}`}
-          >
+          <IconButton size="small" component={Link} href={`/apps/invoice/preview/${row.id}`}>
             <Icon icon="mdi:eye-outline" fontSize={20} />
           </IconButton>
         </Tooltip>
@@ -221,12 +194,7 @@ const InvoiceListTable = ({ invoiceData }: Props) => {
             >
               Export
             </Button>
-            <Menu
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              id="user-view-overview-export"
-            >
+            <Menu open={open} anchorEl={anchorEl} onClose={handleClose} id="user-view-overview-export">
               <MenuItem onClick={handleClose}>PDF</MenuItem>
               <MenuItem onClick={handleClose}>XLSX</MenuItem>
               <MenuItem onClick={handleClose}>CSV</MenuItem>

@@ -38,11 +38,7 @@ const ListWithSwitch = () => {
         </ListItemIcon>
         <ListItemText primary="Wi-Fi" />
         <ListItemSecondaryAction>
-          <Switch
-            edge="end"
-            checked={checked.indexOf('wifi') !== -1}
-            onChange={handleToggle('wifi')}
-          />
+          <Switch edge="end" checked={checked.indexOf('wifi') !== -1} onChange={handleToggle('wifi')} />
         </ListItemSecondaryAction>
       </ListItem>
       <ListItem>
@@ -51,11 +47,7 @@ const ListWithSwitch = () => {
         </ListItemIcon>
         <ListItemText primary="Bluetooth" />
         <ListItemSecondaryAction>
-          <Switch
-            edge="end"
-            checked={checked.indexOf('bluetooth') !== -1}
-            onChange={handleToggle('bluetooth')}
-          />
+          <Switch edge="end" checked={checked.indexOf('bluetooth') !== -1} onChange={handleToggle('bluetooth')} />
         </ListItemSecondaryAction>
       </ListItem>
       <ListItem>
@@ -64,11 +56,7 @@ const ListWithSwitch = () => {
         </ListItemIcon>
         <ListItemText primary="Location" />
         <ListItemSecondaryAction>
-          <Switch
-            edge="end"
-            checked={checked.indexOf('location') !== -1}
-            onChange={handleToggle('location')}
-          />
+          <Switch edge="end" checked={checked.indexOf('location') !== -1} onChange={handleToggle('location')} />
         </ListItemSecondaryAction>
       </ListItem>
       <ListItem>
@@ -77,11 +65,7 @@ const ListWithSwitch = () => {
         </ListItemIcon>
         <ListItemText primary="Airplane Mode" />
         <ListItemSecondaryAction>
-          <Switch
-            edge="end"
-            checked={checked.indexOf('airplane') !== -1}
-            onChange={handleToggle('airplane')}
-          />
+          <Switch edge="end" checked={checked.indexOf('airplane') !== -1} onChange={handleToggle('airplane')} />
         </ListItemSecondaryAction>
       </ListItem>
       <ListItem>
@@ -90,11 +74,7 @@ const ListWithSwitch = () => {
         </ListItemIcon>
         <ListItemText primary="Hotspot" />
         <ListItemSecondaryAction>
-          <Switch
-            edge="end"
-            checked={checked.indexOf('hotspot') !== -1}
-            onChange={handleToggle('hotspot')}
-          />
+          <Switch edge="end" checked={checked.indexOf('hotspot') !== -1} onChange={handleToggle('hotspot')} />
         </ListItemSecondaryAction>
       </ListItem>
       <ListItem>

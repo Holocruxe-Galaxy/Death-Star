@@ -18,24 +18,18 @@ interface Redux {
 }
 
 // ** Fetch Users
-export const fetchData = createAsyncThunk(
-  'appUsers/fetchData',
-  async (params: DataParams) => {
-    const response = await axios.get('/apps/users/list', {
-      params,
-    });
+export const fetchData = createAsyncThunk('appUsers/fetchData', async (params: DataParams) => {
+  const response = await axios.get('/apps/users/list', {
+    params,
+  });
 
-    return response.data;
-  },
-);
+  return response.data;
+});
 
 // ** Add User
 export const addUser = createAsyncThunk(
   'appUsers/addUser',
-  async (
-    data: { [key: string]: number | string },
-    { getState, dispatch }: Redux,
-  ) => {
+  async (data: { [key: string]: number | string }, { getState, dispatch }: Redux) => {
     const response = await axios.post('/apps/users/add-user', {
       data,
     });

@@ -24,7 +24,11 @@ const AuthGuard = (props: AuthGuardProps) => {
       }
 
       if (auth.user === null && !window.localStorage.getItem('userData')) {
-        if (router.asPath !== '/') {
+        if (router.asPath !== '/' && window.localStorage.getItem('status') === 'PENDING') {
+          router.replace({
+            pathname: '/register',
+          });
+        } else if (router.asPath !== '/') {
           router.replace({
             pathname: '/login',
             query: { returnUrl: router.asPath },

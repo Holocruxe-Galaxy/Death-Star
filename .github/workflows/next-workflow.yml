@@ -1,0 +1,29 @@
+name: CIDD
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:       
+    - name: Connect to EC2 and Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd Death-Star/
+          git reset --hard origin/develop
+          git pull origin develop
+          export NVM_DIR=~/.nvm
+          export PATH=$PATH:/home/user/.npm-global/bin
+          source ~/.nvm/nvm.sh
+          npm install
+          npm run build
+          pm2 delete all 
+          pm2 start npm -- start

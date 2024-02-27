@@ -169,9 +169,7 @@ const target = 'src/iconify-bundle/icons-bundle-react.js';
             await (0, tools_1.parseColors)(svg, {
               defaultColor: 'currentColor',
               callback: (attr, colorStr, color) => {
-                return !color || (0, tools_1.isEmptyColor)(color)
-                  ? colorStr
-                  : 'currentColor';
+                return !color || (0, tools_1.isEmptyColor)(color) ? colorStr : 'currentColor';
               },
             });
           }
@@ -208,14 +206,7 @@ const target = 'src/iconify-bundle/icons-bundle-react.js';
  * Remove metadata from icon set
  */
 function removeMetaData(iconSet) {
-  const props = [
-    'info',
-    'chars',
-    'categories',
-    'themes',
-    'prefixes',
-    'suffixes',
-  ];
+  const props = ['info', 'chars', 'categories', 'themes', 'prefixes', 'suffixes'];
   props.forEach((prop) => {
     delete iconSet[prop];
   });

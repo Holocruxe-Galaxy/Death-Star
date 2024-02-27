@@ -35,12 +35,10 @@ const columns: GridColDef[] = [
     field: 'projectTitle',
     headerName: 'Project',
     renderCell: ({ row }: CellType) => (
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
         <Img src={row.img} alt={`project-${row.projectTitle}`} />
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography sx={{ fontWeight: 500, fontSize: '0.875rem' }}>
-            {row.projectTitle}
-          </Typography>
+        <Box component="div" sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography sx={{ fontWeight: 500, fontSize: '0.875rem' }}>{row.projectTitle}</Typography>
           <Typography variant="caption" sx={{ color: 'text.disabled' }}>
             {row.projectType}
           </Typography>
@@ -53,9 +51,7 @@ const columns: GridColDef[] = [
     minWidth: 100,
     field: 'totalTask',
     headerName: 'Total Tasks',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">{row.totalTask}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">{row.totalTask}</Typography>,
   },
   {
     flex: 0.15,
@@ -63,7 +59,7 @@ const columns: GridColDef[] = [
     headerName: 'Progress',
     field: 'progressValue',
     renderCell: ({ row }: CellType) => (
-      <Box sx={{ width: '100%' }}>
+      <Box component="div" sx={{ width: '100%' }}>
         <Typography variant="body2">{row.progressValue}%</Typography>
         <LinearProgress
           variant="determinate"
@@ -79,9 +75,7 @@ const columns: GridColDef[] = [
     minWidth: 100,
     field: 'hours',
     headerName: 'Hours',
-    renderCell: ({ row }: CellType) => (
-      <Typography variant="body2">{row.hours}</Typography>
-    ),
+    renderCell: ({ row }: CellType) => <Typography variant="body2">{row.hours}</Typography>,
   },
 ];
 
@@ -109,6 +103,7 @@ const InvoiceListTable = () => {
       <CardHeader title="User's Projects List" />
       <CardContent>
         <Box
+          component="div"
           sx={{
             display: 'flex',
             alignItems: 'center',

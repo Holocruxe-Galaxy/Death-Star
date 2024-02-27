@@ -37,15 +37,7 @@ interface PickerProps {
 
 const ChartjsAreaChart = (props: AreaProps) => {
   // ** Props
-  const {
-    blue,
-    white,
-    blueLight,
-    greyLight,
-    labelColor,
-    borderColor,
-    legendColor,
-  } = props;
+  const { blue, white, blueLight, greyLight, labelColor, borderColor, legendColor } = props;
 
   // ** States
   const [endDate, setEndDate] = useState<DateType>(null);
@@ -137,10 +129,7 @@ const ChartjsAreaChart = (props: AreaProps) => {
         pointHoverBorderColor: white,
         pointBorderColor: 'transparent',
         pointHoverBackgroundColor: blueLight,
-        data: [
-          70, 85, 75, 150, 100, 140, 110, 105, 160, 150, 125, 190, 200, 240,
-          275,
-        ],
+        data: [70, 85, 75, 150, 100, 140, 110, 105, 160, 150, 125, 190, 200, 240, 275],
       },
       {
         fill: true,
@@ -155,19 +144,14 @@ const ChartjsAreaChart = (props: AreaProps) => {
         pointHoverBorderColor: white,
         pointBorderColor: 'transparent',
         pointHoverBackgroundColor: greyLight,
-        data: [
-          240, 195, 160, 215, 185, 215, 185, 200, 250, 210, 195, 250, 235, 300,
-          315,
-        ],
+        data: [240, 195, 160, 215, 185, 215, 185, 200, 250, 210, 195, 250, 235, 300, 315],
       },
     ],
   };
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -218,12 +202,7 @@ const ChartjsAreaChart = (props: AreaProps) => {
             startDate={startDate}
             onChange={handleOnChange}
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />

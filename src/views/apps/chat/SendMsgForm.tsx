@@ -47,7 +47,7 @@ const SendMsgForm = (props: SendMsgComponentType) => {
   return (
     <Form onSubmit={handleSendMsg}>
       <ChatFormWrapper>
-        <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+        <Box component="div" sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
           <TextField
             fullWidth
             value={msg}
@@ -60,16 +60,11 @@ const SendMsgForm = (props: SendMsgComponentType) => {
             }}
           />
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
           <IconButton size="small" sx={{ mr: 1.5, color: 'text.primary' }}>
             <Icon icon="mdi:microphone" fontSize="1.375rem" />
           </IconButton>
-          <IconButton
-            size="small"
-            component="label"
-            htmlFor="upload-img"
-            sx={{ mr: 2.75, color: 'text.primary' }}
-          >
+          <IconButton size="small" component="label" htmlFor="upload-img" sx={{ mr: 2.75, color: 'text.primary' }}>
             <Icon icon="mdi:attachment" fontSize="1.375rem" />
             <input hidden type="file" id="upload-img" />
           </IconButton>

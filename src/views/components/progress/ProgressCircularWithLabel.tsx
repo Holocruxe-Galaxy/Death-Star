@@ -4,15 +4,14 @@ import { useEffect, useState } from 'react';
 // ** MUI Imports
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import CircularProgress, {
-  CircularProgressProps,
-} from '@mui/material/CircularProgress';
+import CircularProgress, { CircularProgressProps } from '@mui/material/CircularProgress';
 
 const Progress = (props: CircularProgressProps) => {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box component="div" sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress variant="determinate" {...props} size={50} />
       <Box
+        component="div"
         sx={{
           top: 0,
           left: 0,
@@ -24,7 +23,7 @@ const Progress = (props: CircularProgressProps) => {
           justifyContent: 'center',
         }}
       >
-        <Typography variant="caption" component="div" color="text.secondary">
+        <Typography variant="caption" color="text.secondary">
           {`${Math.round(props.value as number)}%`}
         </Typography>
       </Box>
@@ -38,9 +37,7 @@ const ProgressCircularWithLabel = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 0 : prevProgress + 10,
-      );
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
     }, 800);
 
     return () => {

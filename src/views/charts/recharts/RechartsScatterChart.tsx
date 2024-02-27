@@ -14,14 +14,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 // ** Third Party Imports
 import format from 'date-fns/format';
 import DatePicker from 'react-datepicker';
-import {
-  ScatterChart,
-  Scatter,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
-} from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -95,10 +88,8 @@ const RechartsScatterChart = ({ direction }: Props) => {
   const theme = useTheme();
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -149,18 +140,14 @@ const RechartsScatterChart = ({ direction }: Props) => {
             startDate={startDate}
             onChange={handleOnChange}
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />
       <CardContent>
-        <Box sx={{ display: 'flex', mb: 4 }}>
+        <Box component="div" sx={{ display: 'flex', mb: 4 }}>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -172,6 +159,7 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">React</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -183,6 +171,7 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">Vue</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -193,35 +182,15 @@ const RechartsScatterChart = ({ direction }: Props) => {
             <Typography variant="body2">Angular</Typography>
           </Box>
         </Box>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
-            <ScatterChart
-              height={350}
-              style={{ direction }}
-              margin={{ left: -20 }}
-            >
+            <ScatterChart height={350} style={{ direction }} margin={{ left: -20 }}>
               <CartesianGrid />
               <XAxis type="number" dataKey="x" reversed={direction === 'rtl'} />
-              <YAxis
-                type="number"
-                dataKey="y"
-                orientation={direction === 'rtl' ? 'right' : 'left'}
-              />
-              <Scatter
-                name="Angular"
-                data={angularData}
-                fill={theme.palette.error.main}
-              />
-              <Scatter
-                name="Vue"
-                data={vueData}
-                fill={theme.palette.success.main}
-              />
-              <Scatter
-                name="React"
-                data={reactData}
-                fill={theme.palette.primary.main}
-              />
+              <YAxis type="number" dataKey="y" orientation={direction === 'rtl' ? 'right' : 'left'} />
+              <Scatter name="Angular" data={angularData} fill={theme.palette.error.main} />
+              <Scatter name="Vue" data={vueData} fill={theme.palette.success.main} />
+              <Scatter name="React" data={reactData} fill={theme.palette.primary.main} />
             </ScatterChart>
           </ResponsiveContainer>
         </Box>

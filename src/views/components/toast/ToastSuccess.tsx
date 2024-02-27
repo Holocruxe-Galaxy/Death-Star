@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 const ToastSuccess = () => {
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',
@@ -22,15 +23,8 @@ const ToastSuccess = () => {
     >
       <Icon icon="mdi:check-circle-outline" fontSize="2rem" />
       <Typography sx={{ mb: 4, fontWeight: 600 }}>Success</Typography>
-      <Typography sx={{ mb: 3 }}>
-        Creates a notification with an animated checkmark.
-      </Typography>
-      <Button
-        sx={{ mb: 8 }}
-        color="success"
-        variant="contained"
-        onClick={() => toast.success('Successfully toasted!')}
-      >
+      <Typography sx={{ mb: 3 }}>Creates a notification with an animated checkmark.</Typography>
+      <Button sx={{ mb: 8 }} color="success" variant="contained" onClick={() => toast.success('Successfully toasted!')}>
         Success
       </Button>
     </Box>

@@ -12,6 +12,17 @@ declare module '@mui/material/styles' {
       tooltipBg: string;
       tableHeaderBg: string;
     };
+    holocruxe: {
+      bg: string;
+      fontWhite: string;
+      ligthText: string;
+      mediumText: string;
+      darkText: string;
+      contrastText: string;
+      btn: string;
+      card: string;
+      focus: string;
+    };
   }
   interface PaletteOptions {
     customColors?: {
@@ -25,6 +36,17 @@ declare module '@mui/material/styles' {
       avatarBg?: string;
       tooltipBg?: string;
       tableHeaderBg?: string;
+    };
+    holocruxe?: {
+      bg?: string;
+      fontWhite?: string;
+      ligthText?: string;
+      mediumText?: string;
+      darkText?: string;
+      contrastText?: string;
+      btn?: string;
+      card?: string;
+      focus?: string;
     };
   }
 }

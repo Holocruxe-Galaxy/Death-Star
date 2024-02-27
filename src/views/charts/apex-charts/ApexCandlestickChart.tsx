@@ -148,10 +148,8 @@ const ApexCandlestickChart = () => {
   };
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -203,22 +201,12 @@ const ApexCandlestickChart = () => {
             onChange={handleOnChange}
             id="apexchart-candlestick"
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type="candlestick"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="candlestick" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

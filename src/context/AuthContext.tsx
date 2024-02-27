@@ -14,9 +14,10 @@ import authConfig from 'src/configs/auth';
 import {
   AuthValuesType,
   LoginParams,
-  ErrCallbackType,
+  // ErrCallbackType,
   UserDataType,
 } from './types';
+import { afterLogin } from './functions';
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -44,31 +45,40 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
-      const storedToken = window.localStorage.getItem(
-        authConfig.storageTokenKeyName,
-      )!;
+      const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)!;
+      if (window.localStorage.getItem('status') === 'PENDING') {
+        router.replace('/register');
+      }
+      if (router.asPath !== '/register' && !window.localStorage.getItem('status')) {
+        router.replace('/login');
+      }
       if (storedToken) {
         setLoading(true);
         await axios
-          .get(`${process.env.NEXT_PUBLIC_BACK}/auth/validate`, {
+          .get(`${process.env.NEXT_PUBLIC_CORUSCANT}/users/verify`, {
             headers: {
-              Authorization: storedToken,
+              Authorization: `Bearer ${storedToken}`,
             },
           })
           .then(async (response) => {
+            const responseData = await response.data;
             setLoading(false);
-            setUser({ ...response.data.userData });
+            setUser({
+              id: responseData.userMail,
+              username: responseData.userMail,
+              role: 'admin',
+            });
           })
           .catch(() => {
-            localStorage.removeItem('userData');
-            localStorage.removeItem('refreshToken');
-            localStorage.removeItem('accessToken');
             setUser(null);
+            window.localStorage.removeItem('AuthorizationToken');
+            window.localStorage.removeItem('step');
+            window.localStorage.removeItem('status');
+            window.localStorage.removeItem('userData');
+            window.localStorage.removeItem(authConfig.storageTokenKeyName);
+            router.push('/api/auth/logout/');
             setLoading(false);
-            if (
-              authConfig.onTokenExpiration === 'logout' &&
-              !router.pathname.includes('login')
-            ) {
+            if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
               router.replace('/login');
             }
           });
@@ -81,47 +91,52 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleLogin = (
-    params: LoginParams,
-    errorCallback?: ErrCallbackType,
-  ) => {
-    axios
-      .post(`${process.env.NEXT_PUBLIC_BACK}/auth/login`, {
-        username: params.username,
-        password: params.password,
-      })
-      .then(async (response) => {
-        params.rememberMe
-          ? window.localStorage.setItem(
-              authConfig.storageTokenKeyName,
-              response.data.accessToken,
-            )
-          : null;
+  const handleLogin = async (params: LoginParams, token: any) => {
+    try {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_CORUSCANT}/users/verify`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const responseData = response.data;
+
+      const status = await afterLogin(token);
+      if (status === 'PENDING') {
+        window.localStorage.setItem('AuthorizationToken', token);
+        router.replace('/register');
+        setLoading(false);
+        return;
+      }
+      if (status === 'COMPLETE') {
+        if (params.rememberMe) {
+          window.localStorage.setItem(authConfig.storageTokenKeyName, token);
+          window.localStorage.setItem('userData', JSON.stringify({ username: responseData.userMail, role: 'client' }));
+          setLoading(false);
+        }
+
         const returnUrl = router.query.returnUrl;
-
-        setUser({ ...response.data.userData });
-        params.rememberMe
-          ? window.localStorage.setItem(
-              'userData',
-              JSON.stringify(response.data.userData),
-            )
-          : null;
-
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/';
 
+        setUser({
+          id: responseData.userMail,
+          username: responseData.userMail,
+          role: 'admin',
+        });
         router.replace(redirectURL as string);
-      })
-
-      .catch((err) => {
-        if (errorCallback) errorCallback(err);
-      });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleLogout = () => {
     setUser(null);
+    window.localStorage.removeItem('AuthorizationToken');
+    window.localStorage.removeItem('step');
+    window.localStorage.removeItem('status');
     window.localStorage.removeItem('userData');
     window.localStorage.removeItem(authConfig.storageTokenKeyName);
-    router.push('/login');
+    router.push('/api/auth/logout/');
   };
 
   const values = {

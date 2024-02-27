@@ -67,10 +67,7 @@ const NavigationMenu = styled(Paper)(({ theme }) => ({
   },
   '&::-webkit-scrollbar-thumb': {
     borderRadius: 20,
-    background: hexToRGBA(
-      theme.palette.mode === 'light' ? '#BFBFD5' : '#57596C',
-      0.6,
-    ),
+    background: hexToRGBA(theme.palette.mode === 'light' ? '#BFBFD5' : '#57596C', 0.6),
   },
   '&::-webkit-scrollbar-track': {
     borderRadius: 20,
@@ -95,17 +92,11 @@ const HorizontalNavGroup = (props: Props) => {
   const router = useRouter();
   const currentURL = router.asPath;
   const { skin, direction } = settings;
-  const {
-    navSubItemIcon,
-    menuTextTruncate,
-    horizontalMenuToggle,
-    horizontalMenuAnimation,
-  } = themeConfig;
+  const { navSubItemIcon, menuTextTruncate, horizontalMenuToggle, horizontalMenuAnimation } = themeConfig;
 
   const popperOffsetHorizontal = direction === 'rtl' ? 16 : -16;
   const popperPlacement = direction === 'rtl' ? 'bottom-end' : 'bottom-start';
-  const popperPlacementSubMenu =
-    direction === 'rtl' ? 'left-start' : 'right-start';
+  const popperPlacementSubMenu = direction === 'rtl' ? 'left-start' : 'right-start';
 
   // ** States
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -113,26 +104,22 @@ const HorizontalNavGroup = (props: Props) => {
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const [referenceElement, setReferenceElement] = useState(null);
 
-  const { styles, attributes, update } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      placement: hasParent ? popperPlacementSubMenu : popperPlacement,
-      modifiers: [
-        {
-          enabled: true,
-          name: 'offset',
-          options: {
-            offset: hasParent ? [-8, 15] : [popperOffsetHorizontal, 5],
-          },
+  const { styles, attributes, update } = usePopper(referenceElement, popperElement, {
+    placement: hasParent ? popperPlacementSubMenu : popperPlacement,
+    modifiers: [
+      {
+        enabled: true,
+        name: 'offset',
+        options: {
+          offset: hasParent ? [-8, 15] : [popperOffsetHorizontal, 5],
         },
-        {
-          enabled: true,
-          name: 'flip',
-        },
-      ],
-    },
-  );
+      },
+      {
+        enabled: true,
+        name: 'flip',
+      },
+    ],
+  });
 
   const handleGroupOpen = (event: SyntheticEvent) => {
     setAnchorEl(event.currentTarget);
@@ -159,8 +146,7 @@ const HorizontalNavGroup = (props: Props) => {
   }, [router.asPath]);
 
   const icon = item.icon ? item.icon : navSubItemIcon;
-  const toggleIcon =
-    direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
+  const toggleIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
 
   const WrapperCondition = horizontalMenuToggle === 'click';
   const MainWrapper = WrapperCondition ? ClickAwayListener : 'div';
@@ -191,22 +177,16 @@ const HorizontalNavGroup = (props: Props) => {
     <CanViewNavGroup navGroup={item}>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-expect-error */}
-      <MainWrapper
-        {...(WrapperCondition
-          ? { onClickAway: handleGroupClose }
-          : { onMouseLeave: handleGroupClose })}
-      >
+      <MainWrapper {...(WrapperCondition ? { onClickAway: handleGroupClose } : { onMouseLeave: handleGroupClose })}>
         <ChildWrapper>
-          <List component="div" sx={{ py: skin === 'bordered' ? 2.625 : 2.75 }}>
+          <List sx={{ py: skin === 'bordered' ? 2.625 : 2.75 }}>
             <ListItem
               aria-haspopup="true"
               {...(WrapperCondition ? {} : { onMouseEnter: handleGroupOpen })}
               className={clsx('menu-group', {
                 'Mui-selected': hasActiveChild(item, currentURL),
               })}
-              {...(horizontalMenuToggle === 'click'
-                ? { onClick: handleMenuToggleOnClick }
-                : {})}
+              {...(horizontalMenuToggle === 'click' ? { onClick: handleMenuToggleOnClick } : {})}
               sx={{
                 ...(menuOpen ? { backgroundColor: 'action.hover' } : {}),
                 ...(!hasParent
@@ -214,16 +194,16 @@ const HorizontalNavGroup = (props: Props) => {
                       borderRadius: '8px',
                       '&.Mui-selected': {
                         backgroundColor: 'primary.main',
-                        '& .MuiTypography-root, & .MuiListItemIcon-root, & svg':
-                          {
-                            color: 'common.white',
-                          },
+                        '& .MuiTypography-root, & .MuiListItemIcon-root, & svg': {
+                          color: 'common.white',
+                        },
                       },
                     }
                   : {}),
               }}
             >
               <Box
+                component="div"
                 sx={{
                   gap: 2,
                   width: '100%',
@@ -235,6 +215,7 @@ const HorizontalNavGroup = (props: Props) => {
                 ref={setReferenceElement}
               >
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -242,19 +223,15 @@ const HorizontalNavGroup = (props: Props) => {
                     ...(menuTextTruncate && { overflow: 'hidden' }),
                   }}
                 >
-                  <ListItemIcon
-                    sx={{ mr: hasParent ? 3 : 2.5, color: 'text.primary' }}
-                  >
-                    <UserIcon
-                      icon={icon}
-                      fontSize={icon === navSubItemIcon ? '0.5rem' : '1.5rem'}
-                    />
+                  <ListItemIcon sx={{ mr: hasParent ? 3 : 2.5, color: 'text.primary' }}>
+                    <UserIcon icon={icon} fontSize={icon === navSubItemIcon ? '0.5rem' : '1.5rem'} />
                   </ListItemIcon>
                   <Typography {...(menuTextTruncate && { noWrap: true })}>
                     <Translations text={item.title} />
                   </Typography>
                 </Box>
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -287,6 +264,7 @@ const HorizontalNavGroup = (props: Props) => {
               })}
             >
               <Box
+                component="div"
                 style={styles.popper}
                 ref={setPopperElement}
                 {...attributes.popper}
@@ -295,21 +273,9 @@ const HorizontalNavGroup = (props: Props) => {
                   ...(!horizontalMenuAnimation && {
                     display: menuOpen ? 'block' : 'none',
                   }),
-                  pl:
-                    childMenuGroupStyles() === 'left'
-                      ? skin === 'bordered'
-                        ? 1.5
-                        : 1.25
-                      : 0,
-                  pr:
-                    childMenuGroupStyles() === 'right'
-                      ? skin === 'bordered'
-                        ? 1.5
-                        : 1.25
-                      : 0,
-                  ...(hasParent
-                    ? { position: 'fixed !important' }
-                    : { pt: skin === 'bordered' ? 5.25 : 5.5 }),
+                  pl: childMenuGroupStyles() === 'left' ? (skin === 'bordered' ? 1.5 : 1.25) : 0,
+                  pr: childMenuGroupStyles() === 'right' ? (skin === 'bordered' ? 1.5 : 1.25) : 0,
+                  ...(hasParent ? { position: 'fixed !important' } : { pt: skin === 'bordered' ? 5.25 : 5.5 }),
                 }}
               >
                 <NavigationMenu
@@ -328,11 +294,7 @@ const HorizontalNavGroup = (props: Props) => {
                       : { boxShadow: 4 }),
                   }}
                 >
-                  <HorizontalNavItems
-                    {...props}
-                    hasParent
-                    horizontalNavItems={item.children}
-                  />
+                  <HorizontalNavItems {...props} hasParent horizontalNavItems={item.children} />
                 </NavigationMenu>
               </Box>
             </AnimationWrapper>

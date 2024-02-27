@@ -16,12 +16,8 @@ interface Props {
   hidden: LayoutProps['hidden'];
   settings: LayoutProps['settings'];
   saveSettings: LayoutProps['saveSettings'];
-  appBarContent: NonNullable<
-    NonNullable<LayoutProps['horizontalLayoutProps']>['appBar']
-  >['content'];
-  appBarBranding: NonNullable<
-    NonNullable<LayoutProps['horizontalLayoutProps']>['appBar']
-  >['branding'];
+  appBarContent: NonNullable<NonNullable<LayoutProps['horizontalLayoutProps']>['appBar']>['content'];
+  appBarBranding: NonNullable<NonNullable<LayoutProps['horizontalLayoutProps']>['appBar']>['branding'];
 }
 
 const LinkStyled = styled(Link)(({ theme }) => ({
@@ -33,16 +29,14 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 
 const AppBarContent = (props: Props) => {
   // ** Props
-  const {
-    appBarContent: userAppBarContent,
-    appBarBranding: userAppBarBranding,
-  } = props;
+  const { appBarContent: userAppBarContent, appBarBranding: userAppBarBranding } = props;
 
   // ** Hooks
   const theme = useTheme();
 
   return (
     <Box
+      component="div"
       sx={{
         width: '100%',
         display: 'flex',
@@ -54,13 +48,7 @@ const AppBarContent = (props: Props) => {
         userAppBarBranding(props)
       ) : (
         <LinkStyled href="/">
-          <svg
-            width={40}
-            fill="none"
-            height={22}
-            viewBox="0 0 268 150"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width={40} fill="none" height={22} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
             <rect
               rx="25.1443"
               width="50.2886"
@@ -130,10 +118,7 @@ const AppBarContent = (props: Props) => {
               </linearGradient>
             </defs>
           </svg>
-          <Typography
-            variant="h6"
-            sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}
-          >
+          <Typography variant="h6" sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}>
             {themeConfig.templateName}
           </Typography>
         </LinkStyled>

@@ -41,16 +41,12 @@ const UserProfileRight = (props: UserProfileRightType) => {
   const ScrollWrapper = ({ children }: { children: ReactNode }) => {
     if (hidden) {
       return (
-        <Box sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+        <Box component="div" sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
           {children}
         </Box>
       );
     } else {
-      return (
-        <PerfectScrollbar options={{ wheelPropagation: false }}>
-          {children}
-        </PerfectScrollbar>
-      );
+      return <PerfectScrollbar options={{ wheelPropagation: false }}>{children}</PerfectScrollbar>;
     }
   };
 
@@ -73,7 +69,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
     >
       {store && store.selectedChat ? (
         <Fragment>
-          <Box sx={{ position: 'relative' }}>
+          <Box component="div" sx={{ position: 'relative' }}>
             <IconButton
               size="small"
               onClick={handleUserProfileRightSidebarToggle}
@@ -88,6 +84,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
               <Icon icon="mdi:close" />
             </IconButton>
             <Box
+              component="div"
               sx={{
                 px: 5,
                 pb: 7,
@@ -96,7 +93,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
                 flexDirection: 'column',
               }}
             >
-              <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
+              <Box component="div" sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
                 <Badge
                   overlap="circular"
                   anchorOrigin={{
@@ -110,14 +107,9 @@ const UserProfileRight = (props: UserProfileRightType) => {
                         width: 10,
                         height: 10,
                         borderRadius: '50%',
-                        color: `${
-                          statusObj[store.selectedChat.contact.status]
-                        }.main`,
-                        boxShadow: (theme) =>
-                          `0 0 0 2px ${theme.palette.background.paper}`,
-                        backgroundColor: `${
-                          statusObj[store.selectedChat.contact.status]
-                        }.main`,
+                        color: `${statusObj[store.selectedChat.contact.status]}.main`,
+                        boxShadow: (theme) => `0 0 0 2px ${theme.palette.background.paper}`,
+                        backgroundColor: `${statusObj[store.selectedChat.contact.status]}.main`,
                       }}
                     />
                   }
@@ -144,9 +136,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
                   )}
                 </Badge>
               </Box>
-              <Typography
-                sx={{ mb: 0.75, fontWeight: 600, textAlign: 'center' }}
-              >
+              <Typography sx={{ mb: 0.75, fontWeight: 600, textAlign: 'center' }}>
                 {store.selectedChat.contact.fullName}
               </Typography>
               <Typography variant="body2" sx={{ textAlign: 'center' }}>
@@ -155,14 +145,11 @@ const UserProfileRight = (props: UserProfileRightType) => {
             </Box>
           </Box>
 
-          <Box sx={{ height: 'calc(100% - 13.0625rem)' }}>
+          <Box component="div" sx={{ height: 'calc(100% - 13.0625rem)' }}>
             <ScrollWrapper>
-              <Box sx={{ p: 5 }}>
+              <Box component="div" sx={{ p: 5 }}>
                 <FormGroup sx={{ mb: 6 }}>
-                  <Typography
-                    variant="body2"
-                    sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                  >
+                  <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                     About
                   </Typography>
                   <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
@@ -170,11 +157,8 @@ const UserProfileRight = (props: UserProfileRightType) => {
                   </Typography>
                 </FormGroup>
 
-                <Box sx={{ mb: 6 }}>
-                  <Typography
-                    variant="body2"
-                    sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                  >
+                <Box component="div" sx={{ mb: 6 }}>
+                  <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                     Personal Information
                   </Typography>
                   <List dense sx={{ p: 0 }}>
@@ -184,10 +168,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
                       </ListItemIcon>
                       <ListItemText
                         sx={{ textTransform: 'lowercase' }}
-                        secondary={`${store.selectedChat.contact.fullName.replace(
-                          /\s/g,
-                          '_',
-                        )}@email.com`}
+                        secondary={`${store.selectedChat.contact.fullName.replace(/\s/g, '_')}@email.com`}
                       />
                     </ListItem>
                     <ListItem sx={{ px: 2 }}>
@@ -206,10 +187,7 @@ const UserProfileRight = (props: UserProfileRightType) => {
                 </Box>
 
                 <div>
-                  <Typography
-                    variant="body2"
-                    sx={{ mb: 1.5, textTransform: 'uppercase' }}
-                  >
+                  <Typography variant="body2" sx={{ mb: 1.5, textTransform: 'uppercase' }}>
                     Settings
                   </Typography>
                   <List dense sx={{ p: 0 }}>

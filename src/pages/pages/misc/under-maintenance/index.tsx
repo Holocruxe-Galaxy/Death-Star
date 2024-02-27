@@ -35,8 +35,9 @@ const Img = styled('img')(({ theme }) => ({
 
 const UnderMaintenance = () => {
   return (
-    <Box className="content-center">
+    <Box component="div" className="content-center">
       <Box
+        component="div"
         sx={{
           p: 5,
           display: 'flex',
@@ -46,22 +47,14 @@ const UnderMaintenance = () => {
         }}
       >
         <BoxWrapper>
-          <Typography
-            variant="h5"
-            sx={{ mb: 2.5, fontSize: '1.5rem !important' }}
-          >
+          <Typography variant="h5" sx={{ mb: 2.5, fontSize: '1.5rem !important' }}>
             Under Maintenance! 🚧
           </Typography>
           <Typography variant="body2">
-            Sorry for the inconvenience but we&prime;re performing some
-            maintenance at the moment
+            Sorry for the inconvenience but we&prime;re performing some maintenance at the moment
           </Typography>
         </BoxWrapper>
-        <Img
-          height="500"
-          alt="under-maintenance-illustration"
-          src="/images/pages/misc-under-maintenance.png"
-        />
+        <Img height="500" alt="under-maintenance-illustration" src="/images/pages/misc-under-maintenance.png" />
         <Button href="/" component={Link} variant="contained" sx={{ px: 5.5 }}>
           Back to Home
         </Button>
@@ -70,8 +63,6 @@ const UnderMaintenance = () => {
   );
 };
 
-UnderMaintenance.getLayout = (page: ReactNode) => (
-  <BlankLayout>{page}</BlankLayout>
-);
+UnderMaintenance.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>;
 
 export default UnderMaintenance;

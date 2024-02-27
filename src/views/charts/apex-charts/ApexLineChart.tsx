@@ -18,9 +18,7 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts';
 
 const series = [
   {
-    data: [
-      280, 200, 220, 180, 270, 250, 70, 90, 200, 150, 160, 100, 150, 100, 50,
-    ],
+    data: [280, 200, 220, 180, 270, 250, 70, 90, 200, 150, 160, 100, 150, 100, 50],
   },
 ];
 
@@ -103,7 +101,7 @@ const ApexLineChart = () => {
           '& .MuiCardHeader-content': { mb: [2, 0] },
         }}
         action={
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant="h6" sx={{ mr: 5 }}>
               $221,267
             </Typography>
@@ -113,6 +111,7 @@ const ApexLineChart = () => {
               sx={{ fontWeight: 500, borderRadius: 1, fontSize: '0.875rem' }}
               label={
                 <Box
+                  component="div"
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -128,12 +127,7 @@ const ApexLineChart = () => {
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type="line"
-          height={400}
-          options={options}
-          series={series}
-        />
+        <ReactApexcharts type="line" height={400} options={options} series={series} />
       </CardContent>
     </Card>
   );

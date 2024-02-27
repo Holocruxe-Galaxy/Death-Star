@@ -2,9 +2,7 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { styled, useTheme } from '@mui/material/styles';
-import MuiListSubheader, {
-  ListSubheaderProps,
-} from '@mui/material/ListSubheader';
+import MuiListSubheader, { ListSubheaderProps } from '@mui/material/ListSubheader';
 
 // ** Types
 import { NavSectionTitle } from 'src/@core/layouts/types';
@@ -23,23 +21,22 @@ interface Props {
 }
 
 // ** Styled Components
-const ListSubheader = styled((props: ListSubheaderProps) => (
-  <MuiListSubheader component="li" {...props} />
-))(({ theme }) => ({
-  lineHeight: 1,
-  display: 'flex',
-  position: 'static',
-  padding: theme.spacing(3),
-  marginTop: theme.spacing(6.25),
-  backgroundColor: 'transparent',
-  color: theme.palette.text.disabled,
-  transition: 'padding-left .25s ease-in-out',
-}));
+const ListSubheader = styled((props: ListSubheaderProps) => <MuiListSubheader component="li" {...props} />)(
+  ({ theme }) => ({
+    lineHeight: 1,
+    display: 'flex',
+    position: 'static',
+    padding: theme.spacing(3),
+    marginTop: theme.spacing(6.25),
+    backgroundColor: 'transparent',
+    color: theme.palette.text.disabled,
+    transition: 'padding-left .25s ease-in-out',
+  }),
+);
 
 const VerticalNavSectionTitle = (props: Props) => {
   // ** Props
-  const { item, navHover, settings, collapsedNavWidth, navigationBorderWidth } =
-    props;
+  const { item, navHover, settings, collapsedNavWidth, navigationBorderWidth } = props;
 
   // ** Hook
   const theme = useTheme();

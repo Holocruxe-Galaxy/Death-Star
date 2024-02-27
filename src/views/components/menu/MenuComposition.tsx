@@ -1,12 +1,5 @@
 // ** React Imports
-import {
-  KeyboardEvent,
-  useEffect,
-  useRef,
-  useState,
-  MouseEvent,
-  TouchEvent,
-} from 'react';
+import { KeyboardEvent, useEffect, useRef, useState, MouseEvent, TouchEvent } from 'react';
 
 // ** MUI Imports
 import Grow from '@mui/material/Grow';
@@ -36,10 +29,7 @@ const MenuComposition = () => {
   };
 
   const handleClose = (event: MouseEvent | TouchEvent): void => {
-    if (
-      anchorRef.current &&
-      anchorRef.current.contains(event.target as HTMLElement)
-    ) {
+    if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
       return;
     }
     setOpen(false);
@@ -102,24 +92,15 @@ const MenuComposition = () => {
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === 'bottom-start' ? 'left top' : 'left bottom',
+              transformOrigin: placement === 'bottom-start' ? 'left top' : 'left bottom',
             }}
           >
             <Paper
               elevation={skin === 'bordered' ? 0 : 6}
-              sx={
-                skin === 'bordered'
-                  ? { border: (theme) => `1px solid ${theme.palette.divider}` }
-                  : {}
-              }
+              sx={skin === 'bordered' ? { border: (theme) => `1px solid ${theme.palette.divider}` } : {}}
             >
               <ClickAwayListener onClickAway={() => setOpen(false)}>
-                <MenuList
-                  autoFocusItem={open}
-                  id="composition-menu"
-                  onKeyDown={handleListKeyDown}
-                >
+                <MenuList autoFocusItem={open} id="composition-menu" onKeyDown={handleListKeyDown}>
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
                   <MenuItem onClick={handleClose}>Logout</MenuItem>

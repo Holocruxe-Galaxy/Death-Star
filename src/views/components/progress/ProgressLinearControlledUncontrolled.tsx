@@ -29,16 +29,12 @@ const ProgressLinearControlledUncontrolled = () => {
 
   return (
     <>
-      <Box sx={{ mb: 4 }}>
-        <Typography sx={{ fontWeight: 500, mb: 1.5 }}>
-          Uncontrolled Progress
-        </Typography>
+      <Box component="div" sx={{ mb: 4 }}>
+        <Typography sx={{ fontWeight: 500, mb: 1.5 }}>Uncontrolled Progress</Typography>
         <LinearProgress variant="determinate" value={40} />
       </Box>
       <div>
-        <Typography sx={{ fontWeight: 500, mb: 1.5 }}>
-          Controlled Progress
-        </Typography>
+        <Typography sx={{ fontWeight: 500, mb: 1.5 }}>Controlled Progress</Typography>
         <LinearProgress variant="determinate" value={progress} />
       </div>
     </>

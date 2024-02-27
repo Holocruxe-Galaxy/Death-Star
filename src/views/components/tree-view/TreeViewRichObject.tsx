@@ -39,14 +39,11 @@ const data: RenderTree = {
 const TreeViewRichObject = ({ direction }: Props) => {
   const renderTree = (nodes: RenderTree) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-      {Array.isArray(nodes.children)
-        ? nodes.children.map((node) => renderTree(node))
-        : null}
+      {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null}
     </TreeItem>
   );
 
-  const ExpandIcon =
-    direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
+  const ExpandIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right';
 
   return (
     <TreeView

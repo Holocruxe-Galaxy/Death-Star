@@ -125,11 +125,7 @@ export type ProfileTabType = {
   teamsTech: ProfileTeamsTechType[];
   connections: ProfileConnectionsType[];
 };
-export type UserProfileActiveTab =
-  | ProfileTabType
-  | TeamsTabType[]
-  | ProjectsTabType[]
-  | ConnectionsTabType[];
+export type UserProfileActiveTab = ProfileTabType | TeamsTabType[] | ProjectsTabType[] | ConnectionsTabType[];
 
 // Data Grid page
 //---------------

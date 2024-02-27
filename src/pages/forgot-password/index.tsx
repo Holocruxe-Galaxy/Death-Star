@@ -25,15 +25,13 @@ import BlankLayout from 'src/@core/layouts/BlankLayout';
 import { useSettings } from 'src/@core/hooks/useSettings';
 
 // Styled Components
-const ForgotPasswordIllustrationWrapper = styled(Box)<BoxProps>(
-  ({ theme }) => ({
-    padding: theme.spacing(20),
-    paddingRight: '0 !important',
-    [theme.breakpoints.down('lg')]: {
-      padding: theme.spacing(10),
-    },
-  }),
-);
+const ForgotPasswordIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
+  padding: theme.spacing(20),
+  paddingRight: '0 !important',
+  [theme.breakpoints.down('lg')]: {
+    padding: theme.spacing(10),
+  },
+}));
 
 const ForgotPasswordIllustration = styled('img')(({ theme }) => ({
   maxWidth: '48rem',
@@ -88,14 +86,13 @@ const ForgotPassword = () => {
   const hidden = useMediaQuery(theme.breakpoints.down('md'));
 
   const imageSource =
-    skin === 'bordered'
-      ? 'auth-v2-forgot-password-illustration-bordered'
-      : 'auth-v2-forgot-password-illustration';
+    skin === 'bordered' ? 'auth-v2-forgot-password-illustration-bordered' : 'auth-v2-forgot-password-illustration';
 
   return (
-    <Box className="content-right">
+    <Box component="div" className="content-right">
       {!hidden ? (
         <Box
+          component="div"
           sx={{
             flex: 1,
             display: 'flex',
@@ -112,14 +109,9 @@ const ForgotPassword = () => {
           </ForgotPasswordIllustrationWrapper>
         </Box>
       ) : null}
-      <RightWrapper
-        sx={
-          skin === 'bordered' && !hidden
-            ? { borderLeft: `1px solid ${theme.palette.divider}` }
-            : {}
-        }
-      >
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
+          component="div"
           sx={{
             p: 7,
             height: '100%',
@@ -131,6 +123,7 @@ const ForgotPassword = () => {
         >
           <BoxWrapper>
             <Box
+              component="div"
               sx={{
                 top: 30,
                 left: 40,
@@ -140,13 +133,7 @@ const ForgotPassword = () => {
                 justifyContent: 'center',
               }}
             >
-              <svg
-                width={47}
-                fill="none"
-                height={26}
-                viewBox="0 0 268 150"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width={47} fill="none" height={26} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
                 <rect
                   rx="25.1443"
                   width="50.2886"
@@ -228,33 +215,15 @@ const ForgotPassword = () => {
                 {themeConfig.templateName}
               </Typography>
             </Box>
-            <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant="h5">
-                Forgot Password? 🔒
-              </TypographyStyled>
+            <Box component="div" sx={{ mb: 6 }}>
+              <TypographyStyled variant="h5">Forgot Password? 🔒</TypographyStyled>
               <Typography variant="body2">
-                Enter your email and we&prime;ll send you instructions to reset
-                your password
+                Enter your email and we&prime;ll send you instructions to reset your password
               </Typography>
             </Box>
-            <form
-              noValidate
-              autoComplete="off"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <TextField
-                autoFocus
-                type="email"
-                label="Email"
-                sx={{ display: 'flex', mb: 4 }}
-              />
-              <Button
-                fullWidth
-                size="large"
-                type="submit"
-                variant="contained"
-                sx={{ mb: 5.25 }}
-              >
+            <form noValidate autoComplete="off" onSubmit={(e) => e.preventDefault()}>
+              <TextField autoFocus type="email" label="Email" sx={{ display: 'flex', mb: 4 }} />
+              <Button fullWidth size="large" type="submit" variant="contained" sx={{ mb: 5.25 }}>
                 Send reset link
               </Button>
               <Typography
@@ -278,8 +247,6 @@ const ForgotPassword = () => {
 };
 
 ForgotPassword.guestGuard = true;
-ForgotPassword.getLayout = (page: ReactNode) => (
-  <BlankLayout>{page}</BlankLayout>
-);
+ForgotPassword.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>;
 
 export default ForgotPassword;

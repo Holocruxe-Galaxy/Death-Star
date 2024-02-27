@@ -31,6 +31,7 @@ const BlankLayout = ({ children }: BlankLayoutProps) => {
   return (
     <BlankLayoutWrapper className="layout-wrapper">
       <Box
+        component="div"
         className="app-content"
         sx={{ minHeight: '100vh', overflowX: 'hidden', position: 'relative' }}
       >

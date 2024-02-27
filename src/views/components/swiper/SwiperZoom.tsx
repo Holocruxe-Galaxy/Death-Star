@@ -45,14 +45,10 @@ const SwiperZoom = ({ direction }: { direction: Direction }) => {
   };
 
   return (
-    <Box
-      ref={sliderRef}
-      className="keen-slider zoom-out"
-      sx={{ height: [200, 250, 395] }}
-    >
+    <Box component="div" ref={sliderRef} className="keen-slider zoom-out" sx={{ height: [200, 250, 395] }}>
       {images.map((src, idx) => (
-        <Box key={idx} className="keen-slider__slide zoom-out__slide">
-          <Box className="slider-content-wrapper" sx={{ ...scaleStyle(idx) }}>
+        <Box component="div" key={idx} className="keen-slider__slide zoom-out__slide">
+          <Box component="div" className="slider-content-wrapper" sx={{ ...scaleStyle(idx) }}>
             <Image src={src} alt={`slider ${idx}`} />
           </Box>
         </Box>

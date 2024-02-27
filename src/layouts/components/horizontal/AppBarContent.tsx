@@ -11,9 +11,7 @@ import LanguageDropdown from 'src/@core/layouts/components/shared-components/Lan
 import NotificationDropdown, {
   NotificationsType,
 } from 'src/@core/layouts/components/shared-components/NotificationDropdown';
-import ShortcutsDropdown, {
-  ShortcutsType,
-} from 'src/@core/layouts/components/shared-components/ShortcutsDropdown';
+import ShortcutsDropdown, { ShortcutsType } from 'src/@core/layouts/components/shared-components/ShortcutsDropdown';
 
 // ** Hook Import
 import { useAuth } from 'src/hooks/useAuth';
@@ -128,16 +126,13 @@ const AppBarContent = (props: Props) => {
   const auth = useAuth();
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
       <LanguageDropdown settings={settings} saveSettings={saveSettings} />
       <ModeToggler settings={settings} saveSettings={saveSettings} />
       {auth.user && (
         <>
           <ShortcutsDropdown settings={settings} shortcuts={shortcuts} />
-          <NotificationDropdown
-            settings={settings}
-            notifications={notifications}
-          />
+          <NotificationDropdown settings={settings} notifications={notifications} />
           <UserDropdown settings={settings} />
         </>
       )}

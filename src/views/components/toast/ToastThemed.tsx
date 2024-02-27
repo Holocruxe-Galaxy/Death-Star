@@ -30,6 +30,7 @@ const ToastThemed = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         display: 'flex',
         textAlign: 'center',
@@ -40,9 +41,7 @@ const ToastThemed = () => {
     >
       <Icon icon="mdi:palette-outline" fontSize="2rem" />
       <Typography sx={{ mb: 4, fontWeight: 600 }}>Themed</Typography>
-      <Typography sx={{ mb: 3 }}>
-        Customize the default styles the way you want.
-      </Typography>
+      <Typography sx={{ mb: 3 }}>Customize the default styles the way you want.</Typography>
       <Button sx={{ mb: 8 }} variant="contained" onClick={handleClick}>
         Themed
       </Button>

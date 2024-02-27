@@ -25,7 +25,7 @@ const RatingsHoverFeedback = () => {
   const [value, setValue] = useState<number | null>(2);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
       <Rating
         value={value}
         precision={0.5}
@@ -34,9 +34,7 @@ const RatingsHoverFeedback = () => {
         onChange={(event, newValue) => setValue(newValue)}
         onChangeActive={(event, newHover) => setHover(newHover)}
       />
-      {value !== null && (
-        <Typography>{labels[hover !== -1 ? hover : value]}</Typography>
-      )}
+      {value !== null && <Typography>{labels[hover !== -1 ? hover : value]}</Typography>}
     </Box>
   );
 };

@@ -97,9 +97,7 @@ const Icons = () => {
             </LinkStyled>
           </Typography>
         }
-        subtitle={
-          <Typography variant="body2">Modern unified SVG framework</Typography>
-        }
+        subtitle={<Typography variant="body2">Modern unified SVG framework</Typography>}
       />
       <Grid item xs={12}>
         <Grid container spacing={6}>

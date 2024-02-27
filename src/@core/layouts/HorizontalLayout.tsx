@@ -88,10 +88,7 @@ const HorizontalLayout = (props: LayoutProps) => {
 
   return (
     <HorizontalLayoutWrapper className="layout-wrapper">
-      <MainContentWrapper
-        className="layout-content-wrapper"
-        sx={{ ...(contentHeightFixed && { maxHeight: '100vh' }) }}
-      >
+      <MainContentWrapper className="layout-content-wrapper" sx={{ ...(contentHeightFixed && { maxHeight: '100vh' }) }}>
         {/* Navbar (or AppBar) and Navigation Menu Wrapper */}
         <AppBar
           color="default"
@@ -107,13 +104,11 @@ const HorizontalLayout = (props: LayoutProps) => {
             ...(skin === 'bordered' && {
               borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
             }),
-            transition:
-              'border-bottom 0.2s ease-in-out, backdrop-filter .25s ease-in-out, box-shadow .25s ease-in-out',
+            transition: 'border-bottom 0.2s ease-in-out, backdrop-filter .25s ease-in-out, box-shadow .25s ease-in-out',
             ...(appBar === 'fixed'
               ? appBarBlur && {
                   backdropFilter: 'blur(8px)',
-                  backgroundColor: (theme) =>
-                    hexToRGBA(theme.palette.background.paper, 0.9),
+                  backgroundColor: (theme) => hexToRGBA(theme.palette.background.paper, 0.9),
                 }
               : {}),
             ...userAppBarStyle,
@@ -122,14 +117,14 @@ const HorizontalLayout = (props: LayoutProps) => {
         >
           {/* Navbar / AppBar */}
           <Box
+            component="div"
             className="layout-navbar"
             sx={{
               width: '100%',
               ...(navHidden
                 ? {}
                 : {
-                    borderBottom: (theme) =>
-                      `1px solid ${theme.palette.divider}`,
+                    borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
                   }),
             }}
           >
@@ -140,10 +135,7 @@ const HorizontalLayout = (props: LayoutProps) => {
                 ...(contentWidth === 'boxed' && {
                   '@media (min-width:1440px)': { maxWidth: 1440 },
                 }),
-                minHeight: (theme) =>
-                  `${
-                    (theme.mixins.toolbar.minHeight as number) - 1
-                  }px !important`,
+                minHeight: (theme) => `${(theme.mixins.toolbar.minHeight as number) - 1}px !important`,
               }}
             >
               <AppBarContent
@@ -160,6 +152,7 @@ const HorizontalLayout = (props: LayoutProps) => {
           {/* Navigation Menu */}
           {navHidden ? null : (
             <Box
+              component="div"
               className="layout-horizontal-nav"
               sx={{ width: '100%', ...horizontalLayoutProps?.navMenu?.sx }}
             >
@@ -171,21 +164,14 @@ const HorizontalLayout = (props: LayoutProps) => {
                     '@media (min-width:1440px)': { maxWidth: 1440 },
                   }),
                   minHeight: (theme) =>
-                    `${
-                      (theme.mixins.toolbar.minHeight as number) -
-                      (skin === 'bordered' ? 1 : 0)
-                    }px !important`,
+                    `${(theme.mixins.toolbar.minHeight as number) - (skin === 'bordered' ? 1 : 0)}px !important`,
                 }}
               >
                 {(userNavMenuContent && userNavMenuContent(props)) || (
                   <Navigation
                     {...props}
                     horizontalNavItems={
-                      (
-                        horizontalLayoutProps as NonNullable<
-                          LayoutProps['horizontalLayoutProps']
-                        >
-                      ).navMenu?.navItems
+                      (horizontalLayoutProps as NonNullable<LayoutProps['horizontalLayoutProps']>).navMenu?.navItems
                     }
                   />
                 )}
@@ -210,11 +196,7 @@ const HorizontalLayout = (props: LayoutProps) => {
         </ContentWrapper>
 
         {/* Footer */}
-        <Footer
-          {...props}
-          footerStyles={footerProps?.sx}
-          footerContent={footerProps?.content}
-        />
+        <Footer {...props} footerStyles={footerProps?.sx} footerContent={footerProps?.content} />
 
         {/* Scroll to top button */}
         {scrollToTop ? (

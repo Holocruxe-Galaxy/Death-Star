@@ -43,12 +43,7 @@ const MenuCustomized = () => {
 
   return (
     <div>
-      <Button
-        variant="outlined"
-        aria-haspopup="true"
-        onClick={handleClick}
-        aria-controls="customized-menu"
-      >
+      <Button variant="outlined" aria-haspopup="true" onClick={handleClick} aria-controls="customized-menu">
         Open Menu
       </Button>
       <Menu

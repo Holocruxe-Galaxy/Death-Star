@@ -14,16 +14,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 // ** Third Party Imports
 import format from 'date-fns/format';
 import DatePicker from 'react-datepicker';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  TooltipProps,
-} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, TooltipProps } from 'recharts';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -126,6 +117,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
           data.payload.map((i: any) => {
             return (
               <Box
+                component="div"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -134,9 +126,7 @@ const CustomTooltip = (data: TooltipProps<any, any>) => {
                 key={i.dataKey}
               >
                 <Icon icon="mdi:circle" fontSize="0.6rem" />
-                <Typography variant="body2">{`${i.dataKey} : ${
-                  i.payload[i.dataKey]
-                }`}</Typography>
+                <Typography variant="body2">{`${i.dataKey} : ${i.payload[i.dataKey]}`}</Typography>
               </Box>
             );
           })}
@@ -153,10 +143,8 @@ const RechartsBarChart = ({ direction }: Props) => {
   const [startDate, setStartDate] = useState<DateType>(null);
 
   const CustomInput = forwardRef((props: PickerProps, ref) => {
-    const startDate =
-      props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
-    const endDate =
-      props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
+    const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : '';
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null;
 
     const value = `${startDate}${endDate !== null ? endDate : ''}`;
 
@@ -207,18 +195,14 @@ const RechartsBarChart = ({ direction }: Props) => {
             startDate={startDate}
             onChange={handleOnChange}
             placeholderText="Click to select a date"
-            customInput={
-              <CustomInput
-                start={startDate as Date | number}
-                end={endDate as Date | number}
-              />
-            }
+            customInput={<CustomInput start={startDate as Date | number} end={endDate as Date | number} />}
           />
         }
       />
       <CardContent>
-        <Box sx={{ mb: 4, display: 'flex', flexWrap: 'wrap' }}>
+        <Box component="div" sx={{ mb: 4, display: 'flex', flexWrap: 'wrap' }}>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -230,6 +214,7 @@ const RechartsBarChart = ({ direction }: Props) => {
             <Typography variant="body2">Apple</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -241,6 +226,7 @@ const RechartsBarChart = ({ direction }: Props) => {
             <Typography variant="body2">Samsung</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -252,6 +238,7 @@ const RechartsBarChart = ({ direction }: Props) => {
             <Typography variant="body2">Oneplus</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -262,15 +249,9 @@ const RechartsBarChart = ({ direction }: Props) => {
             <Typography variant="body2">Motorola</Typography>
           </Box>
         </Box>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
-            <BarChart
-              height={350}
-              data={data}
-              barSize={15}
-              style={{ direction }}
-              margin={{ left: -20 }}
-            >
+            <BarChart height={350} data={data} barSize={15} style={{ direction }} margin={{ left: -20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" reversed={direction === 'rtl'} />
               <YAxis orientation={direction === 'rtl' ? 'right' : 'left'} />
@@ -278,12 +259,7 @@ const RechartsBarChart = ({ direction }: Props) => {
               <Bar dataKey="Apple" stackId="a" fill="#826af9" />
               <Bar dataKey="Samsung" stackId="a" fill="#9f87ff" />
               <Bar dataKey="Oneplus" stackId="a" fill="#d2b0ff" />
-              <Bar
-                dataKey="Motorola"
-                stackId="a"
-                fill="#f8d3ff"
-                radius={[15, 15, 0, 0]}
-              />
+              <Bar dataKey="Motorola" stackId="a" fill="#f8d3ff" radius={[15, 15, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </Box>

@@ -15,9 +15,7 @@ const SnackbarConsecutive = () => {
   // ** States
   const [open, setOpen] = useState<boolean>(false);
   const [snackPack, setSnackPack] = useState<SnackbarMessage[]>([]);
-  const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
-    undefined,
-  );
+  const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(undefined);
 
   useEffect(() => {
     if (snackPack.length && !messageInfo) {
@@ -68,9 +66,7 @@ const SnackbarConsecutive = () => {
           onClose={handleClose}
           severity={messageInfo?.message === 'success' ? 'success' : 'error'}
         >
-          This is{' '}
-          {messageInfo?.message === 'success' ? 'a success' : 'an error'}{' '}
-          message!
+          This is {messageInfo?.message === 'success' ? 'a success' : 'an error'} message!
         </Alert>
       </Snackbar>
     </Fragment>

@@ -107,6 +107,7 @@ const UserViewConnection = () => {
             {connectedAccountsArr.map((account) => {
               return (
                 <Box
+                  component="div"
                   key={account.title}
                   sx={{
                     gap: 2,
@@ -116,25 +117,13 @@ const UserViewConnection = () => {
                     '&:not(:last-of-type)': { mb: 4 },
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Box
-                      sx={{ mr: 4, display: 'flex', justifyContent: 'center' }}
-                    >
-                      <Image
-                        src={account.logo}
-                        alt={account.title}
-                        height="30"
-                        width="30"
-                      />
+                  <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box component="div" sx={{ mr: 4, display: 'flex', justifyContent: 'center' }}>
+                      <Image src={account.logo} alt={account.title} height="30" width="30" />
                     </Box>
                     <div>
-                      <Typography sx={{ fontWeight: 500 }}>
-                        {account.title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: 'text.disabled' }}
-                      >
+                      <Typography sx={{ fontWeight: 500 }}>{account.title}</Typography>
+                      <Typography variant="body2" sx={{ color: 'text.disabled' }}>
                         {account.subtitle}
                       </Typography>
                     </div>
@@ -158,6 +147,7 @@ const UserViewConnection = () => {
             {socialAccountsArr.map((account) => {
               return (
                 <Box
+                  component="div"
                   key={account.title}
                   sx={{
                     gap: 2,
@@ -167,8 +157,9 @@ const UserViewConnection = () => {
                     '&:not(:last-of-type)': { mb: 4 },
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
                     <Box
+                      component="div"
                       sx={{
                         mr: 4,
                         minWidth: 45,
@@ -176,16 +167,10 @@ const UserViewConnection = () => {
                         justifyContent: 'center',
                       }}
                     >
-                      <Image
-                        src={account.logo}
-                        alt={account.title}
-                        height="30"
-                      />
+                      <Image src={account.logo} alt={account.title} height="30" />
                     </Box>
                     <div>
-                      <Typography sx={{ fontWeight: 500 }}>
-                        {account.title}
-                      </Typography>
+                      <Typography sx={{ fontWeight: 500 }}>{account.title}</Typography>
                       {account.isConnected ? (
                         <Typography
                           href="/"
@@ -196,10 +181,7 @@ const UserViewConnection = () => {
                           {account.username}
                         </Typography>
                       ) : (
-                        <Typography
-                          variant="body2"
-                          sx={{ color: 'text.disabled' }}
-                        >
+                        <Typography variant="body2" sx={{ color: 'text.disabled' }}>
                           Not Connected
                         </Typography>
                       )}
@@ -210,13 +192,7 @@ const UserViewConnection = () => {
                     sx={{ p: 1.5, minWidth: 38 }}
                     color={account.isConnected ? 'error' : 'secondary'}
                   >
-                    <Icon
-                      icon={
-                        account.isConnected
-                          ? 'mdi:delete-outline'
-                          : 'mdi:link-variant'
-                      }
-                    />
+                    <Icon icon={account.isConnected ? 'mdi:delete-outline' : 'mdi:link-variant'} />
                   </Button>
                 </Box>
               );

@@ -117,12 +117,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data: UserData) => {
-    if (
-      store.allData.some(
-        (u: UsersType) =>
-          u.email === data.email || u.username === data.username,
-      )
-    ) {
+    if (store.allData.some((u: UsersType) => u.email === data.email || u.username === data.username)) {
       store.allData.forEach((u: UsersType) => {
         if (u.email === data.email) {
           setError('email', {
@@ -161,15 +156,11 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
     >
       <Header>
         <Typography variant="h6">Add User</Typography>
-        <IconButton
-          size="small"
-          onClick={handleClose}
-          sx={{ color: 'text.primary' }}
-        >
+        <IconButton size="small" onClick={handleClose} sx={{ color: 'text.primary' }}>
           <Icon icon="mdi:close" fontSize={20} />
         </IconButton>
       </Header>
-      <Box sx={{ p: 5 }}>
+      <Box component="div" sx={{ p: 5 }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -186,11 +177,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.fullName && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.fullName.message}
-              </FormHelperText>
-            )}
+            {errors.fullName && <FormHelperText sx={{ color: 'error.main' }}>{errors.fullName.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -207,11 +194,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.username && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.username.message}
-              </FormHelperText>
-            )}
+            {errors.username && <FormHelperText sx={{ color: 'error.main' }}>{errors.username.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -229,11 +212,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.email && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.email.message}
-              </FormHelperText>
-            )}
+            {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -250,11 +229,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.company && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.company.message}
-              </FormHelperText>
-            )}
+            {errors.company && <FormHelperText sx={{ color: 'error.main' }}>{errors.company.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -271,11 +246,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.country && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.country.message}
-              </FormHelperText>
-            )}
+            {errors.country && <FormHelperText sx={{ color: 'error.main' }}>{errors.country.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -293,11 +264,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
                 />
               )}
             />
-            {errors.contact && (
-              <FormHelperText sx={{ color: 'error.main' }}>
-                {errors.contact.message}
-              </FormHelperText>
-            )}
+            {errors.contact && <FormHelperText sx={{ color: 'error.main' }}>{errors.contact.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <InputLabel id="role-select">Select Role</InputLabel>
@@ -334,21 +301,11 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
               <MenuItem value="team">Team</MenuItem>
             </Select>
           </FormControl>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Button
-              size="large"
-              type="submit"
-              variant="contained"
-              sx={{ mr: 3 }}
-            >
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+            <Button size="large" type="submit" variant="contained" sx={{ mr: 3 }}>
               Submit
             </Button>
-            <Button
-              size="large"
-              variant="outlined"
-              color="secondary"
-              onClick={handleClose}
-            >
+            <Button size="large" variant="outlined" color="secondary" onClick={handleClose}>
               Cancel
             </Button>
           </Box>

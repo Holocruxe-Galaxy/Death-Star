@@ -37,13 +37,7 @@ const renderCustomizedLabel = (props: LabelProp) => {
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text
-      x={x}
-      y={y}
-      fill="#fff"
-      textAnchor="middle"
-      dominantBaseline="central"
-    >
+    <text x={x} y={y} fill="#fff" textAnchor="middle" dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
@@ -60,16 +54,10 @@ const RechartsPieChart = () => {
         }}
       />
       <CardContent>
-        <Box sx={{ height: 350 }}>
+        <Box component="div" sx={{ height: 350 }}>
           <ResponsiveContainer>
             <PieChart height={350} style={{ direction: 'ltr' }}>
-              <Pie
-                data={data}
-                innerRadius={80}
-                dataKey="value"
-                label={renderCustomizedLabel}
-                labelLine={false}
-              >
+              <Pie data={data} innerRadius={80} dataKey="value" label={renderCustomizedLabel} labelLine={false}>
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
@@ -79,6 +67,7 @@ const RechartsPieChart = () => {
           </ResponsiveContainer>
         </Box>
         <Box
+          component="div"
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -87,6 +76,7 @@ const RechartsPieChart = () => {
           }}
         >
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -98,6 +88,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">R&D</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -109,6 +100,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">Operational</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               mr: 6,
               display: 'flex',
@@ -120,6 +112,7 @@ const RechartsPieChart = () => {
             <Typography variant="body2">Networking</Typography>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',

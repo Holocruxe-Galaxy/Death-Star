@@ -48,9 +48,7 @@ const ImgShoe = styled('img')(({ theme }) => ({
 
 const TimelineCenter = () => {
   // ** Vars
-  const hiddenMD = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down('md'),
-  );
+  const hiddenMD = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
 
   return (
     <Timeline position={hiddenMD ? 'right' : 'alternate'}>
@@ -63,6 +61,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent sx={{ '& svg': { verticalAlign: 'bottom', mx: 4 } }}>
           <Box
+            component="div"
             sx={{
               mb: 2,
               display: 'flex',
@@ -71,27 +70,18 @@ const TimelineCenter = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Get on the flight
             </Typography>
             <Typography variant="caption">Wednesday</Typography>
           </Box>
           <Typography variant="body2" sx={{ color: 'text.primary' }}>
-            <span>Charles de Gaulle Airport, Paris</span>{' '}
-            <Icon icon="mdi:arrow-right" fontSize={20} />{' '}
+            <span>Charles de Gaulle Airport, Paris</span> <Icon icon="mdi:arrow-right" fontSize={20} />{' '}
             <span>Heathrow Airport, London</span>
           </Typography>
           <Typography variant="caption">6:30 AM</Typography>
-          <Box sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
-            <ImgShoe
-              width={28}
-              height={28}
-              alt="invoice.pdf"
-              src="/images/icons/file-icons/pdf.png"
-            />
+          <Box component="div" sx={{ mt: 2, display: 'flex', alignItems: 'center' }}>
+            <ImgShoe width={28} height={28} alt="invoice.pdf" src="/images/icons/file-icons/pdf.png" />
             <Typography variant="subtitle2" sx={{ ml: 2, fontWeight: 600 }}>
               bookingCard.pdf
             </Typography>
@@ -108,6 +98,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box
+            component="div"
             sx={{
               mb: 2,
               display: 'flex',
@@ -116,26 +107,19 @@ const TimelineCenter = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Interview Schedule
             </Typography>
             <Typography variant="caption">6th October</Typography>
           </Box>
           <Typography variant="body2" sx={{ color: 'text.primary' }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-            quos, voluptates voluptas rem.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus quos, voluptates voluptas rem.
           </Typography>
           <Divider sx={{ my: (theme) => `${theme.spacing(3)} !important` }} />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Box sx={{ display: 'flex' }}>
-              <Avatar
-                src="/images/avatars/2.png"
-                sx={{ width: '2rem', height: '2rem', mr: 2 }}
-              />
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Box component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Box component="div" sx={{ display: 'flex' }}>
+              <Avatar src="/images/avatars/2.png" sx={{ width: '2rem', height: '2rem', mr: 2 }} />
+              <Box component="div" sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="body2" sx={{ fontWeight: 600 }}>
                   Rebecca Godman
                 </Typography>
@@ -163,20 +147,17 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box
+            component="div"
             sx={{
               mb: 3,
               display: 'flex',
               flexDirection: { sm: 'row', xs: 'column' },
             }}
           >
-            <ImgShoe
-              width="85"
-              height="85"
-              alt="Shoe img"
-              src="/images/misc/shoe.jpeg"
-            />
-            <Box sx={{ ml: { sm: 3, xs: 0 } }}>
+            <ImgShoe width="85" height="85" alt="Shoe img" src="/images/misc/shoe.jpeg" />
+            <Box component="div" sx={{ ml: { sm: 3, xs: 0 } }}>
               <Box
+                component="div"
                 sx={{
                   mb: 2,
                   display: 'flex',
@@ -201,12 +182,13 @@ const TimelineCenter = () => {
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ mb: 2, color: 'text.primary' }}>
-                PUMA presents the latest shoes from its collection. Light &
-                comfortable made with highly durable material.
+                PUMA presents the latest shoes from its collection. Light & comfortable made with highly durable
+                material.
               </Typography>
             </Box>
           </Box>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -214,13 +196,13 @@ const TimelineCenter = () => {
               textAlign: 'center',
             }}
           >
-            <Box sx={{ mr: 2 }}>
+            <Box component="div" sx={{ mr: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Customer
               </Typography>
               <Typography variant="caption">Micheal Scott</Typography>
             </Box>
-            <Box sx={{ mr: 2 }}>
+            <Box component="div" sx={{ mr: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Price
               </Typography>
@@ -245,6 +227,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box
+            component="div"
             sx={{
               mb: 2,
               display: 'flex',
@@ -253,10 +236,7 @@ const TimelineCenter = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Design Review
             </Typography>
             <Typography variant="caption">4th October</Typography>
@@ -264,11 +244,8 @@ const TimelineCenter = () => {
           <Typography variant="body2" sx={{ mb: 2, color: 'text.primary' }}>
             Weekly review of freshly prepared design for our new application.
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Avatar
-              src="/images/avatars/1.png"
-              sx={{ width: '2rem', height: '2rem', mr: 2 }}
-            />
+          <Box component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+            <Avatar src="/images/avatars/1.png" sx={{ width: '2rem', height: '2rem', mr: 2 }} />
             <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
               John Doe (Client)
             </Typography>
@@ -285,6 +262,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box
+            component="div"
             sx={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -292,18 +270,10 @@ const TimelineCenter = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}
-            >
+            <Typography variant="body2" sx={{ mr: 2, fontWeight: 600, color: 'text.primary' }}>
               Ubuntu Server
             </Typography>
-            <CustomChip
-              size="small"
-              skin="light"
-              color="error"
-              label="Inactive"
-            />
+            <CustomChip size="small" skin="light" color="error" label="Inactive" />
           </Box>
           <List dense>
             <ListItem>
@@ -329,7 +299,7 @@ const TimelineCenter = () => {
             </ListItem>
           </List>
           <Divider />
-          <Box sx={{ ml: 4, display: 'flex', justifyContent: 'space-between' }}>
+          <Box component="div" sx={{ ml: 4, display: 'flex', justifyContent: 'space-between' }}>
             <div>
               <IconButton sx={{ color: 'text.primary' }}>
                 <Icon icon="mdi:share-variant-outline" fontSize={20} />
@@ -352,6 +322,7 @@ const TimelineCenter = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Box
+            component="div"
             sx={{
               mb: 2,
               display: 'flex',
@@ -383,18 +354,15 @@ const TimelineCenter = () => {
             </Typography>
             <CustomChip size="small" label="High" skin="light" color="error" />
           </Box>
-          <Typography
-            variant="body2"
-            sx={{ mb: 2, fontWeight: 600, color: 'text.primary' }}
-          >
+          <Typography variant="body2" sx={{ mb: 2, fontWeight: 600, color: 'text.primary' }}>
             Final location for the company celebration.
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.primary' }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas,
-            quidem?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem?
           </Typography>
           <Divider sx={{ my: (theme) => `${theme.spacing(3)} !important` }} />
           <Box
+            component="div"
             sx={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -402,7 +370,7 @@ const TimelineCenter = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
+            <Box component="div" sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
               <IconButton sx={{ color: 'text.primary' }}>
                 <Icon icon="mdi:link-variant" fontSize={20} />
               </IconButton>

@@ -12,19 +12,12 @@ const ButtonToggleMultiple = () => {
   // ** State
   const [formats, setFormats] = useState<string[]>(() => ['bold', 'italic']);
 
-  const handleFormat = (
-    event: MouseEvent<HTMLElement>,
-    newFormats: string[],
-  ) => {
+  const handleFormat = (event: MouseEvent<HTMLElement>, newFormats: string[]) => {
     setFormats(newFormats);
   };
 
   return (
-    <ToggleButtonGroup
-      value={formats}
-      onChange={handleFormat}
-      aria-label="text alignment"
-    >
+    <ToggleButtonGroup value={formats} onChange={handleFormat} aria-label="text alignment">
       <ToggleButton value="bold" aria-label="bold">
         <Icon icon="mdi:format-bold" />
       </ToggleButton>

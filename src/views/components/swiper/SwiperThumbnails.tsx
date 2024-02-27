@@ -10,15 +10,9 @@ import { Direction } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // ** Third Party Components
-import {
-  useKeenSlider,
-  KeenSliderPlugin,
-  KeenSliderInstance,
-} from 'keen-slider/react';
+import { useKeenSlider, KeenSliderPlugin, KeenSliderInstance } from 'keen-slider/react';
 
-const ThumbnailPlugin = (
-  mainRef: MutableRefObject<KeenSliderInstance | null>,
-): KeenSliderPlugin => {
+const ThumbnailPlugin = (mainRef: MutableRefObject<KeenSliderInstance | null>): KeenSliderPlugin => {
   return (slider) => {
     function removeActive() {
       slider.slides.forEach((slide) => {
@@ -78,53 +72,38 @@ const SwiperThumbnails = ({ direction }: { direction: Direction }) => {
 
   return (
     <>
-      <Box ref={sliderRef} className="keen-slider">
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+      <Box component="div" ref={sliderRef} className="keen-slider">
+        <Box component="div" sx={{ display: 'flex' }} className="keen-slider__slide">
           <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box component="div" sx={{ display: 'flex' }} className="keen-slider__slide">
           <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box component="div" sx={{ display: 'flex' }} className="keen-slider__slide">
           <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box component="div" sx={{ display: 'flex' }} className="keen-slider__slide">
           <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
-        <Box sx={{ display: 'flex' }} className="keen-slider__slide">
+        <Box component="div" sx={{ display: 'flex' }} className="keen-slider__slide">
           <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
         </Box>
       </Box>
 
-      <Box sx={{ mt: 4 }} ref={thumbnailRef} className="keen-slider thumbnail">
-        <Box
-          className="keen-slider__slide"
-          sx={{ display: 'flex', cursor: 'pointer' }}
-        >
+      <Box component="div" sx={{ mt: 4 }} ref={thumbnailRef} className="keen-slider thumbnail">
+        <Box component="div" className="keen-slider__slide" sx={{ display: 'flex', cursor: 'pointer' }}>
           <Image src="/images/banners/banner-1.jpg" alt="swiper 1" />
         </Box>
-        <Box
-          className="keen-slider__slide"
-          sx={{ display: 'flex', cursor: 'pointer' }}
-        >
+        <Box component="div" className="keen-slider__slide" sx={{ display: 'flex', cursor: 'pointer' }}>
           <Image src="/images/banners/banner-2.jpg" alt="swiper 2" />
         </Box>
-        <Box
-          className="keen-slider__slide"
-          sx={{ display: 'flex', cursor: 'pointer' }}
-        >
+        <Box component="div" className="keen-slider__slide" sx={{ display: 'flex', cursor: 'pointer' }}>
           <Image src="/images/banners/banner-3.jpg" alt="swiper 3" />
         </Box>
-        <Box
-          className="keen-slider__slide"
-          sx={{ display: 'flex', cursor: 'pointer' }}
-        >
+        <Box component="div" className="keen-slider__slide" sx={{ display: 'flex', cursor: 'pointer' }}>
           <Image src="/images/banners/banner-4.jpg" alt="swiper 4" />
         </Box>
-        <Box
-          className="keen-slider__slide"
-          sx={{ display: 'flex', cursor: 'pointer' }}
-        >
+        <Box component="div" className="keen-slider__slide" sx={{ display: 'flex', cursor: 'pointer' }}>
           <Image src="/images/banners/banner-5.jpg" alt="swiper 5" />
         </Box>
       </Box>

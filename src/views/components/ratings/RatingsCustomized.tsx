@@ -42,16 +42,11 @@ const IconContainer = (props: IconContainerProps) => {
 const RatingsCustomized = () => {
   return (
     <div>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom empty icon</Typography>
-        <Rating
-          name="customized-empty"
-          defaultValue={2}
-          precision={0.5}
-          emptyIcon={<Icon icon="mdi:star" />}
-        />
+        <Rating name="customized-empty" defaultValue={2} precision={0.5} emptyIcon={<Icon icon="mdi:star" />} />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>Custom icon and color</Typography>
         <Rating
           precision={0.5}
@@ -62,18 +57,13 @@ const RatingsCustomized = () => {
           emptyIcon={<Icon icon="mdi:heart" />}
         />
       </Box>
-      <Box sx={{ mb: 3 }}>
+      <Box component="div" sx={{ mb: 3 }}>
         <Typography sx={{ fontWeight: 500 }}>10 stars</Typography>
         <Rating name="customized-10" defaultValue={7} max={10} />
       </Box>
       <div>
         <Typography sx={{ fontWeight: 500 }}>Custom icon set</Typography>
-        <Rating
-          name="customized-icons"
-          defaultValue={2}
-          max={4}
-          IconContainerComponent={IconContainer}
-        />
+        <Rating name="customized-icons" defaultValue={2} max={4} IconContainerComponent={IconContainer} />
       </div>
     </div>
   );

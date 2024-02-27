@@ -37,26 +37,16 @@ const UserSuspendDialog = (props: Props) => {
 
   return (
     <>
-      <Dialog
-        fullWidth
-        open={open}
-        onClose={handleClose}
-        sx={{ '& .MuiPaper-root': { width: '100%', maxWidth: 512 } }}
-      >
+      <Dialog fullWidth open={open} onClose={handleClose} sx={{ '& .MuiPaper-root': { width: '100%', maxWidth: 512 } }}>
         <DialogContent
           sx={{
             pb: (theme) => `${theme.spacing(6)} !important`,
-            px: (theme) => [
-              `${theme.spacing(5)} !important`,
-              `${theme.spacing(15)} !important`,
-            ],
-            pt: (theme) => [
-              `${theme.spacing(8)} !important`,
-              `${theme.spacing(12.5)} !important`,
-            ],
+            px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
           }}
         >
           <Box
+            component="div"
             sx={{
               display: 'flex',
               textAlign: 'center',
@@ -67,36 +57,20 @@ const UserSuspendDialog = (props: Props) => {
             }}
           >
             <Icon icon="mdi:alert-circle-outline" fontSize="5.5rem" />
-            <Typography>
-              Are you sure you would like to cancel your subscription?
-            </Typography>
+            <Typography>Are you sure you would like to cancel your subscription?</Typography>
           </Box>
         </DialogContent>
         <DialogActions
           sx={{
             justifyContent: 'center',
-            px: (theme) => [
-              `${theme.spacing(5)} !important`,
-              `${theme.spacing(15)} !important`,
-            ],
-            pb: (theme) => [
-              `${theme.spacing(8)} !important`,
-              `${theme.spacing(12.5)} !important`,
-            ],
+            px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
           }}
         >
-          <Button
-            variant="contained"
-            sx={{ mr: 2 }}
-            onClick={() => handleConfirmation('yes')}
-          >
+          <Button variant="contained" sx={{ mr: 2 }} onClick={() => handleConfirmation('yes')}>
             Yes
           </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={() => handleConfirmation('cancel')}
-          >
+          <Button variant="outlined" color="secondary" onClick={() => handleConfirmation('cancel')}>
             Cancel
           </Button>
         </DialogActions>
@@ -110,17 +84,12 @@ const UserSuspendDialog = (props: Props) => {
         <DialogContent
           sx={{
             pb: (theme) => `${theme.spacing(6)} !important`,
-            px: (theme) => [
-              `${theme.spacing(5)} !important`,
-              `${theme.spacing(15)} !important`,
-            ],
-            pt: (theme) => [
-              `${theme.spacing(8)} !important`,
-              `${theme.spacing(12.5)} !important`,
-            ],
+            px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pt: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
           }}
         >
           <Box
+            component="div"
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -133,40 +102,24 @@ const UserSuspendDialog = (props: Props) => {
           >
             <Icon
               fontSize="5.5rem"
-              icon={
-                userInput === 'yes'
-                  ? 'mdi:check-circle-outline'
-                  : 'mdi:close-circle-outline'
-              }
+              icon={userInput === 'yes' ? 'mdi:check-circle-outline' : 'mdi:close-circle-outline'}
             />
             <Typography variant="h4" sx={{ mb: 5 }}>
               {userInput === 'yes' ? 'Unsubscribed!' : 'Cancelled'}
             </Typography>
             <Typography>
-              {userInput === 'yes'
-                ? 'Your subscription cancelled successfully.'
-                : 'Unsubscription Cancelled!!'}
+              {userInput === 'yes' ? 'Your subscription cancelled successfully.' : 'Unsubscription Cancelled!!'}
             </Typography>
           </Box>
         </DialogContent>
         <DialogActions
           sx={{
             justifyContent: 'center',
-            px: (theme) => [
-              `${theme.spacing(5)} !important`,
-              `${theme.spacing(15)} !important`,
-            ],
-            pb: (theme) => [
-              `${theme.spacing(8)} !important`,
-              `${theme.spacing(12.5)} !important`,
-            ],
+            px: (theme) => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pb: (theme) => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`],
           }}
         >
-          <Button
-            variant="contained"
-            color="success"
-            onClick={handleSecondDialogClose}
-          >
+          <Button variant="contained" color="success" onClick={handleSecondDialogClose}>
             OK
           </Button>
         </DialogActions>
