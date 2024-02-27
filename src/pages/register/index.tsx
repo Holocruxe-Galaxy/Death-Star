@@ -36,8 +36,8 @@ import ChatBotIcon from 'src/@core/components/Chat-Icon/Chat-Icon';
 import Chat from 'src/@core/components/ChatComponent/ChatComponent';
 
 const CustomCard = styled(Card)(({ theme }) => ({
-  width: '80%',
-  height: '80%',
+  minWidth: '80%',
+  minHeight: '80%',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
