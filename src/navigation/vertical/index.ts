@@ -9,19 +9,28 @@ const navigation = (): VerticalNavItemsType => {
       path: '/',
     },
     {
-      title: 'Diary',
-      icon: 'mdi:home-outline',
-      path: '/diary',
+      title: 'My Weblog',
+      icon: 'mdi:book-open-variant',
+      children: [
+        {
+          title: 'Diary',
+          path: '/diary',
+        },
+      ],
     },
     {
-      title: 'Account',
-      icon: 'mdi:home-outline',
-      path: '/account',
-    },
-    {
-      title: 'Security',
-      icon: 'mdi:home-outline',
-      path: '/security',
+      title: 'Settings',
+      icon: 'mdi:settings-outline',
+      children: [
+        {
+          title: 'Account',
+          path: '/account',
+        },
+        {
+          title: 'Security',
+          path: '/security',
+        },
+      ],
     },
   ];
 };
