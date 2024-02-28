@@ -1,3 +1,9 @@
+import jwt from 'jsonwebtoken';
+
+function generateToken(payload: object) {
+  return jwt.sign(payload, `${process.env.NEXT_PUBLIC_AUTH0_SECRET}`, { expiresIn: '1m' });
+}
+
 export async function afterLogin(token: any) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_CORUSCANT}/onboarding/step`, {
     method: 'GET',
@@ -23,6 +29,7 @@ export async function registerToHolocruxe(user: any, auth: any) {
     headers: {
       'Content-Type': 'application/json',
     },
+
     body: JSON.stringify({
       username: user?.nickname,
       name: user?.given_name,
@@ -42,10 +49,12 @@ export async function registerToHolocruxe(user: any, auth: any) {
 
 export async function loginToHolocruxe(user: any, auth: any) {
   try {
+    const token = generateToken({ email: user.email });
     const response = await fetch(`${process.env.NEXT_PUBLIC_CORUSCANT}/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         email: user?.email,
