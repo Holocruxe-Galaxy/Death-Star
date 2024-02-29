@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 
 interface NewsLocationCardProps {
   title: string;
@@ -8,27 +8,44 @@ interface NewsLocationCardProps {
 }
 export const NewsLocationCard = ({ title, image, rating, description }: NewsLocationCardProps) => {
   return (
-    <Paper sx={{ padding: 10, marginTop: 5, display: 'flex', maxWidth: 600 }}>
-      <Stack spacing={6} direction={'row'}>
-        <Box component={'div'}>
-          <Stack spacing={6}>
-            <Typography>{title}</Typography>
-            <Box component="div">
-              {/* After change dynamic starts */}
-              <img src="https://i.imgur.com/PP7yTNd.png" alt="" />
-              <Typography> {rating} </Typography>
-              <Typography>{description}</Typography>
-            </Box>
-            <Box component="div">
-              <Button>UBICACIÓN</Button>
-              <Button>RESEÑAS</Button>
-            </Box>
-          </Stack>
+    <Paper sx={{ display: 'flex', gap: 3, padding: 5, height: 300 }}>
+      <Box component="div" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Typography gutterBottom fontSize={22} fontWeight={600} component="div">
+          {title}
+        </Typography>
+        {/* After change dynamic starts */}
+        <Box component="div">
+          <img src="https://i.imgur.com/PP7yTNd.png" alt="" />
         </Box>
-        <Box component="div" alignSelf="center">
-          <img src={image} alt="" />
+        <Typography> {rating} </Typography>
+        <Typography>{description.length < 200 ? description : description.slice(0, 200) + '...'}</Typography>
+        <Box component="div">
+          <Button>UBICACIÓN</Button>
+          <Button>RESEÑAS</Button>
         </Box>
-      </Stack>
+      </Box>
+      <Box component="div" alignSelf="center">
+        <img src={image} alt="" />
+      </Box>
     </Paper>
   );
 };
+
+// <Card sx={{ maxWidth: 600, height: 450, display: 'flex' }}>
+//   <CardActionArea>
+//     {/* <CardMedia component="img" height="200" image={image} alt="green iguana" /> */}
+//     <CardContent>
+//       <Typography gutterBottom variant="h5" component="div">
+//         {title}
+//       </Typography>
+
+//       <Typography variant="body2" color="text.secondary">
+//         {description}
+//       </Typography>
+//     </CardContent>
+//   </CardActionArea>
+//   <CardActions>
+
+//   </CardActions>
+//   <img src={image} alt="" />
+// </Card>
