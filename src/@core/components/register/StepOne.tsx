@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import { alpha, styled } from '@mui/material/styles';
+import { useAuth } from 'src/hooks/useAuth';
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
@@ -17,6 +18,7 @@ import FemaleIcon from '../icon/register/FemaleIcon';
 import MaleIcon from '../icon/register/MaleIcon';
 import NeutroIcon from '../icon/register/NeutroIcon';
 import OtherIcon from '../icon/register/OtherIcon';
+import { useState } from 'react';
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
@@ -63,6 +65,50 @@ const CustomNextButton = styled(Button)(({ theme }) => ({
 }));
 
 const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) => {
+  const [form, setForm] = useState({ fullName: '', birthDate: '', country: '', gender: '' });
+  const { setUser } = useAuth();
+  const onChangeForm = (e: any) => {
+    if (e.target.name !== 'country' && e.currentTarget.dataset.name === 'gender') {
+      setForm({
+        ...form,
+        [e.currentTarget.dataset.name]: e.currentTarget.dataset.value,
+      });
+    } else {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
+  const onSubmitForm = async () => {
+    const token = window.localStorage.getItem('AuthorizationToken');
+    if (form.fullName !== '' && form.birthDate !== '' && form.country !== '' && form.gender !== '') {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_CORUSCANT}/onboarding/one`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ ...form }),
+      });
+
+      if (response.status === 200) {
+        window.localStorage.setItem('accessToken', token ? token : '');
+        window.localStorage.setItem('userData', JSON.stringify({ username: '', role: 'client' }));
+        localStorage.setItem('status', 'COMPLETE');
+        setUser({
+          id: '',
+          username: '',
+          role: 'admin',
+        });
+        window.location.href = '/home';
+      }
+    } else {
+      window.alert('Completa el formulario por favor');
+    }
+  };
+
   return (
     <>
       <Box component={'div'} sx={{ mb: 10 }}>
@@ -80,16 +126,39 @@ const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) 
           }}
         >
           <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
-            <CustomTextField fullWidth placeholder="Tu nombre" />
+            <CustomTextField
+              autoComplete="off"
+              name="fullName"
+              onChange={(e) => {
+                onChangeForm(e);
+              }}
+              fullWidth
+              placeholder="Tu nombre"
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
-            <CustomTextField fullWidth placeholder="Fecha de Nacimiento" />
+            <CustomTextField
+              name="birthDate"
+              onChange={(e) => {
+                onChangeForm(e);
+              }}
+              type="date"
+              fullWidth
+              placeholder="Fecha de Nacimiento"
+            />
           </Grid>
           <Grid item xs={12} sm={6} sx={{ mb: 4 }}>
             <FormControl fullWidth sx={{ width: '370px', height: '40px' }}>
-              <CustomSelect labelId="state-select" defaultValue="País">
-                <MenuItem value="País" disabled>
+              <CustomSelect
+                name="country"
+                onChange={(e) => {
+                  onChangeForm(e);
+                }}
+                defaultValue={'País'}
+                labelId="state-select"
+              >
+                <MenuItem value="País" disabled selected>
                   País
                 </MenuItem>
                 <MenuItem value="Argentina">Argentina</MenuItem>
@@ -105,19 +174,47 @@ const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) 
           <Box component={'div'} sx={{ mb: 4 }}>
             <CustomTypography>Género:</CustomTypography>
             <Stack direction="row" spacing={4}>
-              <IconButton sx={{ flexDirection: 'column' }}>
+              <IconButton
+                data-name="gender"
+                data-value="Femenino"
+                onClick={(e) => {
+                  onChangeForm(e);
+                }}
+                sx={{ flexDirection: 'column' }}
+              >
                 <FemaleIcon />
                 <CustomTypography>Femenino</CustomTypography>
               </IconButton>
-              <IconButton sx={{ flexDirection: 'column' }}>
+              <IconButton
+                data-name="gender"
+                data-value="Masculino"
+                onClick={(e) => {
+                  onChangeForm(e);
+                }}
+                sx={{ flexDirection: 'column' }}
+              >
                 <MaleIcon />
                 <CustomTypography>Masculino</CustomTypography>
               </IconButton>
-              <IconButton sx={{ flexDirection: 'column' }}>
+              <IconButton
+                data-name="gender"
+                data-value="Neutro"
+                onClick={(e) => {
+                  onChangeForm(e);
+                }}
+                sx={{ flexDirection: 'column' }}
+              >
                 <NeutroIcon />
                 <CustomTypography>Neutro</CustomTypography>
               </IconButton>
-              <IconButton sx={{ flexDirection: 'column' }}>
+              <IconButton
+                data-name="gender"
+                data-value="Otro"
+                onClick={(e) => {
+                  onChangeForm(e);
+                }}
+                sx={{ flexDirection: 'column' }}
+              >
                 <OtherIcon />
                 <CustomTypography>Otro</CustomTypography>
               </IconButton>
@@ -135,7 +232,7 @@ const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) 
             <CustomNextButton
               color="primary"
               variant="contained"
-              onClick={handleNext}
+              onClick={onSubmitForm}
               endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
             >
               Siguiente
