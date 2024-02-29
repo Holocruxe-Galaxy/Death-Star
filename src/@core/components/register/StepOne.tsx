@@ -64,7 +64,7 @@ const CustomNextButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const StepPersonalInformation = ({ handleNext }: { [key: string]: () => void }) => {
+const StepPersonalInformation = ({}: /*handleNext*/ { [key: string]: () => void }) => {
   const [form, setForm] = useState({ fullName: '', birthDate: '', country: '', gender: '' });
   const { setUser } = useAuth();
   const onChangeForm = (e: any) => {

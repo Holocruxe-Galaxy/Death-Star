@@ -12,12 +12,7 @@ import FormControl from '@mui/material/FormControl';
 // ** Icon Imports
 import Icon from 'src/@core/components/icon';
 
-const StepPersonalInformation = ({
-  handleNext,
-  handlePrev,
-}: {
-  [key: string]: () => void;
-}) => {
+const StepPersonalInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
   return (
     <>
       <Box component={'div'} sx={{ mb: 4 }}>
@@ -50,10 +45,7 @@ const StepPersonalInformation = ({
           <Typography sx={{ color: 'text.secondary' }}>Género:</Typography>
         </Box>
         <Grid item xs={12}>
-          <Box
-            component="div"
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
-          >
+          <Box component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button
               color="secondary"
               variant="contained"
@@ -62,11 +54,7 @@ const StepPersonalInformation = ({
             >
               Atrás
             </Button>
-            <Button
-              variant="contained"
-              onClick={handleNext}
-              endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
-            >
+            <Button variant="contained" onClick={handleNext} endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}>
               Siguiente
             </Button>
           </Box>

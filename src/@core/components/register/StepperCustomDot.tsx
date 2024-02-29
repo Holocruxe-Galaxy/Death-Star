@@ -23,31 +23,17 @@ const StepperCustomDot = (props: StepIconProps) => {
   const theme = useTheme();
 
   if (error) {
-    return (
-      <Icon
-        icon="mdi:alert"
-        fontSize={20}
-        color={theme.palette.error.main}
-        transform="scale(1.2)"
-      />
-    );
+    return <Icon icon="mdi:alert" fontSize={20} color={theme.palette.error.main} transform="scale(1.2)" />;
   } else if (completed) {
     return (
-      <Icon
-        icon="mdi:check-circle"
-        fontSize={20}
-        color={theme.palette.holocruxe.darkText}
-        transform="scale(1.2)"
-      />
+      <Icon icon="mdi:check-circle" fontSize={20} color={theme.palette.holocruxe.darkText} transform="scale(1.2)" />
     );
   } else {
     return (
       <Box
         component="div"
         sx={{
-          borderColor: active
-            ? 'holocruxe.darkText'
-            : alpha(theme.palette.holocruxe.fontWhite, 0.8),
+          borderColor: active ? 'holocruxe.darkText' : alpha(theme.palette.holocruxe.fontWhite, 0.8),
         }}
       />
     );
