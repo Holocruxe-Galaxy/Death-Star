@@ -32,8 +32,7 @@ export async function registerToHolocruxe(user: any, auth: any) {
 
     body: JSON.stringify({
       username: user?.nickname,
-      name: user?.given_name,
-      lastname: user?.family_name,
+
       email: user?.email,
     }),
   };
