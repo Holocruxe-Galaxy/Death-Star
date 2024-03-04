@@ -11,7 +11,7 @@ interface Messages {
 interface Message {
   message: string;
   id?: string;
-  time: Date | string;
+  date: Date | string;
   isBroadcasted?: boolean;
 }
 
@@ -36,7 +36,8 @@ export const fetchChatsContacts = createAsyncThunk('appChat/fetchChatsContacts',
   return response.data
 })
 
-export const addMessageToChat = createAsyncThunk('appChat/addMsgs', (messages: Messages): Message => {  
+export const addMessageToChat = createAsyncThunk('appChat/addMsgs', (messages: Messages): Message => {
+  console.log(messages)
   return messages.messages.slice(-1)[0]
 })
 

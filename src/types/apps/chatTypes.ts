@@ -1,5 +1,6 @@
 // ** Types
 // import { ThemeColor } from 'src/@core/layouts/types'
+import { SetStateAction, Dispatch as RDispatch } from 'react';
 import { Dispatch } from 'redux'
 
 export type ChatStoreType = {
@@ -75,6 +76,9 @@ export type ChatContentType = {
   mdAbove: boolean
   dispatch: Dispatch<any>
   store: ChatStoreType
+  handleStartConversation: () => void
+  isActive: boolean
+  setIsActive: RDispatch<SetStateAction<boolean>>
 }
 
 

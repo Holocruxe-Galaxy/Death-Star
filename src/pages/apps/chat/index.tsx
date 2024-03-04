@@ -2,63 +2,87 @@
 import { useEffect, useState } from 'react'
 
 // ** MUI Imports
+import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 // ** Store & Actions Imports
 import { useDispatch, useSelector } from 'react-redux'
-import { sendMsg, fetchUserProfile, fetchChatsContacts } from 'src/store/apps/chat'
+import { fetchUserProfile, fetchChatsContacts } from 'src/store/apps/chat'
 
 // ** Types
 import { RootState, AppDispatch } from 'src/store'
-import { StatusObjType } from 'src/types/apps/chatTypes'
 
-// ** Utils Imports
-import { getInitials } from 'src/@core/utils/get-initials'
+// ** Hooks
+import { useSettings } from 'src/@core/hooks/useSettings'
 
 // ** Chat App Components Imports
 import ChatContent from 'src/views/apps/chat/ChatContent'
 
+import { socketClient } from 'src/libs/socket.io';
+import { saveId } from 'src/store/apps/chat';
+
 const AppChat = () => {
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState<boolean>(false)
-  const [userProfileRightOpen, setUserProfileRightOpen] = useState<boolean>(false)
 
   // ** Hooks
   const theme = useTheme()
+  const { settings } = useSettings()
   const dispatch = useDispatch<AppDispatch>()
+  const [isActive, setIsActive] = useState(false)
+  const [id, setId] = useState('');
   const hidden = useMediaQuery(theme.breakpoints.down('lg'))
+  const store = useSelector((state: RootState) => state.chat)
 
-  const smAbove = useMediaQuery(theme.breakpoints.up('sm'))
-  const sidebarWidth = smAbove ? 370 : 300
+  // ** Vars
+  const { skin } = settings
   const mdAbove = useMediaQuery(theme.breakpoints.up('md'))
-  const statusObj: StatusObjType = {
-    busy: 'error',
-    away: 'warning',
-    online: 'success',
-    offline: 'secondary'
-  }
+
+  useEffect(() => {
+    if (id) dispatch(saveId(id));
+    socketClient.recieveMessages(dispatch);
+    socketClient.recieveBroadcast(dispatch);
+    socketClient.recieveAudio(dispatch);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  const handleStartConversation = () => {
+    socketClient.connect(setId);
+    setIsActive(true);
+  };
+
 
   useEffect(() => {
     dispatch(fetchUserProfile())
     dispatch(fetchChatsContacts())
   }, [dispatch])
 
-  const handleLeftSidebarToggle = () => setLeftSidebarOpen(!leftSidebarOpen)
-  const handleUserProfileRightSidebarToggle = () => setUserProfileRightOpen(!userProfileRightOpen)
-
   return (
+    <Box
+      component="div"
+      className='app-chat'
+      sx={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        borderRadius: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        backgroundColor: 'background.paper',
+        boxShadow: skin === 'bordered' ? 0 : 6,
+        ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` })
+      }}
+    >
       <ChatContent
+        store={store}
         hidden={hidden}
-        sendMsg={sendMsg}
         mdAbove={mdAbove}
         dispatch={dispatch}
-        statusObj={statusObj}
-        getInitials={getInitials}
-        sidebarWidth={sidebarWidth}
-        userProfileRightOpen={userProfileRightOpen}
-        handleLeftSidebarToggle={handleLeftSidebarToggle}
-        handleUserProfileRightSidebarToggle={handleUserProfileRightSidebarToggle}
+        handleStartConversation={handleStartConversation}
+        isActive={isActive}
+        setIsActive={setIsActive}
       />
+    </Box>
   )
 }
 

@@ -21,8 +21,12 @@ class SocketClient {
     this.socket.on('connection', () => setId(this.socket.id));
   }
 
-  sendMessage(message: string) {
-    this.socket?.emit('clientChat', { message })
+  async sendMessage(message: string) {
+    await axios.post(`${process.env.NEXT_PUBLIC_MANDALORE}/chat?id=${this.socket.id}`, { message }, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('AuthorizationToken')}`
+      }
+    })
   }
 
   async sendAudio(audio: FormData) {

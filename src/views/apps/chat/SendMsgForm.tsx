@@ -13,6 +13,7 @@ import Icon from 'src/@core/components/icon';
 
 // ** Types
 import { SendMsgComponentType } from 'src/types/apps/chatTypes';
+import { socketClient } from 'src/libs/socket.io';
 
 // ** Styled Components
 const ChatFormWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -31,17 +32,17 @@ const Form = styled('form')(({ theme }) => ({
 
 const SendMsgForm = (props: SendMsgComponentType) => {
   // ** Props
-  const { store, dispatch, sendMsg } = props;
+  const { store } = props;
 
   // ** State
   const [msg, setMsg] = useState<string>('');
 
   const handleSendMsg = (e: SyntheticEvent) => {
     e.preventDefault();
-    if (store && store.selectedChat && msg.trim().length) {
-      dispatch(sendMsg({ ...store.selectedChat, message: msg }));
+    if (store && msg.trim().length) {
+      socketClient.sendMessage(msg);
+      setMsg('');
     }
-    setMsg('');
   };
 
   return (
