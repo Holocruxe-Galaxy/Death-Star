@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Button, Container, Grid, Paper, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { NewsCard } from 'src/components';
 import AppsChat from '../apps/chat';
@@ -45,39 +45,46 @@ const Home = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Typography fontSize={20} fontWeight={600}>
+      <Typography fontSize={20} fontWeight={600} marginY={4}>
         Novedades
       </Typography>
-      {/* <Typography>Aquí van las card de novedades</Typography> */}
 
-      <Box
-        component="div"
-        sx={{
-          display: 'flex',
-          gap: 10,
-          flexWrap: 'wrap',
-        }}
-      >
-        <NewsCard
-          variant="location"
-          title="Stumptown - Asadores de café"
-          rating="4 estrellas | 98 opiniones"
-          description="Antes de que existieran los Estados Unidos de América, había cafeterías."
-          image="https://i.imgur.com/GJzUK2f.png"
-        />
-        <NewsCard
-          variant="info"
-          title="Apple Watch"
-          description="Procesador Intel Core i5 de décima generación de 6 núcleos a 3,1 GHz, Turbo Boost de hasta 4,5 GHz"
-          image="https://i.imgur.com/WiumID2.png"
-        />
-        <NewsCard
-          variant="single"
-          title="Influir en el influencer"
-          description="¡Cancún está de regreso, mejor que nunca! Más de cien centros turísticos en México han reabierto y el secretario de turismo del estado predice que Cancún atraerá tantos visitantes en 2006 como hace dos años."
-          image="https://i.imgur.com/XOeRDyT.png"
-        />
-      </Box>
+      <Grid container spacing={7}>
+        <Grid item xs={6}>
+          <NewsCard
+            variant="location"
+            title="Stumptown - Asadores de café"
+            rating="4 estrellas | 98 opiniones"
+            description="Antes de que existieran los Estados Unidos de América, había cafeterías."
+            image="https://i.imgur.com/GJzUK2f.png"
+          />
+        </Grid>
+
+        <Grid item xs={6}>
+          <NewsCard
+            variant="share"
+            title="Apple iPhone 15 Pro-Max"
+            description="iPhone 15 Pro Max. Forjado en titanio y equipado con el revolucionario chip A17 Pro, un Botón de Acción personalizable y el sistema de cámaras más potente en un iPhone"
+            image="https://i.imgur.com/3MHSiMj.png"
+          />
+        </Grid>
+        <Grid item xs={7}>
+          <NewsCard
+            variant="single"
+            title="Influir en el influencer"
+            description="¡Cancún está de regreso, mejor que nunca! Más de cien centros turísticos en México han reabierto y el secretario de turismo del estado predice que Cancún atraerá tantos visitantes en 2006 como hace dos años."
+            image="https://i.imgur.com/XOeRDyT.png"
+          />
+        </Grid>
+        <Grid item xs={5}>
+          <NewsCard
+            variant="info"
+            title="Apple Watch"
+            description="Procesador Intel Core i5 de décima generación de 6 núcleos a 3,1 GHz, Turbo Boost de hasta 4,5 GHz"
+            image="https://i.imgur.com/WiumID2.png"
+          />
+        </Grid>
+      </Grid>
     </Container>
   );
 };

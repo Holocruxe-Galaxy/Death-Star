@@ -8,15 +8,15 @@ interface NewSingleCardProps {
 
 export const NewSingleCard = ({ title, description, image }: NewSingleCardProps) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ height: 400 }}>
       <CardActionArea>
-        <CardMedia component="img" height="140" image={image} alt="green iguana" />
+        <CardMedia component="img" height="200" image={image} alt="green iguana" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            {description.length < 400 ? description : description.slice(0, 400) + '...'}
           </Typography>
         </CardContent>
       </CardActionArea>
