@@ -1,254 +1,186 @@
 // ** React Imports
-import { ReactNode } from 'react';
+import { useState, ReactNode } from 'react';
 
-// ** MUI Components
-import Button from '@mui/material/Button';
-import Box, { BoxProps } from '@mui/material/Box';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { styled, useTheme } from '@mui/material/styles';
-import Typography, { TypographyProps } from '@mui/material/Typography';
-// import MuiFormControlLabel, {
-//   FormControlLabelProps,
-// } from '@mui/material/FormControlLabel';
+// ** MUI Imports
+import Step from '@mui/material/Step';
+import Stepper from '@mui/material/Stepper';
+import StepLabel from '@mui/material/StepLabel';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/material/styles';
 
-// ** Configs
-import themeConfig from 'src/configs/themeConfig';
+// ** Icon Imports
+import Icon from 'src/@core/components/icon';
 
-// ** Layout Import
+// ** Import Logo
+import HolocruxeLogo from 'src/@core/icons/login/HolocruxeLogo';
+
+// ** Step Components
+import StepOne from 'src/@core/components/register/StepOne';
+
+// ** Custom Component Import
+import StepperCustomDot from 'src/@core/components/register/StepperCustomDot';
 import BlankLayout from 'src/@core/layouts/BlankLayout';
 
+// ** Styled Components
+import StepperWrapper from 'src/@core/styles/mui/stepper';
+
 // ** Hooks
-import { useSettings } from 'src/@core/hooks/useSettings';
 import { useAuth } from 'src/hooks/useAuth';
+import { useRouter } from 'next/router';
+
+// ** Import ChatBot
 import ChatBotIcon from 'src/@core/components/Chat-Icon/Chat-Icon';
 import Chat from 'src/@core/components/ChatComponent/ChatComponent';
 
-// ** Styled Components
-const RegisterIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  padding: theme.spacing(20),
-  paddingRight: '0 !important',
-  [theme.breakpoints.down('lg')]: {
-    padding: theme.spacing(10),
-  },
+const CustomCard = styled(Card)(({ theme }) => ({
+  minWidth: '80%',
+  minHeight: '80%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  padding: theme.spacing(4),
+  backgroundColor: theme.palette.holocruxe.bg,
+  boxShadow: '2px 2px 12px -3px rgba(255, 255, 255, 0.5)',
 }));
 
-const RegisterIllustration = styled('img')(({ theme }) => ({
-  maxWidth: '48rem',
-  [theme.breakpoints.down('xl')]: {
-    maxWidth: '38rem',
+const steps = [
+  {
+    title: 'Personal',
+    subtitle: 'Ingresar información',
   },
-  [theme.breakpoints.down('lg')]: {
-    maxWidth: '30rem',
+  {
+    title: 'Intereses',
+    subtitle: 'Algunas preguntas',
   },
-}));
-
-const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  width: '100%',
-  [theme.breakpoints.up('md')]: {
-    maxWidth: 400,
+  {
+    title: 'Legado de Voz',
+    subtitle: 'Cuéntanos algo',
   },
-  [theme.breakpoints.up('lg')]: {
-    maxWidth: 450,
-  },
-}));
-
-const BoxWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  width: '100%',
-  [theme.breakpoints.down('md')]: {
-    maxWidth: 400,
-  },
-}));
-
-const TypographyStyled = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 600,
-  letterSpacing: '0.18px',
-  marginBottom: theme.spacing(1.5),
-  [theme.breakpoints.down('md')]: { marginTop: theme.spacing(8) },
-}));
-
-// const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
-//   ({ theme }) => ({
-//     marginBottom: theme.spacing(4),
-//     '& .MuiFormControlLabel-label': {
-//       fontSize: '0.875rem',
-//       color: theme.palette.text.secondary,
-//     },
-//   }),
-// );
-
-// const LinkStyled = styled(Link)(({ theme }) => ({
-//   textDecoration: 'none',
-//   color: theme.palette.primary.main,
-// }));
+];
 
 const Register = () => {
   // ** States
-  // const [showPassword, setShowPassword] = useState<boolean>(false);
+  const router = useRouter();
+  const [activeStep, setActiveStep] = useState<number>(0);
   const { logout } = useAuth();
+  const [, setAnchorEl] = useState<Element | null>(null);
+
+  const handleDropdownClose = (url?: string) => {
+    if (url) {
+      router.push(url);
+    }
+    setAnchorEl(null);
+  };
+
   const handleLogout = () => {
     logout();
+    handleDropdownClose();
   };
-  // ** Hooks
-  const theme = useTheme();
-  const { settings } = useSettings();
-  const hidden = useMediaQuery(theme.breakpoints.down('md'));
 
-  // ** Vars
-  const { skin } = settings;
+  // Handle Stepper
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
+  };
+  // const handlePrev = () => {
+  //   if (activeStep !== 0) {
+  //     setActiveStep(activeStep - 1);
+  //   }
+  // };
 
-  const imageSource = skin === 'bordered' ? 'auth-v2-register-illustration-bordered' : 'auth-v2-register-illustration';
+  const getStepContent = (step: number) => {
+    switch (step) {
+      case 0:
+        return <StepOne handleNext={handleNext} />;
+      case 1:
+        return;
+      case 2:
+
+      default:
+        return null;
+    }
+  };
+
+  const renderContent = () => {
+    return getStepContent(activeStep);
+  };
 
   return (
-    <Box component="div" className="content-right">
-      <ChatBotIcon></ChatBotIcon>
-      <Chat></Chat>
-      {!hidden ? (
-        <Box
-          component="div"
-          sx={{
-            flex: 1,
-            display: 'flex',
-            position: 'relative',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <RegisterIllustrationWrapper>
-            <RegisterIllustration
-              alt="register-illustration"
-              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
-            />
-          </RegisterIllustrationWrapper>
-        </Box>
-      ) : null}
-      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
-        <Box
-          component="div"
-          sx={{
-            p: 7,
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'background.paper',
-          }}
-        >
-          <BoxWrapper>
-            <Box
-              component="div"
+    <>
+      <Box
+        component="div"
+        sx={{
+          backgroundColor: 'holocruxe.bg',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Box component="div" display="flex" justifyContent="space-between">
+          <ChatBotIcon></ChatBotIcon>
+          <Chat></Chat>
+          <Box component="div">
+            <HolocruxeLogo />
+          </Box>
+          <Box component="div">
+            <MenuItem
+              onClick={handleLogout}
               sx={{
-                top: 30,
-                left: 40,
-                display: 'flex',
-                position: 'absolute',
-                alignItems: 'center',
-                justifyContent: 'center',
+                py: 2,
+                '& svg': {
+                  mr: 2,
+                  fontSize: '1.375rem',
+                  color: 'holocruxe.fontWhite',
+                },
               }}
             >
-              <svg width={47} fill="none" height={26} viewBox="0 0 268 150" xmlns="http://www.w3.org/2000/svg">
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fill={theme.palette.primary.main}
-                  transform="matrix(-0.865206 0.501417 0.498585 0.866841 195.571 0)"
-                />
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fillOpacity="0.4"
-                  fill="url(#paint0_linear_7821_79167)"
-                  transform="matrix(-0.865206 0.501417 0.498585 0.866841 196.084 0)"
-                />
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fill={theme.palette.primary.main}
-                  transform="matrix(0.865206 0.501417 -0.498585 0.866841 173.147 0)"
-                />
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fill={theme.palette.primary.main}
-                  transform="matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)"
-                />
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fillOpacity="0.4"
-                  fill="url(#paint1_linear_7821_79167)"
-                  transform="matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)"
-                />
-                <rect
-                  rx="25.1443"
-                  width="50.2886"
-                  height="143.953"
-                  fill={theme.palette.primary.main}
-                  transform="matrix(0.865206 0.501417 -0.498585 0.866841 71.7728 0)"
-                />
-                <defs>
-                  <linearGradient
-                    y1="0"
-                    x1="25.1443"
-                    x2="25.1443"
-                    y2="143.953"
-                    id="paint0_linear_7821_79167"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop />
-                    <stop offset="1" stopOpacity="0" />
-                  </linearGradient>
-                  <linearGradient
-                    y1="0"
-                    x1="25.1443"
-                    x2="25.1443"
-                    y2="143.953"
-                    id="paint1_linear_7821_79167"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop />
-                    <stop offset="1" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <Typography
-                variant="h6"
-                sx={{
-                  ml: 2,
-                  lineHeight: 1,
-                  fontWeight: 700,
-                  fontSize: '1.5rem !important',
-                }}
-              >
-                {themeConfig.templateName}
-              </Typography>
-            </Box>
-            <Box component="div" sx={{ mb: 6 }}>
-              <TypographyStyled variant="h4">Aquí iría el onboarding</TypographyStyled>
-              <br></br>
-              <br></br>
-              <TypographyStyled variant="h6">Desloguearse para volver al Login</TypographyStyled>
-              <Typography variant="body2">
-                si se quiere ir al /testin es necesario tener completo el onboarding en el otro repo
-              </Typography>
-            </Box>
-
-            <Button onClick={handleLogout} fullWidth size="large" type="submit" variant="contained" sx={{ mb: 7 }}>
-              Cerrar sesión
-            </Button>
-          </BoxWrapper>
+              <Icon icon="mdi:logout-variant" />
+            </MenuItem>
+          </Box>
         </Box>
-      </RightWrapper>
-    </Box>
+        <Box
+          component="div"
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexGrow: 1,
+            mt: 5,
+          }}
+        >
+          <CustomCard>
+            <StepperWrapper sx={{ mb: 10 }}>
+              <Stepper activeStep={activeStep}>
+                {steps.map((step, index) => {
+                  return (
+                    <Step key={index}>
+                      <StepLabel StepIconComponent={StepperCustomDot}>
+                        <div className="step-label">
+                          <Typography className="step-number">{`0${index + 1}`}</Typography>
+                          <div>
+                            <Typography className="step-title">{step.title}</Typography>
+                            <Typography className="step-subtitle">{step.subtitle}</Typography>
+                          </div>
+                        </div>
+                      </StepLabel>
+                    </Step>
+                  );
+                })}
+              </Stepper>
+            </StepperWrapper>
+            {renderContent()}
+          </CustomCard>
+        </Box>
+      </Box>
+    </>
   );
 };
 
 Register.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>;
-
 Register.guestGuard = true;
 
 export default Register;

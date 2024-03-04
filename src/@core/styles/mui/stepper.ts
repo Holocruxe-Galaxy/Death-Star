@@ -4,6 +4,7 @@ import { alpha, styled } from '@mui/material/styles';
 
 const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
   return {
+    width: '80%',
     [theme.breakpoints.down('md')]: {
       '& .MuiStepper-horizontal:not(.MuiStepper-alternativeLabel)': {
         flexDirection: 'column',
@@ -21,23 +22,26 @@ const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
         letterSpacing: 0.25,
         fontSize: '2.125rem',
         marginRight: theme.spacing(2.5),
-        color: theme.palette.text.primary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .step-title': {
         fontWeight: 500,
         fontSize: '0.875rem',
         letterSpacing: '0.1px',
-        color: theme.palette.text.primary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .step-subtitle': {
         fontWeight: 400,
         fontSize: '0.75rem',
         letterSpacing: '0.4px',
-        color: theme.palette.text.secondary,
+        color: theme.palette.holocruxe.darkText,
       },
       '& .MuiStepLabel-root.Mui-disabled': {
-        '& .step-number': {
-          color: theme.palette.text.disabled,
+        '& .step-number, & .step-title': {
+          color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
+        },
+        '& .step-subtitle': {
+          color: alpha(theme.palette.holocruxe.fontWhite, 0.6),
         },
       },
       '& .Mui-error': {
@@ -53,11 +57,11 @@ const StepperWrapper = styled(Box)<BoxProps>(({ theme }) => {
       },
       '&.Mui-active, &.Mui-completed': {
         '& .MuiStepConnector-line': {
-          borderColor: theme.palette.primary.main,
+          borderColor: theme.palette.holocruxe.darkText,
         },
       },
       '&.Mui-disabled .MuiStepConnector-line': {
-        borderColor: alpha(theme.palette.primary.main, 0.3),
+        borderColor: alpha(theme.palette.holocruxe.fontWhite, 0.6),
       },
     },
     '& .MuiStepper-alternativeLabel': {
