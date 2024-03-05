@@ -42,8 +42,8 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
           <path
             d="M1.0022 17.3118C1.0022 13.2283 1.0022 9.14487 1.0022 5.06583C1.01099 2.70008 2.29483 1.24867 4.3569 1.22204C6.41896 1.19541 7.75116 2.66013 7.77315 4.99481C7.80392 7.97753 7.80832 10.9558 7.77315 13.9341C7.77315 14.8484 7.99738 15.1858 8.96466 15.168C12.3106 15.1147 15.6609 15.128 19.0068 15.168C19.8026 15.168 20.1235 15.0304 20.1895 14.1116C20.3478 11.848 21.8119 10.5253 23.7684 10.6495C25.725 10.7738 26.9824 12.2075 26.9868 14.4933C27.0044 19.571 27.0044 24.6473 26.9868 29.722C26.9868 32.1632 25.6326 33.7167 23.5486 33.6768C21.4645 33.6368 20.1675 32.1721 20.1499 29.6821C20.1279 27.0855 20.1015 24.4934 20.1499 21.9013C20.1763 20.8715 19.9652 20.4543 18.8309 20.4854C15.6066 20.5653 12.3692 20.5653 9.11854 20.4854C7.99298 20.4588 7.72918 20.8449 7.75996 21.9013C7.82591 24.4357 7.78634 26.9746 7.75996 29.5134C7.75996 32.1766 6.53767 33.6679 4.40086 33.6857C2.26406 33.7034 1.0066 32.1988 1.0022 29.5622C0.999267 25.4788 0.999267 21.3953 1.0022 17.3118Z"
             stroke="#00C9B5"
-            stroke-width="0.25"
-            stroke-miterlimit="10"
+            strokeWidth="0.25"
+            strokeMiterlimit="10"
             className={styles.svgElem2}
           ></path>
         </g>
@@ -62,9 +62,9 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
             width="30.25"
             height="36.7139"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -85,9 +85,9 @@ const FallbackSpinner = ({ sx }: { sx?: BoxProps['sx'] }) => {
             width="7.8543"
             height="7.90801"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
