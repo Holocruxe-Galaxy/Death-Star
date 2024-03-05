@@ -160,19 +160,19 @@ const Diary = () => {
     setPickerVisible((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
+  // useEffect(() => {
+  //   document.addEventListener('click', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside);
+  //   };
+  // }, []);
 
-  const handleClickOutside = (event: any) => {
-    if (pickerRef.current && !pickerRef.current.contains(event.target)) {
-      setPickerVisible(false);
-    }
-  };
+  // const handleClickOutside = (event: any) => {
+  //   if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+  //     setPickerVisible(false);
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(fetchData());

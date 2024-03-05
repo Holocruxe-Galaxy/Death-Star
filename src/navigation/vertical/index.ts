@@ -16,6 +16,10 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Diary',
           path: '/diary',
         },
+        {
+          title: 'Diary2',
+          path: '/diary2',
+        },
       ],
     },
     {
