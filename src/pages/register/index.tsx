@@ -19,6 +19,7 @@ import HolocruxeLogo from 'src/@core/icons/login/HolocruxeLogo';
 
 // ** Step Components
 import StepOne from 'src/@core/components/register/StepOne';
+import StepTwo from 'src/@core/components/register/StepTwo';
 
 // ** Custom Component Import
 import StepperCustomDot from 'src/@core/components/register/StepperCustomDot';
@@ -86,18 +87,18 @@ const Register = () => {
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
-  // const handlePrev = () => {
-  //   if (activeStep !== 0) {
-  //     setActiveStep(activeStep - 1);
-  //   }
-  // };
+  const handlePrev = () => {
+    if (activeStep !== 0) {
+      setActiveStep(activeStep - 1);
+    }
+  };
 
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
         return <StepOne handleNext={handleNext} />;
       case 1:
-        return;
+        return <StepTwo handleNext={handleNext} handlePrev={handlePrev} />;
       case 2:
 
       default:
