@@ -3,10 +3,13 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data';
+import { useDiaryContext } from '../context/DiaryContext';
 
 export const DiaryForm = () => {
   const [message, setMessage] = useState('');
   const [emojiToggle, setEmojiToggle] = useState(false);
+
+  const {  } = useDiaryContext();
 
   const handleEmojiSelect = (emoji: any) => {
     setMessage(message + emoji.native);

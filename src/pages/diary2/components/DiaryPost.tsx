@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid, Paper } from '@mui/material';
+import { Avatar, Box, Grid, Paper, Typography } from '@mui/material';
 
 // TODO change strict properties to optional properties
 interface DiaryPostProps {
@@ -11,15 +11,23 @@ interface DiaryPostProps {
 
 const DiaryPost = ({ id, content, date, state, attachFile }: DiaryPostProps) => {
   return (
-    <Paper sx={{ p: 5 }}>
+    <Paper elevation={17} sx={{ p: 5 }}>
       <Grid container>
-        <Grid item>
-          {/* //TODO add tow box, user data and  options post */}
+        <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
           <Box component="div">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 50, height: 50 }} />
+            <Typography variant="overline"> 6 de Marzo del 2024 </Typography>
           </Box>
+          <Box component="div">delete</Box>
         </Grid>
-        <Grid item>{/* //TODO add message post */}</Grid>
+        <Grid item>
+          {/* //TODO add message post */}
+
+          <Typography>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus libero ipsum voluptatum, debitis
+            autem ipsa magni deleniti veniam quas non odio excepturi culpa commodi nam soluta praesentium consequuntur
+            ex pariatur!
+          </Typography>
+        </Grid>
       </Grid>
       <div>DiaryPost</div>
     </Paper>

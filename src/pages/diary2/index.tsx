@@ -1,16 +1,13 @@
 import { Grid, Paper } from '@mui/material';
-import { DiaryForm } from './components/DiaryForm';
 import { DiaryActions } from './components/DiaryActions';
 import DiaryPost from './components/DiaryPost';
+import { DiaryForm } from './components/DiaryForm';
+import { DiaryProvider } from './context/DiaryContext';
 const Diary2 = () => {
   return (
-    <>
+    <DiaryProvider>
       <Paper sx={{ padding: 5 }}>
-        <Grid
-          container
-          spacing={2}
-          sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#20435E', padding: 3, borderRadius: 1 }}
-        >
+        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', padding: 3, borderRadius: 1 }}>
           <Grid item xs={9}>
             <DiaryForm />
           </Grid>
@@ -22,7 +19,7 @@ const Diary2 = () => {
           <DiaryPost />
         </Grid>
       </Paper>
-    </>
+    </DiaryProvider>
   );
 };
 
