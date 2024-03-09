@@ -63,6 +63,8 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
   // get diary post
   const getDiaryPost = async (postId: string) => {
     const token = localStorage.getItem('accessToken');
+
+    console.log('POST');
     const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary/post/${postId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });

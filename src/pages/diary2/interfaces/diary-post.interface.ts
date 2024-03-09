@@ -6,7 +6,3 @@ export interface DiaryPost {
   attachFiles: string[];
   favorite: boolean;
 }
-
-export interface DiaryProviderProps {
-  children: React.ReactNode;
-}

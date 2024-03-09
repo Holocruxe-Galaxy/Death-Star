@@ -21,8 +21,10 @@ export const DiaryForm = () => {
     changeDiaryPost({ ...diaryPost, content: message });
   };
 
-  const handleSendPost = async () => {
-    await addDiaryPost(diaryPost);
+  const handleSendPost = () => {
+    console.log('send post');
+    addDiaryPost(diaryPost);
+    setMessage('');
   };
 
   return (
