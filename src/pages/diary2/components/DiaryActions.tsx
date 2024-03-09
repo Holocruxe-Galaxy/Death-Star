@@ -5,16 +5,29 @@ import { Box, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 import ArtIcon from 'src/@core/components/icon/diary/ArtIcon';
 import emotions from 'src/@core/utils/emotions';
+import { useDiaryContext } from '../context/DiaryContext';
 
 export const DiaryActions = () => {
   const [toggleStar, setToggleStar] = useState(false);
   const [emojiState, setEmojiState] = useState('');
+  const { changeDiaryPost, diaryPost } = useDiaryContext();
+
+  const changeDiaryFavorite = () => {
+    setToggleStar(!toggleStar);
+    changeDiaryPost({ ...diaryPost, favorite: toggleStar });
+  };
+
+  const changeDiaryPostState = (e: any) => {
+    setEmojiState(e.target.value);
+    changeDiaryPost({ ...diaryPost, state: emojiState, favorite: toggleStar });
+  };
+
   return (
     <Box component="div" sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
       {toggleStar ? (
-        <StarIcon fontSize="large" onClick={() => setToggleStar(!toggleStar)} sx={{ cursor: 'pointer' }} />
+        <StarIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
       ) : (
-        <StarBorderIcon fontSize="large" onClick={() => setToggleStar(!toggleStar)} sx={{ cursor: 'pointer' }} />
+        <StarBorderIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
       )}
       {/* <TheaterComedyIcon fontSize="large" /> */}
       <Box component="div">
@@ -27,7 +40,7 @@ export const DiaryActions = () => {
             textAlign: 'center',
           }}
           onChange={(e) => {
-            setEmojiState(e.target.value);
+            changeDiaryPostState(e);
           }}
           displayEmpty
           renderValue={(selected) => {

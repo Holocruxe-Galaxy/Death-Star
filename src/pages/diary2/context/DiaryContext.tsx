@@ -1,34 +1,31 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useContext, useState } from 'react';
+import { DiaryPost } from '../interfaces/diary-post.interface';
 
 interface DiaryContextProps {
   diaryPosts: DiaryPost[];
+  diaryPost: DiaryPost;
   getDiaryPosts: (postId: string) => Promise<void>;
   getDiaryPost: (postId: string) => Promise<void>;
   addDiaryPost: (post: DiaryPost) => Promise<void>;
   updateDiaryPost: (postId: string, data: DiaryPost) => Promise<void>;
   deleteDiaryPost: (postId: string) => Promise<void>;
+  changeDiaryPost: (post: DiaryPost) => void;
 }
 
-interface DiaryPost {
-  userId: string;
-  content: string;
-  date: string;
-  state: string;
-  attachFiles: string[];
-  favorite: boolean;
-}
-
-interface DiaryProviderProps {
+export interface DiaryProviderProps {
   children: React.ReactNode;
 }
+
 const DiaryContext = createContext<DiaryContextProps>({
   diaryPosts: [],
+  diaryPost: {} as DiaryPost,
   getDiaryPosts: async () => {},
   getDiaryPost: async () => {},
   addDiaryPost: async () => {},
   updateDiaryPost: async () => {},
   deleteDiaryPost: async () => {},
+  changeDiaryPost: () => {},
 });
 
 export const useDiaryContext = () => {
@@ -41,6 +38,11 @@ export const useDiaryContext = () => {
 
 export const DiaryProvider = ({ children }: DiaryProviderProps) => {
   const [diaryPosts, setDiaryPosts] = useState<DiaryPost[]>([]);
+  const [diaryPost, setDiaryPost] = useState<DiaryPost>({} as DiaryPost);
+
+  const changeDiaryPost = (post: DiaryPost) => {
+    setDiaryPost(post);
+  };
 
   // get diary posts
   const getDiaryPosts = async (userId: string) => {
@@ -69,8 +71,9 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
       const error = await response.json();
       throw new Error(error.message);
     }
+    const post = await response.json();
 
-    return await response.json();
+    return post;
   };
 
   // add diary post
@@ -134,11 +137,13 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
 
   const data = {
     diaryPosts,
+    diaryPost,
     getDiaryPosts,
     getDiaryPost,
     addDiaryPost,
     updateDiaryPost,
     deleteDiaryPost,
+    changeDiaryPost,
   };
 
   return <DiaryContext.Provider value={data}>{children}</DiaryContext.Provider>;

@@ -9,11 +9,20 @@ export const DiaryForm = () => {
   const [message, setMessage] = useState('');
   const [emojiToggle, setEmojiToggle] = useState(false);
 
-  const {  } = useDiaryContext();
+  const { addDiaryPost, changeDiaryPost, diaryPost } = useDiaryContext();
 
   const handleEmojiSelect = (emoji: any) => {
     setMessage(message + emoji.native);
     setEmojiToggle(false);
+  };
+
+  const handleEditDiaryPost = (e: any) => {
+    setMessage(e.target.value);
+    changeDiaryPost({ ...diaryPost, content: message });
+  };
+
+  const handleSendPost = async () => {
+    await addDiaryPost(diaryPost);
   };
 
   return (
@@ -25,7 +34,7 @@ export const DiaryForm = () => {
         multiline
         minRows={3}
         maxRows={10}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) => handleEditDiaryPost(e)}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -43,7 +52,7 @@ export const DiaryForm = () => {
           ),
         }}
       />
-      <Button variant="contained" sx={{ marginTop: 4 }}>
+      <Button variant="contained" sx={{ marginTop: 4 }} onClick={handleSendPost}>
         Enviar
       </Button>
     </>
