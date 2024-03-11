@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 // ** MUI Imports
 // import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
 
 // ** Animation Imports
 import styles from './spinner.module.css';
@@ -33,8 +32,8 @@ const FallbackSpinner = () => {
       }}
     >
       <svg
-        width="32"
-        height="38"
+        width="52"
+        height="58"
         viewBox="0 0 32 38"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -113,8 +112,6 @@ const FallbackSpinner = () => {
           </filter>
         </defs>
       </svg>
-
-      <CircularProgress disableShrink sx={{ mt: 6 }} />
     </Box>
   );
 };
