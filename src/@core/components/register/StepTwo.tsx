@@ -1,9 +1,8 @@
-// ** MUI Components
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+// ** Imports Components Material-UI
+import Grid from '@mui/system/Unstable_Grid/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import { alpha, styled } from '@mui/material/styles';
 
 // ** Icon Imports
@@ -40,7 +39,19 @@ const CustomSecondaryText = styled(Typography)(({ theme }) => ({
 const InterestButton = styled(Button)(({ theme }) => ({
   width: 'auto',
   height: '30px',
+  backgroundColor: theme.palette.holocruxe.focus,
   border: `1px solid ${theme.palette.holocruxe.mediumText}`,
+  borderRadius: '16px',
+  padding: '6px',
+  margin: '10px',
+  '& .MuiSvgIcon-root': {
+    color: theme.palette.holocruxe.mediumText,
+    marginRight: theme.spacing(1),
+  },
+  '& .MuiTypography-root': {
+    textTransform: 'none',
+    color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
+  },
 }));
 
 const CustomBackButton = styled(Button)(({ theme }) => ({
@@ -63,133 +74,118 @@ const CustomNextButton = styled(Button)(({ theme }) => ({
 const StepInterestInformation = ({ handleNext, handlePrev }: { [key: string]: () => void }) => {
   return (
     <>
-      <Box component={'div'} sx={{ mb: 4 }}>
+      <Grid sx={{ mb: 2 }}>
         <CustomTypography variant="h5">Queremos conocerte</CustomTypography>
-        <CustomSecondaryText sx={{ mb: 4 }}>¿Con que te identificas?</CustomSecondaryText>
-      </Box>
-      <Grid item spacing={5}>
-        <Grid container spacing={5} justifyContent="center">
-          <Grid item xs={12} sm={6}>
-            <Stack direction="row" spacing={2}>
-              <InterestButton variant="outlined">
-                <RamenDiningIcon />
-                <Typography>Comidas</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <PetsIcon />
-                <Typography>Animales</Typography>
-              </InterestButton>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Stack direction="row" spacing={2}>
-              <InterestButton variant="outlined">
-                <SportsHandballIcon />
-                <Typography>Deportes</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <MemoryIcon />
-                <Typography>Tecnología</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <BrushIcon />
-                <Typography>Arte</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <SportsEsportsIcon />
-                <Typography>Gaming</Typography>
-              </InterestButton>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Stack direction="row" spacing={2}>
-              <InterestButton variant="outlined">
-                <HikingIcon />
-                <Typography>Viajes</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <LinkedCameraIcon />
-                <Typography>Fotografías</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <CatchingPokemonIcon />
-                <Typography>Anime</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <AutoAwesomeIcon />
-                <Typography>Moda y Belleza</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <TheatersIcon />
-                <Typography>Películas</Typography>
-              </InterestButton>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Stack direction="row" spacing={2}>
-              <InterestButton variant="outlined">
-                <ScienceIcon />
-                <Typography>Ciencia</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <VolunteerActivismIcon />
-                <Typography>Mindfulness</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <ScatterPlotIcon />
-                <Typography>Astronimía</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <PsychologyAltIcon />
-                <Typography>Psicología</Typography>
-              </InterestButton>
-            </Stack>
-          </Grid>
-          <Grid item xs={12}>
-            <Stack direction="row" spacing={2}>
-              <InterestButton variant="outlined">
-                <MovieFilterIcon />
-                <Typography>Series</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <LibraryMusicIcon />
-                <Typography>Música</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <NaturePeopleIcon />
-                <Typography>Naturaleza</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <StarIcon />
-                <Typography>Celebridades</Typography>
-              </InterestButton>
-              <InterestButton variant="outlined">
-                <AutoStoriesIcon />
-                <Typography>Lectura</Typography>
-              </InterestButton>
-            </Stack>
-          </Grid>
+        <CustomSecondaryText>¿Con que te identificas?</CustomSecondaryText>
+      </Grid>
+      <Grid>
+        <Grid>
+          <InterestButton>
+            <RamenDiningIcon />
+            <Typography>Comidas</Typography>
+          </InterestButton>
+          <InterestButton>
+            <PetsIcon />
+            <Typography>Animales</Typography>
+          </InterestButton>
         </Grid>
-        <Grid item xs={12}>
-          <Box component={'div'} sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <CustomBackButton
-              color="secondary"
-              variant="contained"
-              onClick={handlePrev}
-              startIcon={<Icon icon="mdi:chevron-left" fontSize={20} />}
-            >
-              Atrás
-            </CustomBackButton>
-            <CustomNextButton
-              variant="contained"
-              onClick={handleNext}
-              endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
-            >
-              Siguiente
-            </CustomNextButton>
-          </Box>
+        <Grid>
+          <InterestButton>
+            <SportsHandballIcon />
+            <Typography>Deportes</Typography>
+          </InterestButton>
+          <InterestButton>
+            <MemoryIcon />
+            <Typography>Tecnología</Typography>
+          </InterestButton>
+          <InterestButton>
+            <BrushIcon />
+            <Typography>Arte</Typography>
+          </InterestButton>
+          <InterestButton>
+            <SportsEsportsIcon />
+            <Typography>Gaming</Typography>
+          </InterestButton>
+        </Grid>
+        <Grid>
+          <InterestButton>
+            <HikingIcon />
+            <Typography>Viajes</Typography>
+          </InterestButton>
+          <InterestButton>
+            <LinkedCameraIcon />
+            <Typography>Fotografía</Typography>
+          </InterestButton>
+          <InterestButton>
+            <CatchingPokemonIcon />
+            <Typography>Anime</Typography>
+          </InterestButton>
+          <InterestButton>
+            <AutoAwesomeIcon />
+            <Typography>Moda y Belleza</Typography>
+          </InterestButton>
+          <InterestButton>
+            <TheatersIcon />
+            <Typography>Películas</Typography>
+          </InterestButton>
+        </Grid>
+        <Grid>
+          <InterestButton>
+            <ScienceIcon />
+            <Typography>Ciencia</Typography>
+          </InterestButton>
+          <InterestButton>
+            <VolunteerActivismIcon />
+            <Typography>Mindfulness</Typography>
+          </InterestButton>
+          <InterestButton>
+            <ScatterPlotIcon />
+            <Typography>Astronomía</Typography>
+          </InterestButton>
+          <InterestButton>
+            <PsychologyAltIcon />
+            <Typography>Piscología</Typography>
+          </InterestButton>
+        </Grid>
+        <Grid>
+          <InterestButton>
+            <MovieFilterIcon />
+            <Typography>Series</Typography>
+          </InterestButton>
+          <InterestButton>
+            <LibraryMusicIcon />
+            <Typography>Música</Typography>
+          </InterestButton>
+          <InterestButton>
+            <NaturePeopleIcon />
+            <Typography>Naturaleza</Typography>
+          </InterestButton>
+          <InterestButton>
+            <StarIcon />
+            <Typography>Celebridades</Typography>
+          </InterestButton>
+          <InterestButton>
+            <AutoStoriesIcon />
+            <Typography>Lectura</Typography>
+          </InterestButton>
         </Grid>
       </Grid>
+      <Box component={'div'} sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', mt: '20px' }}>
+        <CustomBackButton
+          variant="contained"
+          onClick={handlePrev}
+          startIcon={<Icon icon="mdi:chevron-left" fontSize={20} />}
+        >
+          Atrás
+        </CustomBackButton>
+        <CustomNextButton
+          variant="contained"
+          onClick={handleNext}
+          endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
+        >
+          Siguiente
+        </CustomNextButton>
+      </Box>
     </>
   );
 };
