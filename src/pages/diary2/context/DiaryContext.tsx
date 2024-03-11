@@ -38,7 +38,14 @@ export const useDiaryContext = () => {
 
 export const DiaryProvider = ({ children }: DiaryProviderProps) => {
   const [diaryPosts, setDiaryPosts] = useState<DiaryPost[]>([]);
-  const [diaryPost, setDiaryPost] = useState<DiaryPost>({} as DiaryPost);
+  const [diaryPost, setDiaryPost] = useState<DiaryPost>({
+    userId: '',
+    content: '',
+    date: new Date(),
+    state: '',
+    attachFiles: [],
+    favorite: false,
+  });
 
   const changeDiaryPost = (post: DiaryPost) => {
     setDiaryPost(post);
@@ -80,6 +87,7 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
 
   // add diary post
   const addDiaryPost = async (post: DiaryPost) => {
+    console.log(post);
     const token = localStorage.getItem('accessToken');
     const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
       method: 'POST',

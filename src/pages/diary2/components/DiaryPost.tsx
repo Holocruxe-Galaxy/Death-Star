@@ -17,7 +17,7 @@ const DiaryPost = ({ id, content, date, state, attachFile }: DiaryPostProps) => 
           <Box component="div">
             <Typography variant="overline"> 6 de Marzo del 2024 </Typography>
           </Box>
-          <Box component="div">delete</Box>
+          <Box component="div">{/* Add start favorite, emoji state, edit pen icon, delete trash icon  */}</Box>
         </Grid>
         <Grid item>
           {/* //TODO add message post */}
