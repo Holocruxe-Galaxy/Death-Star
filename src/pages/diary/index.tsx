@@ -321,7 +321,7 @@ const Diary = () => {
                 <Tooltip title="Al activarlo, se guardará como tus publicaciones favoritas" placement="top">
                   <CustomSwitch sx={{ mr: 3, mt: 1.5 }} onClick={handleSwitchChange} checked={diary.favorite} />
                 </Tooltip>
-
+                {/* //* UPLOAD FILE */}
                 <Button
                   component="label"
                   endIcon={<UploadButton />}
