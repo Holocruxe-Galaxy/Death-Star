@@ -1,6 +1,6 @@
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Box, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 import ArtIcon from 'src/@core/components/icon/diary/ArtIcon';
@@ -8,26 +8,26 @@ import emotions from 'src/@core/utils/emotions';
 import { useDiaryContext } from '../context/DiaryContext';
 
 export const DiaryActions = () => {
-  const [toggleStar, setToggleStar] = useState(false);
+  const [toggleFavorite, setToggleFavorite] = useState(false);
   const [emojiState, setEmojiState] = useState('');
   const { changeDiaryPost, diaryPost } = useDiaryContext();
 
   const changeDiaryFavorite = () => {
-    setToggleStar(!toggleStar);
-    changeDiaryPost({ ...diaryPost, favorite: toggleStar });
+    setToggleFavorite(!toggleFavorite);
+    changeDiaryPost({ ...diaryPost, favorite: toggleFavorite });
   };
 
   const changeDiaryPostState = (e: any) => {
     setEmojiState(e.target.value);
-    changeDiaryPost({ ...diaryPost, state: emojiState, favorite: toggleStar });
+    changeDiaryPost({ ...diaryPost, state: emojiState, favorite: toggleFavorite });
   };
 
   return (
     <Box component="div" sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      {toggleStar ? (
-        <StarIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
+      {toggleFavorite ? (
+        <FavoriteIcon fontSize="large" color="error" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
       ) : (
-        <StarBorderIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
+        <FavoriteBorderIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
       )}
       {/* <TheaterComedyIcon fontSize="large" /> */}
       <Box component="div">

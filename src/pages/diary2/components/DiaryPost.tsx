@@ -1,4 +1,8 @@
-import { Avatar, Box, Grid, Paper, Typography } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Box, Grid, Paper, Typography } from '@mui/material';
+import emotions from 'src/@core/utils/emotions';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 // TODO change strict properties to optional properties
 interface DiaryPostProps {
@@ -10,6 +14,7 @@ interface DiaryPostProps {
 }
 
 const DiaryPost = ({ id, content, date, state, attachFile }: DiaryPostProps) => {
+  // const {diaryPost} = useDiaryContext();
   return (
     <Paper elevation={17} sx={{ p: 5 }}>
       <Grid container>
@@ -17,7 +22,13 @@ const DiaryPost = ({ id, content, date, state, attachFile }: DiaryPostProps) => 
           <Box component="div">
             <Typography variant="overline"> 6 de Marzo del 2024 </Typography>
           </Box>
-          <Box component="div">{/* Add start favorite, emoji state, edit pen icon, delete trash icon  */}</Box>
+          <Box component="div" sx={{ display: 'flex', gap: 5 }}>
+            {/* Add start favorite, emoji state, edit pen icon, delete trash icon  */}
+            <FavoriteIcon fontSize="medium" color="error" sx={{ cursor: 'pointer' }} />
+            <div>{emotions[4].value}</div>
+            <EditOutlinedIcon fontSize="medium" sx={{ cursor: 'pointer' }} />
+            <DeleteOutlineIcon fontSize="medium" sx={{ cursor: 'pointer' }} />
+          </Box>
         </Grid>
         <Grid item>
           {/* //TODO add message post */}
