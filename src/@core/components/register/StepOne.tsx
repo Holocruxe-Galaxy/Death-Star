@@ -1,3 +1,6 @@
+// ** React Imports
+import { useState } from 'react';
+
 // ** MUI Components
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -18,7 +21,6 @@ import FemaleIcon from '../icon/register/FemaleIcon';
 import MaleIcon from '../icon/register/MaleIcon';
 import NeutroIcon from '../icon/register/NeutroIcon';
 import OtherIcon from '../icon/register/OtherIcon';
-import { useState } from 'react';
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   color: alpha(theme.palette.holocruxe.fontWhite, 0.8),
@@ -64,7 +66,7 @@ const CustomNextButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const StepPersonalInformation = ({}: /*handleNext*/ { [key: string]: () => void }) => {
+function StepPersonalInformation({ handleNext }: any) {
   const [form, setForm] = useState({ fullName: '', birthDate: '', country: '', gender: '' });
   const { setUser } = useAuth();
   const onChangeForm = (e: any) => {
@@ -81,33 +83,33 @@ const StepPersonalInformation = ({}: /*handleNext*/ { [key: string]: () => void 
     }
   };
 
-  const onSubmitForm = async () => {
-    const token = window.localStorage.getItem('AuthorizationToken');
-    if (form.fullName !== '' && form.birthDate !== '' && form.country !== '' && form.gender !== '') {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_CORUSCANT}/onboarding/one`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ ...form }),
-      });
+  // const onSubmitForm = async () => {
+  //   const token = window.localStorage.getItem('AuthorizationToken');
+  //   if (form.fullName !== '' && form.birthDate !== '' && form.country !== '' && form.gender !== '') {
+  //     const response = await fetch(`${process.env.NEXT_PUBLIC_CORUSCANT}/onboarding/one`, {
+  //       method: 'PATCH',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify({ ...form }),
+  //     });
 
-      if (response.status === 200) {
-        window.localStorage.setItem('accessToken', token ? token : '');
-        window.localStorage.setItem('userData', JSON.stringify({ username: '', role: 'client' }));
-        localStorage.setItem('status', 'COMPLETE');
-        setUser({
-          id: '',
-          username: '',
-          role: 'admin',
-        });
-        window.location.href = '/home';
-      }
-    } else {
-      window.alert('Completa el formulario por favor');
-    }
-  };
+  //     if (response.status === 200) {
+  //       window.localStorage.setItem('accessToken', token ? token : '');
+  //       window.localStorage.setItem('userData', JSON.stringify({ username: '', role: 'client' }));
+  //       localStorage.setItem('status', 'COMPLETE');
+  //       setUser({
+  //         id: '',
+  //         username: '',
+  //         role: 'admin',
+  //       });
+  //       window.location.href = '/home';
+  //     }
+  //   } else {
+  //     window.alert('Completa el formulario por favor');
+  //   }
+  // };
 
   return (
     <>
@@ -232,7 +234,8 @@ const StepPersonalInformation = ({}: /*handleNext*/ { [key: string]: () => void 
             <CustomNextButton
               color="primary"
               variant="contained"
-              onClick={onSubmitForm}
+              // onClick={onSubmitForm}
+              onClick={handleNext}
               endIcon={<Icon icon="mdi:chevron-right" fontSize={20} />}
             >
               Siguiente
@@ -242,6 +245,6 @@ const StepPersonalInformation = ({}: /*handleNext*/ { [key: string]: () => void 
       </Grid>
     </>
   );
-};
+}
 
 export default StepPersonalInformation;
