@@ -44,6 +44,9 @@ const InterestButton = styled(Button)(({ theme }) => ({
   borderRadius: '16px',
   padding: '6px',
   margin: '10px',
+  '&:hover': {
+    backgroundColor: theme.palette.holocruxe.bg,
+  },
   '& .MuiSvgIcon-root': {
     color: theme.palette.holocruxe.mediumText,
     marginRight: theme.spacing(1),
@@ -80,91 +83,91 @@ const StepInterestInformation = ({ handleNext, handlePrev }: { [key: string]: ()
       </Grid>
       <Grid>
         <Grid>
-          <InterestButton>
+          <InterestButton variant="contained">
             <RamenDiningIcon />
             <Typography>Comidas</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <PetsIcon />
             <Typography>Animales</Typography>
           </InterestButton>
         </Grid>
         <Grid>
-          <InterestButton>
+          <InterestButton variant="contained">
             <SportsHandballIcon />
             <Typography>Deportes</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <MemoryIcon />
             <Typography>Tecnología</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <BrushIcon />
             <Typography>Arte</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <SportsEsportsIcon />
             <Typography>Gaming</Typography>
           </InterestButton>
         </Grid>
         <Grid>
-          <InterestButton>
+          <InterestButton variant="contained">
             <HikingIcon />
             <Typography>Viajes</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <LinkedCameraIcon />
             <Typography>Fotografía</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <CatchingPokemonIcon />
             <Typography>Anime</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <AutoAwesomeIcon />
             <Typography>Moda y Belleza</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <TheatersIcon />
             <Typography>Películas</Typography>
           </InterestButton>
         </Grid>
         <Grid>
-          <InterestButton>
+          <InterestButton variant="contained">
             <ScienceIcon />
             <Typography>Ciencia</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <VolunteerActivismIcon />
             <Typography>Mindfulness</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <ScatterPlotIcon />
             <Typography>Astronomía</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <PsychologyAltIcon />
             <Typography>Piscología</Typography>
           </InterestButton>
         </Grid>
         <Grid>
-          <InterestButton>
+          <InterestButton variant="contained">
             <MovieFilterIcon />
             <Typography>Series</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <LibraryMusicIcon />
             <Typography>Música</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <NaturePeopleIcon />
             <Typography>Naturaleza</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <StarIcon />
             <Typography>Celebridades</Typography>
           </InterestButton>
-          <InterestButton>
+          <InterestButton variant="contained">
             <AutoStoriesIcon />
             <Typography>Lectura</Typography>
           </InterestButton>
