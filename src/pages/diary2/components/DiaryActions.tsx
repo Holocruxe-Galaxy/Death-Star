@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Box, Button, MenuItem, Select } from '@mui/material';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import ArtIcon from 'src/@core/components/icon/diary/ArtIcon';
 import emotions from 'src/@core/utils/emotions';
 import { useDiaryContext } from '../context/DiaryContext';
@@ -11,6 +12,7 @@ import { VisuallyHiddenInput } from '../styles/VisuallyHiddenInput';
 export const DiaryActions = () => {
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [emojiState, setEmojiState] = useState('');
+  const [file, setFile] = useState<FormData>();
   const { changeDiaryPost, diaryPost } = useDiaryContext();
 
   const changeDiaryFavorite = () => {
@@ -23,12 +25,13 @@ export const DiaryActions = () => {
     changeDiaryPost({ ...diaryPost, state: emojiState, favorite: toggleFavorite });
   };
 
-  const fileSelected = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target?.files?.[0].toString();
-    console.log(file);
-    // const formData = new FormData() as string;
-    // formData.append('photos', file as unknown as string);
-    changeDiaryPost({ ...diaryPost, attachFiles: [...diaryPost.attachFiles, file!] });
+  const fileSelected = (e: any) => {
+    const file = e.target?.files?.[0];
+    const formData = new FormData();
+    formData.append('photos', file as unknown as string);
+    setFile(formData);
+
+    changeDiaryPost({ ...diaryPost, attachFiles: [file] });
   };
 
   return (
@@ -68,8 +71,22 @@ export const DiaryActions = () => {
           ))}
         </Select>
       </Box>
-      <Button startIcon={<AttachFileIcon />}>
-        <VisuallyHiddenInput type="file" accept="images/*" onChange={fileSelected} />
+
+      <Button
+        component="label"
+        endIcon={<AttachFileIcon />}
+        sx={{
+          color: 'white',
+          backgroundColor: 'transparent',
+          borderRadius: '50%',
+          width: '2rem',
+          height: '2rem',
+          minWidth: 'auto',
+          mr: 3.2,
+          mt: 1,
+        }}
+      >
+        <VisuallyHiddenInput type="file" accept="image/*" onChange={fileSelected} />
       </Button>
     </Box>
   );

@@ -41,7 +41,7 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
   const [diaryPost, setDiaryPost] = useState<DiaryPost>({
     userId: '',
     content: '',
-    date: new Date(),
+    date: '',
     state: '',
     attachFiles: [],
     favorite: false,
@@ -49,6 +49,7 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
 
   const changeDiaryPost = (post: DiaryPost) => {
     setDiaryPost(post);
+    setDiaryPosts([...diaryPosts, post]);
   };
 
   // get diary posts

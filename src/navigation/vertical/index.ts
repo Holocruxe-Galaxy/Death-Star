@@ -9,29 +9,37 @@ const navigation = (): VerticalNavItemsType => {
       path: '/',
     },
     {
-      title: 'My Weblog',
+      title: 'Mi bitácora',
       icon: 'mdi:book-open-variant',
       children: [
         {
-          title: 'Diary',
+          title: 'Diario',
           path: '/diary',
         },
         {
-          title: 'Diary2',
+          title: 'Diario2',
           path: '/diary2',
+        },
+        {
+          title: 'Organizado',
+          path: '/#',
+        },
+        {
+          title: 'Recuerdos',
+          path: '/#',
         },
       ],
     },
     {
-      title: 'Settings',
+      title: 'Configuración',
       icon: 'mdi:settings-outline',
       children: [
         {
-          title: 'Account',
+          title: 'Cuenta',
           path: '/account',
         },
         {
-          title: 'Security',
+          title: 'Seguridad',
           path: '/security',
         },
       ],

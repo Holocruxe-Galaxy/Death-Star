@@ -1,7 +1,7 @@
 import { Grid, Paper } from '@mui/material';
 import { DiaryActions } from './components/DiaryActions';
-import DiaryPost from './components/DiaryPost';
 import { DiaryForm } from './components/DiaryForm';
+import DiaryPost from './components/DiaryPost';
 import { DiaryProvider } from './context/DiaryContext';
 const Diary2 = () => {
   return (
@@ -15,7 +15,7 @@ const Diary2 = () => {
             <DiaryActions />
           </Grid>
         </Grid>
-        <Grid sx={{ mt: 5 }}>
+        <Grid sx={{ mt: 5, display: 'flex', flexDirection: 'column', gap: 5 }}>
           <DiaryPost />
         </Grid>
       </Paper>

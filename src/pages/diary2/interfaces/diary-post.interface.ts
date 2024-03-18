@@ -1,7 +1,7 @@
 export interface DiaryPost {
   userId: string;
   content: string;
-  date: Date;
+  date: string;
   state: string;
   attachFiles: string[];
   favorite: boolean;
