@@ -12,13 +12,11 @@ interface DiaryPostProps {
   date?: string;
   state?: string;
   attachFile?: string[];
-  // addPosts?: (posts: DiaryPost[]) => void;
 }
 
-const DiaryPost = ({ state }: DiaryPostProps) => {
+const DiaryPost = ({ state, content }: DiaryPostProps) => {
   const fecha = new Date().getHours() + ':' + new Date().getMinutes() + ' ' + new Date().toDateString();
-  // const { diaryPosts } = useDiaryContext();
-  // addPosts(diaryPosts);
+
   return (
     <Paper elevation={17} sx={{ p: 5 }}>
       <Grid container>
@@ -36,11 +34,7 @@ const DiaryPost = ({ state }: DiaryPostProps) => {
         <Grid item>
           {/* //TODO add message post */}
 
-          <Typography>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta rerum explicabo voluptates, non, veniam
-            facere nostrum eius quidem perspiciatis rem officiis, illum repellendus commodi quia. Esse modi voluptatum
-            minus nulla.{' '}
-          </Typography>
+          <Typography>{content}</Typography>
         </Grid>
       </Grid>
     </Paper>
