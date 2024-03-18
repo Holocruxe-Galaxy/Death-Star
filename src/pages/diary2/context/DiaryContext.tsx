@@ -49,7 +49,6 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
 
   const changeDiaryPost = (post: DiaryPost) => {
     setDiaryPost(post);
-    setDiaryPosts([...diaryPosts, post]);
   };
 
   // get diary posts
@@ -88,21 +87,23 @@ export const DiaryProvider = ({ children }: DiaryProviderProps) => {
 
   // add diary post
   const addDiaryPost = async (post: DiaryPost) => {
-    console.log(post);
-    const token = localStorage.getItem('accessToken');
-    const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(post),
-    });
+    // console.log(post);
+    // const token = localStorage.getItem('accessToken');
+    // const response = await fetch(`${process.env.NEXT_PUBLIC_MANDALORE}/logbook/diary`, {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(post),
+    // });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message);
-    }
+    // if (!response.ok) {
+    //   const error = await response.json();
+    //   throw new Error(error.message);
+    // }
+
+    setDiaryPosts([...diaryPosts, post]);
   };
 
   // update diary post

@@ -1,20 +1,17 @@
-import { useState } from 'react';
-import { useDiaryContext } from '../../context/DiaryContext';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useDiaryContext } from '../../context/DiaryContext';
 
 const FavoriteButton = () => {
-  const [toggleFavorite, setToggleFavorite] = useState(false);
-
   const { changeDiaryPost, diaryPost } = useDiaryContext();
+  const { favorite } = diaryPost;
 
   const changeDiaryFavorite = () => {
-    setToggleFavorite(!toggleFavorite);
-    changeDiaryPost({ ...diaryPost, favorite: toggleFavorite });
+    changeDiaryPost({ ...diaryPost, favorite: !favorite });
   };
   return (
     <>
-      {toggleFavorite ? (
+      {favorite ? (
         <FavoriteIcon fontSize="large" color="error" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />
       ) : (
         <FavoriteBorderIcon fontSize="large" onClick={changeDiaryFavorite} sx={{ cursor: 'pointer' }} />

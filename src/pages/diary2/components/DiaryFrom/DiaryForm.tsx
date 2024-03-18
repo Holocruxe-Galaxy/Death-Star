@@ -1,14 +1,25 @@
 import { Button, Grid } from '@mui/material';
 import { useDiaryContext } from '../../context/DiaryContext';
-import DiaryContent from '../DiaryContent';
+import DiaryContent from './DiaryContent';
 import AttachFileButton from './AttachFileButton';
 import FavoriteButton from './FavoriteButton';
 import StateSelector from './StateSelector';
 
 export const DiaryForm = () => {
-  const {} = useDiaryContext();
+  const { addDiaryPost, diaryPost, changeDiaryPost } = useDiaryContext();
 
-  const handleSendPost = () => {};
+  const handleSendPost = () => {
+    addDiaryPost(diaryPost);
+    console.log(diaryPost);
+    changeDiaryPost({
+      content: '',
+      state: '',
+      attachFiles: [],
+      date: '',
+      favorite: false,
+      userId: '',
+    });
+  };
 
   return (
     <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }}>

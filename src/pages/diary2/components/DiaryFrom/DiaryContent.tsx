@@ -2,23 +2,26 @@ import { Box, InputAdornment, TextField } from '@mui/material';
 import { useState } from 'react';
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data';
+import { useDiaryContext } from '../../context/DiaryContext';
 
 const DiaryContent = () => {
-  const [message, setMessage] = useState('');
   const [emojiToggle, setEmojiToggle] = useState(false);
 
+  const { changeDiaryPost, diaryPost } = useDiaryContext();
+  const { content } = diaryPost;
+
   const handleEmojiSelect = (emoji: any) => {
-    setMessage(message + emoji.native);
+    changeDiaryPost({ ...diaryPost, content: content + emoji.native });
     setEmojiToggle(false);
   };
 
   const handleEditDiaryPost = (e: any) => {
-    setMessage(e.target.value);
+    changeDiaryPost({ ...diaryPost, content: e.target.value });
   };
 
   return (
     <TextField
-      value={message}
+      value={content}
       label="¿Que hay de nuevo?"
       fullWidth
       multiline

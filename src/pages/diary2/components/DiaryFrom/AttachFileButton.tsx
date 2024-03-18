@@ -15,7 +15,7 @@ const AttachFileButton = () => {
     formData.append('photos', file as unknown as string);
     setFile(formData);
 
-    changeDiaryPost({ ...diaryPost, attachFiles: [file] });
+    changeDiaryPost({ ...diaryPost, attachFiles: [...diaryPost.attachFiles, file] });
   };
   return (
     <Button

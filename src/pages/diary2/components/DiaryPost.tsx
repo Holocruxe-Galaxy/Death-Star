@@ -2,8 +2,6 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Box, Grid, Paper, Typography } from '@mui/material';
-import emotions from 'src/@core/utils/emotions';
-// import { DiaryPost } from '../interfaces/diary-post.interface';
 
 // TODO change strict properties to optional properties
 interface DiaryPostProps {
@@ -12,9 +10,10 @@ interface DiaryPostProps {
   date?: string;
   state?: string;
   attachFile?: string[];
+  favorite?: boolean;
 }
 
-const DiaryPost = ({ state, content }: DiaryPostProps) => {
+const DiaryPost = ({ state, content, favorite }: DiaryPostProps) => {
   const fecha = new Date().getHours() + ':' + new Date().getMinutes() + ' ' + new Date().toDateString();
 
   return (
@@ -25,8 +24,8 @@ const DiaryPost = ({ state, content }: DiaryPostProps) => {
             <Typography variant="overline"> {fecha} </Typography>
           </Box>
           <Box component="div" sx={{ display: 'flex', gap: 5 }}>
-            {state && <FavoriteIcon fontSize="medium" color="error" sx={{ cursor: 'pointer' }} />}
-            <div>{emotions[4].value}</div>
+            {favorite && <FavoriteIcon fontSize="medium" color="error" sx={{ cursor: 'pointer' }} />}
+            <div>{state}</div>
             <EditOutlinedIcon fontSize="medium" sx={{ cursor: 'pointer' }} />
             <DeleteOutlineIcon fontSize="medium" sx={{ cursor: 'pointer' }} />
           </Box>

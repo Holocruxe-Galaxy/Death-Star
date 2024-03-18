@@ -1,15 +1,13 @@
 import { Box, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
 import ArtIcon from 'src/@core/components/icon/diary/ArtIcon';
-import { useDiaryContext } from '../../context/DiaryContext';
 import emotions from 'src/@core/utils/emotions';
+import { useDiaryContext } from '../../context/DiaryContext';
 
 const StateSelector = () => {
-  const [emojiState, setEmojiState] = useState('');
   const { changeDiaryPost, diaryPost } = useDiaryContext();
+  const { state: emojiState } = diaryPost;
 
   const changeDiaryPostState = (e: any) => {
-    setEmojiState(e.target.value);
     changeDiaryPost({ ...diaryPost, state: e.target.value });
   };
   return (
@@ -36,7 +34,7 @@ const StateSelector = () => {
         inputProps={{ 'aria-label': 'Without label' }}
       >
         {emotions.map((e) => (
-          <MenuItem key={e.value} value={e.value}>
+          <MenuItem key={e.name} value={e.value}>
             {e.name}
           </MenuItem>
         ))}
