@@ -165,7 +165,6 @@ const Entries = ({ id, props }: any) => {
 
   const handleEmojiSelect = (emoji: any) => {
     if (inputRef.current && isPickerVisible) {
-      console.log(inputRef.current);
       inputRef.current.value += emoji.native;
     }
 

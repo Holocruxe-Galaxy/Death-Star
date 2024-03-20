@@ -37,7 +37,6 @@ export const fetchChatsContacts = createAsyncThunk('appChat/fetchChatsContacts',
 })
 
 export const addMessageToChat = createAsyncThunk('appChat/addMsgs', (messages: Messages): Message => {
-  console.log(messages)
   return messages.messages.slice(-1)[0]
 })
 

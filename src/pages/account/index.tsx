@@ -1,11 +1,7 @@
 import { Box, Button, Checkbox, Container, Paper, TextField, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
-import { useContext } from 'react';
-import { AuthContext } from 'src/context/AuthContext';
 
 const Account = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <Container sx={{ display: 'flex', flexDirection: 'column' }}>
