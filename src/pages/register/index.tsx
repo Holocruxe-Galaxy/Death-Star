@@ -20,6 +20,7 @@ import HolocruxeLogo from 'src/@core/icons/login/HolocruxeLogo';
 // ** Step Components
 import StepOne from 'src/@core/components/register/StepOne';
 import StepTwo from 'src/@core/components/register/StepTwo';
+import StepThree from 'src/@core/components/register/StepThree';
 
 // ** Custom Component Import
 import StepperCustomDot from 'src/@core/components/register/StepperCustomDot';
@@ -100,7 +101,7 @@ const Register = () => {
       case 1:
         return <StepTwo handleNext={handleNext} handlePrev={handlePrev} />;
       case 2:
-
+        return <StepThree handleNext={handleNext} handlePrev={handlePrev} />;
       default:
         return null;
     }
