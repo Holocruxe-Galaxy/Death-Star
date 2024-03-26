@@ -150,7 +150,16 @@ const App = (props: ExtendedAppProps) => {
             />
             <meta name="viewport" content="initial-scale=1, width=device-width" />
           </Head>
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-P5G94YKB9B" strategy="afterInteractive" />
+          <Script async id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
 
+          gtag('config', 'G-P5G94YKB9B');
+        `}
+          </Script>
           <AuthProvider>
             <SettingsProvider {...(setConfig ? { pageSettings: setConfig() } : {})}>
               <SettingsConsumer>
