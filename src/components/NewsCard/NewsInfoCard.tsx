@@ -7,9 +7,6 @@ interface NewsInfoCardProps {
 }
 
 export const NewsInfoCard = ({ title, description, image }: NewsInfoCardProps) => {
-  const mensaje = 'Hola mundo';
-
-  console.log(mensaje.length);
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: 400 }}>
       <CardActionArea>

@@ -6,27 +6,22 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-// ** Icon Imports
-import Icon from 'src/@core/components/icon';
-
 // ** Third Party Components
 import PerfectScrollbarComponent, { ScrollBarProps } from 'react-perfect-scrollbar';
-
-// ** Custom Components Imports
-import CustomAvatar from 'src/@core/components/mui/avatar';
-
-// ** Utils Imports
-import { getInitials } from 'src/@core/utils/get-initials';
 
 // ** Types Imports
 import {
   ChatLogType,
   MessageType,
-  MsgFeedbackType,
   ChatLogChatType,
   MessageGroupType,
   FormattedChatsType,
 } from 'src/types/apps/chatTypes';
+import { useSelector } from 'react-redux';
+
+// ** Types
+import { RootState } from 'src/store';
+
 
 const PerfectScrollbar = styled(PerfectScrollbarComponent)<ScrollBarProps & { ref: Ref<unknown> }>(({ theme }) => ({
   padding: theme.spacing(5),
@@ -54,136 +49,79 @@ const ChatLog = (props: ChatLogType) => {
     }
   };
 
+  const store = useSelector((state: RootState) => state.chat)
+
   // ** Formats chat data based on sender
   const formattedChatData = () => {
     let chatLog: MessageType[] | [] = [];
-    if (data.chat) {
-      chatLog = data.chat.chat;
+    if (data.messages) {
+      chatLog = data.messages;
     }
-
+    
     const formattedChatLog: FormattedChatsType[] = [];
-    let chatMessageSenderId = chatLog[0] ? chatLog[0].senderId : 11;
-    let msgGroup: MessageGroupType = {
-      senderId: chatMessageSenderId,
+    const chatMessageSenderId = store.id 
+    
+    const msgGroup: MessageGroupType = {
       messages: [],
+      senderId: chatMessageSenderId,
     };
+      
     chatLog.forEach((msg: MessageType, index: number) => {
-      if (chatMessageSenderId === msg.senderId) {
+      if (chatMessageSenderId === msg.id || msg.isBroadcasted === true) {
         msgGroup.messages.push({
           time: msg.time,
           msg: msg.message,
-          feedback: msg.feedback,
-        });
-      } else {
-        chatMessageSenderId = msg.senderId;
-
-        formattedChatLog.push(msgGroup);
-        msgGroup = {
-          senderId: msg.senderId,
-          messages: [
-            {
-              time: msg.time,
-              msg: msg.message,
-              feedback: msg.feedback,
-            },
-          ],
-        };
+          senderId: msg.id,
+          isBroadcasted: msg.isBroadcasted,
+          isAudio: msg.isAudio
+        })
       }
 
-      if (index === chatLog.length - 1) formattedChatLog.push(msgGroup);
-    });
+      if (index === chatLog.length - 1) formattedChatLog.push(msgGroup)
+    })
 
     return formattedChatLog;
   };
 
-  const renderMsgFeedback = (isSender: boolean, feedback: MsgFeedbackType) => {
-    if (isSender) {
-      if (feedback.isSent && !feedback.isDelivered) {
-        return (
-          <Box
-            component="span"
-            sx={{
-              display: 'inline-flex',
-              '& svg': { mr: 2, color: 'text.secondary' },
-            }}
-          >
-            <Icon icon="mdi:check" fontSize="1rem" />
-          </Box>
-        );
-      } else if (feedback.isSent && feedback.isDelivered) {
-        return (
-          <Box
-            component="span"
-            sx={{
-              display: 'inline-flex',
-              '& svg': {
-                mr: 2,
-                color: feedback.isSeen ? 'success.main' : 'text.secondary',
-              },
-            }}
-          >
-            <Icon icon="mdi:check-all" fontSize="1rem" />
-          </Box>
-        );
-      } else {
-        return null;
-      }
-    }
-  };
-
   useEffect(() => {
-    if (data && data.chat && data.chat.chat.length) {
+    if (store && store.messages && store.messages.length) {
       scrollToBottom();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [store]);
 
   // ** Renders user chat
   const renderChats = () => {
     return formattedChatData().map((item: FormattedChatsType, index: number) => {
-      const isSender = item.senderId === data.userContact.id;
 
       return (
         <Box
           component="div"
           key={index}
-          sx={{
-            display: 'flex',
-            flexDirection: !isSender ? 'row' : 'row-reverse',
-            mb: index !== formattedChatData().length - 1 ? 9.75 : undefined,
-          }}
+          sx={{ display: 'flex' }}
         >
-          <div>
-            <CustomAvatar
-              skin="light"
-              color={data.contact.avatarColor ? data.contact.avatarColor : undefined}
-              sx={{
-                width: '2rem',
-                height: '2rem',
-                fontSize: '0.875rem',
-                ml: isSender ? 4 : undefined,
-                mr: !isSender ? 4 : undefined,
-              }}
-              {...(data.contact.avatar && !isSender
-                ? {
-                    src: data.contact.avatar,
-                    alt: data.contact.fullName,
-                  }
-                : {})}
-              {...(isSender
-                ? {
-                    src: data.userContact.avatar,
-                    alt: data.userContact.fullName,
-                  }
-                : {})}
-            >
-              {data.contact.avatarColor ? getInitials(data.contact.fullName) : null}
-            </CustomAvatar>
-          </div>
-
           <Box component="div" className="chat-body" sx={{ maxWidth: ['calc(100% - 5.75rem)', '75%', '65%'] }}>
             {item.messages.map((chat: ChatLogChatType, index: number, { length }: { length: number }) => {
-              const time = new Date(chat.time);
+              const isSender = chat.senderId
+
+              if(chat.isAudio) {
+                return (
+                  <Box
+                  component='div'
+                  key= {index}
+                    sx={{
+                      display: 'flex', 
+                      flexDirection: !isSender ? 'row' : 'row-reverse',
+                      mb: index !== formattedChatData().length - 1 ? /* 9.75 */ 2 : 2
+                    }}
+                  >
+                    <audio key={index} controls>
+                      <source src={chat.msg} type="audio/webm"/>
+                      Your browser does not support the audio element.
+                    </audio>
+                  </Box>
+                  )
+                }
 
               return (
                 <Box component="div" key={index} sx={{ '&:not(:last-of-type)': { mb: 3.5 } }}>
@@ -217,16 +155,6 @@ const ChatLog = (props: ChatLogType) => {
                         justifyContent: isSender ? 'flex-end' : 'flex-start',
                       }}
                     >
-                      {renderMsgFeedback(isSender, chat.feedback)}
-                      <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-                        {time
-                          ? new Date(time).toLocaleString('en-US', {
-                              hour: 'numeric',
-                              minute: 'numeric',
-                              hour12: true,
-                            })
-                          : null}
-                      </Typography>
                     </Box>
                   ) : null}
                 </Box>

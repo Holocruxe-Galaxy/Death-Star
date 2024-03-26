@@ -1,6 +1,8 @@
 import { Button, Container, Grid, Paper, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { NewsCard } from 'src/components';
+import AppsChat from '../apps/chat';
+import ChatWrapper from 'src/views/apps/chat/ChatWrapper';
 
 const Home = () => {
   return (
@@ -39,10 +41,7 @@ const Home = () => {
               alignItems: 'center',
             }}
           >
-            <Stack spacing={5} sx={{ display: 'flex', flexDirection: 'column' }}>
-              <img src="https://i.imgur.com/49mV0Tr.png" alt="" />
-              <Button variant="contained">INICIAR CHAT</Button>
-            </Stack>
+            <AppsChat />
           </Paper>
         </Grid>
       </Grid>
